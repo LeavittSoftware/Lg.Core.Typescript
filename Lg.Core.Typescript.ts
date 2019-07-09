@@ -7,486 +7,270 @@
 
 
 export interface IChangeTracking {
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
 export interface Person {
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     FirstName: string;
-
     LastName: string;
-
     MiddleName?: string;
-
     DateOfBirth?: string;
-
     Biography?: string;
-
     Gender?: string;
-
     JobTitle?: string;
-
     LdapAccount?: Partial<PersonLdapAccount>;
-
     AdpAccount?: Partial<PersonAdpAccount>;
-
     PersonToPermissions?: Array<Partial<PersonToPermission>>;
-
     PersonToPermissionGroups?: Array<Partial<PersonToPermissionGroup>>;
-
     PersonToPeopleGroups?: Array<Partial<PersonToPeopleGroup>>;
-
     PersonToNotifications?: Array<Partial<PersonToNotification>>;
-
     Names?: Array<Partial<PersonName>>;
-
     CreatedOutboundCallerIdNumberGroups?: Array<Partial<OutboundCallerIdNumberGroup>>;
-
     Extensions?: Array<Partial<Extension>>;
-
     EmailAddresses?: Array<Partial<PersonEmailAddress>>;
-
     NotificationActivityLogs?: Array<Partial<NotificationActivityLog>>;
-
     Roles?: Array<Partial<PersonRole>>;
-
     PhoneNumbers?: Array<Partial<PersonPhoneNumber>>;
-
     Addresses?: Array<Partial<PersonAddress>>;
-
     UltiProAccounts?: Array<Partial<PersonUltiProAccount>>;
-
     Attachments?: Array<Partial<Attachment>>;
-
     InAppNotifications?: Array<Partial<InAppNotification>>;
-true
-true
-true
-true
-true
-
-    Reservations?: Array<Partial<Reservation>>;
-
+truetruetruetruetrue    Reservations?: Array<Partial<Reservation>>;
     ForumAdmins?: Array<Partial<ForumAdmin>>;
-
     ForumMembers?: Array<Partial<ForumMember>>;
-
     ForumJoinRequests?: Array<Partial<ForumJoinRequest>>;
-
     NewsRecipients?: Array<Partial<NewsRecipient>>;
-
     CrmCommissions?: Array<Partial<CrmCommission>>;
-
     CrmAccounts?: Array<Partial<CrmAccount>>;
-
     ForumOptOuts?: Array<Partial<ForumOptOut>>;
-
     MessageNotifications?: Array<Partial<MessageNotification>>;
-
     ForumViews?: Array<Partial<ForumView>>;
-
     HomeUserAnalytics?: Array<Partial<HomeUserAnalytic>>;
-
     QuickLinks?: Array<Partial<QuickLink>>;
-
     LessonToPeople?: Array<Partial<LessonToPerson>>;
-
     CourseToPeople?: Array<Partial<CourseToPerson>>;
-
     CreatedFolders?: Array<Partial<Folder>>;
-
     DeletedAttachments?: Array<Partial<Attachment>>;
-
     TrackableAttachmentToPeople?: Array<Partial<TrackableAttachmentToPerson>>;
-
     CReportComments?: Array<Partial<CReportComment>>;
-
     CampaignToPeople?: Array<Partial<CampaignToPerson>>;
-
     CampaignToCrmAccounts?: Array<Partial<CampaignToCrmAccount>>;
-
     EloquaEmailTemplateToPeople?: Array<Partial<EloquaEmailTemplateToPerson>>;
-
     SalesExpectations?: Array<Partial<SalesExpectation>>;
-
     CourseParticipantStatuses?: Array<Partial<CourseParticipantStatus>>;
-
     LessonParticipantStatuses?: Array<Partial<LessonParticipantStatus>>;
-
     CreatedCourses?: Array<Partial<EducationCourse>>;
-
     CreatedQuestions?: Array<Partial<EducationQuestion>>;
-
     CreatedLessons?: Array<Partial<EducationLesson>>;
-
     CreatedAnswers?: Array<Partial<EducationAnswer>>;
-
     CourseAdmins?: Array<Partial<CourseAdmin>>;
-
     CourseMembers?: Array<Partial<CourseMember>>;
-
     Reactions?: Array<Partial<Reaction>>;
 }
 
 export interface PersonLdapAccount {
-
     Person?: Partial<Person>;
-
     Sid?: string;
-
     Guid?: string;
-
     Id?: number;
-
     SamAccountName?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
 }
 
 export interface PersonAdpAccount {
-
     Person?: Partial<Person>;
-
     AssociateOid?: string;
-
     Id?: number;
 }
 
 export interface PersonToPermission {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Person?: Partial<Person>;
-
     PersonId?: number;
-
     Permission?: Partial<Permission>;
-
     PermissionId?: number;
-
     IsExpired?: boolean;
 }
 
 export interface Permission {
-
     Name: string;
-
     ApplicationId?: number;
-
     Application?: Partial<App>;
-
     Description?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     PersonToPermissions?: Array<Partial<PersonToPermission>>;
-
     PermissionToPeopleGroups?: Array<Partial<PermissionToPeopleGroup>>;
-
     PermissionToPermissionGroups?: Array<Partial<PermissionToPermissionGroup>>;
-
     OutboundCallerIdNumberAdminGroups?: Array<Partial<OutboundCallerIdNumberGroup>>;
-
     OutboundCallerIdNumberAccessGroups?: Array<Partial<OutboundCallerIdNumberGroup>>;
-
     MemberAccessQueues?: Array<Partial<Queue>>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface App {
-
     Permissions?: Array<Partial<Permission>>;
-
     Uri?: string;
-
     Name: string;
-
     AccessPermissionId?: number;
-
     AccessPermission?: Partial<Permission>;
-
     DataControl: string;
-
     Description?: string;
-
     CategoryId?: number;
-
     Category?: Partial<AppCategory>;
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface AppCategory {
-
     Name: string;
-
     Description?: string;
-
     Apps?: Array<Partial<App>>;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
 }
 
 export interface PermissionToPeopleGroup {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Permission?: Partial<Permission>;
-
     PermissionId?: number;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     PeopleGroupId?: number;
-
     IsExpired?: boolean;
 }
 
 export interface Group {
-
     Name: string;
-
     Description?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
 }
 
 export interface PeopleGroup extends Group {
-
     PersonToPeopleGroups?: Array<Partial<PersonToPeopleGroup>>;
-
     PermissionToPeopleGroups?: Array<Partial<PermissionToPeopleGroup>>;
-
     PeopleGroupToPermissionGroups?: Array<Partial<PeopleGroupToPermissionGroup>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     NewsToPeopleGroups?: Array<Partial<NewsToPeopleGroup>>;
-
     ForumToPeopleGroups?: Array<Partial<ForumToPeopleGroup>>;
-
     CourseAdminPeopleGroups?: Array<Partial<CourseAdminPeopleGroup>>;
-
     CourseMemberPeopleGroups?: Array<Partial<CourseMemberPeopleGroup>>;
 }
 
 export interface PersonToPeopleGroup {
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     PeopleGroupId?: number;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     IsExpired?: boolean;
 }
 
 export interface PeopleGroupToPermissionGroup {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     PeopleGroupId?: number;
-
     PermissionGroup?: Partial<PermissionGroup>;
-
     PermissionGroupId?: number;
-
     IsExpired?: boolean;
 }
 
 export interface PermissionGroup extends Group {
-
     PersonToPermissionGroups?: Array<Partial<PersonToPermissionGroup>>;
-
     PeopleGroupToPermissionGroups?: Array<Partial<PeopleGroupToPermissionGroup>>;
-
     PermissionToPermissionGroups?: Array<Partial<PermissionToPermissionGroup>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface PersonToPermissionGroup {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Person?: Partial<Person>;
-
     PersonId?: number;
-
     PermissionGroup?: Partial<PermissionGroup>;
-
     PermissionGroupId?: number;
-
     IsExpired?: boolean;
 }
 
 export interface PermissionToPermissionGroup {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Permission?: Partial<Permission>;
-
     PermissionId?: number;
-
     PermissionGroup?: Partial<PermissionGroup>;
-
     PermissionGroupId?: number;
-
     IsExpired?: boolean;
 }
 
 export interface NewsToPeopleGroup {
-
     Id?: number;
-
     PeopleGroupId?: number;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     NewsId?: number;
-
     News?: Partial<News>;
 }
 
 export interface Message {
-
     Id?: number;
-
     Body?: string;
-
     CreatorId?: number;
-
     Creator?: Partial<Person>;
-
     CreatedDate?: string;
-
     ActivityDate?: string;
-
     PublishDate?: string;
-
     IsDeleted?: boolean;
-
     IsDraft?: boolean;
-
     DeletedDate?: string;
-
     LastEditedDate?: string;
-
     Reactions?: Array<Partial<MessageReaction>>;
-
     Comments?: Array<Partial<Comment>>;
-
     MessageNotifications?: Array<Partial<MessageNotification>>;
 }
 
 export interface News extends Message {
-
     Title?: string;
-
     ShortDescription?: string;
-
     LinkUri?: string;
-
     Type?: Partial<NewsType>;
-
     ShowInCarousel?: boolean;
-
     FeaturedImageAttachmentId?: number;
-
     FeaturedImageAttachment?: Partial<NewsAttachment>;
-
     ShowInCarouselUntilDate?: string;
-
     AuthorId?: number;
-
     Author?: Partial<Person>;
-
     PeopleGroups?: Array<Partial<NewsToPeopleGroup>>;
-
     Recipients?: Array<Partial<NewsRecipient>>;
-
     Attachments?: Array<Partial<NewsAttachment>>;
 }
 
@@ -497,142 +281,84 @@ export enum NewsType {
 }
 
 export interface Attachment {
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Size?: number;
-
     Name: string;
-
     Description?: string;
-
     FileName: string;
-
     Extension?: string;
-
     ContentType?: string;
-
     Owner?: Partial<Person>;
-
     OwnerId?: number;
-
     PeoplePermissions?: Array<Partial<PersonToAttachmentPermission>>;
-
     GroupPermissions?: Array<Partial<GroupToAttachmentPermission>>;
-
     AllowGuestReadAccess?: boolean;
-
     Id?: number;
-
     IsDeleted?: boolean;
-
     DeletedDate?: string;
-
     DeletedByPersonId?: number;
-
     DeletedByPerson?: Partial<Person>;
 }
 
 export interface NewsAttachment extends Attachment {
-
     NewsId?: number;
-
     News?: Partial<News>;
-
     FeaturedNews?: Array<Partial<News>>;
 }
 
 export interface BaseChangeTracking {
-
     Created?: string;
-
     CreatedBy?: Partial<Person>;
-
     CreatedById?: number;
-
     LastModified?: string;
-
     LastModifiedBy?: Partial<Person>;
-
     LastModifiedById?: number;
 }
 
 export interface PersonToAttachmentPermission extends BaseChangeTracking {
-
     Person?: Partial<Person>;
-
     PersonId?: number;
-
     Attachment?: Partial<Attachment>;
-
     AttachmentId?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     CanRead?: boolean;
-
     CanUpdate?: boolean;
-
     Id?: number;
 }
 
 export interface GroupToAttachmentPermission extends BaseChangeTracking {
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     PeopleGroupId?: number;
-
     Attachment?: Partial<Attachment>;
-
     AttachmentId?: number;
-
     CanRead?: boolean;
-
     CanUpdate?: boolean;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
 }
 
 export interface NewsRecipient {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     NewsId?: number;
-
     News?: Partial<News>;
 }
 
 export interface Reaction {
-
     Id?: number;
-
     CreatorId?: number;
-
     Creator?: Partial<Person>;
-
     CreatedDate?: string;
-
     Type?: Partial<ReactionType>;
-
     MessageNotificationToReactions?: Array<Partial<MessageNotificationToReaction>>;
 }
 
 export interface MessageReaction extends Reaction {
-
     MessageId?: number;
-
     Message?: Partial<Message>;
 }
 
@@ -641,42 +367,25 @@ export enum ReactionType {
 }
 
 export interface MessageNotificationToReaction {
-
     Id?: number;
-
     MessageNotificationId?: number;
-
     MessageNotification?: Partial<MessageNotification>;
-
     ReactionId?: number;
-
     Reaction?: Partial<Reaction>;
 }
 
 export interface MessageNotification {
-
     Id?: number;
-
     MessageId?: number;
-
     Message?: Partial<Message>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ActivityDate?: string;
-
     Type?: Partial<MessageNotificationType>;
-
     IsRead?: boolean;
-
     ReadDate?: string;
-
     MessageNotificationToReplies?: Array<Partial<MessageNotificationToReply>>;
-
     MessageNotificationToComments?: Array<Partial<MessageNotificationToComment>>;
-
     MessageNotificationToReactions?: Array<Partial<MessageNotificationToReaction>>;
 }
 
@@ -686,148 +395,87 @@ export enum MessageNotificationType {
 }
 
 export interface MessageNotificationToReply {
-
     Id?: number;
-
     MessageNotificationId?: number;
-
     MessageNotification?: Partial<MessageNotification>;
-
     ReplyId?: number;
-
     Reply?: Partial<Reply>;
 }
 
 export interface Reply {
-
     Id?: number;
-
     Body: string;
-
     CreatorId?: number;
-
     Creator?: Partial<Person>;
-
     CreatedDate?: string;
-
     IsDeleted?: boolean;
-
     DeletedDate?: string;
-
     CommentId?: number;
-
     Comment?: Partial<Comment>;
-
     ReplyReactions?: Array<Partial<ReplyReaction>>;
-
     MessageNotificationToReplies?: Array<Partial<MessageNotificationToReply>>;
 }
 
 export interface Comment {
-
     Id?: number;
-
     Body: string;
-
     CreatorId?: number;
-
     Creator?: Partial<Person>;
-
     CreatedDate?: string;
-
     IsDeleted?: boolean;
-
     DeletedDate?: string;
-
     MessageId?: number;
-
     Message?: Partial<Message>;
-
     Replies?: Array<Partial<Reply>>;
-
     CommentReactions?: Array<Partial<CommentReaction>>;
-
     MessageNotificationToComments?: Array<Partial<MessageNotificationToComment>>;
 }
 
 export interface CommentReaction extends Reaction {
-
     CommentId?: number;
-
     Comment?: Partial<Comment>;
 }
 
 export interface MessageNotificationToComment {
-
     Id?: number;
-
     MessageNotificationId?: number;
-
     MessageNotification?: Partial<MessageNotification>;
-
     CommentId?: number;
-
     Comment?: Partial<Comment>;
 }
 
 export interface ReplyReaction extends Reaction {
-
     ReplyId?: number;
-
     Reply?: Partial<Reply>;
 }
 
 export interface ForumToPeopleGroup {
-
     Id?: number;
-
     PeopleGroupId?: number;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
 }
 
 export interface Forum {
-
     Id?: number;
-
     CreatorId?: number;
-
     Creator?: Partial<Person>;
-
     Description?: string;
-
     Name?: string;
-
     CreatedDate?: string;
-
     Type?: Partial<ForumType>;
-
     Admins?: Array<Partial<ForumAdmin>>;
-
     Members?: Array<Partial<ForumMember>>;
-
     PeopleGroups?: Array<Partial<ForumToPeopleGroup>>;
-
     Settings?: Array<Partial<ForumSetting>>;
-
     JoinRequests?: Array<Partial<ForumJoinRequest>>;
-
     OptOuts?: Array<Partial<ForumOptOut>>;
-
     ForumViews?: Array<Partial<ForumView>>;
-
     ForumAttachments?: Array<Partial<ForumAttachment>>;
-
     ForumFolders?: Array<Partial<ForumFolder>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
@@ -838,23 +486,14 @@ export enum ForumType {
 }
 
 export interface ForumAdmin {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     Permissions?: Partial<ForumAdminPermission>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
@@ -870,26 +509,17 @@ export enum ForumAdminPermission {
 }
 
 export interface ForumMember {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
 }
 
 export interface ForumSetting {
-
     Id?: number;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     Type?: Partial<ForumSettingsType>;
 }
 
@@ -898,29 +528,17 @@ export enum ForumSettingsType {
 }
 
 export interface ForumJoinRequest {
-
     Id?: number;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     RequesterPersonId?: number;
-
     RequesterPerson?: Partial<Person>;
-
     EmailSentDate?: string;
-
     Status?: Partial<RequestToJoinStatus>;
-
     DeciderPersonId?: number;
-
     DeciderPerson?: Partial<Person>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
@@ -932,19 +550,12 @@ export enum RequestToJoinStatus {
 }
 
 export interface ForumOptOut {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     Date?: string;
-
     Type?: Partial<ForumOptOutType>;
 }
 
@@ -953,241 +564,141 @@ export enum ForumOptOutType {
 }
 
 export interface ForumView {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     VisitedDate?: string;
 }
 
 export interface TrackableAttachment extends Attachment {
-
     DownloadedBy?: Array<Partial<TrackableAttachmentToPerson>>;
 }
 
 export interface ForumAttachment extends TrackableAttachment {
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     ForumFolderId?: number;
-
     ForumFolder?: Partial<ForumFolder>;
-
     IsPinned?: boolean;
 }
 
 export interface Folder {
-
     Id?: number;
-
     Name: string;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
 export interface ForumFolder extends Folder {
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     ParentFolderId?: number;
-
     ParentFolder?: Partial<ForumFolder>;
-
     IsReadOnly?: boolean;
-
     ForumAttachments?: Array<Partial<ForumAttachment>>;
-
     ForumFolders?: Array<Partial<ForumFolder>>;
 }
 
 export interface TrackableAttachmentToPerson {
-
     Id?: number;
-
     Person?: Partial<Person>;
-
     PersonId?: number;
-
     DownloadDate?: string;
-
     TrackableAttachment?: Partial<TrackableAttachment>;
-
     TrackableAttachmentId?: number;
 }
 
 export interface CourseAdminPeopleGroup {
-
     Id?: number;
-
     PeopleGroupId?: number;
-
     CourseId?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatorPersonId?: number;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     Course?: Partial<EducationCourse>;
-
     LastModifiedByPerson?: Partial<Person>;
-
     CreatorPerson?: Partial<Person>;
-
     IsExpired?: boolean;
 }
 
 export interface EducationCourse {
-
     Id?: number;
-
     Title?: string;
-
     FeaturedImageId?: number;
-
     FeaturedImage?: Partial<CourseFeaturedImageAttachment>;
-
     ShortDescription?: string;
-
     Description?: string;
-
     CreatedDate?: string;
-
     CompletionCertificateId?: number;
-
     CompletionCertificate?: Partial<CourseCertificateAttachment>;
-
     Sequence?: number;
-
     CategoryId?: number;
-
     CreatorPersonId?: number;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     Reviewable?: boolean;
-
     Lessons?: Array<Partial<EducationLesson>>;
-
     CourseMembers?: Array<Partial<CourseMember>>;
-
     CourseMemberPeopleGroups?: Array<Partial<CourseMemberPeopleGroup>>;
-
     CourseAdmins?: Array<Partial<CourseAdmin>>;
-
     CourseAdminPeopleGroups?: Array<Partial<CourseAdminPeopleGroup>>;
-
     CourseParticipantStatuses?: Array<Partial<CourseParticipantStatus>>;
-
     Category?: Partial<CourseCategory>;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
 export interface CourseFeaturedImageAttachment extends Attachment {
-
     EducationCourses?: Array<Partial<EducationCourse>>;
 }
 
 export interface CourseCertificateAttachment extends Attachment {
-
     EducationCourses?: Array<Partial<EducationCourse>>;
 }
 
 export interface EducationLesson {
-
     Id?: number;
-
     Name?: string;
-
     VideoLength?: string;
-
     Sequence?: number;
-
     YoutubeVideoKey?: string;
-
     CourseId?: number;
-
     CreatorPersonId?: number;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     PassingPercentage?: number;
-
     Course?: Partial<EducationCourse>;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedByPerson?: Partial<Person>;
-
     Attachments?: Array<Partial<LessonAttachment>>;
-
     Questions?: Array<Partial<EducationQuestion>>;
-
     LessonParticipantStatuses?: Array<Partial<LessonParticipantStatus>>;
 }
 
 export interface LessonAttachment extends Attachment {
-
     LessonId?: number;
-
     Lesson?: Partial<EducationLesson>;
 }
 
 export interface EducationQuestion {
-
     Id?: number;
-
     Text?: string;
-
     Sequence?: number;
-
     LessonId?: number;
-
     LastModifiedByPersonId?: number;
-
     Type?: Partial<QuestionType>;
-
     CreatorPersonId?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     LastModifiedByPerson?: Partial<Person>;
-
     CreatorPerson?: Partial<Person>;
-
     Lesson?: Partial<EducationLesson>;
-
     Answers?: Array<Partial<EducationAnswer>>;
 }
 
@@ -1197,57 +708,34 @@ export enum QuestionType {
 }
 
 export interface EducationAnswer {
-
     Id?: number;
-
     QuestionId?: number;
-
     Text?: string;
-
     Sequence?: number;
-
     CreatorPersonId?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedByPerson?: Partial<Person>;
-
     Question?: Partial<EducationQuestion>;
-
     AnswerKey?: Partial<EducationAnswerKey>;
 }
 
 export interface EducationAnswerKey {
-
     Id?: number;
-
     IsCorrect?: boolean;
-
     Answer?: Partial<EducationAnswer>;
 }
 
 export interface LessonParticipantStatus {
-
     Id?: number;
-
     LessonId?: number;
-
     PersonId?: number;
-
     AttemptStatus?: Partial<LessonAttemptStatus>;
-
     ActivityDate?: string;
-
     GradePercentage?: number;
-
     Person?: Partial<Person>;
-
     Lesson?: Partial<EducationLesson>;
 }
 
@@ -1257,336 +745,193 @@ export enum LessonAttemptStatus {
 }
 
 export interface CourseMember {
-
     Id?: number;
-
     PersonId?: number;
-
     CourseId?: number;
-
     IsRequired?: boolean;
-
     Course?: Partial<EducationCourse>;
-
     Person?: Partial<Person>;
 }
 
 export interface CourseMemberPeopleGroup {
-
     Id?: number;
-
     PeopleGroupId?: number;
-
     CourseId?: number;
-
     IsRequired?: boolean;
-
     PeopleGroup?: Partial<PeopleGroup>;
-
     Course?: Partial<EducationCourse>;
 }
 
 export interface CourseAdmin {
-
     Id?: number;
-
     PersonId?: number;
-
     CourseId?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatorPersonId?: number;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     Person?: Partial<Person>;
-
     Course?: Partial<EducationCourse>;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedByPerson?: Partial<Person>;
-
     IsExpired?: boolean;
 }
 
 export interface CourseParticipantStatus {
-
     Id?: number;
-
     CourseId?: number;
-
     PersonId?: number;
-
     PercentageComplete?: number;
-
     CompletedDate?: string;
-
     Course?: Partial<EducationCourse>;
-
     Person?: Partial<Person>;
-
     IsCompleted?: boolean;
 }
 
 export interface CourseCategory {
-
     Id?: number;
-
     Name?: string;
-
     Courses?: Array<Partial<EducationCourse>>;
 }
 
 export interface OutboundCallerIdNumberGroup {
-
     Id?: number;
-
     Name: string;
-
     CreatedDate?: string;
-
     GroupAdminPermission?: Partial<Permission>;
-
     GroupAdminPermissionId?: number;
-
     GroupAccessPermission?: Partial<Permission>;
-
     GroupAccessPermissionId?: number;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     Numbers?: Array<Partial<OutboundCallerIdNumber>>;
 }
 
 export interface OutboundCallerIdNumber {
-
     Id?: number;
-
     Name: string;
-
     Number: string;
-
     CreatedDate?: string;
-
     OutboundCallerIdNumberGroup?: Partial<OutboundCallerIdNumberGroup>;
-
     OutboundCallerIdNumberGroupId: number;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
 export interface Queue {
-
     Id?: number;
-
     Name: string;
-
     Number: string;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     ServerId?: number;
-
     Server?: Partial<Server>;
-
     QueueMemberManagerPermissionId?: number;
-
     QueueMemberManagerPermission?: Partial<Permission>;
-
     ExtensionToQueues?: Array<Partial<ExtensionToQueue>>;
 }
 
 export interface Server {
-
     Id?: number;
-
     Name?: string;
-
     Version?: number;
-
     Ip?: string;
-
     AmiIp?: string;
-
     AmiPort?: number;
-
     AmiUserName?: string;
-
     AmiPassword?: string;
-
     OutgoingPrefix?: number;
-
     OutgoingOrginateVariables?: string;
-
     Extensions?: Array<Partial<Extension>>;
-
     Queues?: Array<Partial<Queue>>;
 }
 
 export interface Extension {
-
     Id?: number;
-
     ExtensionNumber?: number;
-
     Agent?: number;
-
     Phone?: Partial<Phone>;
-
     Server?: Partial<Server>;
-
     ServerId?: number;
-
     Person?: Partial<Person>;
-
     PersonId?: number;
-
     ExtensionToQueues?: Array<Partial<ExtensionToQueue>>;
 }
 
 export interface Phone {
-
     Id?: number;
-
     Manufacturer?: string;
-
     Model?: string;
-
     Protocol?: string;
-
     StaticIp?: string;
-
     Admin?: string;
-
     Password?: string;
-
     Nickname?: string;
-
     Extension?: Partial<Extension>;
 }
 
 export interface ExtensionToQueue {
-
     Id?: number;
-
     Extension?: Partial<Extension>;
-
     ExtensionId?: number;
-
     Queue?: Partial<Queue>;
-
     QueueId?: number;
-
     Penalty?: number;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
 export interface PersonToNotification {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     NotificationId?: number;
-
     Notification?: Partial<Notification>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     NotificationDeliveryMethods?: Array<Partial<NotificationDeliveryMethod>>;
-
     IsExpired?: boolean;
 }
 
 export interface Notification {
-
     Id?: number;
-
     Subject?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     NotificationMessage?: Partial<NotificationMessage>;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     PersonToNotifications?: Array<Partial<PersonToNotification>>;
-
     Triggers?: Array<Partial<Trigger>>;
-
     NotificationActivityLogs?: Array<Partial<NotificationActivityLog>>;
-
     InAppNotifications?: Array<Partial<InAppNotification>>;
-
     IsExpired?: boolean;
 }
 
 export interface NotificationMessage {
-
     Notification: Partial<Notification>;
-
     Id?: number;
 }
 
 export interface Trigger {
-
     Id?: number;
-
     Frequency?: Partial<Frequency>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     DaysOfWeek?: Partial<DaysOfWeek>;
-
     DaysOfMonth?: Partial<DaysOfMonth>;
-
     Interval?: number;
-
     IsComplete?: boolean;
-
     LastRunDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     NotificationId?: number;
-
     Notification?: Partial<Notification>;
-
     IsExpired?: boolean;
 }
 
@@ -1650,59 +995,35 @@ export enum DaysOfMonth {
 }
 
 export interface NotificationActivityLog {
-
     Id?: number;
-
     SentDate?: string;
-
     NotificationDeliveryMethodId?: number;
-
     NotificationDeliveryMethod?: Partial<NotificationDeliveryMethod>;
-
     Recipient?: Partial<Person>;
-
     RecipientId?: number;
-
     Notification?: Partial<Notification>;
-
     NotificationId?: number;
 }
 
 export interface NotificationDeliveryMethod {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     PersonToNotification?: Partial<PersonToNotification>;
-
     PersonToNotificationId?: number;
-
     IsExpired?: boolean;
 }
 
 export interface InAppNotification {
-
     Id?: number;
-
     CreatedDate?: string;
-
     Subject?: string;
-
     Message?: string;
-
     Status?: Partial<InAppNotificationStatus>;
-
     AppName?: string;
-
     Recipient?: Partial<Person>;
-
     RecipientId?: number;
-
     Notification?: Partial<Notification>;
-
     NotificationId?: number;
 }
 
@@ -1713,29 +1034,17 @@ export enum InAppNotificationStatus {
 }
 
 export interface PersonName {
-
     FirstName: string;
-
     LastName: string;
-
     MiddleName?: string;
-
     Type?: Partial<PersonNameType>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
@@ -1745,28 +1054,18 @@ export enum PersonNameType {
 }
 
 export interface EmailAddress {
-
     EmailAddressType?: Partial<EmailAddressTypes>;
-
     Address: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface PersonEmailAddress extends EmailAddress {
-
     PersonId?: number;
-
     Person?: Partial<Person>;
 }
 
@@ -1780,56 +1079,35 @@ export enum EmailAddressTypes {
 }
 
 export interface Role {
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface PersonRole extends Role {
-
     PersonId?: number;
-
     Person?: Partial<Person>;
 }
 
 export interface PhoneNumber {
-
     PhoneNumberType?: Partial<PhoneNumberTypes>;
-
     CountryCode?: string;
-
     AreaCode: string;
-
     LineNumber: string;
-
     Extension?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface PersonPhoneNumber extends PhoneNumber {
-
     PersonId?: number;
-
     Person?: Partial<Person>;
 }
 
@@ -1853,63 +1131,41 @@ export enum PhoneNumberTypes {
 }
 
 export interface Address {
-
     Id?: number;
-
     Street1?: string;
-
     Street2?: string;
-
     City?: string;
-
     State?: string;
-
     Zip?: string;
-
     Country?: string;
-
     County?: string;
-
     Location?: Partial<DbGeography>;
-
     AddressType?: Partial<AddressTypes>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     UTCTimeZoneOffset?: number;
-
     IsExpired?: boolean;
 }
 
 export interface PersonAddress extends Address {
-
     PersonId?: number;
-
     Person?: Partial<Person>;
 }
 
 /** Represents data in a geodetic (round earth) coordinate system. */
 export interface DbGeography {
-
     /** Gets or sets a data contract serializable well known representation of this DbGeography value.  */
     Geography?: Partial<DbGeographyWellKnownValue>;
 }
 
 /** A data contract serializable representation of a DbGeography value. */
 export interface DbGeographyWellKnownValue {
-
     /** Gets or sets the coordinate system identifier (SRID) of this value.  */
     CoordinateSystemId?: number;
-
     /** Gets or sets the well known text representation of this value.  */
     WellKnownText?: string;
-
     /** Gets or sets the well known binary representation of this value.  */
     WellKnownBinary?: string;
 }
@@ -1922,130 +1178,80 @@ export enum AddressTypes {
 }
 
 export interface PersonUltiProAccount {
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     EeId?: string;
-
     Id?: number;
 }
 
 export interface Reservation {
-
     Id?: number;
-
     RsvpDate?: string;
-
     CancellationDate?: string;
-
     NumberAttending?: number;
-
     ConfirmationCode?: string;
-
     Person?: Partial<Person>;
-
     PersonId?: number;
 }
 
 export interface CrmCommission {
-
     Id?: number;
-
     OwnerId?: string;
-
     Amount?: number;
-
     Percent?: number;
-
     /** modifiedon */
     LastModifiedDate?: string;
-
     Opportunity?: Partial<CrmOpportunity>;
-
     OpportunityId?: number;
-
     Person?: Partial<Person>;
-
     PersonId?: number;
 }
 
 export interface CrmOpportunity {
-
     Id?: number;
-
     OwnerId?: string;
-
     OpportunityId?: string;
-
     TotalRevenue?: number;
-
     /** new_commissionfee */
     CommissionFee?: number;
-
     /** salesstagecode */
     SalesStageCode?: number;
-
     /** new_commissionpercentage */
     CommissionPercentage?: number;
-
     /** new_premium */
     Premium?: number;
-
     /** new_xdate */
     EffectiveDate?: string;
-
     /** new_salesstagesubmissiondate */
     SubmissionDate?: string;
-
     /** new_statusqualifieddate */
     QualifiedDate?: string;
-
     /** new_salesstageconversationdate */
     ConversationDate?: string;
-
     /** new_salesstageappointmentdate */
     AppointmentDate?: string;
-
     /** new_salesstagepresentationdate */
     PresentationDate?: string;
-
     /** new_salesstagesolddate */
     SoldDate?: string;
-
     /** new_salesstagelostdate */
     LostDate?: string;
-
     /** modifiedon */
     LastModifiedDate?: string;
-
     /** statecode */
     StateCode?: Partial<StateCodeType>;
-
     /** new_neworrenewal */
     NewOrRenewal?: Partial<NewOrRenewalType>;
-
     Account?: Partial<CrmAccount>;
-
     AccountId?: number;
-
     Carrier?: number;
-
     LineOfBusiness?: number;
-
     LineOfCoverage?: number;
-
     LineOfCoverageFriendlyName?: string;
-
     Name?: string;
-
     ReportingDate?: string;
-
     CrmCommissions?: Array<Partial<CrmCommission>>;
 }
 
@@ -2060,119 +1266,75 @@ export enum NewOrRenewalType {
 }
 
 export interface CrmAccount {
-
     Id?: number;
-
     CrmInstance?: Partial<CrmInstance>;
-
     /** statuscode */
     Status?: Partial<AccountStatusCodeType>;
-
     AccountId?: string;
-
     OwnerId?: string;
-
     Name?: string;
-
     /** emailaddress1 */
     Email?: string;
-
     /** telephone1 */
     Phone?: string;
-
     /** address1_line1 */
     Address1?: string;
-
     /** address2_line1 */
     Address2?: string;
-
     /** address1_city */
     City?: string;
-
     /** address1_stateorprovince */
     State?: string;
-
     /** address1_postalcode */
     Zip?: string;
-
     /** new_initialappointment */
     InitialAppointment?: string;
-
     /** new_stagesuspectdate */
     StageSuspectDate?: string;
-
     /** new_stageprospectdate */
     StageProspectDate?: string;
-
     /** new_stageclientdate */
     StageClientDate?: string;
-
     /** new_lastactivitydate */
     LastActivityDate?: string;
-
     /** modifiedon */
     LastModifiedDate?: string;
-
     /** new_surgeid */
     SurgeId?: number;
-
     /** new_accounttype */
     AccountType?: number;
-
     /** statecode */
     StateCode?: Partial<StateCodeType>;
-
     /** new_Topic */
     Topic?: string;
-
     /** new_annualpayroll */
     AnnualPayroll?: string;
-
     /** new_xdate */
     EffectiveDate?: string;
-
     /** new_naicscode */
     NAICSCode?: string;
-
     /** new_numberoflocations */
     NumberOfLocations?: string;
-
     /** new_numberofemployees */
     NumberOfEmployees?: string;
-
     /** new_potentialrevenue */
     PotentialRevenue?: number;
-
     /** new_writtenytd */
     WrittenYtd?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ContactFirstName?: string;
-
     ContactLastName?: string;
-
     ContactJobTitle?: string;
-
     AccountStage?: Partial<CrmAccountStage>;
-
     DoNotCall?: boolean;
-
     PreferredContactMethod?: Partial<PreferredContactMethodType>;
-
     /** CreatedOn */
     CreatedOn?: string;
-
     Opportunities?: Array<Partial<CrmOpportunity>>;
-
     CampaignToCrmAccounts?: Array<Partial<CampaignToCrmAccount>>;
-
     EloquaContact?: Partial<EloquaContact>;
-
     OriginalSource?: string;
-
     RecentSource?: string;
 }
 
@@ -2204,98 +1366,59 @@ export enum PreferredContactMethodType {
 }
 
 export interface CampaignToCrmAccount {
-
     Id?: number;
-
     CampaignId?: number;
-
     Campaign?: Partial<Campaign>;
-
     CrmAccountId?: number;
-
     CrmAccount?: Partial<CrmAccount>;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     InstanceId?: number;
-
     LastModifiedDate?: string;
 }
 
 export interface Campaign {
-
     Id?: number;
-
     EloquaCampaignId?: number;
-
     Name?: string;
-
     Description?: string;
-
     ActivationId?: number;
-
     CurrentStatus?: string;
-
     FolderId?: number;
-
     CampaignToCrmAccounts?: Array<Partial<CampaignToCrmAccount>>;
-
     CampaignToPeople?: Array<Partial<CampaignToPerson>>;
 }
 
 export interface CampaignToPerson {
-
     Id?: number;
-
     CampaignId?: number;
-
     Campaign?: Partial<Campaign>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
 }
 
 export interface EloquaContact {
-
     Id?: number;
-
     EloquaContactId?: number;
-
     IsMaster?: boolean;
-
     CrmAccount?: Partial<CrmAccount>;
 }
 
 export interface HomeUserAnalytic {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     LastNotificationBellTapDate?: string;
 }
 
 export interface QuickLink {
-
     Id?: number;
-
     Name: string;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     Type?: Partial<QuickLinkType>;
-
     Url: string;
-
     CreatedDate?: string;
 }
 
@@ -2305,125 +1428,74 @@ export enum QuickLinkType {
 }
 
 export interface LessonToPerson {
-
     Id?: number;
-
     LessonId?: number;
-
     Lesson?: Partial<Lesson>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     HasPassed?: boolean;
-
     ActivityDate?: string;
 }
 
 export interface Lesson {
-
     Id?: number;
-
     Name?: string;
-
     VideoLength?: string;
-
     Sequence?: number;
-
     YoutubeVideoKey?: string;
-
     ResourceFileNames?: string;
-
     Questions?: Array<Partial<Question>>;
-
     ResourceDownloadUri?: string;
-
     CreatedDate?: string;
-
     CourseId?: number;
-
     Course?: Partial<Course>;
-
     LessonToPeople?: Array<Partial<LessonToPerson>>;
-
     ResourceLinks?: Array<Partial<ResourceLink>>;
 }
 
 export interface Question {
-
     Id?: number;
-
     Text?: string;
-
     Sequence?: number;
-
     Answers?: Array<Partial<Answer>>;
-
     LessonId?: number;
-
     Lesson?: Partial<Lesson>;
-
     Type?: Partial<QuestionType>;
 }
 
 export interface Answer {
-
     Id?: number;
-
     QuestionId?: number;
-
     Question?: Partial<Question>;
-
     Text?: string;
-
     Sequence?: number;
 }
 
 export interface Course {
-
     Id?: number;
-
     Title?: string;
-
     Lessons?: Array<Partial<Lesson>>;
-
     Sequence?: number;
-
     Description?: string;
-
     FeaturedImageUri?: string;
-
     CreatedDate?: string;
-
     CourseToPeople?: Array<Partial<CourseToPerson>>;
-
     Attachments?: Array<Partial<CourseAttachment>>;
 }
 
 export interface CourseToPerson {
-
     Id?: number;
-
     CourseId?: number;
-
     Course?: Partial<Course>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     IsCompleted?: boolean;
-
     CompletedDate?: string;
 }
 
 export interface CourseAttachment extends Attachment {
-
     CourseId?: number;
-
     Course?: Partial<Course>;
-
     Type?: Partial<CourseAttachmentType>;
 }
 
@@ -2434,137 +1506,77 @@ export enum CourseAttachmentType {
 }
 
 export interface ResourceLink {
-
     Id?: number;
-
     LessonId?: number;
-
     Lesson?: Partial<Lesson>;
-
     Name?: string;
-
     Url?: string;
 }
 
 export interface CReportComment {
-
     Id?: number;
-
     Body?: string;
-
     ReportDate?: string;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     IsCompleted?: boolean;
-
     CreatedDate?: string;
-
     LastModifiedById?: number;
-
     LastModifiedBy?: Partial<Person>;
-
     LastModifiedDate?: string;
 }
 
 export interface Company {
-
     Name?: string;
-
     Addresses?: Array<Partial<CompanyAddress>>;
-
     Names?: Array<Partial<CompanyName>>;
-
     EmailAddresses?: Array<Partial<CompanyEmailAddress>>;
-
     ContactPersonRoles?: Array<Partial<CompanyContactPersonRole>>;
-
     PhoneNumbers?: Array<Partial<CompanyPhoneNumber>>;
-
     Roles?: Array<Partial<CompanyRole>>;
-
     ManagementSystems?: Array<Partial<ManagementSystem>>;
-
     CompanyGroupToCompanies?: Array<Partial<CompanyGroupToCompany>>;
-
     JobRoles?: Array<Partial<JobRole>>;
-
     Divisions?: Array<Partial<CompanyDivision>>;
-
     Teams?: Array<Partial<CompanyTeam>>;
-
     Departments?: Array<Partial<Department>>;
-
     BookOfBusinessChanges?: Array<Partial<BookOfBusinessChange>>;
-
     CReportComments?: Array<Partial<CReportComment>>;
-
     AgencyCommissionRates?: Array<Partial<AgencyCommissionRate>>;
-
     UltiProAccount?: Partial<CompanyUltiProAccount>;
-
     EloquaSyncLogEntry?: Partial<EloquaSyncLogEntry>;
-
     CompanyUhcCode?: Partial<CompanyUhcCode>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
 }
 
 export interface CompanyAddress extends Address {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     Lease?: Partial<Lease>;
-
     LGEmployeeRoleToCompanyAddresses?: Array<Partial<LGEmployeeRoleToCompanyAddress>>;
-
     PhoneNumbers?: Array<Partial<CompanyAddressPhoneNumber>>;
-
     BuildingToCompanyAddresses?: Array<Partial<BuildingToCompanyAddress>>;
-
     ProspectiveProducerRoles?: Array<Partial<ProspectiveProducerRole>>;
-
     UltiProAccount?: Partial<CompanyAddressUltiProAccount>;
 }
 
 export interface Lease {
-
     Id?: number;
-
     CompanyAddress?: Partial<CompanyAddress>;
-
     RenewalDate?: string;
-
     LeaseExpirationDate?: string;
-
     SquareFootage?: number;
-
     HoldoverPercentage?: number;
-
     Notes?: string;
-
     LastModifiedDate?: string;
-
     LastModifiedBy?: Partial<Person>;
-
     LastModifiedById?: number;
-
     LandlordType?: Partial<LandlordType>;
-
     LeaseAttachments?: Array<Partial<LeaseAttachment>>;
 }
 
@@ -2575,63 +1587,37 @@ export enum LandlordType {
 }
 
 export interface LeaseAttachment extends Attachment {
-
     LeaseId?: number;
-
     Lease?: Partial<Lease>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface LGEmployeeRoleToCompanyAddress {
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     LGEmployeeRoleId?: number;
-
     LGEmployeeRole?: Partial<LGEmployeeRole>;
-
     CompanyAddressId?: number;
-
     CompanyAddress?: Partial<CompanyAddress>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface LGEmployeeRole extends PersonRole {
-
     EmploymentType?: Partial<EmploymentType>;
-
     DateLicensed?: string;
-
     DateStartedProducing?: string;
-
     LGEmployeeRoleToCompanyAddresses?: Array<Partial<LGEmployeeRoleToCompanyAddress>>;
-
     Titles?: Array<Partial<LGEmployeeRoleTitle>>;
-
     Deductions?: Array<Partial<Deduction>>;
-
     FTEs?: Array<Partial<FullTimeEquivalent>>;
-
     JobRoles?: Array<Partial<JobRole>>;
-
     LGEmployeeRoleUltiProAccount?: Partial<LGEmployeeRoleUltiProAccount>;
-
     Department?: Partial<Department>;
-
     DepartmentId?: number;
 }
 
@@ -2642,44 +1628,26 @@ export enum EmploymentType {
 }
 
 export interface LGEmployeeRoleTitle {
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     LGEmployeeRoleId?: number;
-
     LGEmployeeRole?: Partial<LGEmployeeRole>;
-
     Title: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface Deduction {
-
     Amount?: number;
-
     Verified?: string;
-
     Enacted?: string;
-
     Canceled?: string;
-
     DateCreated?: string;
-
     Frequency?: Partial<DeductionFrequency>;
-
     LGEmployeeRoleId?: number;
-
     LGEmployeeRole?: Partial<LGEmployeeRole>;
-
     Id?: number;
 }
 
@@ -2692,237 +1660,136 @@ export enum DeductionFrequency {
 }
 
 export interface FullTimeEquivalent {
-
     LGEmployeeRoleId?: number;
-
     LGEmployeeRole?: Partial<LGEmployeeRole>;
-
     Value?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface JobRole extends Role {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     JobRoleTypeId?: number;
-
     JobRoleType?: Partial<JobRoleType>;
-
     LGEmployeeRoleId?: number;
-
     LGEmployeeRole?: Partial<LGEmployeeRole>;
-
     TotalAssignmentPercent?: number;
-
     PercentOfFullTimeEquivalents?: Array<Partial<PercentOfFullTimeEquivalent>>;
-
     JobRoleToDivisions?: Array<Partial<JobRoleToDivision>>;
-
     JobRoleToTeams?: Array<Partial<JobRoleToTeam>>;
-
     SupervisorJobRoles?: Array<Partial<SupervisorJobRole>>;
-
     DirectReports?: Array<Partial<SupervisorJobRole>>;
-
     AssignmentPercentages?: Array<Partial<JobRoleAssignmentPercentage>>;
 }
 
 export interface JobRoleType {
-
     Name?: string;
-
     JobRoles?: Array<Partial<JobRole>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     IsFullTimeEquivalenceType?: boolean;
-
     Id?: number;
-
     IsExpired?: boolean;
-
     JobRolePeopleGroups?: Array<Partial<JobRolePeopleGroup>>;
 }
 
 export interface JobRolePeopleGroup extends PeopleGroup {
-
     JobRoleTypeId?: number;
-
     JobRoleType?: Partial<JobRoleType>;
 }
 
 export interface PercentOfFullTimeEquivalent {
-
     JobRoleId?: number;
-
     JobRole?: Partial<JobRole>;
-
     Value?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface JobRoleToDivision {
-
     JobRoleId?: number;
-
     JobRole?: Partial<JobRole>;
-
     CompanyDivisionId?: number;
-
     CompanyDivision?: Partial<CompanyDivision>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface CompanyDivision {
-
     Name?: string;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     JobRoleToDivisions?: Array<Partial<JobRoleToDivision>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface JobRoleToTeam {
-
     JobRoleId?: number;
-
     JobRole?: Partial<JobRole>;
-
     CompanyTeamId?: number;
-
     CompanyTeam?: Partial<CompanyTeam>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface CompanyTeam {
-
     Name?: string;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     JobRoleToTeams?: Array<Partial<JobRoleToTeam>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface SupervisorJobRole {
-
     JobRoleId?: number;
-
     JobRole?: Partial<JobRole>;
-
     SupervisorRoleId?: number;
-
     SupervisorRole?: Partial<JobRole>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface JobRoleAssignmentPercentage {
-
     Id?: number;
-
     JobRoleId?: number;
-
     JobRole?: Partial<JobRole>;
-
     Type?: Partial<JobRoleAssignmentType>;
-
     Percentage?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
@@ -2934,111 +1801,70 @@ export enum JobRoleAssignmentType {
 }
 
 export interface LGEmployeeRoleUltiProAccount {
-
     LGEmployeeRole?: Partial<LGEmployeeRole>;
-
     EmpNo?: string;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
 }
 
 export interface Department {
-
     Id?: number;
-
     Name?: string;
-
     Company?: Partial<Company>;
-
     CompanyId?: number;
-
     LGEmployeeRoles?: Array<Partial<LGEmployeeRole>>;
 }
 
 export interface CompanyAddressPhoneNumber extends PhoneNumber {
-
     CompanyAddressId?: number;
-
     CompanyAddress?: Partial<CompanyAddress>;
 }
 
 export interface BuildingToCompanyAddress {
-
     Id?: number;
-
     BuildingId?: number;
-
     Building?: Partial<Building>;
-
     CompanyAddressId?: number;
-
     CompanyAddress?: Partial<CompanyAddress>;
 }
 
 export interface Building {
-
     Id?: number;
-
     Name?: string;
-
     PeopleGroups?: Array<Partial<BuildingPeopleGroup>>;
-
     BuildingToCompanyAddresses?: Array<Partial<BuildingToCompanyAddress>>;
 }
 
 export interface BuildingPeopleGroup extends PeopleGroup {
-
     BuildingId?: number;
-
     Building?: Partial<Building>;
 }
 
 export interface ProspectiveProducerRole extends PersonRole {
-
     CompanyAddress?: Partial<CompanyAddress>;
-
     CompanyAddressId?: number;
 }
 
 export interface CompanyAddressUltiProAccount {
-
     CompanyAddress?: Partial<CompanyAddress>;
-
     LocCode?: string;
-
     LocCodePlusCoId?: string;
-
     Id?: number;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
 }
 
 export interface CompanyName {
-
     Name: string;
-
     CompanyNameType: Partial<CompanyNameTypes>;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
@@ -3051,225 +1877,136 @@ export enum CompanyNameTypes {
 }
 
 export interface CompanyEmailAddress extends EmailAddress {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
 }
 
 export interface CompanyContactPersonRole extends PersonRole {
-
     Title?: string;
-
     ContactCompanyId?: number;
-
     ContactCompany?: Partial<Company>;
 }
 
 export interface CompanyPhoneNumber extends PhoneNumber {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
 }
 
 export interface CompanyRole extends Role {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     ClosureType?: Partial<CompanyRoleClosureType>;
 }
 
 export interface CompanyRoleClosureType {
-
     CompanyRole?: Partial<CompanyRole>;
-
     Id?: number;
 }
 
 export interface ManagementSystem {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     DatabaseName?: string;
-
     ManagementSystemDatabaseServerId?: number;
-
     ManagementSystemDatabaseServer?: Partial<ManagementSystemDatabaseServer>;
-
     ManagementSystemApiId?: number;
-
     ManagementSystemApi?: Partial<ManagementSystemApi>;
-
     SupplementalProducerCodes?: Array<Partial<SupplementalProducerCode>>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface ManagementSystemDatabaseServer {
-
     Name?: string;
-
     Username?: string;
-
     Password?: string;
-
     Ip?: string;
-
     ManagementSystems?: Array<Partial<ManagementSystem>>;
-
     Id?: number;
 }
 
 export interface ManagementSystemApi {
-
     Name?: string;
-
     Username?: string;
-
     Password?: string;
-
     Url?: string;
-
     ManagementSystems?: Array<Partial<ManagementSystem>>;
-
     Id?: number;
 }
 
 export interface SupplementalProducerCode {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     ProducerCodeTypeId?: number;
-
     ProducerCodeType?: Partial<ProducerCodeType>;
-
     Empcode?: string;
-
     Ams360FullName?: string;
-
     ManagementSystemId?: number;
-
     ManagementSystem?: Partial<ManagementSystem>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface ProducerCodeType {
-
     Id?: number;
-
     Names?: Array<Partial<ProducerCodeName>>;
 }
 
 export interface ProducerCodeName {
-
     Id?: number;
-
     Name?: string;
-
     ProducerCodeTypeId?: number;
-
     ProducerCodeType?: Partial<ProducerCodeType>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface CompanyGroupToCompany {
-
     CompanyGroupId?: number;
-
     CompanyGroup?: Partial<CompanyGroup>;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface CompanyGroup extends Group {
-
     CompanyGroupToCompanies?: Array<Partial<CompanyGroupToCompany>>;
 }
 
 export interface BookOfBusinessChange {
-
     Id?: number;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     Description?: string;
-
     Amount?: number;
-
     EffectiveDate?: string;
 }
 
 export interface AgencyCommissionRate {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     CommissionRateType?: Partial<CommissionRateType>;
-
     TransactionType?: Partial<TransactionType>;
-
     Rate?: number;
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
@@ -3287,38 +2024,23 @@ export enum TransactionType {
 }
 
 export interface CompanyUltiProAccount {
-
     Company?: Partial<Company>;
-
     CmpCoId?: string;
-
     CmpCompanyCode?: string;
-
     CreatedDate?: string;
-
     LastModifiedDate?: string;
-
     CmpDefaultLocation?: string;
-
     Id?: number;
 }
 
 export interface EloquaSyncLogEntry {
-
     CompanyId?: number;
-
     Company?: Partial<Company>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     LastSyncDate?: string;
-
     Type?: Partial<EloquaSyncType>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
@@ -3328,123 +2050,70 @@ export enum EloquaSyncType {
 }
 
 export interface CompanyUhcCode {
-
     Company?: Partial<Company>;
-
     HsaStructureField4Code?: string;
-
     MedStructureField4Code?: string;
-
     Id?: number;
 }
 
 export interface EloquaEmailTemplateToPerson {
-
     Id?: number;
-
     EloquaEmailTemplateId?: number;
-
     EloquaEmailTemplate?: Partial<EloquaEmailTemplate>;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
 }
 
 export interface EloquaEmailTemplate {
-
     Id?: number;
-
     EloquaEmailId?: number;
-
     Name?: string;
-
     HtmlBody?: string;
-
     Subject?: string;
-
     CssHeader?: string;
-
     CurrentStatus?: string;
-
     FolderId?: number;
-
     EloquaEmailTemplateToPeople?: Array<Partial<EloquaEmailTemplateToPerson>>;
 }
 
 export interface SalesExpectation {
-
     Id?: number;
-
     PersonId?: number;
-
     Person?: Partial<Person>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     IsProducerAssumptionsCompleted?: boolean;
-
     IsExpectationsCompleted?: boolean;
-
     IsBookOfBusinessCompleted?: boolean;
-
     IsCompleted?: boolean;
-
     ProspectiveHireDate?: string;
-
     Status?: Partial<SalesExpectationStatus>;
-
     ProducerAssumptions?: Array<Partial<ProducerAssumption>>;
-
     Expectations?: Array<Partial<Expectation>>;
-
     BoBComposition?: Array<Partial<BoBComposition>>;
-
     ProducerCommissionRates?: Array<Partial<ProducerCommissionRate>>;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
 export interface SalesExpectationStatus {
-
     Id?: number;
-
     SalesExpectation?: Partial<SalesExpectation>;
-
     ApprovalDate?: string;
-
     ApproverId?: number;
-
     Approver?: Partial<Person>;
-
     ReviewRequestDate?: string;
-
     ReviewRequesterId?: number;
-
     ReviewRequester?: Partial<Person>;
-
     ReviewerId?: number;
-
     Reviewer?: Partial<Person>;
-
     StatusType?: Partial<SalesExpectationStatusType>;
-
     ReviewerMessage?: string;
-
     FailReasons?: Array<Partial<FailReason>>;
 }
 
@@ -3456,122 +2125,68 @@ export enum SalesExpectationStatusType {
 }
 
 export interface FailReason {
-
     Id?: number;
-
     SalesExpectationStatusId?: number;
-
     SalesExpectationStatus?: Partial<SalesExpectationStatus>;
-
     Message?: string;
 }
 
 export interface ProducerAssumption {
-
     Id?: number;
-
     SalesExpectationId?: number;
-
     SalesExpectation?: Partial<SalesExpectation>;
-
     RetentionPercent?: number;
-
     AssignedBook?: number;
-
     AverageAccountSize?: number;
-
     QFAToCloseRatio?: number;
-
     NewToIndustry?: boolean;
-
     NewToSales?: boolean;
-
     TalentSearch?: boolean;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
 export interface Expectation {
-
     Id?: number;
-
     SalesExpectationId?: number;
-
     SalesExpectation?: Partial<SalesExpectation>;
-
     WrittenNewAmount?: number;
-
     DrawAmount?: number;
-
     SubsidyAmount?: number;
-
     ReportDate?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
 export interface BoBComposition {
-
     Id?: number;
-
     SalesExpectationId?: number;
-
     SalesExpectation?: Partial<SalesExpectation>;
-
     Type?: Partial<PolicyType>;
-
     CompositionPercent?: number;
-
     InstallmentPercent?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
 }
 
@@ -3583,51 +2198,31 @@ export enum PolicyType {
 }
 
 export interface ProducerCommissionRate {
-
     Id?: number;
-
     SalesExpectationId?: number;
-
     SalesExpectation?: Partial<SalesExpectation>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     CreatedDate?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     LastModifiedDate?: string;
-
     LastModifiedByPersonId?: number;
-
     LastModifiedByPerson?: Partial<Person>;
-
     CommissionRateType?: Partial<CommissionRateType>;
-
     TransactionType?: Partial<TransactionType>;
-
     EffectiveDate?: string;
-
     ExpirationDate?: string;
-
     CommissionPercent?: number;
 }
 
 export interface CommonPasswords {
-
     CommonPasswordHash?: Array<Partial<string>>;
 }
 
 export interface ICreatedBy {
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
@@ -3635,17 +2230,11 @@ export interface DetailMethods {
 }
 
 export interface Detail {
-
     Name?: string;
-
     Value?: string;
-
     SubCategory?: string;
-
     Section?: string;
-
     DataType?: Partial<DataTypes>;
-
     Id?: number;
 }
 
@@ -3659,108 +2248,64 @@ export enum DataTypes {
 }
 
 export interface IIdentity {
-
     Id?: number;
 }
 
 export interface Basket {
-
     Name: string;
-
     Fruits?: Array<Partial<Fruit>>;
-
     Id?: number;
 }
 
 export interface Fruit {
-
     FruitShape?: Partial<FruitShape>;
-
     FruitMold?: Partial<FruitMold>;
-
     BasketId?: number;
-
     Basket?: Partial<Basket>;
-
     Pesticides?: Array<Partial<Pesticide>>;
-
     DatetimeSetOnConstructor?: string;
-
     DatetimeOffetSetOnConstructor?: string;
-
     Datetime1?: string;
-
     Datetime1Nullable?: string;
-
     Datetime2?: string;
-
     Datetime2Nullable?: string;
-
     Name: string;
-
     Int641?: number;
-
     Int641Nullable?: number;
-
     Int1?: number;
-
     Int1Nullable?: number;
-
     Float1?: number;
-
     Float1Nullable?: number;
-
     Double1?: number;
-
     Double1Nullable?: number;
-
     Decimal1?: number;
-
     Decimal1Nullable?: number;
-
     Guid1?: string;
-
     Guid1Nullable?: string;
-
     Bool1?: boolean;
-
     Bool1Nullable?: boolean;
-
     SeasonAvailable?: Partial<Seasons>;
-
     SeasonAvailableNullable?: Partial<Seasons>;
-
     FlagEnumSample?: Partial<DaysOfWeek>;
-
     Byte1?: number;
-
     Id?: number;
 }
 
 export interface FruitShape {
-
     Name: string;
-
     Fruit?: Partial<Fruit>;
-
     Id?: number;
 }
 
 export interface FruitMold {
-
     Name: string;
-
     Fruit?: Partial<Fruit>;
-
     Id?: number;
 }
 
 export interface Pesticide {
-
     Name: string;
-
     Fruits?: Array<Partial<Fruit>>;
-
     Id?: number;
 }
 
@@ -3775,41 +2320,26 @@ export interface CPACDeduction extends Deduction {
 }
 
 export interface BenefitsToGoCompanyRole extends CompanyRole {
-
     RegistrationKey?: string;
-
     CRMAccountId?: string;
-
     BenefitsToGoCompanyRoleDetails?: Array<Partial<BenefitsToGoCompanyRoleDetail>>;
-
     Plans?: Array<Partial<Plan>>;
-
     PeopleRoles?: Array<Partial<BenefitsToGoPersonRole>>;
 }
 
 export interface BenefitsToGoCompanyRoleDetail extends Detail {
-
     BenefitsToGoCompanyRoleId?: number;
-
     BenefitsToGoCompanyRole?: Partial<BenefitsToGoCompanyRole>;
 }
 
 export interface Plan {
-
     PlanType?: Partial<PlanTypes>;
-
     CRMPolicyId?: string;
-
     Category?: string;
-
     Name?: string;
-
     BenefitsToGoCompanyRoleId?: number;
-
     BenefitsToGoCompanyRole?: Partial<BenefitsToGoCompanyRole>;
-
     PlanDetails?: Array<Partial<PlanDetail>>;
-
     Id?: number;
 }
 
@@ -3819,60 +2349,37 @@ export enum PlanTypes {
 }
 
 export interface PlanDetail extends Detail {
-
     PlanId?: number;
-
     Plan?: Partial<Plan>;
-
     SortOrder?: number;
 }
 
 export interface BenefitsToGoPersonRole extends PersonRole {
-
     BenefitsToGoCompanyRoleId?: number;
-
     BenefitsToGoCompanyRole?: Partial<BenefitsToGoCompanyRole>;
 }
 
 export interface LogEntryItem {
-
     AutomatedApplicationId?: number;
-
     AutomatedApplication?: Partial<AutomatedApplication>;
-
     DateTime?: string;
-
     Message?: string;
-
     Source?: string;
-
     Instance?: string;
-
     Level?: Partial<LogEntryLevel>;
-
     Type?: Partial<LogEntryType>;
-
     Id?: number;
 }
 
 export interface AutomatedApplication {
-
     Name?: string;
-
     LastHeardFromDateTime?: string;
-
     LastRunDateTime?: string;
-
     LastHeardFromIp?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     LogEntryItems?: Array<Partial<LogEntryItem>>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
@@ -3888,150 +2395,88 @@ export enum LogEntryType {
 }
 
 export interface EmailTemplate {
-
     Id?: number;
-
     CreatedDate?: string;
-
     Name: string;
-
     Body?: string;
-
     Subject?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     Recipients?: Array<Partial<EmailTemplateRecipient>>;
-
     SendLogs?: Array<Partial<EmailTemplateLog>>;
 }
 
 export interface EmailTemplateRecipient {
-
     Id?: number;
-
     CreatedDate?: string;
-
     EmailTemplateId?: number;
-
     EmailTemplate?: Partial<EmailTemplate>;
-
     EmailAddress: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
 export interface EmailTemplateLog {
-
     Id?: number;
-
     SentDate: string;
-
     IpAddress?: string;
-
     EmailTemplateId?: number;
-
     EmailTemplate?: Partial<EmailTemplate>;
-
     EmailBody?: string;
-
     Subject?: string;
-
     Recipients?: string;
-
     StatusMessage?: string;
 }
 
 export interface TeamAttachment extends Attachment {
-
     TeamId?: number;
-
     Team?: Partial<Team>;
-
     TeamAttachmentType?: Partial<TeamAttachmentType>;
 }
 
 export interface Team {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Name: string;
-
     TeamPictureAttachments?: Array<Partial<TeamAttachment>>;
-
     LeagueToTeams?: Array<Partial<LeagueToTeam>>;
-
     Members?: Array<Partial<TheGamePlayerPersonRole>>;
 }
 
 export interface LeagueToTeam {
-
     Id?: number;
-
     TeamId?: number;
-
     Team?: Partial<Team>;
-
     LeagueId?: number;
-
     League?: Partial<League>;
-
     SegmentId?: number;
-
     Segment?: Partial<GameSegment>;
 }
 
 export interface League {
-
     Id?: number;
-
     Name?: string;
-
     Sequence?: number;
-
     TheGameGameId?: number;
-
     TheGameGame?: Partial<TheGameGame>;
-
     LeagueToTeams?: Array<Partial<LeagueToTeam>>;
-
     LeaguePrizes?: Array<Partial<LeaguePrize>>;
 }
 
 export interface TheGameGame {
-
     Id?: number;
-
     Type?: Partial<GameType>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     GracePeriodTicks?: number;
-
     IsExpired?: boolean;
-
     IsDevelopment?: boolean;
-
     IsBlackedOut?: boolean;
-
     Prizes?: Array<Partial<GamePrize>>;
-
     Leagues?: Array<Partial<League>>;
-
     RegistrationPersonRoles?: Array<Partial<TheGameRegistrationPersonRole>>;
-
     Segments?: Array<Partial<GameSegment>>;
 }
 
@@ -4041,28 +2486,18 @@ export enum GameType {
 }
 
 export interface Prize {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Rank?: number;
-
     Amount?: number;
-
     PrizeToSegments?: Array<Partial<PrizeToSegment>>;
 }
 
 export interface GamePrize extends Prize {
-
     GamePrizeType?: Partial<GamePrizeType>;
-
     TheGameGameId?: number;
-
     TheGameGame?: Partial<TheGameGame>;
 }
 
@@ -4073,34 +2508,21 @@ export enum GamePrizeType {
 }
 
 export interface PrizeToSegment {
-
     Id?: number;
-
     Prize?: Partial<Prize>;
-
     PrizeId?: number;
-
     Segment?: Partial<GameSegment>;
-
     SegmentId?: number;
 }
 
 export interface GameSegment {
-
     Id?: number;
-
     TheGameId?: number;
-
     TheGame?: Partial<TheGameGame>;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Label?: string;
-
     Type?: Partial<SegmentType>;
-
     PrizeToSegments?: Array<Partial<PrizeToSegment>>;
 }
 
@@ -4110,20 +2532,14 @@ export enum SegmentType {
 }
 
 export interface TheGameRegistrationPersonRole extends PersonRole {
-
     TheGameId?: number;
-
     TheGame?: Partial<TheGameGame>;
-
     RegistrationNote?: string;
 }
 
 export interface LeaguePrize extends Prize {
-
     LeaguePrizeType?: Partial<LeaguePrizeType>;
-
     LeagueId?: number;
-
     League?: Partial<League>;
 }
 
@@ -4135,46 +2551,27 @@ export enum LeaguePrizeType {
 }
 
 export interface TheGamePlayerPersonRole extends PersonRole {
-
     IsTeamCaptain?: boolean;
-
     TeamId?: number;
-
     Team?: Partial<Team>;
-
     Points?: Array<Partial<GamePoint>>;
 }
 
 export interface GamePoint {
-
     Id?: number;
-
     EffectiveDate?: string;
-
     CreatedDate?: string;
-
     IsSponsored?: boolean;
-
     IsSecondSponsored?: boolean;
-
     Amount?: number;
-
     ClientName?: string;
-
     IsDeleted?: boolean;
-
     DeletedDate?: string;
-
     TheGamePlayerPersonRoleId?: number;
-
     TheGamePlayerPersonRole?: Partial<TheGamePlayerPersonRole>;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     DeletedByPersonId?: number;
-
     DeletedByPerson?: Partial<Person>;
 }
 
@@ -4183,163 +2580,93 @@ export enum TeamAttachmentType {
 }
 
 export interface CrmGamePoint extends GamePoint {
-
     OpportunityId?: string;
-
     Commission?: number;
-
     CommissionFee?: number;
-
     SplitPercentage?: number;
 }
 
 export interface Surge {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Name?: string;
-
     Rules?: string;
-
     IsDevSurge?: boolean;
-
     IntermissionLength?: string;
-
     SegmentLength?: string;
-
     NumSegments?: number;
-
     GameOverDate?: string;
-
     IsGameOver?: boolean;
-
     EnableFirebase?: boolean;
-
     Pauses?: Array<Partial<SurgePause>>;
-
     RegisteredUsers?: Array<Partial<SurgeRegisteredRole>>;
-
     Teams?: Array<Partial<SurgeTeam>>;
-
     SurgePrizes?: Array<Partial<SurgePrize>>;
-
     SurgeAdminPersonRoles?: Array<Partial<SurgeAdminPersonRole>>;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     IsCorporate?: boolean;
-
     Type?: Partial<SurgeType>;
 }
 
 export interface SurgePause {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Surge?: Partial<Surge>;
-
     SurgeId?: number;
 }
 
 export interface SurgeRegisteredRole extends PersonRole {
-
     SurgeId?: number;
-
     Surge?: Partial<Surge>;
 }
 
 export interface SurgeTeam {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Name?: string;
-
     Rank?: number;
-
     PrizeAmount?: number;
-
     TotalPoints?: number;
-
     Members?: Array<Partial<SurgePlayerPersonRole>>;
-
     SurgeId?: number;
-
     Surge?: Partial<Surge>;
 }
 
 export interface SurgePlayerPersonRole extends PersonRole {
-
     SurgeTeamId?: number;
-
     SurgeTeam?: Partial<SurgeTeam>;
-
     Points?: Array<Partial<SurgePoint>>;
-
     IndividualTotalPoints?: number;
-
     IndividualRank?: number;
-
     IndividualPrizeAmount?: number;
-
     TopOnTeamRank?: number;
-
     TopOnTeamPrizeAmount?: number;
-
     TeamPrizePortion?: number;
 }
 
 export interface SurgePoint {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Name?: string;
-
     IsVisited?: boolean;
-
     Date?: string;
-
     CrmAccountId?: string;
-
     SurgePlayerPersonRoleId?: number;
-
     SurgePlayerPersonRole?: Partial<SurgePlayerPersonRole>;
-
     EndedByPersonId?: number;
-
     EndedByPerson?: Partial<Person>;
-
     CreatedByPersonId?: number;
-
     CreatedByPerson?: Partial<Person>;
-
     Type?: Partial<PointType>;
-
     Points?: number;
 }
 
@@ -4349,23 +2676,14 @@ export enum PointType {
 }
 
 export interface SurgePrize {
-
     Id?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     Rank?: number;
-
     Amount?: number;
-
     Type?: Partial<SurgePrizeType>;
-
     SurgeId?: number;
-
     Surge?: Partial<Surge>;
 }
 
@@ -4377,9 +2695,7 @@ export enum SurgePrizeType {
 }
 
 export interface SurgeAdminPersonRole extends PersonRole {
-
     SurgeId?: number;
-
     TheSurge?: Partial<Surge>;
 }
 
@@ -4389,48 +2705,31 @@ export enum SurgeType {
 }
 
 export interface HolidayPartyReservation extends Reservation {
-
     HolidayPartyIdentifier?: number;
 }
 
 export interface ManualEntryBranchCode {
-
     Code?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     ManualEntryManagementSystemId?: number;
-
     ManualEntryManagementSystem?: Partial<ManualEntryManagementSystem>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface ManualEntryManagementSystem extends ManagementSystem {
-
     GlDivCodes?: Array<Partial<ManualEntryGlDivCode>>;
-
     BranchCodes?: Array<Partial<ManualEntryBranchCode>>;
 }
 
 export interface ManualEntryGlDivCode {
-
     Code?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     ManualEntryManagementSystemId?: number;
-
     ManualEntryManagementSystem?: Partial<ManualEntryManagementSystem>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
@@ -4438,94 +2737,57 @@ export interface SageManagementSystem extends ManagementSystem {
 }
 
 export interface Ams360BranchCode {
-
     Code?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Ams360ManagementSystemId?: number;
-
     Ams360ManagementSystem?: Partial<Ams360ManagementSystem>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface Ams360ManagementSystem extends ManagementSystem {
-
     Ams360ApiAgencyNumber?: string;
-
     GlDivCodes?: Array<Partial<Ams360GlDivCode>>;
-
     BranchCodes?: Array<Partial<Ams360BranchCode>>;
-
     Ams360Users?: Array<Partial<Ams360UserPersonRole>>;
 }
 
 export interface Ams360GlDivCode {
-
     Code?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Ams360ManagementSystemId?: number;
-
     Ams360ManagementSystem?: Partial<Ams360ManagementSystem>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface Ams360UserPersonRole extends PersonRole {
-
     EmpCode?: string;
-
     Ams360ManagementSystemId?: number;
-
     Ams360ManagementSystem?: Partial<Ams360ManagementSystem>;
-
     BranchCodes?: Array<Partial<Ams360UserBranchCode>>;
-
     GlCodes?: Array<Partial<Ams360UserGlDivCode>>;
 }
 
 export interface Ams360UserBranchCode {
-
     Code?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Ams360UserPersonRoleId?: number;
-
     Ams360UserPersonRole?: Partial<Ams360UserPersonRole>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
 export interface Ams360UserGlDivCode {
-
     Code?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     Ams360UserPersonRoleId?: number;
-
     Ams360UserPersonRole?: Partial<Ams360UserPersonRole>;
-
     Id?: number;
-
     IsExpired?: boolean;
 }
 
@@ -4533,55 +2795,36 @@ export interface BenefitPointManagementSystem extends ManagementSystem {
 }
 
 export interface PostAttachment extends Attachment {
-
     PostId?: number;
-
     Post?: Partial<Post>;
 }
 
 export interface Post extends Message {
-
     ForumId?: number;
-
     Forum?: Partial<Forum>;
-
     IsPinned?: boolean;
-
     PinnedUntil?: string;
-
     Attachments?: Array<Partial<PostAttachment>>;
 }
 
 export interface Webinar {
-
     Id?: number;
-
     Name?: string;
-
     Url?: string;
-
     StartDate?: string;
 }
 
 export interface LGManagedDomoDataset {
-
     DomoDatasetId?: string;
-
     Id?: number;
 }
 
 export interface DairyDailyClassPrice {
-
     Id?: number;
-
     Class3Price?: number;
-
     Class4Price?: number;
-
     QuoteDate?: string;
-
     Quarter?: Partial<Quarter>;
-
     Year?: number;
 }
 
@@ -4593,30 +2836,19 @@ export enum Quarter {
 }
 
 export interface DairyDailyComponentPrice {
-
     Id?: number;
-
     ButterfatPrice?: number;
-
     ProteinPrice?: number;
-
     OtherFatsPrice?: number;
-
     QuoteDate?: string;
-
     Quarter?: Partial<Quarter>;
-
     Year?: number;
 }
 
 export interface DairyDailyImportFileStatus {
-
     Id?: number;
-
     FileName?: string;
-
     ImportFileStatus?: Partial<DairyImportFileStatus>;
-
     AttemptDate?: string;
 }
 
@@ -4627,83 +2859,47 @@ export enum DairyImportFileStatus {
 }
 
 export interface CoreToEloquaSyncerLogEntry {
-
     Id?: number;
-
     CampaignToCrmAccountLastModifiedDate?: string;
-
     CrmAccountLastModifiedDate?: string;
 }
 
 export interface CrmBulkImport {
-
     Id?: number;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     RecordCount?: number;
-
     SuccessCount?: number;
-
     FileName?: string;
-
     CreatedDate?: string;
-
     CompletedDate?: string;
-
     Failures?: Array<Partial<CrmBulkImportFailure>>;
-
     FailureDate?: string;
-
     FailureReason?: string;
 }
 
 export interface CrmBulkImportFailure {
-
     Id?: number;
-
     AccountName?: string;
-
     BusinessPhone?: string;
-
     ContactTitle?: string;
-
     Website?: string;
-
     ContactFirstName?: string;
-
     ContactLastName?: string;
-
     AccountType?: string;
-
     XDate?: string;
-
     Topic?: string;
-
     Email?: string;
-
     Description?: string;
-
     FollowUpDate?: string;
-
     Street1?: string;
-
     City?: string;
-
     State?: string;
-
     Zip?: string;
-
     CrmBulkImportId?: number;
-
     CrmBulkImport?: Partial<CrmBulkImport>;
-
     Type?: Partial<FailureType>;
-
     DuplicateFieldType?: Partial<DuplicateFieldType>;
-
     ErrorMessage?: string;
 }
 
@@ -4722,22 +2918,15 @@ export enum DuplicateFieldType {
 }
 
 export interface CrmAuditSyncLogEntry {
-
     Id?: number;
-
     CrmInstance?: Partial<CrmInstance>;
-
     EntityType?: string;
-
     Action?: string;
-
     LastSyncDate?: string;
 }
 
 export interface CrmUserPersonRole extends PersonRole {
-
     SystemUserGuid?: string;
-
     CrmInstance?: Partial<CrmInstance>;
 }
 
@@ -4754,15 +2943,10 @@ export interface StatePeopleGroup extends PeopleGroup {
 }
 
 export interface GuestPersonRole extends PersonRole {
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     RequestedByPersonId?: number;
-
     RequestedByPerson?: Partial<Person>;
-
     Description?: string;
 }
 
@@ -4770,12 +2954,10 @@ export interface CarrierCompanyRole extends CompanyRole {
 }
 
 export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
-
     EmailAddressTypes?: Partial<EmailAddressTypes>;
 }
 
 export interface InAppNotificationDeliveryMethod extends NotificationDeliveryMethod {
-
     AppName?: string;
 }
 
@@ -4786,7 +2968,6 @@ export interface CityPeopleGroup extends PeopleGroup {
 }
 
 export interface LogSummaryNotificationMessage extends NotificationMessage {
-
     AppId?: number;
 }
 
@@ -4797,19 +2978,15 @@ export interface NotificationDistrubutionGroupRole extends PersonRole {
 }
 
 export interface LLCCompanyRole extends CompanyRole {
-
     FolderPath?: string;
 }
 
 export interface AuditorCompanyRole extends CompanyRole {
-
     PeopleRoles?: Array<Partial<AuditorPersonRole>>;
 }
 
 export interface AuditorPersonRole extends PersonRole {
-
     AuditorCompanyRoleId?: number;
-
     CompanyRole?: Partial<AuditorCompanyRole>;
 }
 
@@ -4823,149 +3000,92 @@ export interface AutomatedUserRole extends PersonRole {
 }
 
 export interface MergerClosureType extends CompanyRoleClosureType {
-
     MergedWith?: Partial<CompanyRole>;
-
     MergedWithId?: number;
 }
 
 export interface LdapPeopleGroup extends PeopleGroup {
-
     Sid?: string;
 }
 
 export interface StaticNotificationMessage extends NotificationMessage {
-
     Message?: string;
 }
 
 export interface INote {
-
     Text?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
 export interface ITag {
-
     Name?: string;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
 }
 
 export interface ProfilePictureAttachment extends Attachment {
-
     Length?: number;
 }
 
 export interface IAddress {
-
     Street1?: string;
-
     Street2?: string;
-
     City?: string;
-
     State?: string;
-
     Zip?: string;
-
     Country?: string;
-
     County?: string;
-
     Location?: Partial<DbGeography>;
-
     AddressType?: Partial<AddressTypes>;
 }
 
 export interface AgencyRole extends CompanyRole {
-
     FolderPath?: string;
-
     FiscalPeriods?: Array<Partial<FiscalPeriod>>;
 }
 
 export interface FiscalPeriod {
-
     Id?: number;
-
     AgencyRoleId?: number;
-
     AgencyRole?: Partial<AgencyRole>;
-
     MonthOffset?: number;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface UsageStatistic {
-
     MachineId?: string;
-
     ApplicationNameAndVersion?: string;
-
     Is64BitOperatingSystem?: boolean;
-
     Is64BitProcess?: boolean;
-
     OsVersion?: string;
-
     MachineName?: string;
-
     ProcessorCount?: number;
-
     UserDomainName?: string;
-
     Version?: string;
-
     WorkingSet?: number;
-
     CommandLine?: string;
-
     TotalCalls?: number;
-
     LastReported?: string;
-
     Id?: number;
 }
 
 export interface AffiliationRole extends CompanyRole {
-
     Description?: string;
-
     NumberOfYearsOnEarnOut?: number;
-
     State?: Partial<AffiliationRoleState>;
-
     IsDeveloperEntry?: boolean;
-
     AgencyPartner?: Partial<JobRole>;
-
     AgencyPartnerId?: number;
-
     Controller?: Partial<JobRole>;
-
     ControllerId?: number;
-
     CreatorPersonId?: number;
-
     CreatorPerson?: Partial<Person>;
-
     Documents?: Array<Partial<AffiliationRoleAttachment>>;
-
     Reviews?: Array<Partial<AffiliationRoleReview>>;
-
     EffectiveDates?: Array<Partial<AffiliationRoleEffectiveDate>>;
-
     AffiliationRoleNotifications?: Array<Partial<AffiliationRoleNotification>>;
 }
 
@@ -4975,60 +3095,37 @@ export enum AffiliationRoleState {
 }
 
 export interface AffiliationRoleAttachment extends Attachment {
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
-
     AffiliationRole?: Partial<AffiliationRole>;
-
     AffiliationRoleId?: number;
-
     Length?: number;
 }
 
 export interface AffiliationRoleReview {
-
     Id?: number;
-
     AffiliationRole?: Partial<AffiliationRole>;
-
     AffiliationRoleId?: number;
-
     ReviewDate?: string;
-
     PaymentDate?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface AffiliationRoleEffectiveDate {
-
     Id?: number;
-
     AffiliationRole?: Partial<AffiliationRole>;
-
     AffiliationRoleId?: number;
-
     EffectiveDate?: string;
-
     StartDate?: string;
-
     EndDate?: string;
-
     IsExpired?: boolean;
 }
 
 export interface AffiliationRoleNotification extends Notification {
-
     AffiliationRole?: Partial<AffiliationRole>;
-
     AffiliationRoleId?: number;
 }
 
@@ -5036,34 +3133,22 @@ export interface AffiliationContactPersonRole extends PersonRole {
 }
 
 export interface StandardizedLineOfBusiness {
-
     Id?: number;
-
     LineOfBusinessName?: string;
-
     LineOfBusinessCategory?: string;
 }
 
 export interface StandardizedGLDepartment {
-
     Id?: number;
-
     Name?: string;
-
     CleanName?: string;
 }
 
 export interface StandardChartOfAccount {
-
     Id?: number;
-
     GLNumber?: number;
-
     Tier1Description?: string;
-
     Tier2Description?: string;
-
     Tier3Description?: string;
-
     Tier4Description?: string;
 }
