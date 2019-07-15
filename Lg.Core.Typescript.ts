@@ -40,7 +40,7 @@ export interface Person {
     UltiProAccounts?: Array<Partial<PersonUltiProAccount>>;
     Attachments?: Array<Partial<Attachment>>;
     InAppNotifications?: Array<Partial<InAppNotification>>;
-truetruetruetruetrue    Reservations?: Array<Partial<Reservation>>;
+    Reservations?: Array<Partial<Reservation>>;
     ForumAdmins?: Array<Partial<ForumAdmin>>;
     ForumMembers?: Array<Partial<ForumMember>>;
     ForumJoinRequests?: Array<Partial<ForumJoinRequest>>;
