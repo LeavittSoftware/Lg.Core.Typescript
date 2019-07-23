@@ -70,6 +70,7 @@ export interface Person {
     CreatedAnswers?: Array<Partial<EducationAnswer>>;
     CourseAdmins?: Array<Partial<CourseAdmin>>;
     CourseMembers?: Array<Partial<CourseMember>>;
+    CourseReportees?: Array<Partial<CourseReportee>>;
     Reactions?: Array<Partial<Reaction>>;
 }
 
@@ -176,6 +177,7 @@ export interface PeopleGroup extends Group {
     ForumToPeopleGroups?: Array<Partial<ForumToPeopleGroup>>;
     CourseAdminPeopleGroups?: Array<Partial<CourseAdminPeopleGroup>>;
     CourseMemberPeopleGroups?: Array<Partial<CourseMemberPeopleGroup>>;
+    CourseReporteeToPeopleGroups?: Array<Partial<CourseReporteeToPeopleGroup>>;
 }
 
 export interface PersonToPeopleGroup {
@@ -648,6 +650,8 @@ export interface EducationCourse {
     CourseMemberPeopleGroups?: Array<Partial<CourseMemberPeopleGroup>>;
     CourseAdmins?: Array<Partial<CourseAdmin>>;
     CourseAdminPeopleGroups?: Array<Partial<CourseAdminPeopleGroup>>;
+    CourseReportees?: Array<Partial<CourseReportee>>;
+    CourseReporteeToPeopleGroups?: Array<Partial<CourseReporteeToPeopleGroup>>;
     CourseParticipantStatuses?: Array<Partial<CourseParticipantStatus>>;
     Category?: Partial<CourseCategory>;
     CreatorPerson?: Partial<Person>;
@@ -735,6 +739,10 @@ export interface LessonParticipantStatus {
     AttemptStatus?: Partial<LessonAttemptStatus>;
     ActivityDate?: string;
     GradePercentage?: number;
+    Attempts?: number;
+    TimeWatched?: string;
+    TimeToPass?: string;
+    TimeToFail?: string;
     Person?: Partial<Person>;
     Lesson?: Partial<EducationLesson>;
 }
@@ -775,6 +783,38 @@ export interface CourseAdmin {
     Course?: Partial<EducationCourse>;
     CreatorPerson?: Partial<Person>;
     LastModifiedByPerson?: Partial<Person>;
+    IsExpired?: boolean;
+}
+
+export interface CourseReportee {
+    Id?: number;
+    PersonId?: number;
+    CourseId?: number;
+    StartDate?: string;
+    EndDate?: string;
+    CreatorPersonId?: number;
+    LastModifiedDate?: string;
+    LastModifiedByPersonId?: number;
+    Person?: Partial<Person>;
+    Course?: Partial<EducationCourse>;
+    CreatorPerson?: Partial<Person>;
+    LastModifiedByPerson?: Partial<Person>;
+    IsExpired?: boolean;
+}
+
+export interface CourseReporteeToPeopleGroup {
+    Id?: number;
+    PeopleGroupId?: number;
+    CourseId?: number;
+    StartDate?: string;
+    EndDate?: string;
+    CreatorPersonId?: number;
+    LastModifiedDate?: string;
+    LastModifiedByPersonId?: number;
+    PeopleGroup?: Partial<PeopleGroup>;
+    Course?: Partial<EducationCourse>;
+    LastModifiedByPerson?: Partial<Person>;
+    CreatorPerson?: Partial<Person>;
     IsExpired?: boolean;
 }
 
