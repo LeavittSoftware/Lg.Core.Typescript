@@ -2127,7 +2127,7 @@ export interface SalesExpectation {
     IsExpectationsCompleted?: boolean;
     IsBookOfBusinessCompleted?: boolean;
     IsCompleted?: boolean;
-    ProspectiveHireDate?: string;
+    HireDate?: string;
     Status?: Partial<SalesExpectationStatus>;
     ProducerAssumptions?: Array<Partial<ProducerAssumption>>;
     Expectations?: Array<Partial<Expectation>>;
