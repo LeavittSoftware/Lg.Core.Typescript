@@ -750,6 +750,7 @@ export interface LessonParticipantStatus {
 export enum LessonAttemptStatus {
     Pass,
     Fail,
+    InProgress,
 }
 
 export interface CourseMember {
