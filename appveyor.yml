@@ -43,6 +43,6 @@ version: 1.0.{build}
 deploy:
   - provider: GitHub
     auth_token:
-      secure: daa3529b337b89192e53e377fa5e63a96acff683
+      secure: 260b37f47f2fde7ee3f9dde5bc0a5345ee530a46
     on:
       branch: master
