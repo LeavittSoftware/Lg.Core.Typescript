@@ -1,6 +1,6 @@
 {
   "name": "@leavittsoftware/lg-core-typescript",
-  "version": "1.0.0",
+  "version": "1.0.13",
   "description": "Typescript of lg core",
   "main": "Lg.Core.typescript.ts",
   "scripts": {
@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeavittSoftware/Lg.Core.Typescript.git"
+    "url": "https://github.com/LeavittSoftware/Lg.Core.Typescript.git"
   },
-  "author": "",
+  "author": "leavittsoftware",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LeavittSoftware/Lg.Core.Typescript/issues"
