@@ -4,7 +4,8 @@
   "description": "Typescript of lg core",
   "main": "Lg.Core.typescript.ts",
   "scripts": {
-    "build": "tslint \"/*.ts\""
+    "build": "",
+    "lint": "tslint \"/*.ts\""
   },
   "dependencies": {},
   "devDependencies": {
