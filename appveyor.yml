@@ -52,6 +52,6 @@ after_test:
 - ps: >-
         if($env:APPVEYOR_REPO_BRANCH -eq 'master' –AND $env:APPVEYOR_PULL_REQUEST_NUMBER -lt 1) {
           npm whoami  
-          npm publish --access public
+          npm publish
         }
 deploy:
