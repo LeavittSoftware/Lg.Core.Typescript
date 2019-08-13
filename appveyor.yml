@@ -57,6 +57,6 @@ after_test:
 deploy:
   - provider: GitHub
     auth_token:
-      secure: 73BMyeWNs+Y0cyNA2FzsPiO4b93zn8pBdSO/oPc9GvT+znZj4vZAWF0bIu0G6G3i
+      secure: 72a3b3b357595b77093f051b0429154e86ab6aa2
     on:
       branch: master
