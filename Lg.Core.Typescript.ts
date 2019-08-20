@@ -635,6 +635,8 @@ export interface Survey {
     RespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
     CreatorPerson: Partial<Person> | null;
     LastModifiedByPerson: Partial<Person> | null;
+    ExpirationDate: string | null;
+    IsExpired: boolean;
 }
 
 export interface SurveyFeaturedImageAttachment {
@@ -2231,6 +2233,7 @@ export interface DepartmentPeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2279,6 +2282,7 @@ export interface CompanyPeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2302,6 +2306,7 @@ export interface JobRolePeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2325,6 +2330,7 @@ export interface BuildingPeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2354,6 +2360,7 @@ export interface StatePeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2472,6 +2479,7 @@ export interface CityPeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2625,6 +2633,7 @@ export interface LdapPeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -2809,6 +2818,10 @@ export interface LGEmployeeRoleToCompanyAddress {
     EndDate: string | null;
     Id: number;
     IsExpired: boolean;
+    CreatedBy: Partial<Person> | null;
+    CreatedById: number;
+    LastModifiedBy: Partial<Person> | null;
+    LastModifiedById: number | null;
 }
 
 export interface LGEmployeeRoleTitle {
@@ -3079,6 +3092,7 @@ export interface PeopleGroup {
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     Name: string | null;
     Description: string | null;
     CreatedDate: string;
@@ -3333,6 +3347,10 @@ export interface LGEmployeeRole {
     LGEmployeeRoleUltiProAccount: Partial<LGEmployeeRoleUltiProAccount> | null;
     Department: Partial<Department> | null;
     DepartmentId: number | null;
+    CreatedBy: Partial<Person> | null;
+    CreatedById: number;
+    LastModifiedBy: Partial<Person> | null;
+    LastModifiedById: number | null;
     PersonId: number;
     Person: Partial<Person> | null;
     StartDate: string;
@@ -3460,6 +3478,7 @@ export interface Person {
     SurveyAdmins: Array<Partial<SurveyAdmin>> | null;
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
     SurveyResponses: Array<Partial<SurveyResponse>> | null;
+    PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
     Comments: Array<Partial<Comment>> | null;
     Replies: Array<Partial<Reply>> | null;
     Messages: Array<Partial<Message>> | null;
@@ -3651,6 +3670,156 @@ export interface UsageStatistic {
     TotalCalls: number;
     LastReported: string;
     Id: number;
+}
+
+export interface PeopleGroupToWebComponentSlide {
+    Id: number;
+    PeopleGroupId: number;
+    WebComponentSlideId: number;
+    WebComponentSlide: Partial<WebComponentSlide> | null;
+    PeopleGroup: Partial<PeopleGroup> | null;
+}
+
+export interface PersonToWebComponentSlide {
+    Id: number;
+    PersonId: number;
+    WebComponentSlideId: number;
+    WebComponentSlide: Partial<WebComponentSlide> | null;
+    Person: Partial<Person> | null;
+}
+
+export interface WebComponentSlide {
+    Path: string | null;
+    Tag: string | null;
+    PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
+    Id: number;
+    Name: string | null;
+    Duration: string;
+    BackgroundColor: string | null;
+    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
+    BackgroundImageId: number | null;
+    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+}
+
+export interface VideoSlide {
+    YoutubeVideoKey: string | null;
+    Id: number;
+    Name: string | null;
+    Duration: string;
+    BackgroundColor: string | null;
+    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
+    BackgroundImageId: number | null;
+    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+}
+
+export interface ImageSlide {
+    ImageId: number | null;
+    Image: Partial<SlideImageAttachment> | null;
+    Id: number;
+    Name: string | null;
+    Duration: string;
+    BackgroundColor: string | null;
+    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
+    BackgroundImageId: number | null;
+    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+}
+
+export interface SlideImageAttachment {
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+    ImageSlides: Array<Partial<ImageSlide>> | null;
+    BaseUncFileStoragePath: string | null;
+    CreatedDate: string;
+    LastModifiedDate: string;
+    Size: number;
+    Name: string | null;
+    Description: string | null;
+    FileName: string | null;
+    Extension: string | null;
+    ContentType: string | null;
+    Owner: Partial<Person> | null;
+    OwnerId: number;
+    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
+    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
+    AllowGuestReadAccess: boolean;
+    StorageFileName: string | null;
+    File: string | null;
+    Id: number;
+    IsDeleted: boolean;
+    DeletedDate: string | null;
+    DeletedByPersonId: number | null;
+    DeletedByPerson: Partial<Person> | null;
+}
+
+export interface SlideBackgroundImageAttachment {
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+    Slides: Array<Partial<Slide>> | null;
+    BaseUncFileStoragePath: string | null;
+    CreatedDate: string;
+    LastModifiedDate: string;
+    Size: number;
+    Name: string | null;
+    Description: string | null;
+    FileName: string | null;
+    Extension: string | null;
+    ContentType: string | null;
+    Owner: Partial<Person> | null;
+    OwnerId: number;
+    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
+    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
+    AllowGuestReadAccess: boolean;
+    StorageFileName: string | null;
+    File: string | null;
+    Id: number;
+    IsDeleted: boolean;
+    DeletedDate: string | null;
+    DeletedByPersonId: number | null;
+    DeletedByPerson: Partial<Person> | null;
+}
+
+export interface Tv {
+    Id: number;
+    Name: string | null;
+    IPAddress: string | null;
+    Description: string | null;
+    TvGroupId: number | null;
+    TvGroup: Partial<TvGroup> | null;
+}
+
+export interface TvGroup {
+    Id: number;
+    Name: string | null;
+    Tvs: Array<Partial<Tv>> | null;
+    SlideShowId: number | null;
+    SlideShow: Partial<SlideShow> | null;
+}
+
+export interface Slide {
+    Id: number;
+    Name: string | null;
+    Duration: string;
+    BackgroundColor: string | null;
+    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
+    BackgroundImageId: number | null;
+    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+}
+
+export interface SlideShowToSlide {
+    Id: number;
+    Sequence: number;
+    SlideShowId: number;
+    SlideId: number;
+    SlideShow: Partial<SlideShow> | null;
+    Slide: Partial<Slide> | null;
+}
+
+export interface SlideShow {
+    Id: number;
+    Name: string | null;
+    TvGroups: Array<Partial<TvGroup>> | null;
+    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
 }
 
 export interface AffiliationRole {
