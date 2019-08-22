@@ -1223,6 +1223,14 @@ export interface LeaseAttachment {
     DeletedByPerson: Partial<Person> | null;
 }
 
+export interface EmployeeQuestion {
+    Id: number;
+    PersonId: number | null;
+    Question: string | null;
+    PrivacyOption: 'Private'|'Public'|'ShowToPresident';
+    CreatedDate: string;
+}
+
 export interface PostAttachment {
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
