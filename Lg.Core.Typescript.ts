@@ -1499,6 +1499,12 @@ export interface CrmOpportunity {
     TotalRevenue: Partial<number>;
 }
 
+export interface Scope {
+    Description: string | null;
+    Name: string | null;
+    Permissions: Array<Partial<Permission>> | null;
+}
+
 export interface DepartmentPeopleGroup extends PeopleGroup {
 }
 
@@ -2090,6 +2096,8 @@ export interface Permission {
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
     PermissionToPermissionGroups: Array<Partial<PermissionToPermissionGroup>> | null;
     PersonToPermissions: Array<Partial<PersonToPermission>> | null;
+    Scope: Partial<Scope> | null;
+    ScopeId: number | null;
 }
 
 export interface PermissionGroup extends Group, IExpirable {
