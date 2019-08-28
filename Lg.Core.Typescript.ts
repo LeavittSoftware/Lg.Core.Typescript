@@ -4,23 +4,22 @@
 // </auto-generated>
 // ----------------------
 export interface IChangeTracking {
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
     LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
 }
 
 export interface ICreatedBy {
-    CreatorPersonId: number;
     CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
 }
 
 export interface Detail {
-    Name: string | null;
-    Value: string | null;
-    SubCategory: string | null;
-    Section: string | null;
     DataType: 'PhoneNumber'|'Url'|'Currency'|'String'|'DateTime'|'Int';
-    Id: number;
+    Name: string | null;
+    Section: string | null;
+    SubCategory: string | null;
+    Value: string | null;
 }
 
 export interface IIdentity {
@@ -29,343 +28,243 @@ export interface IIdentity {
 
 export interface ResourceLink {
     Id: number;
-    LessonId: number;
     Lesson: Partial<Lesson> | null;
+    LessonId: number;
     Name: string | null;
     Url: string | null;
 }
 
 export interface Answer {
     Id: number;
-    QuestionId: number;
-    Question: Partial<Question> | null;
-    Text: string | null;
     IsCorrect: boolean;
+    Question: Partial<Question> | null;
+    QuestionId: number;
     Sequence: number;
+    Text: string | null;
 }
 
 export interface Course {
-    Id: number;
-    Title: string | null;
-    Lessons: Array<Partial<Lesson>> | null;
-    Sequence: number;
+    Attachments: Array<Partial<CourseAttachment>> | null;
+    CourseToPeople: Array<Partial<CourseToPerson>> | null;
+    CreatedDate: string;
     Description: string | null;
     FeaturedImageUri: string | null;
-    CreatedDate: string;
-    CourseToPeople: Array<Partial<CourseToPerson>> | null;
-    Attachments: Array<Partial<CourseAttachment>> | null;
+    Id: number;
+    Lessons: Array<Partial<Lesson>> | null;
+    Sequence: number;
+    Title: string | null;
 }
 
 export interface CourseToPerson {
-    Id: number;
-    CourseId: number;
-    Course: Partial<Course> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    IsCompleted: boolean;
     CompletedDate: string | null;
+    Course: Partial<Course> | null;
+    CourseId: number;
+    Id: number;
+    IsCompleted: boolean;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface Lesson {
+    Course: Partial<Course> | null;
+    CourseId: number;
+    CreatedDate: string;
     Id: number;
+    LessonToPeople: Array<Partial<LessonToPerson>> | null;
     Name: string | null;
-    VideoLength: string | null;
-    Sequence: number;
-    YoutubeVideoKey: string | null;
-    ResourceFileNames: string | null;
     Questions: Array<Partial<Question>> | null;
     ResourceDownloadUri: string | null;
-    CreatedDate: string;
-    CourseId: number;
-    Course: Partial<Course> | null;
-    LessonToPeople: Array<Partial<LessonToPerson>> | null;
+    ResourceFileNames: string | null;
     ResourceLinks: Array<Partial<ResourceLink>> | null;
+    Sequence: number;
+    VideoLength: string | null;
+    YoutubeVideoKey: string | null;
 }
 
 export interface LessonToPerson {
-    Id: number;
-    LessonId: number;
-    Lesson: Partial<Lesson> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    HasPassed: boolean;
     ActivityDate: string | null;
+    HasPassed: boolean;
+    Id: number;
+    Lesson: Partial<Lesson> | null;
+    LessonId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface Question {
-    Id: number;
-    Text: string | null;
-    Sequence: number;
     Answers: Array<Partial<Answer>> | null;
-    LessonId: number;
+    Id: number;
     Lesson: Partial<Lesson> | null;
+    LessonId: number;
+    Sequence: number;
+    Text: string | null;
     Type: 'SingleSelect'|'MultiSelect';
 }
 
-export interface CourseAttachment {
-    CourseId: number;
+export interface CourseAttachment extends Attachment {
     Course: Partial<Course> | null;
+    CourseId: number;
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
     Type: 'CertificateAttachment'|'CourseAttachment'|'CourseFeaturedImage';
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface Basket {
-    Name: string | null;
     Fruits: Array<Partial<Fruit>> | null;
-    Id: number;
+    Name: string | null;
 }
 
 export interface FruitMold {
-    Name: string | null;
     Fruit: Partial<Fruit> | null;
-    Id: number;
+    Name: string | null;
 }
 
 export interface FruitShape {
-    Name: string | null;
     Fruit: Partial<Fruit> | null;
-    Id: number;
+    Name: string | null;
 }
 
 export interface Fruit {
-    FruitShape: Partial<FruitShape> | null;
-    FruitMold: Partial<FruitMold> | null;
-    BasketId: number | null;
     Basket: Partial<Basket> | null;
-    Pesticides: Array<Partial<Pesticide>> | null;
-    DatetimeSetOnConstructor: string;
-    DatetimeOffetSetOnConstructor: string;
+    BasketId: number | null;
+    Bool1: boolean;
+    Bool1Nullable: boolean | null;
+    Byte1: number;
     Datetime1: string;
     Datetime1Nullable: string | null;
     Datetime2: string;
     Datetime2Nullable: string | null;
-    Name: string | null;
-    Int641: number;
-    Int641Nullable: number | null;
-    Int1: number;
-    Int1Nullable: number | null;
-    Float1: number;
-    Float1Nullable: number | null;
-    Double1: number;
-    Double1Nullable: number | null;
+    DatetimeOffetSetOnConstructor: string;
+    DatetimeSetOnConstructor: string;
     Decimal1: Partial<number>;
     Decimal1Nullable: number | null;
+    Double1: number;
+    Double1Nullable: number | null;
+    FlagEnumSample: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
+    Float1: number;
+    Float1Nullable: number | null;
+    FruitMold: Partial<FruitMold> | null;
+    FruitShape: Partial<FruitShape> | null;
     Guid1: string;
     Guid1Nullable: string | null;
-    Bool1: boolean;
-    Bool1Nullable: boolean | null;
+    Int1: number;
+    Int1Nullable: number | null;
+    Int641: number;
+    Int641Nullable: number | null;
+    Name: string | null;
+    Pesticides: Array<Partial<Pesticide>> | null;
     SeasonAvailable: 'Spring'|'Winter'|'Summer'|'Fall';
     SeasonAvailableNullable: 'Spring'|'Winter'|'Summer'|'Fall' | null;
-    FlagEnumSample: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
-    Byte1: number;
-    Id: number;
 }
 
 export interface Pesticide {
-    Name: string | null;
     Fruits: Array<Partial<Fruit>> | null;
-    Id: number;
+    Name: string | null;
 }
 
-export interface CPACDeduction {
-    Amount: Partial<number>;
-    Verified: string | null;
-    Enacted: string | null;
-    Canceled: string | null;
-    DateCreated: string;
-    Frequency: 'OneTime'|'PerPaycheck'|'Monthly'|'Annually'|'Quarterly';
-    LGEmployeeRoleId: number;
-    LGEmployeeRole: Partial<LGEmployeeRole> | null;
-    Id: number;
+export interface CPACDeduction extends Deduction {
 }
 
 export interface Deduction {
     Amount: Partial<number>;
-    Verified: string | null;
-    Enacted: string | null;
     Canceled: string | null;
     DateCreated: string;
+    Enacted: string | null;
     Frequency: 'OneTime'|'PerPaycheck'|'Monthly'|'Annually'|'Quarterly';
-    LGEmployeeRoleId: number;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
-    Id: number;
+    LGEmployeeRoleId: number;
+    Verified: string | null;
 }
 
-export interface BenefitsToGoCompanyRole {
-    RegistrationKey: string | null;
-    CRMAccountId: string;
+export interface BenefitsToGoCompanyRole extends CompanyRole {
     BenefitsToGoCompanyRoleDetails: Array<Partial<BenefitsToGoCompanyRoleDetail>> | null;
-    Plans: Array<Partial<Plan>> | null;
+    CRMAccountId: string;
     PeopleRoles: Array<Partial<BenefitsToGoPersonRole>> | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    Plans: Array<Partial<Plan>> | null;
+    RegistrationKey: string | null;
 }
 
-export interface BenefitsToGoPersonRole {
-    BenefitsToGoCompanyRoleId: number;
+export interface BenefitsToGoPersonRole extends PersonRole {
     BenefitsToGoCompanyRole: Partial<BenefitsToGoCompanyRole> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    BenefitsToGoCompanyRoleId: number;
 }
 
-export interface BenefitsToGoCompanyRoleDetail {
-    BenefitsToGoCompanyRoleId: number;
+export interface BenefitsToGoCompanyRoleDetail extends Detail {
     BenefitsToGoCompanyRole: Partial<BenefitsToGoCompanyRole> | null;
-    Name: string | null;
-    Value: string | null;
-    SubCategory: string | null;
-    Section: string | null;
-    DataType: 'PhoneNumber'|'Url'|'Currency'|'String'|'DateTime'|'Int';
-    Id: number;
+    BenefitsToGoCompanyRoleId: number;
 }
 
 export interface Plan {
-    PlanType: 'Core'|'Other';
-    CRMPolicyId: string;
-    Category: string | null;
-    Name: string | null;
-    BenefitsToGoCompanyRoleId: number;
     BenefitsToGoCompanyRole: Partial<BenefitsToGoCompanyRole> | null;
+    BenefitsToGoCompanyRoleId: number;
+    Category: string | null;
+    CRMPolicyId: string;
+    Name: string | null;
     PlanDetails: Array<Partial<PlanDetail>> | null;
-    Id: number;
+    PlanType: 'Core'|'Other';
 }
 
-export interface PlanDetail {
-    PlanId: number;
+export interface PlanDetail extends Detail {
     Plan: Partial<Plan> | null;
+    PlanId: number;
     SortOrder: number;
-    Name: string | null;
-    Value: string | null;
-    SubCategory: string | null;
-    Section: string | null;
-    DataType: 'PhoneNumber'|'Url'|'Currency'|'String'|'DateTime'|'Int';
-    Id: number;
 }
 
 export interface LogEntryItem {
-    AutomatedApplicationId: number;
     AutomatedApplication: Partial<AutomatedApplication> | null;
+    AutomatedApplicationId: number;
     DateTime: string;
-    Message: string | null;
-    Source: string | null;
     Instance: string | null;
     Level: 'Info'|'Warn'|'Error';
+    Message: string | null;
+    Source: string | null;
     Type: 'Feedback'|'Summary';
-    Id: number;
 }
 
 export interface AutomatedApplication {
-    Name: string | null;
     LastHeardFromDateTime: string | null;
-    LastRunDateTime: string | null;
     LastHeardFromIp: string | null;
-    StartDate: string;
-    EndDate: string | null;
+    LastRunDateTime: string | null;
     LogEntryItems: Array<Partial<LogEntryItem>> | null;
-    Id: number;
-    IsExpired: boolean;
+    Name: string | null;
 }
 
 export interface EmailTemplate {
-    Id: number;
+    Body: string | null;
     CreatedDate: string;
     Name: string | null;
-    Body: string | null;
-    Subject: string | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
     Recipients: Array<Partial<EmailTemplateRecipient>> | null;
     SendLogs: Array<Partial<EmailTemplateLog>> | null;
+    Subject: string | null;
 }
 
 export interface EmailTemplateLog {
-    Id: number;
-    SentDate: string;
-    IpAddress: string | null;
-    EmailTemplateId: number;
-    EmailTemplate: Partial<EmailTemplate> | null;
     EmailBody: string | null;
-    Subject: string | null;
+    EmailTemplate: Partial<EmailTemplate> | null;
+    EmailTemplateId: number;
+    IpAddress: string | null;
     Recipients: string | null;
+    SentDate: string;
     StatusMessage: string | null;
+    Subject: string | null;
 }
 
 export interface EmailTemplateRecipient {
-    Id: number;
     CreatedDate: string;
-    EmailTemplateId: number;
-    EmailTemplate: Partial<EmailTemplate> | null;
     EmailAddress: string | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
+    EmailTemplate: Partial<EmailTemplate> | null;
+    EmailTemplateId: number;
 }
 
-export interface TeamAttachment {
-    TeamId: number;
-    Team: Partial<Team> | null;
+export interface TeamAttachment extends Attachment {
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
+    Team: Partial<Team> | null;
     TeamAttachmentType: 'TeamPicture';
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
+    TeamId: number;
 }
 
 export interface PrizeToSegment {
-    Id: number;
     Prize: Partial<Prize> | null;
     PrizeId: number;
     Segment: Partial<GameSegment> | null;
@@ -373,922 +272,552 @@ export interface PrizeToSegment {
 }
 
 export interface GameSegment {
-    Id: number;
-    TheGameId: number;
-    TheGame: Partial<TheGameGame> | null;
-    StartDate: string;
     EndDate: string;
+    Id: number;
     Label: string | null;
-    Type: 'PointEntry'|'ExtendedPeriod';
     PrizeToSegments: Array<Partial<PrizeToSegment>> | null;
+    StartDate: string;
+    TheGame: Partial<TheGameGame> | null;
+    TheGameId: number;
+    Type: 'PointEntry'|'ExtendedPeriod';
 }
 
-export interface CrmGamePoint {
-    OpportunityId: string;
+export interface CrmGamePoint extends GamePoint {
     Commission: Partial<number>;
     CommissionFee: Partial<number>;
+    OpportunityId: string;
     SplitPercentage: Partial<number> | null;
-    Id: number;
-    EffectiveDate: string;
-    CreatedDate: string;
-    IsSponsored: boolean;
-    IsSecondSponsored: boolean;
-    Amount: Partial<number>;
-    ClientName: string | null;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    TheGamePlayerPersonRoleId: number;
-    TheGamePlayerPersonRole: Partial<TheGamePlayerPersonRole> | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface GamePoint {
-    Id: number;
-    EffectiveDate: string;
-    CreatedDate: string;
-    IsSponsored: boolean;
-    IsSecondSponsored: boolean;
     Amount: Partial<number>;
     ClientName: string | null;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    TheGamePlayerPersonRoleId: number;
-    TheGamePlayerPersonRole: Partial<TheGamePlayerPersonRole> | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    DeletedByPersonId: number | null;
+    CreatedDate: string;
     DeletedByPerson: Partial<Person> | null;
+    DeletedByPersonId: number | null;
+    DeletedDate: string | null;
+    EffectiveDate: string;
+    IsDeleted: boolean;
+    IsSecondSponsored: boolean;
+    IsSponsored: boolean;
+    TheGamePlayerPersonRole: Partial<TheGamePlayerPersonRole> | null;
+    TheGamePlayerPersonRoleId: number;
 }
 
-export interface GamePrize {
+export interface GamePrize extends Prize {
     GamePrizeType: 'SponsoredPrize'|'TopFiveOverallPrize'|'SponsoredOverallPrize';
-    TheGameGameId: number;
     TheGameGame: Partial<TheGameGame> | null;
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Rank: number;
-    Amount: Partial<number>;
-    PrizeToSegments: Array<Partial<PrizeToSegment>> | null;
+    TheGameGameId: number;
 }
 
 export interface League {
-    Id: number;
+    LeaguePrizes: Array<Partial<LeaguePrize>> | null;
+    LeagueToTeams: Array<Partial<LeagueToTeam>> | null;
     Name: string | null;
     Sequence: number;
-    TheGameGameId: number;
     TheGameGame: Partial<TheGameGame> | null;
-    LeagueToTeams: Array<Partial<LeagueToTeam>> | null;
-    LeaguePrizes: Array<Partial<LeaguePrize>> | null;
+    TheGameGameId: number;
 }
 
-export interface LeaguePrize {
-    LeaguePrizeType: 'TeamPlay'|'Overall'|'OverallSponsored'|'Monthly';
-    LeagueId: number;
+export interface LeaguePrize extends Prize {
     League: Partial<League> | null;
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Rank: number;
-    Amount: Partial<number>;
-    PrizeToSegments: Array<Partial<PrizeToSegment>> | null;
+    LeagueId: number;
+    LeaguePrizeType: 'TeamPlay'|'Overall'|'OverallSponsored'|'Monthly';
 }
 
 export interface LeagueToTeam {
-    Id: number;
-    TeamId: number;
-    Team: Partial<Team> | null;
-    LeagueId: number;
     League: Partial<League> | null;
-    SegmentId: number;
+    LeagueId: number;
     Segment: Partial<GameSegment> | null;
+    SegmentId: number;
+    Team: Partial<Team> | null;
+    TeamId: number;
 }
 
 export interface Prize {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Rank: number;
     Amount: Partial<number>;
     PrizeToSegments: Array<Partial<PrizeToSegment>> | null;
+    Rank: number;
 }
 
 export interface Team {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Name: string | null;
-    TeamPictureAttachments: Array<Partial<TeamAttachment>> | null;
     LeagueToTeams: Array<Partial<LeagueToTeam>> | null;
     Members: Array<Partial<TheGamePlayerPersonRole>> | null;
+    Name: string | null;
+    TeamPictureAttachments: Array<Partial<TeamAttachment>> | null;
 }
 
 export interface TheGameGame {
-    Id: number;
-    Type: 'CL'|'PL';
-    StartDate: string;
     EndDate: string;
     GracePeriodTicks: number;
-    IsExpired: boolean;
-    IsDevelopment: boolean;
     IsBlackedOut: boolean;
-    Prizes: Array<Partial<GamePrize>> | null;
+    IsDevelopment: boolean;
+    IsExpired: boolean;
     Leagues: Array<Partial<League>> | null;
+    Prizes: Array<Partial<GamePrize>> | null;
     RegistrationPersonRoles: Array<Partial<TheGameRegistrationPersonRole>> | null;
     Segments: Array<Partial<GameSegment>> | null;
+    StartDate: string;
+    Type: 'CL'|'PL';
 }
 
-export interface TheGameRegistrationPersonRole {
-    TheGameId: number;
-    TheGame: Partial<TheGameGame> | null;
+export interface TheGameRegistrationPersonRole extends PersonRole {
     RegistrationNote: string | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    TheGame: Partial<TheGameGame> | null;
+    TheGameId: number;
 }
 
-export interface TheGamePlayerPersonRole {
+export interface TheGamePlayerPersonRole extends PersonRole {
     IsTeamCaptain: boolean;
-    TeamId: number;
-    Team: Partial<Team> | null;
     Points: Array<Partial<GamePoint>> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    Team: Partial<Team> | null;
+    TeamId: number;
 }
 
 export interface SurveyRespondentStatus {
-    Id: number;
-    SurveyId: number;
-    PersonId: number;
     CompletedDate: string;
-    Survey: Partial<Survey> | null;
     Person: Partial<Person> | null;
+    PersonId: number;
+    Survey: Partial<Survey> | null;
+    SurveyId: number;
 }
 
 export interface SurveyRespondentToPeopleGroup {
-    Id: number;
-    PeopleGroupId: number;
-    SurveyId: number;
     PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
     Survey: Partial<Survey> | null;
+    SurveyId: number;
 }
 
 export interface SurveyAdminToPeopleGroup {
-    Id: number;
-    PeopleGroupId: number;
-    SurveyId: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
     PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
     Survey: Partial<Survey> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    CreatorPerson: Partial<Person> | null;
-    IsExpired: boolean;
+    SurveyId: number;
 }
 
 export interface SurveyAdmin {
-    Id: number;
-    PersonId: number;
-    SurveyId: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
     Person: Partial<Person> | null;
+    PersonId: number;
     Survey: Partial<Survey> | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    IsExpired: boolean;
+    SurveyId: number;
 }
 
 export interface SurveyRespondent {
-    Id: number;
-    PersonId: number;
-    SurveyId: number;
-    Survey: Partial<Survey> | null;
     Person: Partial<Person> | null;
+    PersonId: number;
+    Survey: Partial<Survey> | null;
+    SurveyId: number;
 }
 
 export interface SurveyResponse {
-    Id: number;
-    QuestionId: number;
     AnswerText: string | null;
     Comment: string | null;
-    PersonId: number | null;
     Person: Partial<Person> | null;
+    PersonId: number | null;
     Question: Partial<SurveyQuestion> | null;
+    QuestionId: number;
 }
 
 export interface SurveyAnswer {
-    Id: number;
-    QuestionId: number;
-    Text: string | null;
-    Sequence: number;
-    CreatorPersonId: number;
     CreatedDate: string;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
     Question: Partial<SurveyQuestion> | null;
+    QuestionId: number;
+    Sequence: number;
+    Text: string | null;
 }
 
 export interface Survey {
-    Id: number;
-    Name: string | null;
-    FeaturedImageId: number | null;
-    FeaturedImage: Partial<SurveyFeaturedImageAttachment> | null;
-    Description: string | null;
-    CreatedDate: string;
-    Sequence: number;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    IsAnonymous: boolean;
-    Questions: Array<Partial<SurveyQuestion>> | null;
-    Respondents: Array<Partial<SurveyRespondent>> | null;
-    RespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
     Admins: Array<Partial<SurveyAdmin>> | null;
     AdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    RespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
+    CreatedDate: string;
+    Description: string | null;
     ExpirationDate: string | null;
+    FeaturedImage: Partial<SurveyFeaturedImageAttachment> | null;
+    FeaturedImageId: number | null;
+    IsAnonymous: boolean;
     IsExpired: boolean;
+    Name: string | null;
+    Questions: Array<Partial<SurveyQuestion>> | null;
+    Respondents: Array<Partial<SurveyRespondent>> | null;
+    RespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
+    RespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
+    Sequence: number;
 }
 
-export interface SurveyFeaturedImageAttachment {
+export interface SurveyFeaturedImageAttachment extends Attachment {
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
     Surveys: Array<Partial<Survey>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface SurveyQuestion {
-    Id: number;
-    Text: string | null;
-    Sequence: number;
-    SurveyId: number;
-    LastModifiedByPersonId: number | null;
-    Type: 'SingleSelect'|'MultiSelect'|'Text';
-    IsRequired: boolean;
     AllowComments: boolean;
-    CreatorPersonId: number;
-    CreatedDate: string;
-    LastModifiedDate: string | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    CreatorPerson: Partial<Person> | null;
-    Survey: Partial<Survey> | null;
     Answers: Array<Partial<SurveyAnswer>> | null;
+    CreatedDate: string;
+    IsRequired: boolean;
     Responses: Array<Partial<SurveyResponse>> | null;
+    Sequence: number;
+    Survey: Partial<Survey> | null;
+    SurveyId: number;
+    Text: string | null;
+    Type: 'SingleSelect'|'MultiSelect'|'Text';
 }
 
 export interface Surge {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Name: string | null;
-    Rules: string | null;
-    IsDevSurge: boolean;
-    IntermissionLength: string;
-    SegmentLength: string;
-    NumSegments: number;
-    GameOverDate: string | null;
-    IsGameOver: boolean;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
     EnableFirebase: boolean;
+    GameOverDate: string | null;
+    IntermissionLength: string;
+    IsCorporate: boolean;
+    IsDevSurge: boolean;
+    IsGameOver: boolean;
+    Name: string | null;
+    NumSegments: number;
     Pauses: Array<Partial<SurgePause>> | null;
     RegisteredUsers: Array<Partial<SurgeRegisteredRole>> | null;
-    Teams: Array<Partial<SurgeTeam>> | null;
-    SurgePrizes: Array<Partial<SurgePrize>> | null;
+    Rules: string | null;
+    SegmentLength: string;
     SurgeAdminPersonRoles: Array<Partial<SurgeAdminPersonRole>> | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    IsCorporate: boolean;
+    SurgePrizes: Array<Partial<SurgePrize>> | null;
+    Teams: Array<Partial<SurgeTeam>> | null;
     Type: 'Standard'|'ConnectAndSell';
 }
 
 export interface SurgePoint {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Name: string | null;
-    IsVisited: boolean;
-    Date: string;
-    CrmAccountId: string | null;
-    SurgePlayerPersonRoleId: number;
-    SurgePlayerPersonRole: Partial<SurgePlayerPersonRole> | null;
-    EndedByPersonId: number | null;
-    EndedByPerson: Partial<Person> | null;
-    CreatedByPersonId: number;
     CreatedByPerson: Partial<Person> | null;
-    Type: 'Appointment'|'FollowUp';
+    CreatedByPersonId: number;
+    CrmAccountId: string | null;
+    Date: string;
+    EndedByPerson: Partial<Person> | null;
+    EndedByPersonId: number | null;
+    IsVisited: boolean;
+    Name: string | null;
     Points: number;
+    SurgePlayerPersonRole: Partial<SurgePlayerPersonRole> | null;
+    SurgePlayerPersonRoleId: number;
+    Type: 'Appointment'|'FollowUp';
 }
 
 export interface SurgePause {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
     Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface SurgeAdminPersonRole {
+export interface SurgeAdminPersonRole extends PersonRole {
     SurgeId: number;
     TheSurge: Partial<Surge> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
-export interface SurgePlayerPersonRole {
-    SurgeTeamId: number;
-    SurgeTeam: Partial<SurgeTeam> | null;
-    Points: Array<Partial<SurgePoint>> | null;
-    IndividualTotalPoints: number;
-    IndividualRank: number;
+export interface SurgePlayerPersonRole extends PersonRole {
     IndividualPrizeAmount: Partial<number>;
-    TopOnTeamRank: number;
-    TopOnTeamPrizeAmount: Partial<number>;
+    IndividualRank: number;
+    IndividualTotalPoints: number;
+    Points: Array<Partial<SurgePoint>> | null;
+    SurgeTeam: Partial<SurgeTeam> | null;
+    SurgeTeamId: number;
     TeamPrizePortion: Partial<number>;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    TopOnTeamPrizeAmount: Partial<number>;
+    TopOnTeamRank: number;
 }
 
 export interface SurgePrize {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Rank: number;
     Amount: Partial<number>;
-    Type: 'TopOnTeam'|'TopTeams'|'TopIndividual'|'MostVisited';
-    SurgeId: number;
+    Rank: number;
     Surge: Partial<Surge> | null;
+    SurgeId: number;
+    Type: 'TopOnTeam'|'TopTeams'|'TopIndividual'|'MostVisited';
 }
 
-export interface SurgeRegisteredRole {
-    SurgeId: number;
+export interface SurgeRegisteredRole extends PersonRole {
     Surge: Partial<Surge> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    SurgeId: number;
 }
 
 export interface SurgeTeam {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Name: string | null;
-    Rank: number;
-    PrizeAmount: Partial<number>;
-    TotalPoints: number;
     Members: Array<Partial<SurgePlayerPersonRole>> | null;
-    SurgeId: number;
+    Name: string | null;
+    PrizeAmount: Partial<number>;
+    Rank: number;
     Surge: Partial<Surge> | null;
+    SurgeId: number;
+    TotalPoints: number;
 }
 
-export interface HolidayPartyReservation {
+export interface HolidayPartyReservation extends Reservation {
     HolidayPartyIdentifier: number;
-    Id: number;
-    RsvpDate: string;
-    CancellationDate: string | null;
-    NumberAttending: number;
-    ConfirmationCode: string | null;
-    Person: Partial<Person> | null;
-    PersonId: number;
 }
 
 export interface Reservation {
-    Id: number;
-    RsvpDate: string;
     CancellationDate: string | null;
-    NumberAttending: number;
     ConfirmationCode: string | null;
+    NumberAttending: number;
     Person: Partial<Person> | null;
     PersonId: number;
+    RsvpDate: string;
 }
 
 export interface CReportComment {
-    Id: number;
     Body: string | null;
-    ReportDate: string;
-    CompanyId: number;
     Company: Partial<Company> | null;
+    CompanyId: number;
+    Id: number;
     IsCompleted: boolean;
-    CreatedDate: string;
-    LastModifiedById: number;
     LastModifiedBy: Partial<Person> | null;
-    LastModifiedDate: string;
+    LastModifiedById: number;
+    ReportDate: string;
 }
 
 export interface FailReason {
     Id: number;
-    SalesExpectationStatusId: number;
-    SalesExpectationStatus: Partial<SalesExpectationStatus> | null;
     Message: string | null;
+    SalesExpectationStatus: Partial<SalesExpectationStatus> | null;
+    SalesExpectationStatusId: number;
 }
 
-export interface ProspectiveProducerRole {
+export interface ProspectiveProducerRole extends PersonRole {
     CompanyAddress: Partial<CompanyAddress> | null;
     CompanyAddressId: number | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
 export interface SalesExpectation {
-    Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    IsProducerAssumptionsCompleted: boolean;
-    IsExpectationsCompleted: boolean;
+    BoBComposition: Array<Partial<BoBComposition>> | null;
+    CreatedDate: string;
+    Expectations: Array<Partial<Expectation>> | null;
+    HireDate: string | null;
     IsBookOfBusinessCompleted: boolean;
     IsCompleted: boolean;
-    HireDate: string | null;
-    Status: Partial<SalesExpectationStatus> | null;
-    ProducerAssumptions: Array<Partial<ProducerAssumption>> | null;
-    Expectations: Array<Partial<Expectation>> | null;
-    BoBComposition: Array<Partial<BoBComposition>> | null;
-    ProducerCommissionRates: Array<Partial<ProducerCommissionRate>> | null;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
+    IsExpectationsCompleted: boolean;
+    IsProducerAssumptionsCompleted: boolean;
     LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    ProducerAssumptions: Array<Partial<ProducerAssumption>> | null;
+    ProducerCommissionRates: Array<Partial<ProducerCommissionRate>> | null;
+    Status: Partial<SalesExpectationStatus> | null;
 }
 
 export interface BoBComposition {
-    Id: number;
-    SalesExpectationId: number;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
     CompositionPercent: number;
-    InstallmentPercent: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
     CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
+    InstallmentPercent: number;
     LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
 }
 
 export interface Expectation {
-    Id: number;
-    SalesExpectationId: number;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    WrittenNewAmount: number;
-    DrawAmount: number;
-    SubsidyAmount: number;
-    ReportDate: string;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
     CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
+    DrawAmount: number;
     LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    ReportDate: string;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    SubsidyAmount: number;
+    WrittenNewAmount: number;
 }
 
 export interface ProducerAssumption {
-    Id: number;
-    SalesExpectationId: number;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    RetentionPercent: number;
     AssignedBook: number;
     AverageAccountSize: number;
-    QFAToCloseRatio: number;
+    CreatedDate: string;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
     NewToIndustry: boolean;
     NewToSales: boolean;
+    QFAToCloseRatio: number;
+    RetentionPercent: number;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
     TalentSearch: boolean;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedByPerson: Partial<Person> | null;
 }
 
 export interface AgencyCommissionRate {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
     CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
-    TransactionType: 'NewBusiness'|'RenewPolicy';
-    Rate: number;
-    CompanyId: number;
     Company: Partial<Company> | null;
+    CompanyId: number;
     CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
     LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    Rate: number;
+    TransactionType: 'NewBusiness'|'RenewPolicy';
 }
 
 export interface ProducerCommissionRate {
-    Id: number;
-    SalesExpectationId: number;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedByPerson: Partial<Person> | null;
+    CommissionPercent: number;
     CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
-    TransactionType: 'NewBusiness'|'RenewPolicy';
+    CreatedDate: string;
     EffectiveDate: string;
     ExpirationDate: string;
-    CommissionPercent: number;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    TransactionType: 'NewBusiness'|'RenewPolicy';
 }
 
 export interface SalesExpectationStatus {
-    Id: number;
-    SalesExpectation: Partial<SalesExpectation> | null;
     ApprovalDate: string | null;
-    ApproverId: number | null;
     Approver: Partial<Person> | null;
-    ReviewRequestDate: string | null;
-    ReviewRequesterId: number | null;
-    ReviewRequester: Partial<Person> | null;
-    ReviewerId: number | null;
-    Reviewer: Partial<Person> | null;
-    StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
-    ReviewerMessage: string | null;
+    ApproverId: number | null;
     FailReasons: Array<Partial<FailReason>> | null;
+    Id: number;
+    Reviewer: Partial<Person> | null;
+    ReviewerId: number | null;
+    ReviewerMessage: string | null;
+    ReviewRequestDate: string | null;
+    ReviewRequester: Partial<Person> | null;
+    ReviewRequesterId: number | null;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
 export interface ManualEntryBranchCode {
     Code: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    ManualEntryManagementSystemId: number;
     ManualEntryManagementSystem: Partial<ManualEntryManagementSystem> | null;
-    Id: number;
-    IsExpired: boolean;
+    ManualEntryManagementSystemId: number;
 }
 
 export interface ManualEntryGlDivCode {
     Code: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    ManualEntryManagementSystemId: number;
     ManualEntryManagementSystem: Partial<ManualEntryManagementSystem> | null;
-    Id: number;
-    IsExpired: boolean;
+    ManualEntryManagementSystemId: number;
 }
 
 export interface ManualEntryManagementSystem {
-    GlDivCodes: Array<Partial<ManualEntryGlDivCode>> | null;
     BranchCodes: Array<Partial<ManualEntryBranchCode>> | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    DatabaseName: string | null;
-    ManagementSystemDatabaseServerId: number | null;
-    ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
-    ManagementSystemApiId: number | null;
-    ManagementSystemApi: Partial<ManagementSystemApi> | null;
-    SupplementalProducerCodes: Array<Partial<SupplementalProducerCode>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
+    GlDivCodes: Array<Partial<ManualEntryGlDivCode>> | null;
 }
 
 export interface SageManagementSystem {
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    DatabaseName: string | null;
-    ManagementSystemDatabaseServerId: number | null;
-    ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
-    ManagementSystemApiId: number | null;
-    ManagementSystemApi: Partial<ManagementSystemApi> | null;
-    SupplementalProducerCodes: Array<Partial<SupplementalProducerCode>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
 }
 
 export interface Ams360BranchCode {
-    Code: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Ams360ManagementSystemId: number;
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
-    Id: number;
-    IsExpired: boolean;
+    Ams360ManagementSystemId: number;
+    Code: string | null;
 }
 
 export interface Ams360GlDivCode {
-    Code: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Ams360ManagementSystemId: number;
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
-    Id: number;
-    IsExpired: boolean;
+    Ams360ManagementSystemId: number;
+    Code: string | null;
 }
 
 export interface BenefitPointManagementSystem {
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    DatabaseName: string | null;
-    ManagementSystemDatabaseServerId: number | null;
-    ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
-    ManagementSystemApiId: number | null;
-    ManagementSystemApi: Partial<ManagementSystemApi> | null;
-    SupplementalProducerCodes: Array<Partial<SupplementalProducerCode>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
 }
 
 export interface Ams360ManagementSystem {
     Ams360ApiAgencyNumber: string | null;
-    GlDivCodes: Array<Partial<Ams360GlDivCode>> | null;
-    BranchCodes: Array<Partial<Ams360BranchCode>> | null;
     Ams360Users: Array<Partial<Ams360UserPersonRole>> | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    DatabaseName: string | null;
-    ManagementSystemDatabaseServerId: number | null;
-    ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
-    ManagementSystemApiId: number | null;
-    ManagementSystemApi: Partial<ManagementSystemApi> | null;
-    SupplementalProducerCodes: Array<Partial<SupplementalProducerCode>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
+    BranchCodes: Array<Partial<Ams360BranchCode>> | null;
+    GlDivCodes: Array<Partial<Ams360GlDivCode>> | null;
 }
 
 export interface Ams360UserBranchCode {
-    Code: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Ams360UserPersonRoleId: number;
     Ams360UserPersonRole: Partial<Ams360UserPersonRole> | null;
-    Id: number;
-    IsExpired: boolean;
+    Ams360UserPersonRoleId: number;
+    Code: string | null;
 }
 
 export interface Ams360UserGlDivCode {
-    Code: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Ams360UserPersonRoleId: number;
     Ams360UserPersonRole: Partial<Ams360UserPersonRole> | null;
-    Id: number;
-    IsExpired: boolean;
+    Ams360UserPersonRoleId: number;
+    Code: string | null;
 }
 
-export interface Ams360UserPersonRole {
-    EmpCode: string | null;
-    Ams360ManagementSystemId: number | null;
+export interface Ams360UserPersonRole extends PersonRole {
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
+    Ams360ManagementSystemId: number | null;
     BranchCodes: Array<Partial<Ams360UserBranchCode>> | null;
+    EmpCode: string | null;
     GlCodes: Array<Partial<Ams360UserGlDivCode>> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
 export interface ManagementSystemApi {
+    ManagementSystems: Array<Partial<ManagementSystem>> | null;
     Name: string | null;
-    Username: string | null;
     Password: string | null;
     Url: string | null;
-    ManagementSystems: Array<Partial<ManagementSystem>> | null;
-    Id: number;
+    Username: string | null;
 }
 
 export interface ManagementSystem {
-    CompanyId: number;
     Company: Partial<Company> | null;
+    CompanyId: number;
     DatabaseName: string | null;
-    ManagementSystemDatabaseServerId: number | null;
-    ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
-    ManagementSystemApiId: number | null;
     ManagementSystemApi: Partial<ManagementSystemApi> | null;
+    ManagementSystemApiId: number | null;
+    ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
+    ManagementSystemDatabaseServerId: number | null;
     SupplementalProducerCodes: Array<Partial<SupplementalProducerCode>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
 }
 
 export interface ManagementSystemDatabaseServer {
-    Name: string | null;
-    Username: string | null;
-    Password: string | null;
     Ip: string | null;
     ManagementSystems: Array<Partial<ManagementSystem>> | null;
-    Id: number;
+    Name: string | null;
+    Password: string | null;
+    Username: string | null;
 }
 
 export interface Lease {
-    Id: number;
     CompanyAddress: Partial<CompanyAddress> | null;
-    RenewalDate: string | null;
-    LeaseExpirationDate: string | null;
-    SquareFootage: Partial<number> | null;
     HoldoverPercentage: Partial<number> | null;
-    Notes: string | null;
-    LastModifiedDate: string | null;
+    Id: number;
+    LandlordType: 'ThirdParty'|'LLC'|'CoOwner' | null;
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
-    LandlordType: 'ThirdParty'|'LLC'|'CoOwner' | null;
+    LastModifiedDate: string | null;
     LeaseAttachments: Array<Partial<LeaseAttachment>> | null;
+    LeaseExpirationDate: string | null;
+    Notes: string | null;
+    RenewalDate: string | null;
+    SquareFootage: Partial<number> | null;
 }
 
-export interface LeaseAttachment {
-    LeaseId: number;
-    Lease: Partial<Lease> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+export interface LeaseAttachment extends Attachment, IExpirable {
     FolderName: string | null;
+    Lease: Partial<Lease> | null;
+    LeaseId: number;
     StorageFileNameAndPath: string | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface EmployeeQuestion {
+    CreatedDate: string;
     Id: number;
     PersonId: number | null;
-    Question: string | null;
     PrivacyOption: 'Private'|'Public'|'ShowToPresident';
-    CreatedDate: string;
+    Question: string | null;
 }
 
-export interface PostAttachment {
+export interface PostAttachment extends Attachment {
     FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-    PostId: number;
     Post: Partial<Post> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
+    PostId: number;
+    StorageFileNameAndPath: string | null;
 }
 
-export interface TrackableAttachment {
+export interface TrackableAttachment extends Attachment {
     DownloadedBy: Array<Partial<TrackableAttachmentToPerson>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface TrackableAttachmentToPerson {
+    DownloadDate: string;
     Id: number;
     Person: Partial<Person> | null;
     PersonId: number;
-    DownloadDate: string;
     TrackableAttachment: Partial<TrackableAttachment> | null;
     TrackableAttachmentId: number;
 }
@@ -1296,1630 +825,1008 @@ export interface TrackableAttachmentToPerson {
 export interface Webinar {
     Id: number;
     Name: string | null;
-    Url: string | null;
     StartDate: string;
+    Url: string | null;
 }
 
 export interface Folder {
+    CreatedDate: string;
     Id: number;
     Name: string | null;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
 }
 
-export interface ForumAttachment {
-    ForumId: number;
-    Forum: Partial<Forum> | null;
-    ForumFolderId: number | null;
-    ForumFolder: Partial<ForumFolder> | null;
-    IsPinned: boolean;
+export interface ForumAttachment extends TrackableAttachment {
     FolderName: string | null;
+    Forum: Partial<Forum> | null;
+    ForumFolder: Partial<ForumFolder> | null;
+    ForumFolderId: number | null;
+    ForumId: number;
+    IsPinned: boolean;
     StorageFileNameAndPath: string | null;
-    DownloadedBy: Array<Partial<TrackableAttachmentToPerson>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface Comment {
-    Id: number;
     Body: string | null;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    MessageId: number;
-    Message: Partial<Message> | null;
-    Replies: Array<Partial<Reply>> | null;
     CommentReactions: Array<Partial<CommentReaction>> | null;
-    MessageNotificationToComments: Array<Partial<MessageNotificationToComment>> | null;
-}
-
-export interface CommentReaction {
-    CommentId: number;
-    Comment: Partial<Comment> | null;
-    Id: number;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
     CreatedDate: string;
-    Type: 'Like';
-    MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    DeletedDate: string | null;
+    Id: number;
+    IsDeleted: boolean;
+    Message: Partial<Message> | null;
+    MessageId: number;
+    MessageNotificationToComments: Array<Partial<MessageNotificationToComment>> | null;
+    Replies: Array<Partial<Reply>> | null;
 }
 
-export interface ForumFolder {
-    ForumId: number;
+export interface CommentReaction extends Reaction {
+    Comment: Partial<Comment> | null;
+    CommentId: number;
+}
+
+export interface ForumFolder extends Folder {
     Forum: Partial<Forum> | null;
-    ParentFolderId: number | null;
-    ParentFolder: Partial<ForumFolder> | null;
-    IsReadOnly: boolean;
     ForumAttachments: Array<Partial<ForumAttachment>> | null;
     ForumFolders: Array<Partial<ForumFolder>> | null;
-    Id: number;
-    Name: string | null;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
+    ForumId: number;
+    IsReadOnly: boolean;
+    ParentFolder: Partial<ForumFolder> | null;
+    ParentFolderId: number | null;
 }
 
 export interface ForumSetting {
-    Id: number;
-    ForumId: number;
     Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
     Type: 'SendEmailNotificationsOnPost';
 }
 
 export interface ForumOptOut {
-    Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    ForumId: number;
-    Forum: Partial<Forum> | null;
     Date: string;
+    Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
     Type: 'Email';
 }
 
 export interface Forum {
-    Id: number;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    Description: string | null;
-    Name: string | null;
-    CreatedDate: string;
-    Type: 'Private'|'Public'|'Hidden';
-    Posts: Array<Partial<Post>> | null;
     Admins: Array<Partial<ForumAdmin>> | null;
-    Members: Array<Partial<ForumMember>> | null;
-    PeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    Settings: Array<Partial<ForumSetting>> | null;
-    JoinRequests: Array<Partial<ForumJoinRequest>> | null;
-    OptOuts: Array<Partial<ForumOptOut>> | null;
-    ForumViews: Array<Partial<ForumView>> | null;
+    CreatedDate: string;
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    Description: string | null;
     ForumAttachments: Array<Partial<ForumAttachment>> | null;
     ForumFolders: Array<Partial<ForumFolder>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    ForumViews: Array<Partial<ForumView>> | null;
+    Id: number;
+    JoinRequests: Array<Partial<ForumJoinRequest>> | null;
+    Members: Array<Partial<ForumMember>> | null;
+    Name: string | null;
+    OptOuts: Array<Partial<ForumOptOut>> | null;
+    PeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
+    Posts: Array<Partial<Post>> | null;
+    Settings: Array<Partial<ForumSetting>> | null;
+    Type: 'Private'|'Public'|'Hidden';
 }
 
 export interface ForumAdmin {
-    Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    ForumId: number;
     Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
     Permissions: 'ManageLockedFolders'|'ManageForumAdmins'|'ManageMessages'|'ManageForumMembers'|'DeleteForum'|'EditForum'|'PostPinner'|'All';
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface ForumJoinRequest {
-    Id: number;
-    ForumId: number;
-    Forum: Partial<Forum> | null;
-    RequesterPersonId: number;
-    RequesterPerson: Partial<Person> | null;
-    EmailSentDate: string | null;
-    Status: 'Pending'|'Accepted'|'Rejected'|'Canceled';
-    DeciderPersonId: number | null;
     DeciderPerson: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    DeciderPersonId: number | null;
+    EmailSentDate: string | null;
+    Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
+    RequesterPerson: Partial<Person> | null;
+    RequesterPersonId: number;
+    Status: 'Pending'|'Accepted'|'Rejected'|'Canceled';
 }
 
 export interface ForumMember {
-    Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    ForumId: number;
     Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface ForumToPeopleGroup {
-    Id: number;
-    PeopleGroupId: number;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    ForumId: number;
     Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
 }
 
 export interface ForumView {
-    Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    ForumId: number;
     Forum: Partial<Forum> | null;
+    ForumId: number;
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
     VisitedDate: string;
 }
 
 export interface QuickLink {
+    CreatedDate: string;
     Id: number;
     Name: string | null;
-    PersonId: number;
     Person: Partial<Person> | null;
+    PersonId: number;
     Type: 'Internal'|'External';
     Url: string | null;
-    CreatedDate: string;
 }
 
 export interface MessageNotificationToReaction {
     Id: number;
-    MessageNotificationId: number;
     MessageNotification: Partial<MessageNotification> | null;
-    ReactionId: number;
+    MessageNotificationId: number;
     Reaction: Partial<Reaction> | null;
+    ReactionId: number;
 }
 
 export interface MessageNotificationToComment {
-    Id: number;
-    MessageNotificationId: number;
-    MessageNotification: Partial<MessageNotification> | null;
-    CommentId: number;
     Comment: Partial<Comment> | null;
+    CommentId: number;
+    Id: number;
+    MessageNotification: Partial<MessageNotification> | null;
+    MessageNotificationId: number;
 }
 
 export interface MessageNotificationToReply {
     Id: number;
-    MessageNotificationId: number;
     MessageNotification: Partial<MessageNotification> | null;
-    ReplyId: number;
+    MessageNotificationId: number;
     Reply: Partial<Reply> | null;
+    ReplyId: number;
 }
 
 export interface HomeUserAnalytic {
     Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
     LastNotificationBellTapDate: string;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface Message {
-    Id: number;
-    Body: string | null;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
     ActivityDate: string;
-    PublishDate: string;
+    Body: string | null;
+    Comments: Array<Partial<Comment>> | null;
+    CreatedDate: string;
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    DeletedDate: string | null;
+    Id: number;
     IsDeleted: boolean;
     IsDraft: boolean;
-    DeletedDate: string | null;
     LastEditedDate: string | null;
-    Reactions: Array<Partial<MessageReaction>> | null;
-    Comments: Array<Partial<Comment>> | null;
     MessageNotifications: Array<Partial<MessageNotification>> | null;
+    PublishDate: string;
+    Reactions: Array<Partial<MessageReaction>> | null;
 }
 
-export interface MessageReaction {
-    MessageId: number;
+export interface MessageReaction extends Reaction {
     Message: Partial<Message> | null;
-    Id: number;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
-    Type: 'Like';
-    MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
+    MessageId: number;
 }
 
 export interface MessageNotification {
-    Id: number;
-    MessageId: number;
-    Message: Partial<Message> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
     ActivityDate: string;
-    Type: 'NewMessage'|'MessageActivity';
+    Id: number;
     IsRead: boolean;
-    ReadDate: string | null;
-    MessageNotificationToReplies: Array<Partial<MessageNotificationToReply>> | null;
+    Message: Partial<Message> | null;
+    MessageId: number;
     MessageNotificationToComments: Array<Partial<MessageNotificationToComment>> | null;
     MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
+    MessageNotificationToReplies: Array<Partial<MessageNotificationToReply>> | null;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    ReadDate: string | null;
+    Type: 'NewMessage'|'MessageActivity';
 }
 
-export interface News {
-    Title: string | null;
-    ShortDescription: string | null;
-    LinkUri: string | null;
-    Type: 'Announcement'|'Article'|'ExternalArticle';
-    ShowInCarousel: boolean;
-    FeaturedImageAttachmentId: number | null;
-    FeaturedImageAttachment: Partial<NewsAttachment> | null;
-    ShowInCarouselUntilDate: string | null;
-    AuthorId: number | null;
+export interface News extends Message {
+    Attachments: Array<Partial<NewsAttachment>> | null;
     Author: Partial<Person> | null;
+    AuthorId: number | null;
+    FeaturedImageAttachment: Partial<NewsAttachment> | null;
+    FeaturedImageAttachmentId: number | null;
+    LinkUri: string | null;
     PeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
     Recipients: Array<Partial<NewsRecipient>> | null;
-    Attachments: Array<Partial<NewsAttachment>> | null;
-    Id: number;
-    Body: string | null;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
-    ActivityDate: string;
-    PublishDate: string;
-    IsDeleted: boolean;
-    IsDraft: boolean;
-    DeletedDate: string | null;
-    LastEditedDate: string | null;
-    Reactions: Array<Partial<MessageReaction>> | null;
-    Comments: Array<Partial<Comment>> | null;
-    MessageNotifications: Array<Partial<MessageNotification>> | null;
+    ShortDescription: string | null;
+    ShowInCarousel: boolean;
+    ShowInCarouselUntilDate: string | null;
+    Title: string | null;
+    Type: 'Announcement'|'Article'|'ExternalArticle';
 }
 
-export interface NewsAttachment {
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-    NewsId: number;
-    News: Partial<News> | null;
+export interface NewsAttachment extends Attachment {
     FeaturedNews: Array<Partial<News>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
+    FolderName: string | null;
+    News: Partial<News> | null;
+    NewsId: number;
+    StorageFileNameAndPath: string | null;
 }
 
 export interface NewsRecipient {
     Id: number;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    NewsId: number;
     News: Partial<News> | null;
+    NewsId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface NewsToPeopleGroup {
     Id: number;
-    PeopleGroupId: number;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    NewsId: number;
     News: Partial<News> | null;
+    NewsId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
 }
 
-export interface Post {
-    ForumId: number | null;
+export interface Post extends Message {
+    Attachments: Array<Partial<PostAttachment>> | null;
     Forum: Partial<Forum> | null;
+    ForumId: number | null;
     IsPinned: boolean;
     PinnedUntil: string | null;
-    Attachments: Array<Partial<PostAttachment>> | null;
-    Id: number;
-    Body: string | null;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
-    ActivityDate: string;
-    PublishDate: string;
-    IsDeleted: boolean;
-    IsDraft: boolean;
-    DeletedDate: string | null;
-    LastEditedDate: string | null;
-    Reactions: Array<Partial<MessageReaction>> | null;
-    Comments: Array<Partial<Comment>> | null;
-    MessageNotifications: Array<Partial<MessageNotification>> | null;
 }
 
 export interface Reaction {
-    Id: number;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
     CreatedDate: string;
-    Type: 'Like';
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    Id: number;
     MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
+    Type: 'Like';
 }
 
 export interface Reply {
-    Id: number;
     Body: string | null;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    CommentId: number;
     Comment: Partial<Comment> | null;
-    ReplyReactions: Array<Partial<ReplyReaction>> | null;
+    CommentId: number;
+    CreatedDate: string;
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    DeletedDate: string | null;
+    Id: number;
+    IsDeleted: boolean;
     MessageNotificationToReplies: Array<Partial<MessageNotificationToReply>> | null;
+    ReplyReactions: Array<Partial<ReplyReaction>> | null;
 }
 
-export interface ReplyReaction {
-    ReplyId: number;
+export interface ReplyReaction extends Reaction {
     Reply: Partial<Reply> | null;
-    Id: number;
-    CreatorId: number;
-    Creator: Partial<Person> | null;
-    CreatedDate: string;
-    Type: 'Like';
-    MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
+    ReplyId: number;
 }
 
 export interface LGManagedDomoDataset {
     DomoDatasetId: string | null;
-    Id: number;
 }
 
 export interface DairyDailyClassPrice {
-    Id: number;
     Class3Price: Partial<number>;
     Class4Price: Partial<number>;
-    QuoteDate: string;
     Quarter: 'First'|'Second'|'Third'|'Fourth';
+    QuoteDate: string;
     Year: number;
 }
 
 export interface DairyDailyComponentPrice {
-    Id: number;
     ButterfatPrice: Partial<number>;
-    ProteinPrice: Partial<number>;
     OtherFatsPrice: Partial<number>;
-    QuoteDate: string;
+    ProteinPrice: Partial<number>;
     Quarter: 'First'|'Second'|'Third'|'Fourth';
+    QuoteDate: string;
     Year: number;
 }
 
 export interface DairyDailyImportFileStatus {
-    Id: number;
+    AttemptDate: string;
     FileName: string | null;
     ImportFileStatus: 'NoFile'|'Imported'|'Failure';
-    AttemptDate: string;
 }
 
 export interface EloquaContact {
-    Id: number;
-    EloquaContactId: number;
-    IsMaster: boolean;
     CrmAccount: Partial<CrmAccount> | null;
+    EloquaContactId: number;
+    Id: number;
+    IsMaster: boolean;
 }
 
 export interface CoreToEloquaSyncerLogEntry {
-    Id: number;
     CampaignToCrmAccountLastModifiedDate: string | null;
     CrmAccountLastModifiedDate: string | null;
+    Id: number;
 }
 
 export interface CampaignToCrmAccount {
-    Id: number;
-    CampaignId: number;
     Campaign: Partial<Campaign> | null;
-    CrmAccountId: number;
-    CrmAccount: Partial<CrmAccount> | null;
+    CampaignId: number;
     CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
+    CrmAccount: Partial<CrmAccount> | null;
+    CrmAccountId: number;
     InstanceId: number;
     LastModifiedDate: string | null;
 }
 
 export interface CampaignToPerson {
-    Id: number;
-    CampaignId: number;
     Campaign: Partial<Campaign> | null;
-    PersonId: number;
+    CampaignId: number;
+    Id: number;
     Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface EloquaEmailTemplateToPerson {
-    Id: number;
-    EloquaEmailTemplateId: number;
     EloquaEmailTemplate: Partial<EloquaEmailTemplate> | null;
-    PersonId: number;
+    EloquaEmailTemplateId: number;
+    Id: number;
     Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface EloquaEmailTemplate {
-    Id: number;
-    EloquaEmailId: number;
-    Name: string | null;
-    HtmlBody: string | null;
-    Subject: string | null;
     CssHeader: string | null;
     CurrentStatus: string | null;
-    FolderId: number | null;
+    EloquaEmailId: number;
     EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
+    FolderId: number | null;
+    HtmlBody: string | null;
+    Id: number;
+    Name: string | null;
+    Subject: string | null;
 }
 
 export interface Campaign {
-    Id: number;
-    EloquaCampaignId: number;
-    Name: string | null;
-    Description: string | null;
     ActivationId: number | null;
-    CurrentStatus: string | null;
-    FolderId: number | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
     CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
+    CurrentStatus: string | null;
+    Description: string | null;
+    EloquaCampaignId: number;
+    FolderId: number | null;
+    Id: number;
+    Name: string | null;
 }
 
 export interface EloquaSyncLogEntry {
-    CompanyId: number;
     Company: Partial<Company> | null;
-    StartDate: string;
-    EndDate: string | null;
+    CompanyId: number;
     LastSyncDate: string | null;
     Type: 'Ams360'|'BenefitPoint';
-    Id: number;
-    IsExpired: boolean;
 }
 
 export interface CourseReporteeToPeopleGroup {
-    Id: number;
-    PeopleGroupId: number;
-    CourseId: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    PeopleGroup: Partial<PeopleGroup> | null;
     Course: Partial<EducationCourse> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    CreatorPerson: Partial<Person> | null;
-    IsExpired: boolean;
+    CourseId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
 }
 
 export interface CourseReportee {
-    Id: number;
-    PersonId: number;
-    CourseId: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    Person: Partial<Person> | null;
     Course: Partial<EducationCourse> | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    IsExpired: boolean;
+    CourseId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface EducationAnswerKey {
-    Id: number;
-    IsCorrect: boolean;
     Answer: Partial<EducationAnswer> | null;
+    IsCorrect: boolean;
 }
 
 export interface EducationAnswer {
-    Id: number;
-    QuestionId: number;
-    Text: string | null;
-    Sequence: number;
-    CreatorPersonId: number;
-    CreatedDate: string;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    Question: Partial<EducationQuestion> | null;
     AnswerKey: Partial<EducationAnswerKey> | null;
+    CreatedDate: string;
+    Question: Partial<EducationQuestion> | null;
+    QuestionId: number;
+    Sequence: number;
+    Text: string | null;
 }
 
 export interface CourseCategory {
-    Id: number;
-    Name: string | null;
     Courses: Array<Partial<EducationCourse>> | null;
+    Name: string | null;
 }
 
 export interface EducationCourse {
-    Id: number;
-    Title: string | null;
-    FeaturedImageId: number | null;
-    FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
-    ShortDescription: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    CompletionCertificateId: number | null;
-    CompletionCertificate: Partial<CourseCertificateAttachment> | null;
-    Sequence: number;
+    Category: Partial<CourseCategory> | null;
     CategoryId: number | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    Reviewable: boolean;
-    Lessons: Array<Partial<EducationLesson>> | null;
-    CourseMembers: Array<Partial<CourseMember>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseAdmins: Array<Partial<CourseAdmin>> | null;
+    CompletionCertificate: Partial<CourseCertificateAttachment> | null;
+    CompletionCertificateId: number | null;
     CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
+    CourseAdmins: Array<Partial<CourseAdmin>> | null;
+    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
+    CourseMembers: Array<Partial<CourseMember>> | null;
+    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
     CourseReportees: Array<Partial<CourseReportee>> | null;
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
-    Category: Partial<CourseCategory> | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
+    CreatedDate: string;
+    Description: string | null;
+    FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
+    FeaturedImageId: number | null;
+    Lessons: Array<Partial<EducationLesson>> | null;
+    Reviewable: boolean;
+    Sequence: number;
+    ShortDescription: string | null;
+    Title: string | null;
 }
 
 export interface CourseAdmin {
-    Id: number;
-    PersonId: number;
-    CourseId: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    Person: Partial<Person> | null;
     Course: Partial<EducationCourse> | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    IsExpired: boolean;
+    CourseId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface CourseAdminPeopleGroup {
-    Id: number;
-    PeopleGroupId: number;
-    CourseId: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    PeopleGroup: Partial<PeopleGroup> | null;
     Course: Partial<EducationCourse> | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    CreatorPerson: Partial<Person> | null;
-    IsExpired: boolean;
+    CourseId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
 }
 
 export interface CourseMember {
-    Id: number;
-    PersonId: number;
+    Course: Partial<EducationCourse> | null;
     CourseId: number;
     IsRequired: boolean;
-    Course: Partial<EducationCourse> | null;
     Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface CourseMemberPeopleGroup {
-    Id: number;
-    PeopleGroupId: number;
+    Course: Partial<EducationCourse> | null;
     CourseId: number;
     IsRequired: boolean;
     PeopleGroup: Partial<PeopleGroup> | null;
-    Course: Partial<EducationCourse> | null;
+    PeopleGroupId: number;
 }
 
 export interface CourseParticipantStatus {
-    Id: number;
-    CourseId: number;
-    PersonId: number;
-    PercentageComplete: number;
     CompletedDate: string | null;
     Course: Partial<EducationCourse> | null;
-    Person: Partial<Person> | null;
+    CourseId: number;
     IsCompleted: boolean;
+    PercentageComplete: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
-export interface CourseCertificateAttachment {
+export interface CourseCertificateAttachment extends Attachment {
+    EducationCourses: Array<Partial<EducationCourse>> | null;
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
-    EducationCourses: Array<Partial<EducationCourse>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
-export interface CourseFeaturedImageAttachment {
+export interface CourseFeaturedImageAttachment extends Attachment {
+    EducationCourses: Array<Partial<EducationCourse>> | null;
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
-    EducationCourses: Array<Partial<EducationCourse>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
-export interface LessonAttachment {
-    LessonId: number;
+export interface LessonAttachment extends Attachment {
+    FolderName: string | null;
     Lesson: Partial<EducationLesson> | null;
-    FolderName: string | null;
+    LessonId: number;
     StorageFileNameAndPath: string | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface EducationLesson {
-    Id: number;
-    Name: string | null;
-    VideoLength: string | null;
-    Sequence: number;
-    YoutubeVideoKey: string | null;
-    CourseId: number;
-    CreatorPersonId: number;
-    LastModifiedDate: string | null;
-    LastModifiedByPersonId: number | null;
-    PassingPercentage: number;
-    Course: Partial<EducationCourse> | null;
-    CreatorPerson: Partial<Person> | null;
-    LastModifiedByPerson: Partial<Person> | null;
     Attachments: Array<Partial<LessonAttachment>> | null;
-    Questions: Array<Partial<EducationQuestion>> | null;
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
     LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
+    Name: string | null;
+    PassingPercentage: number;
+    Questions: Array<Partial<EducationQuestion>> | null;
+    Sequence: number;
+    VideoLength: string | null;
+    YoutubeVideoKey: string | null;
 }
 
 export interface LessonParticipantStatus {
-    Id: number;
-    LessonId: number;
-    PersonId: number;
-    AttemptStatus: 'Pass'|'Fail'|'InProgress';
     ActivityDate: string;
-    GradePercentage: number;
     Attempts: number;
-    TimeWatched: string | null;
-    TimeToPass: string | null;
-    TimeToFail: string | null;
-    Person: Partial<Person> | null;
+    AttemptStatus: 'Pass'|'Fail'|'InProgress';
+    GradePercentage: number;
     Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    TimeToFail: string | null;
+    TimeToPass: string | null;
+    TimeWatched: string | null;
 }
 
 export interface EducationQuestion {
-    Id: number;
-    Text: string | null;
-    Sequence: number;
-    LessonId: number;
-    LastModifiedByPersonId: number | null;
-    Type: 'SingleSelect'|'MultiSelect';
-    CreatorPersonId: number;
-    CreatedDate: string;
-    LastModifiedDate: string | null;
-    LastModifiedByPerson: Partial<Person> | null;
-    CreatorPerson: Partial<Person> | null;
-    Lesson: Partial<EducationLesson> | null;
     Answers: Array<Partial<EducationAnswer>> | null;
+    CreatedDate: string;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    Sequence: number;
+    Text: string | null;
+    Type: 'SingleSelect'|'MultiSelect';
 }
 
 export interface CrmBulkImport {
-    Id: number;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    RecordCount: number;
-    SuccessCount: number;
-    FileName: string | null;
-    CreatedDate: string;
     CompletedDate: string | null;
-    Failures: Array<Partial<CrmBulkImportFailure>> | null;
+    CreatedDate: string;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
     FailureDate: string | null;
     FailureReason: string | null;
+    Failures: Array<Partial<CrmBulkImportFailure>> | null;
+    FileName: string | null;
+    RecordCount: number;
+    SuccessCount: number;
 }
 
 export interface CrmBulkImportFailure {
-    Id: number;
     AccountName: string | null;
+    AccountType: string | null;
     BusinessPhone: string | null;
-    ContactTitle: string | null;
-    Website: string | null;
+    City: string | null;
     ContactFirstName: string | null;
     ContactLastName: string | null;
-    AccountType: string | null;
-    XDate: string | null;
-    Topic: string | null;
-    Email: string | null;
-    Description: string | null;
-    FollowUpDate: string | null;
-    Street1: string | null;
-    City: string | null;
-    State: string | null;
-    Zip: string | null;
-    CrmBulkImportId: number;
+    ContactTitle: string | null;
     CrmBulkImport: Partial<CrmBulkImport> | null;
-    Type: 'GeneralFailure'|'Duplicate';
+    CrmBulkImportId: number;
+    Description: string | null;
     DuplicateFieldType: 'None'|'Name'|'Address'|'Email'|'Phone'|'ContactFullname' | null;
+    Email: string | null;
     ErrorMessage: string | null;
+    FollowUpDate: string | null;
+    Id: number;
+    State: string | null;
+    Street1: string | null;
+    Topic: string | null;
+    Type: 'GeneralFailure'|'Duplicate';
+    Website: string | null;
+    XDate: string | null;
+    Zip: string | null;
 }
 
 export interface CrmAccount {
-    Id: number;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    Status: 'Active'|'Inactive';
     AccountId: string;
-    OwnerId: string;
-    Name: string | null;
-    Email: string | null;
-    Phone: string | null;
+    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
+    AccountType: number;
     Address1: string | null;
     Address2: string | null;
+    AnnualPayroll: string | null;
+    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
     City: string | null;
-    State: string | null;
-    Zip: string | null;
+    ContactFirstName: string | null;
+    ContactJobTitle: string | null;
+    ContactLastName: string | null;
+    CreatedOn: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    DoNotCall: boolean;
+    EffectiveDate: string | null;
+    EloquaContact: Partial<EloquaContact> | null;
+    Email: string | null;
     InitialAppointment: string | null;
-    StageSuspectDate: string | null;
-    StageProspectDate: string | null;
-    StageClientDate: string | null;
     LastActivityDate: string | null;
     LastModifiedDate: string | null;
-    SurgeId: number | null;
-    AccountType: number;
-    StateCode: 'Active'|'Inactive';
-    Topic: string | null;
-    AnnualPayroll: string | null;
-    EffectiveDate: string | null;
     NAICSCode: string | null;
-    NumberOfLocations: string | null;
+    Name: string | null;
     NumberOfEmployees: string | null;
-    PotentialRevenue: Partial<number> | null;
-    WrittenYtd: Partial<number> | null;
-    PersonId: number | null;
-    Person: Partial<Person> | null;
-    ContactFirstName: string | null;
-    ContactLastName: string | null;
-    ContactJobTitle: string | null;
-    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
-    DoNotCall: boolean;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
-    CreatedOn: string | null;
+    NumberOfLocations: string | null;
     Opportunities: Array<Partial<CrmOpportunity>> | null;
-    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
-    EloquaContact: Partial<EloquaContact> | null;
     OriginalSource: string | null;
+    OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    Phone: string | null;
+    PotentialRevenue: Partial<number> | null;
+    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
     RecentSource: string | null;
+    StageClientDate: string | null;
+    StageProspectDate: string | null;
+    StageSuspectDate: string | null;
+    State: string | null;
+    StateCode: 'Active'|'Inactive';
+    Status: 'Active'|'Inactive';
+    SurgeId: number | null;
+    Topic: string | null;
+    WrittenYtd: Partial<number> | null;
+    Zip: string | null;
 }
 
 export interface CrmCommission {
-    Id: number;
-    OwnerId: string;
     Amount: Partial<number>;
-    Percent: Partial<number>;
     LastModifiedDate: string | null;
     Opportunity: Partial<CrmOpportunity> | null;
     OpportunityId: number;
+    OwnerId: string;
+    Percent: Partial<number>;
     Person: Partial<Person> | null;
     PersonId: number | null;
 }
 
 export interface CrmAuditSyncLogEntry {
-    Id: number;
+    Action: string | null;
     CrmInstance: 'Production'|'Uat'|'Dev';
     EntityType: string | null;
-    Action: string | null;
+    Id: number;
     LastSyncDate: string;
 }
 
-export interface CrmUserPersonRole {
-    SystemUserGuid: string;
+export interface CrmUserPersonRole extends PersonRole {
     CrmInstance: 'Production'|'Uat'|'Dev';
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    SystemUserGuid: string;
 }
 
 export interface CrmOpportunity {
-    Id: number;
-    OwnerId: string;
-    OpportunityId: string;
-    TotalRevenue: Partial<number>;
-    CommissionFee: Partial<number>;
-    SalesStageCode: number;
-    CommissionPercentage: Partial<number>;
-    Premium: Partial<number>;
-    EffectiveDate: string | null;
-    SubmissionDate: string | null;
-    QualifiedDate: string | null;
-    ConversationDate: string | null;
-    AppointmentDate: string | null;
-    PresentationDate: string | null;
-    SoldDate: string | null;
-    LostDate: string | null;
-    LastModifiedDate: string | null;
-    StateCode: 'Active'|'Inactive';
-    NewOrRenewal: 'New'|'Renewal';
     Account: Partial<CrmAccount> | null;
     AccountId: number;
+    AppointmentDate: string | null;
     Carrier: number | null;
+    CommissionFee: Partial<number>;
+    CommissionPercentage: Partial<number>;
+    ConversationDate: string | null;
+    CrmCommissions: Array<Partial<CrmCommission>> | null;
+    EffectiveDate: string | null;
+    LastModifiedDate: string | null;
     LineOfBusiness: number;
     LineOfCoverage: number;
     LineOfCoverageFriendlyName: string | null;
+    LostDate: string | null;
     Name: string | null;
+    NewOrRenewal: 'New'|'Renewal';
+    OpportunityId: string;
+    OwnerId: string;
+    Premium: Partial<number>;
+    PresentationDate: string | null;
+    QualifiedDate: string | null;
     ReportingDate: string | null;
-    CrmCommissions: Array<Partial<CrmCommission>> | null;
+    SalesStageCode: number;
+    SoldDate: string | null;
+    StateCode: 'Active'|'Inactive';
+    SubmissionDate: string | null;
+    TotalRevenue: Partial<number>;
 }
 
-export interface DepartmentPeopleGroup {
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+export interface DepartmentPeopleGroup extends PeopleGroup {
 }
 
 export interface Department {
-    Id: number;
-    Name: string | null;
     Company: Partial<Company> | null;
     CompanyId: number;
+    Id: number;
     LGEmployeeRoles: Array<Partial<LGEmployeeRole>> | null;
+    Name: string | null;
 }
 
 export interface Building {
+    BuildingToCompanyAddresses: Array<Partial<BuildingToCompanyAddress>> | null;
     Id: number;
     Name: string | null;
     PeopleGroups: Array<Partial<BuildingPeopleGroup>> | null;
-    BuildingToCompanyAddresses: Array<Partial<BuildingToCompanyAddress>> | null;
 }
 
-export interface LeavittLandCompanyRole {
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface LeavittLandCompanyRole extends CompanyRole {
 }
 
-export interface CompanyPeopleGroup {
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+export interface CompanyPeopleGroup extends PeopleGroup {
 }
 
-export interface JobRolePeopleGroup {
-    JobRoleTypeId: number;
+export interface JobRolePeopleGroup extends PeopleGroup {
     JobRoleType: Partial<JobRoleType> | null;
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+    JobRoleTypeId: number;
 }
 
-export interface BuildingPeopleGroup {
-    BuildingId: number;
+export interface BuildingPeopleGroup extends PeopleGroup {
     Building: Partial<Building> | null;
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+    BuildingId: number;
 }
 
 export interface BuildingToCompanyAddress {
-    Id: number;
-    BuildingId: number;
     Building: Partial<Building> | null;
-    CompanyAddressId: number;
+    BuildingId: number;
     CompanyAddress: Partial<CompanyAddress> | null;
-}
-
-export interface StatePeopleGroup {
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
+    CompanyAddressId: number;
     Id: number;
 }
 
-export interface GuestPersonRole {
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    RequestedByPersonId: number;
+export interface StatePeopleGroup extends PeopleGroup {
+}
+
+export interface GuestPersonRole extends PersonRole, ICreatedBy {
+    Description: string | null;
     RequestedByPerson: Partial<Person> | null;
-    Description: string | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    RequestedByPersonId: number;
 }
 
-export interface CarrierCompanyRole {
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface CarrierCompanyRole extends CompanyRole {
 }
 
-export interface CompanyContactPersonRole {
-    Title: string | null;
-    ContactCompanyId: number;
+export interface CompanyContactPersonRole extends PersonRole {
     ContactCompany: Partial<Company> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    ContactCompanyId: number;
+    Title: string | null;
 }
 
-export interface EmailNotificationDeliveryMethod {
+export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
     EmailAddressTypes: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    PersonToNotification: Partial<PersonToNotification> | null;
-    PersonToNotificationId: number;
-    IsExpired: boolean;
 }
 
-export interface InAppNotificationDeliveryMethod {
+export interface InAppNotificationDeliveryMethod extends NotificationDeliveryMethod {
     AppName: string | null;
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    PersonToNotification: Partial<PersonToNotification> | null;
-    PersonToNotificationId: number;
-    IsExpired: boolean;
 }
 
 export interface InAppNotification {
-    Id: number;
-    CreatedDate: string;
-    Subject: string | null;
-    Message: string | null;
-    Status: 'Read'|'Unread'|'Archived';
     AppName: string | null;
-    Recipient: Partial<Person> | null;
-    RecipientId: number;
+    CreatedDate: string;
+    Message: string | null;
     Notification: Partial<Notification> | null;
     NotificationId: number;
+    Recipient: Partial<Person> | null;
+    RecipientId: number;
+    Status: 'Read'|'Unread'|'Archived';
+    Subject: string | null;
 }
 
-export interface InvestorPersonRole {
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface InvestorPersonRole extends PersonRole {
 }
 
 export interface JobRoleAssignmentPercentage {
     Id: number;
-    JobRoleId: number;
     JobRole: Partial<JobRole> | null;
-    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
+    JobRoleId: number;
     Percentage: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
 }
 
-export interface CityPeopleGroup {
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+export interface CityPeopleGroup extends PeopleGroup {
 }
 
-export interface LogSummaryNotificationMessage {
+export interface LogSummaryNotificationMessage extends NotificationMessage {
     AppId: number;
-    Notification: Partial<Notification> | null;
-    Id: number;
 }
 
 export interface PersonAdpAccount {
-    Person: Partial<Person> | null;
     AssociateOid: string | null;
-    Id: number;
+    Person: Partial<Person> | null;
 }
 
-export interface DairyCustomerPersonRole {
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface DairyCustomerPersonRole extends PersonRole {
 }
 
-export interface NotificationDistrubutionGroupRole {
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface NotificationDistrubutionGroupRole extends PersonRole {
 }
 
 export interface NotificationMessage {
+    Id: number;
     Notification: Partial<Notification> | null;
-    Id: number;
 }
 
-export interface LLCCompanyRole {
+export interface LLCCompanyRole extends CompanyRole {
     FolderPath: string | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
-export interface AuditorCompanyRole {
+export interface AuditorCompanyRole extends CompanyRole {
     PeopleRoles: Array<Partial<AuditorPersonRole>> | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
 export interface CompanyGroupToCompany {
-    CompanyGroupId: number;
-    CompanyGroup: Partial<CompanyGroup> | null;
-    CompanyId: number;
     Company: Partial<Company> | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
+    CompanyGroup: Partial<CompanyGroup> | null;
+    CompanyGroupId: number;
+    CompanyId: number;
 }
 
 export interface CompanyRoleClosureType {
     CompanyRole: Partial<CompanyRole> | null;
-    Id: number;
 }
 
 export interface CompanyUhcCode {
     Company: Partial<Company> | null;
     HsaStructureField4Code: string | null;
     MedStructureField4Code: string | null;
-    Id: number;
 }
 
-export interface CorporateDisposalClosureType {
-    CompanyRole: Partial<CompanyRole> | null;
-    Id: number;
+export interface CorporateDisposalClosureType extends CompanyRoleClosureType {
 }
 
-export interface DisaffiliationClosureType {
-    CompanyRole: Partial<CompanyRole> | null;
-    Id: number;
+export interface DisaffiliationClosureType extends CompanyRoleClosureType {
 }
 
-export interface AutomatedUserRole {
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface AutomatedUserRole extends PersonRole {
 }
 
-export interface AuditorPersonRole {
+export interface AuditorPersonRole extends PersonRole {
     AuditorCompanyRoleId: number;
     CompanyRole: Partial<AuditorCompanyRole> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
-export interface MergerClosureType {
+export interface MergerClosureType extends CompanyRoleClosureType {
     MergedWith: Partial<CompanyRole> | null;
     MergedWithId: number;
-    CompanyRole: Partial<CompanyRole> | null;
-    Id: number;
 }
 
-export interface LdapPeopleGroup {
+export interface LdapPeopleGroup extends PeopleGroup {
     Sid: string | null;
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
-    SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
 }
 
 export interface Notification {
-    Id: number;
-    Subject: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    NotificationMessage: Partial<NotificationMessage> | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    PersonToNotifications: Array<Partial<PersonToNotification>> | null;
-    Triggers: Array<Partial<Trigger>> | null;
-    NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
     InAppNotifications: Array<Partial<InAppNotification>> | null;
-    IsExpired: boolean;
+    NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
+    NotificationMessage: Partial<NotificationMessage> | null;
+    PersonToNotifications: Array<Partial<PersonToNotification>> | null;
+    Subject: string | null;
+    Triggers: Array<Partial<Trigger>> | null;
 }
 
 export interface NotificationActivityLog {
-    Id: number;
-    SentDate: string;
-    NotificationDeliveryMethodId: number;
+    Notification: Partial<Notification> | null;
     NotificationDeliveryMethod: Partial<NotificationDeliveryMethod> | null;
+    NotificationDeliveryMethodId: number;
+    NotificationId: number;
     Recipient: Partial<Person> | null;
     RecipientId: number;
-    Notification: Partial<Notification> | null;
-    NotificationId: number;
+    SentDate: string;
 }
 
 export interface NotificationDeliveryMethod {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
     PersonToNotification: Partial<PersonToNotification> | null;
     PersonToNotificationId: number;
-    IsExpired: boolean;
 }
 
 export interface PeopleGroupToPermissionGroup {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
     PeopleGroup: Partial<PeopleGroup> | null;
     PeopleGroupId: number;
     PermissionGroup: Partial<PermissionGroup> | null;
     PermissionGroupId: number;
-    IsExpired: boolean;
 }
 
 export interface PersonToNotification {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    NotificationId: number;
     Notification: Partial<Notification> | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
     NotificationDeliveryMethods: Array<Partial<NotificationDeliveryMethod>> | null;
-    IsExpired: boolean;
+    NotificationId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface PersonToPeopleGroup {
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    PeopleGroupId: number;
     PeopleGroup: Partial<PeopleGroup> | null;
-    IsExpired: boolean;
+    PeopleGroupId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface PermissionToPeopleGroup {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    Permission: Partial<Permission> | null;
-    PermissionId: number;
     PeopleGroup: Partial<PeopleGroup> | null;
     PeopleGroupId: number;
-    IsExpired: boolean;
+    Permission: Partial<Permission> | null;
+    PermissionId: number;
 }
 
 export interface PermissionToPermissionGroup {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
     Permission: Partial<Permission> | null;
-    PermissionId: number;
     PermissionGroup: Partial<PermissionGroup> | null;
     PermissionGroupId: number;
-    IsExpired: boolean;
+    PermissionId: number;
 }
 
 export interface PersonToPermissionGroup {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    Person: Partial<Person> | null;
-    PersonId: number;
     PermissionGroup: Partial<PermissionGroup> | null;
     PermissionGroupId: number;
-    IsExpired: boolean;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface PersonToPermission {
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    Person: Partial<Person> | null;
-    PersonId: number;
     Permission: Partial<Permission> | null;
     PermissionId: number;
-    IsExpired: boolean;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
-export interface StaticNotificationMessage {
+export interface StaticNotificationMessage extends NotificationMessage {
     Message: string | null;
-    Notification: Partial<Notification> | null;
-    Id: number;
 }
 
 export interface Trigger {
-    Id: number;
-    Frequency: 'OneTime'|'Hourly'|'Daily'|'Weekly'|'Monthly'|'Minutes';
-    StartDate: string;
-    EndDate: string | null;
-    DaysOfWeek: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
     DaysOfMonth: 'None'|'First'|'Second'|'Third'|'Fourth'|'Fifth'|'Sixth'|'Seventh'|'Eighth'|'Ninth'|'Tenth'|'Eleventh'|'Twelfth'|'Thirteenth'|'Fourteenth'|'Fiftieth'|'Sixteenth'|'Seventeenth'|'Eighteenth'|'Nineteenth'|'Twentieth'|'Twentyfirst'|'Twentysecond'|'Twentythrid'|'Twentyfourth'|'Twentyfifth'|'Twentysixth'|'Twentyseventh'|'Twentyeighth'|'Twentyninth'|'Thirtieth'|'Even'|'Thirtyfirst'|'Odd'|'All';
+    DaysOfWeek: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
+    Frequency: 'OneTime'|'Hourly'|'Daily'|'Weekly'|'Monthly'|'Minutes';
     Interval: number | null;
     IsComplete: boolean;
     LastRunDate: string | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    NotificationId: number;
     Notification: Partial<Notification> | null;
-    IsExpired: boolean;
+    NotificationId: number;
 }
 
 export interface CompanyDivision {
-    Name: string | null;
-    CompanyId: number;
     Company: Partial<Company> | null;
+    CompanyId: number;
     JobRoleToDivisions: Array<Partial<JobRoleToDivision>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
+    Name: string | null;
 }
 
 export interface CompanyTeam {
-    Name: string | null;
-    CompanyId: number;
     Company: Partial<Company> | null;
+    CompanyId: number;
     JobRoleToTeams: Array<Partial<JobRoleToTeam>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
+    Name: string | null;
 }
 
 export interface LGEmployeeRoleToCompanyAddress {
-    CreatedDate: string;
-    LastModifiedDate: string;
-    LGEmployeeRoleId: number;
-    LGEmployeeRole: Partial<LGEmployeeRole> | null;
-    CompanyAddressId: number;
     CompanyAddress: Partial<CompanyAddress> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
+    CompanyAddressId: number;
     CreatedBy: Partial<Person> | null;
     CreatedById: number;
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
+    LGEmployeeRole: Partial<LGEmployeeRole> | null;
+    LGEmployeeRoleId: number;
 }
 
 export interface LGEmployeeRoleTitle {
-    CreatedDate: string;
-    LastModifiedDate: string;
-    LGEmployeeRoleId: number;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
+    LGEmployeeRoleId: number;
     Title: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
 }
 
 export interface JobRoleToTeam {
-    JobRoleId: number;
-    JobRole: Partial<JobRole> | null;
-    CompanyTeamId: number;
     CompanyTeam: Partial<CompanyTeam> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
+    CompanyTeamId: number;
+    JobRole: Partial<JobRole> | null;
+    JobRoleId: number;
 }
 
 export interface JobRoleToDivision {
-    JobRoleId: number;
-    JobRole: Partial<JobRole> | null;
-    CompanyDivisionId: number;
     CompanyDivision: Partial<CompanyDivision> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
+    CompanyDivisionId: number;
+    JobRole: Partial<JobRole> | null;
+    JobRoleId: number;
 }
 
 export interface PercentOfFullTimeEquivalent {
-    JobRoleId: number;
     JobRole: Partial<JobRole> | null;
+    JobRoleId: number;
     Value: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
 }
 
 export interface JobRoleType {
-    Name: string | null;
-    JobRoles: Array<Partial<JobRole>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
     IsFullTimeEquivalenceType: boolean;
-    Id: number;
-    IsExpired: boolean;
     JobRolePeopleGroups: Array<Partial<JobRolePeopleGroup>> | null;
+    JobRoles: Array<Partial<JobRole>> | null;
+    Name: string | null;
 }
 
 export interface INote {
-    Text: string | null;
-    CreatorPersonId: number;
     CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
+    Text: string | null;
 }
 
 export interface PersonName {
     FirstName: string | null;
     LastName: string | null;
     MiddleName: string | null;
-    Type: 'Legal'|'Preffered';
-    PersonId: number;
     Person: Partial<Person> | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    IsExpired: boolean;
+    PersonId: number;
+    Type: 'Legal'|'Preffered';
 }
 
 export interface ITag {
-    Name: string | null;
-    CreatorPersonId: number;
     CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
+    Name: string | null;
 }
 
 export interface BaseChangeTracking {
@@ -2932,1078 +1839,659 @@ export interface BaseChangeTracking {
 }
 
 export interface Attachment {
+    AllowGuestReadAccess: boolean;
     BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
     ContentType: string | null;
+    DeletedByPerson: Partial<Person> | null;
+    DeletedByPersonId: number | null;
+    DeletedDate: string | null;
+    Description: string | null;
+    Extension: string | null;
+    File: string | null;
+    FileName: string | null;
+    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
+    IsDeleted: boolean;
+    Name: string | null;
     Owner: Partial<Person> | null;
     OwnerId: number;
     PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
+    Size: number;
     StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
-export interface GroupToAttachmentPermission {
+export interface GroupToAttachmentPermission extends BaseChangeTracking, IIdentity, ISynchronizable {
+    Attachment: Partial<Attachment> | null;
+    AttachmentId: number;
+    CanRead: boolean;
+    CanUpdate: boolean;
     PeopleGroup: Partial<PeopleGroup> | null;
     PeopleGroupId: number;
-    Attachment: Partial<Attachment> | null;
-    AttachmentId: number;
-    CanRead: boolean;
-    CanUpdate: boolean;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    Created: string;
-    CreatedBy: Partial<Person> | null;
-    CreatedById: number;
-    LastModified: string;
-    LastModifiedBy: Partial<Person> | null;
-    LastModifiedById: number;
 }
 
-export interface PersonToAttachmentPermission {
-    Person: Partial<Person> | null;
-    PersonId: number;
+export interface PersonToAttachmentPermission extends BaseChangeTracking, IIdentity, ISynchronizable {
     Attachment: Partial<Attachment> | null;
     AttachmentId: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
     CanRead: boolean;
     CanUpdate: boolean;
-    Id: number;
-    Created: string;
-    CreatedBy: Partial<Person> | null;
-    CreatedById: number;
-    LastModified: string;
-    LastModifiedBy: Partial<Person> | null;
-    LastModifiedById: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface AppCategory {
-    Name: string | null;
-    Description: string | null;
     Apps: Array<Partial<App>> | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
+    Description: string | null;
+    Name: string | null;
 }
 
-export interface JobRole {
-    CompanyId: number;
+export interface JobRole extends Role {
+    AssignmentPercentages: Array<Partial<JobRoleAssignmentPercentage>> | null;
     Company: Partial<Company> | null;
-    JobRoleTypeId: number;
-    JobRoleType: Partial<JobRoleType> | null;
-    LGEmployeeRoleId: number;
-    LGEmployeeRole: Partial<LGEmployeeRole> | null;
-    TotalAssignmentPercent: number;
-    PercentOfFullTimeEquivalents: Array<Partial<PercentOfFullTimeEquivalent>> | null;
+    CompanyId: number;
+    DirectReports: Array<Partial<SupervisorJobRole>> | null;
     JobRoleToDivisions: Array<Partial<JobRoleToDivision>> | null;
     JobRoleToTeams: Array<Partial<JobRoleToTeam>> | null;
+    JobRoleType: Partial<JobRoleType> | null;
+    JobRoleTypeId: number;
+    LGEmployeeRole: Partial<LGEmployeeRole> | null;
+    LGEmployeeRoleId: number;
+    PercentOfFullTimeEquivalents: Array<Partial<PercentOfFullTimeEquivalent>> | null;
     SupervisorJobRoles: Array<Partial<SupervisorJobRole>> | null;
-    DirectReports: Array<Partial<SupervisorJobRole>> | null;
-    AssignmentPercentages: Array<Partial<JobRoleAssignmentPercentage>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    TotalAssignmentPercent: number;
 }
 
 export interface PersonUltiProAccount {
-    PersonId: number;
-    Person: Partial<Person> | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
     EeId: string | null;
-    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
 export interface SupervisorJobRole {
-    JobRoleId: number;
     JobRole: Partial<JobRole> | null;
-    SupervisorRoleId: number;
+    JobRoleId: number;
     SupervisorRole: Partial<JobRole> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
+    SupervisorRoleId: number;
 }
 
 export interface FullTimeEquivalent {
-    LGEmployeeRoleId: number;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
+    LGEmployeeRoleId: number;
     Value: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
 }
 
-export interface PersonAddress {
-    PersonId: number;
+export interface PersonAddress extends Address {
     Person: Partial<Person> | null;
-    Id: number;
-    Street1: string | null;
-    Street2: string | null;
-    City: string | null;
-    State: string | null;
-    Zip: string | null;
-    Country: string | null;
-    County: string | null;
-    Location: string | null;
-    AddressType: 'Business'|'Home'|'TheGamePrize'|'Surge';
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    UTCTimeZoneOffset: number | null;
-    IsExpired: boolean;
+    PersonId: number;
 }
 
-export interface CompanyGroup {
+export interface CompanyGroup extends Group {
     CompanyGroupToCompanies: Array<Partial<CompanyGroupToCompany>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
 }
 
-export interface PeopleGroup {
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
-    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
-    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
+export interface PeopleGroup extends Group, IExpirable {
     CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
     CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
+    ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
+    NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
+    PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
+    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
+    PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
+    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
-    PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
 }
 
-export interface ProfilePictureAttachment {
+export interface ProfilePictureAttachment extends Attachment {
     FolderName: string | null;
     Length: number;
     StorageFileNameAndPath: string | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
 export interface IAddress {
-    Street1: string | null;
-    Street2: string | null;
+    AddressType: 'Business'|'Home'|'TheGamePrize'|'Surge';
     City: string | null;
-    State: string | null;
-    Zip: string | null;
     Country: string | null;
     County: string | null;
     Location: string | null;
-    AddressType: 'Business'|'Home'|'TheGamePrize'|'Surge';
+    State: string | null;
+    Street1: string | null;
+    Street2: string | null;
+    Zip: string | null;
 }
 
 export interface Role {
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
 export interface Address {
-    Id: number;
-    Street1: string | null;
-    Street2: string | null;
-    City: string | null;
-    State: string | null;
-    Zip: string | null;
-    Country: string | null;
-    County: string | null;
-    Location: string | null;
-    AddressType: 'Business'|'Home'|'TheGamePrize'|'Surge';
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
     UTCTimeZoneOffset: number | null;
-    IsExpired: boolean;
 }
 
-export interface AgencyRole {
-    FolderPath: string | null;
+export interface AgencyRole extends CompanyRole {
     FiscalPeriods: Array<Partial<FiscalPeriod>> | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    FolderPath: string | null;
 }
 
 export interface App {
-    Permissions: Array<Partial<Permission>> | null;
-    Uri: string | null;
-    Name: string | null;
-    AccessPermissionId: number | null;
     AccessPermission: Partial<Permission> | null;
+    AccessPermissionId: number | null;
+    Category: Partial<AppCategory> | null;
+    CategoryId: number;
     DataControl: string | null;
     Description: string | null;
-    CategoryId: number;
-    Category: Partial<AppCategory> | null;
-    Id: number;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    Name: string | null;
+    Permissions: Array<Partial<Permission>> | null;
+    Uri: string | null;
 }
 
 export interface Company {
-    Name: string | null;
     Addresses: Array<Partial<CompanyAddress>> | null;
-    Names: Array<Partial<CompanyName>> | null;
-    EmailAddresses: Array<Partial<CompanyEmailAddress>> | null;
+    AgencyCommissionRates: Array<Partial<AgencyCommissionRate>> | null;
+    BookOfBusinessChanges: Array<Partial<BookOfBusinessChange>> | null;
+    CompanyGroupToCompanies: Array<Partial<CompanyGroupToCompany>> | null;
+    CompanyUhcCode: Partial<CompanyUhcCode> | null;
     ContactPersonRoles: Array<Partial<CompanyContactPersonRole>> | null;
+    CReportComments: Array<Partial<CReportComment>> | null;
+    Departments: Array<Partial<Department>> | null;
+    Divisions: Array<Partial<CompanyDivision>> | null;
+    EloquaSyncLogEntry: Partial<EloquaSyncLogEntry> | null;
+    EmailAddresses: Array<Partial<CompanyEmailAddress>> | null;
+    JobRoles: Array<Partial<JobRole>> | null;
+    ManagementSystems: Array<Partial<ManagementSystem>> | null;
+    Name: string | null;
+    Names: Array<Partial<CompanyName>> | null;
     PhoneNumbers: Array<Partial<CompanyPhoneNumber>> | null;
     Roles: Array<Partial<CompanyRole>> | null;
-    ManagementSystems: Array<Partial<ManagementSystem>> | null;
-    CompanyGroupToCompanies: Array<Partial<CompanyGroupToCompany>> | null;
-    JobRoles: Array<Partial<JobRole>> | null;
-    Divisions: Array<Partial<CompanyDivision>> | null;
     Teams: Array<Partial<CompanyTeam>> | null;
-    Departments: Array<Partial<Department>> | null;
-    BookOfBusinessChanges: Array<Partial<BookOfBusinessChange>> | null;
-    CReportComments: Array<Partial<CReportComment>> | null;
-    AgencyCommissionRates: Array<Partial<AgencyCommissionRate>> | null;
     UltiProAccount: Partial<CompanyUltiProAccount> | null;
-    EloquaSyncLogEntry: Partial<EloquaSyncLogEntry> | null;
-    CompanyUhcCode: Partial<CompanyUhcCode> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
 }
 
-export interface CompanyAddress {
-    CompanyId: number;
+export interface CompanyAddress extends Address {
+    BuildingToCompanyAddresses: Array<Partial<BuildingToCompanyAddress>> | null;
     Company: Partial<Company> | null;
+    CompanyId: number;
     Lease: Partial<Lease> | null;
     LGEmployeeRoleToCompanyAddresses: Array<Partial<LGEmployeeRoleToCompanyAddress>> | null;
     PhoneNumbers: Array<Partial<CompanyAddressPhoneNumber>> | null;
-    BuildingToCompanyAddresses: Array<Partial<BuildingToCompanyAddress>> | null;
     ProspectiveProducerRoles: Array<Partial<ProspectiveProducerRole>> | null;
     UltiProAccount: Partial<CompanyAddressUltiProAccount> | null;
-    Id: number;
-    Street1: string | null;
-    Street2: string | null;
-    City: string | null;
-    State: string | null;
-    Zip: string | null;
-    Country: string | null;
-    County: string | null;
-    Location: string | null;
-    AddressType: 'Business'|'Home'|'TheGamePrize'|'Surge';
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    UTCTimeZoneOffset: number | null;
-    IsExpired: boolean;
 }
 
-export interface CompanyAddressPhoneNumber {
-    CompanyAddressId: number;
+export interface CompanyAddressPhoneNumber extends PhoneNumber {
     CompanyAddress: Partial<CompanyAddress> | null;
-    PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyTax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'HrCompanyAddressModem'|'PrimaryWork'|'AlternativeWork'|'PrimaryHome'|'AlternativeHome'|'Mobile'|'Fax'|'BenefitsHelp'|'TheGameContact'|'SurgeContact';
-    CountryCode: string | null;
-    AreaCode: string | null;
-    LineNumber: string | null;
-    Extension: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    CompanyAddressId: number;
 }
 
-export interface CompanyEmailAddress {
-    CompanyId: number;
+export interface CompanyEmailAddress extends EmailAddress {
     Company: Partial<Company> | null;
-    EmailAddressType: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
-    Address: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    CompanyId: number;
 }
 
 export interface CompanyName {
-    Name: string | null;
+    Company: Partial<Company> | null;
+    CompanyId: number;
     CompanyNameType: 'HrCompanyName'|'HrCompanyDbaName'|'Legal'|'Short'|'Main';
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    StartDate: string;
-    EndDate: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
-    IsExpired: boolean;
+    Name: string | null;
 }
 
-export interface CompanyPhoneNumber {
-    CompanyId: number;
+export interface CompanyPhoneNumber extends PhoneNumber {
     Company: Partial<Company> | null;
-    PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyTax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'HrCompanyAddressModem'|'PrimaryWork'|'AlternativeWork'|'PrimaryHome'|'AlternativeHome'|'Mobile'|'Fax'|'BenefitsHelp'|'TheGameContact'|'SurgeContact';
-    CountryCode: string | null;
-    AreaCode: string | null;
-    LineNumber: string | null;
-    Extension: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    CompanyId: number;
 }
 
-export interface CompanyRole {
-    CompanyId: number;
-    Company: Partial<Company> | null;
+export interface CompanyRole extends Role {
     ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    Company: Partial<Company> | null;
+    CompanyId: number;
 }
 
 export interface EmailAddress {
-    EmailAddressType: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
     Address: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    EmailAddressType: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
 }
 
-export interface LGEmployeeRole {
-    EmploymentType: 'PaidEmployee'|'UnpaidEmployee'|'Contractor';
-    DateLicensed: string | null;
-    DateStartedProducing: string | null;
-    LGEmployeeRoleToCompanyAddresses: Array<Partial<LGEmployeeRoleToCompanyAddress>> | null;
-    Titles: Array<Partial<LGEmployeeRoleTitle>> | null;
-    Deductions: Array<Partial<Deduction>> | null;
-    FTEs: Array<Partial<FullTimeEquivalent>> | null;
-    JobRoles: Array<Partial<JobRole>> | null;
-    LGEmployeeRoleUltiProAccount: Partial<LGEmployeeRoleUltiProAccount> | null;
-    Department: Partial<Department> | null;
-    DepartmentId: number | null;
+export interface LGEmployeeRole extends PersonRole {
     CreatedBy: Partial<Person> | null;
     CreatedById: number;
+    DateLicensed: string | null;
+    DateStartedProducing: string | null;
+    Deductions: Array<Partial<Deduction>> | null;
+    Department: Partial<Department> | null;
+    DepartmentId: number | null;
+    EmploymentType: 'PaidEmployee'|'UnpaidEmployee'|'Contractor';
+    FTEs: Array<Partial<FullTimeEquivalent>> | null;
+    JobRoles: Array<Partial<JobRole>> | null;
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    LGEmployeeRoleToCompanyAddresses: Array<Partial<LGEmployeeRoleToCompanyAddress>> | null;
+    LGEmployeeRoleUltiProAccount: Partial<LGEmployeeRoleUltiProAccount> | null;
+    Titles: Array<Partial<LGEmployeeRoleTitle>> | null;
 }
 
 export interface Group {
-    Name: string | null;
     Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+    Name: string | null;
 }
 
 export interface PersonLdapAccount {
-    Person: Partial<Person> | null;
-    Sid: string | null;
     Guid: string;
-    Id: number;
+    Person: Partial<Person> | null;
     SamAccountName: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
+    Sid: string | null;
 }
 
 export interface Permission {
-    Name: string | null;
-    ApplicationId: number;
     Application: Partial<App> | null;
+    ApplicationId: number;
     Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    StartDate: string;
-    EndDate: string | null;
-    PersonToPermissions: Array<Partial<PersonToPermission>> | null;
+    MemberAccessQueues: Array<Partial<Queue>> | null;
+    Name: string | null;
+    OutboundCallerIdNumberAccessGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
+    OutboundCallerIdNumberAdminGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
     PermissionToPermissionGroups: Array<Partial<PermissionToPermissionGroup>> | null;
-    OutboundCallerIdNumberAdminGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
-    OutboundCallerIdNumberAccessGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
-    MemberAccessQueues: Array<Partial<Queue>> | null;
-    Id: number;
-    IsExpired: boolean;
+    PersonToPermissions: Array<Partial<PersonToPermission>> | null;
 }
 
-export interface PermissionGroup {
-    PersonToPermissionGroups: Array<Partial<PersonToPermissionGroup>> | null;
+export interface PermissionGroup extends Group, IExpirable {
     PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
     PermissionToPermissionGroups: Array<Partial<PermissionToPermissionGroup>> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
-    Name: string | null;
-    Description: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Id: number;
+    PersonToPermissionGroups: Array<Partial<PersonToPermissionGroup>> | null;
 }
 
 export interface Person {
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    FirstName: string | null;
-    LastName: string | null;
-    MiddleName: string | null;
-    DateOfBirth: string | null;
-    Biography: string | null;
-    Gender: string | null;
-    JobTitle: string | null;
-    LdapAccount: Partial<PersonLdapAccount> | null;
-    AdpAccount: Partial<PersonAdpAccount> | null;
-    PersonToPermissions: Array<Partial<PersonToPermission>> | null;
-    PersonToPermissionGroups: Array<Partial<PersonToPermissionGroup>> | null;
-    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
-    PersonToNotifications: Array<Partial<PersonToNotification>> | null;
-    Names: Array<Partial<PersonName>> | null;
-    CreatedOutboundCallerIdNumberGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
-    Extensions: Array<Partial<Extension>> | null;
-    EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
-    NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
-    Roles: Array<Partial<PersonRole>> | null;
-    PhoneNumbers: Array<Partial<PersonPhoneNumber>> | null;
     Addresses: Array<Partial<PersonAddress>> | null;
-    UltiProAccounts: Array<Partial<PersonUltiProAccount>> | null;
+    AdpAccount: Partial<PersonAdpAccount> | null;
     Attachments: Array<Partial<Attachment>> | null;
-    InAppNotifications: Array<Partial<InAppNotification>> | null;
-    Reservations: Array<Partial<Reservation>> | null;
-    ForumAdmins: Array<Partial<ForumAdmin>> | null;
-    ForumMembers: Array<Partial<ForumMember>> | null;
-    ForumJoinRequests: Array<Partial<ForumJoinRequest>> | null;
-    NewsRecipients: Array<Partial<NewsRecipient>> | null;
-    CrmCommissions: Array<Partial<CrmCommission>> | null;
-    CrmAccounts: Array<Partial<CrmAccount>> | null;
-    ForumOptOuts: Array<Partial<ForumOptOut>> | null;
-    MessageNotifications: Array<Partial<MessageNotification>> | null;
-    ForumViews: Array<Partial<ForumView>> | null;
-    HomeUserAnalytics: Array<Partial<HomeUserAnalytic>> | null;
-    QuickLinks: Array<Partial<QuickLink>> | null;
-    LessonToPeople: Array<Partial<LessonToPerson>> | null;
-    CourseToPeople: Array<Partial<CourseToPerson>> | null;
-    CreatedFolders: Array<Partial<Folder>> | null;
-    DeletedAttachments: Array<Partial<Attachment>> | null;
-    TrackableAttachmentToPeople: Array<Partial<TrackableAttachmentToPerson>> | null;
-    CReportComments: Array<Partial<CReportComment>> | null;
-    CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
+    Biography: string | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
-    EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
-    SalesExpectations: Array<Partial<SalesExpectation>> | null;
-    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
-    LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
-    CreatedCourses: Array<Partial<EducationCourse>> | null;
-    CreatedQuestions: Array<Partial<EducationQuestion>> | null;
-    CreatedLessons: Array<Partial<EducationLesson>> | null;
-    CreatedAnswers: Array<Partial<EducationAnswer>> | null;
+    CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
+    Comments: Array<Partial<Comment>> | null;
     CourseAdmins: Array<Partial<CourseAdmin>> | null;
     CourseMembers: Array<Partial<CourseMember>> | null;
+    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
     CourseReportees: Array<Partial<CourseReportee>> | null;
-    SurveyRespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
-    CreatedSurveys: Array<Partial<Survey>> | null;
-    CreatedSurveyQuestions: Array<Partial<SurveyQuestion>> | null;
+    CourseToPeople: Array<Partial<CourseToPerson>> | null;
+    CreatedAnswers: Array<Partial<EducationAnswer>> | null;
+    CreatedCourses: Array<Partial<EducationCourse>> | null;
+    CreatedFolders: Array<Partial<Folder>> | null;
+    CreatedLessons: Array<Partial<EducationLesson>> | null;
+    CreatedOutboundCallerIdNumberGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
+    CreatedQuestions: Array<Partial<EducationQuestion>> | null;
     CreatedSurveyAnswers: Array<Partial<SurveyAnswer>> | null;
+    CreatedSurveyQuestions: Array<Partial<SurveyQuestion>> | null;
+    CreatedSurveys: Array<Partial<Survey>> | null;
+    CReportComments: Array<Partial<CReportComment>> | null;
+    CrmAccounts: Array<Partial<CrmAccount>> | null;
+    CrmCommissions: Array<Partial<CrmCommission>> | null;
+    DateOfBirth: string | null;
+    DeletedAttachments: Array<Partial<Attachment>> | null;
+    EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
+    EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
+    Extensions: Array<Partial<Extension>> | null;
+    FirstName: string | null;
+    ForumAdmins: Array<Partial<ForumAdmin>> | null;
+    ForumJoinRequests: Array<Partial<ForumJoinRequest>> | null;
+    ForumMembers: Array<Partial<ForumMember>> | null;
+    ForumOptOuts: Array<Partial<ForumOptOut>> | null;
+    ForumViews: Array<Partial<ForumView>> | null;
+    Gender: string | null;
+    HomeUserAnalytics: Array<Partial<HomeUserAnalytic>> | null;
+    InAppNotifications: Array<Partial<InAppNotification>> | null;
+    JobTitle: string | null;
+    LastName: string | null;
+    LdapAccount: Partial<PersonLdapAccount> | null;
+    LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
+    LessonToPeople: Array<Partial<LessonToPerson>> | null;
+    MessageNotifications: Array<Partial<MessageNotification>> | null;
+    Messages: Array<Partial<Message>> | null;
+    MiddleName: string | null;
+    Names: Array<Partial<PersonName>> | null;
+    NewsRecipients: Array<Partial<NewsRecipient>> | null;
+    NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
+    PersonToNotifications: Array<Partial<PersonToNotification>> | null;
+    PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
+    PersonToPermissionGroups: Array<Partial<PersonToPermissionGroup>> | null;
+    PersonToPermissions: Array<Partial<PersonToPermission>> | null;
+    PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
+    PhoneNumbers: Array<Partial<PersonPhoneNumber>> | null;
+    QuickLinks: Array<Partial<QuickLink>> | null;
+    Reactions: Array<Partial<Reaction>> | null;
+    Replies: Array<Partial<Reply>> | null;
+    Reservations: Array<Partial<Reservation>> | null;
+    Roles: Array<Partial<PersonRole>> | null;
+    SalesExpectations: Array<Partial<SalesExpectation>> | null;
     SurveyAdmins: Array<Partial<SurveyAdmin>> | null;
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
+    SurveyRespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
     SurveyResponses: Array<Partial<SurveyResponse>> | null;
-    PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
-    Comments: Array<Partial<Comment>> | null;
-    Replies: Array<Partial<Reply>> | null;
-    Messages: Array<Partial<Message>> | null;
-    Reactions: Array<Partial<Reaction>> | null;
+    TrackableAttachmentToPeople: Array<Partial<TrackableAttachmentToPerson>> | null;
+    UltiProAccounts: Array<Partial<PersonUltiProAccount>> | null;
 }
 
-export interface PersonEmailAddress {
-    PersonId: number;
+export interface PersonEmailAddress extends EmailAddress {
     Person: Partial<Person> | null;
-    EmailAddressType: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
-    Address: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    PersonId: number;
 }
 
-export interface PersonPhoneNumber {
-    PersonId: number;
+export interface PersonPhoneNumber extends PhoneNumber {
     Person: Partial<Person> | null;
-    PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyTax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'HrCompanyAddressModem'|'PrimaryWork'|'AlternativeWork'|'PrimaryHome'|'AlternativeHome'|'Mobile'|'Fax'|'BenefitsHelp'|'TheGameContact'|'SurgeContact';
-    CountryCode: string | null;
-    AreaCode: string | null;
-    LineNumber: string | null;
-    Extension: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    PersonId: number;
 }
 
-export interface PersonRole {
-    PersonId: number;
+export interface PersonRole extends Role {
     Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    PersonId: number;
 }
 
 export interface PhoneNumber {
     PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyTax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'HrCompanyAddressModem'|'PrimaryWork'|'AlternativeWork'|'PrimaryHome'|'AlternativeHome'|'Mobile'|'Fax'|'BenefitsHelp'|'TheGameContact'|'SurgeContact';
-    CountryCode: string | null;
-    AreaCode: string | null;
-    LineNumber: string | null;
-    Extension: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
 }
 
 export interface CompanyAddressUltiProAccount {
     CompanyAddress: Partial<CompanyAddress> | null;
     LocCode: string | null;
     LocCodePlusCoId: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
 }
 
 export interface CompanyUltiProAccount {
-    Company: Partial<Company> | null;
     CmpCoId: string | null;
     CmpCompanyCode: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
     CmpDefaultLocation: string | null;
-    Id: number;
+    Company: Partial<Company> | null;
 }
 
 export interface LGEmployeeRoleUltiProAccount {
-    LGEmployeeRole: Partial<LGEmployeeRole> | null;
     EmpNo: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
+    LGEmployeeRole: Partial<LGEmployeeRole> | null;
 }
 
 export interface ExtensionToQueue {
-    Id: number;
+    CreatedDate: string;
     Extension: Partial<Extension> | null;
     ExtensionId: number;
+    Penalty: number;
     Queue: Partial<Queue> | null;
     QueueId: number;
-    Penalty: number;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
 }
 
 export interface Queue {
-    Id: number;
+    CreatedDate: string;
+    ExtensionToQueues: Array<Partial<ExtensionToQueue>> | null;
     Name: string | null;
     Number: string | null;
-    CreatedDate: string;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    ServerId: number;
-    Server: Partial<Server> | null;
-    QueueMemberManagerPermissionId: number | null;
     QueueMemberManagerPermission: Partial<Permission> | null;
-    ExtensionToQueues: Array<Partial<ExtensionToQueue>> | null;
+    QueueMemberManagerPermissionId: number | null;
+    Server: Partial<Server> | null;
+    ServerId: number;
 }
 
 export interface Extension {
-    Id: number;
-    ExtensionNumber: number;
     Agent: number | null;
+    ExtensionNumber: number;
+    ExtensionToQueues: Array<Partial<ExtensionToQueue>> | null;
+    Person: Partial<Person> | null;
+    PersonId: number;
     Phone: Partial<Phone> | null;
     Server: Partial<Server> | null;
     ServerId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-    ExtensionToQueues: Array<Partial<ExtensionToQueue>> | null;
 }
 
 export interface OutboundCallerIdNumber {
+    CreatedDate: string;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
     Id: number;
     Name: string | null;
     Number: string | null;
-    CreatedDate: string;
     OutboundCallerIdNumberGroup: Partial<OutboundCallerIdNumberGroup> | null;
     OutboundCallerIdNumberGroupId: number;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
 }
 
 export interface OutboundCallerIdNumberGroup {
-    Id: number;
-    Name: string | null;
     CreatedDate: string;
-    GroupAdminPermission: Partial<Permission> | null;
-    GroupAdminPermissionId: number | null;
     GroupAccessPermission: Partial<Permission> | null;
     GroupAccessPermissionId: number | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
+    GroupAdminPermission: Partial<Permission> | null;
+    GroupAdminPermissionId: number | null;
+    Id: number;
+    Name: string | null;
     Numbers: Array<Partial<OutboundCallerIdNumber>> | null;
 }
 
 export interface Phone {
+    Admin: string | null;
+    Extension: Partial<Extension> | null;
     Id: number;
     Manufacturer: string | null;
     Model: string | null;
+    Nickname: string | null;
+    Password: string | null;
     Protocol: string | null;
     StaticIp: string | null;
-    Admin: string | null;
-    Password: string | null;
-    Nickname: string | null;
-    Extension: Partial<Extension> | null;
 }
 
 export interface Server {
-    Id: number;
-    Name: string | null;
-    Version: Partial<number>;
-    Ip: string | null;
     AmiIp: string | null;
+    AmiPassword: string | null;
     AmiPort: number | null;
     AmiUserName: string | null;
-    AmiPassword: string | null;
-    OutgoingPrefix: number | null;
-    OutgoingOrginateVariables: string | null;
     Extensions: Array<Partial<Extension>> | null;
+    Ip: string | null;
+    Name: string | null;
+    OutgoingOrginateVariables: string | null;
+    OutgoingPrefix: number | null;
     Queues: Array<Partial<Queue>> | null;
+    Version: Partial<number>;
 }
 
 export interface UsageStatistic {
-    MachineId: string | null;
     ApplicationNameAndVersion: string | null;
+    CommandLine: string | null;
     Is64BitOperatingSystem: boolean;
     Is64BitProcess: boolean;
-    OsVersion: string | null;
+    LastReported: string;
+    MachineId: string | null;
     MachineName: string | null;
+    OsVersion: string | null;
     ProcessorCount: number;
+    TotalCalls: number;
     UserDomainName: string | null;
     Version: string | null;
     WorkingSet: number;
-    CommandLine: string | null;
-    TotalCalls: number;
-    LastReported: string;
-    Id: number;
 }
 
 export interface PeopleGroupToWebComponentSlide {
-    Id: number;
-    PeopleGroupId: number;
-    WebComponentSlideId: number;
-    WebComponentSlide: Partial<WebComponentSlide> | null;
     PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+    WebComponentSlide: Partial<WebComponentSlide> | null;
+    WebComponentSlideId: number;
 }
 
 export interface PersonToWebComponentSlide {
-    Id: number;
-    PersonId: number;
-    WebComponentSlideId: number;
-    WebComponentSlide: Partial<WebComponentSlide> | null;
     Person: Partial<Person> | null;
+    PersonId: number;
+    WebComponentSlide: Partial<WebComponentSlide> | null;
+    WebComponentSlideId: number;
 }
 
-export interface WebComponentSlide {
+export interface WebComponentSlide extends Slide {
     Path: string | null;
-    Tag: string | null;
-    PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
     PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
-    Id: number;
-    Name: string | null;
-    Duration: string;
-    BackgroundColor: string | null;
-    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
-    BackgroundImageId: number | null;
-    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+    PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
+    Tag: string | null;
 }
 
-export interface VideoSlide {
+export interface VideoSlide extends Slide {
     YoutubeVideoKey: string | null;
-    Id: number;
-    Name: string | null;
-    Duration: string;
-    BackgroundColor: string | null;
-    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
-    BackgroundImageId: number | null;
-    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
 }
 
-export interface ImageSlide {
-    ImageId: number | null;
+export interface ImageSlide extends Slide {
     Image: Partial<SlideImageAttachment> | null;
-    Id: number;
-    Name: string | null;
-    Duration: string;
-    BackgroundColor: string | null;
-    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
-    BackgroundImageId: number | null;
-    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+    ImageId: number | null;
 }
 
-export interface SlideImageAttachment {
+export interface SlideImageAttachment extends Attachment {
     FolderName: string | null;
-    StorageFileNameAndPath: string | null;
     ImageSlides: Array<Partial<ImageSlide>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
+    StorageFileNameAndPath: string | null;
 }
 
-export interface SlideBackgroundImageAttachment {
+export interface SlideBackgroundImageAttachment extends Attachment {
     FolderName: string | null;
-    StorageFileNameAndPath: string | null;
     Slides: Array<Partial<Slide>> | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
+    StorageFileNameAndPath: string | null;
 }
 
 export interface Tv {
-    Id: number;
-    Name: string | null;
-    IPAddress: string | null;
     Description: string | null;
-    TvGroupId: number | null;
+    IPAddress: string | null;
+    Name: string | null;
     TvGroup: Partial<TvGroup> | null;
+    TvGroupId: number | null;
 }
 
 export interface TvGroup {
-    Id: number;
     Name: string | null;
-    Tvs: Array<Partial<Tv>> | null;
-    SlideShowId: number | null;
     SlideShow: Partial<SlideShow> | null;
+    SlideShowId: number | null;
+    Tvs: Array<Partial<Tv>> | null;
 }
 
 export interface Slide {
-    Id: number;
-    Name: string | null;
-    Duration: string;
     BackgroundColor: string | null;
-    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
-    BackgroundImageId: number | null;
     BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
+    BackgroundImageId: number | null;
+    Duration: string;
+    Name: string | null;
+    SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
 }
 
 export interface SlideShowToSlide {
-    Id: number;
     Sequence: number;
-    SlideShowId: number;
+    Slide: Partial<Slide> | null;
     SlideId: number;
     SlideShow: Partial<SlideShow> | null;
-    Slide: Partial<Slide> | null;
+    SlideShowId: number;
 }
 
 export interface SlideShow {
-    Id: number;
     Name: string | null;
-    TvGroups: Array<Partial<TvGroup>> | null;
     SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
+    TvGroups: Array<Partial<TvGroup>> | null;
 }
 
-export interface AffiliationRole {
-    Description: string | null;
-    NumberOfYearsOnEarnOut: number;
-    State: 'Active'|'Inactive';
-    IsDeveloperEntry: boolean;
+export interface AffiliationRole extends CompanyRole, ICreatedBy {
+    AffiliationRoleNotifications: Array<Partial<AffiliationRoleNotification>> | null;
     AgencyPartner: Partial<JobRole> | null;
     AgencyPartnerId: number;
     Controller: Partial<JobRole> | null;
     ControllerId: number;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
+    Description: string | null;
     Documents: Array<Partial<AffiliationRoleAttachment>> | null;
-    Reviews: Array<Partial<AffiliationRoleReview>> | null;
     EffectiveDates: Array<Partial<AffiliationRoleEffectiveDate>> | null;
-    AffiliationRoleNotifications: Array<Partial<AffiliationRoleNotification>> | null;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    ClosureType: Partial<CompanyRoleClosureType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+    IsDeveloperEntry: boolean;
+    NumberOfYearsOnEarnOut: number;
+    Reviews: Array<Partial<AffiliationRoleReview>> | null;
+    State: 'Active'|'Inactive';
 }
 
-export interface AffiliationRoleNotification {
+export interface AffiliationRoleNotification extends Notification {
     AffiliationRole: Partial<AffiliationRole> | null;
     AffiliationRoleId: number;
-    Id: number;
-    Subject: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    NotificationMessage: Partial<NotificationMessage> | null;
-    CreatorPersonId: number;
-    CreatorPerson: Partial<Person> | null;
-    PersonToNotifications: Array<Partial<PersonToNotification>> | null;
-    Triggers: Array<Partial<Trigger>> | null;
-    NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
-    InAppNotifications: Array<Partial<InAppNotification>> | null;
-    IsExpired: boolean;
 }
 
 export interface AffiliationRoleReview {
-    Id: number;
     AffiliationRole: Partial<AffiliationRole> | null;
     AffiliationRoleId: number;
-    ReviewDate: string;
     PaymentDate: string;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    ReviewDate: string;
 }
 
 export interface AffiliationRoleEffectiveDate {
-    Id: number;
     AffiliationRole: Partial<AffiliationRole> | null;
     AffiliationRoleId: number;
     EffectiveDate: string;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
 }
 
-export interface AffiliationRoleAttachment {
-    FolderName: string | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+export interface AffiliationRoleAttachment extends Attachment, IExpirable {
     AffiliationRole: Partial<AffiliationRole> | null;
     AffiliationRoleId: number;
+    FolderName: string | null;
     Length: number;
     StorageFileNameAndPath: string | null;
-    BaseUncFileStoragePath: string | null;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    Size: number;
-    Name: string | null;
-    Description: string | null;
-    FileName: string | null;
-    Extension: string | null;
-    ContentType: string | null;
-    Owner: Partial<Person> | null;
-    OwnerId: number;
-    PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
-    GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
-    AllowGuestReadAccess: boolean;
-    StorageFileName: string | null;
-    File: string | null;
-    Id: number;
-    IsDeleted: boolean;
-    DeletedDate: string | null;
-    DeletedByPersonId: number | null;
-    DeletedByPerson: Partial<Person> | null;
 }
 
-export interface AffiliationContactPersonRole {
-    PersonId: number;
-    Person: Partial<Person> | null;
-    StartDate: string;
-    EndDate: string | null;
-    Id: number;
-    CreatedDate: string;
-    LastModifiedDate: string;
-    IsExpired: boolean;
+export interface AffiliationContactPersonRole extends PersonRole {
 }
 
 export interface FiscalPeriod {
-    Id: number;
-    AgencyRoleId: number;
     AgencyRole: Partial<AgencyRole> | null;
+    AgencyRoleId: number;
     MonthOffset: number;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
 }
 
 export interface ProducerCodeName {
-    Id: number;
     Name: string | null;
-    ProducerCodeTypeId: number;
     ProducerCodeType: Partial<ProducerCodeType> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    ProducerCodeTypeId: number;
 }
 
 export interface ProducerCodeType {
-    Id: number;
     Names: Array<Partial<ProducerCodeName>> | null;
 }
 
 export interface SupplementalProducerCode {
-    Id: number;
-    PersonId: number | null;
-    Person: Partial<Person> | null;
-    ProducerCodeTypeId: number | null;
-    ProducerCodeType: Partial<ProducerCodeType> | null;
-    Empcode: string | null;
     Ams360FullName: string | null;
-    ManagementSystemId: number;
+    Empcode: string | null;
     ManagementSystem: Partial<ManagementSystem> | null;
-    StartDate: string;
-    EndDate: string | null;
-    IsExpired: boolean;
+    ManagementSystemId: number;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    ProducerCodeType: Partial<ProducerCodeType> | null;
+    ProducerCodeTypeId: number | null;
 }
 
 export interface BookOfBusinessChange {
-    Id: number;
-    CompanyId: number;
-    Company: Partial<Company> | null;
-    Description: string | null;
     Amount: Partial<number>;
+    Company: Partial<Company> | null;
+    CompanyId: number;
+    Description: string | null;
     EffectiveDate: string;
 }
 
 export interface StandardizedLineOfBusiness {
-    Id: number;
-    LineOfBusinessName: string | null;
     LineOfBusinessCategory: string | null;
+    LineOfBusinessName: string | null;
 }
 
 export interface StandardizedGLDepartment {
-    Id: number;
-    Name: string | null;
     CleanName: string | null;
+    Name: string | null;
 }
 
 export interface StandardChartOfAccount {
-    Id: number;
     GLNumber: number;
     Tier1Description: string | null;
     Tier2Description: string | null;
     Tier3Description: string | null;
     Tier4Description: string | null;
+}
+
+export interface ISynchronizable {
+    CreatedDate: string;
+    LastModifiedDate: string;
+}
+
+export interface IExpirable {
+    EndDate: string | null;
+    IsExpired: boolean;
+    StartDate: string;
+}
+
+export interface IPhoneNumber {
+    AreaCode: string | null;
+    CountryCode: string | null;
+    Extension: string | null;
+    LineNumber: string | null;
 }
 
