@@ -26,89 +26,6 @@ export interface IIdentity {
     Id: number;
 }
 
-export interface ResourceLink {
-    Id: number;
-    Lesson: Partial<Lesson> | null;
-    LessonId: number;
-    Name: string | null;
-    Url: string | null;
-}
-
-export interface Answer {
-    Id: number;
-    IsCorrect: boolean;
-    Question: Partial<Question> | null;
-    QuestionId: number;
-    Sequence: number;
-    Text: string | null;
-}
-
-export interface Course {
-    Attachments: Array<Partial<CourseAttachment>> | null;
-    CourseToPeople: Array<Partial<CourseToPerson>> | null;
-    CreatedDate: string;
-    Description: string | null;
-    FeaturedImageUri: string | null;
-    Id: number;
-    Lessons: Array<Partial<Lesson>> | null;
-    Sequence: number;
-    Title: string | null;
-}
-
-export interface CourseToPerson {
-    CompletedDate: string | null;
-    Course: Partial<Course> | null;
-    CourseId: number;
-    Id: number;
-    IsCompleted: boolean;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface Lesson {
-    Course: Partial<Course> | null;
-    CourseId: number;
-    CreatedDate: string;
-    Id: number;
-    LessonToPeople: Array<Partial<LessonToPerson>> | null;
-    Name: string | null;
-    Questions: Array<Partial<Question>> | null;
-    ResourceDownloadUri: string | null;
-    ResourceFileNames: string | null;
-    ResourceLinks: Array<Partial<ResourceLink>> | null;
-    Sequence: number;
-    VideoLength: string | null;
-    YoutubeVideoKey: string | null;
-}
-
-export interface LessonToPerson {
-    ActivityDate: string | null;
-    HasPassed: boolean;
-    Id: number;
-    Lesson: Partial<Lesson> | null;
-    LessonId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface Question {
-    Answers: Array<Partial<Answer>> | null;
-    Id: number;
-    Lesson: Partial<Lesson> | null;
-    LessonId: number;
-    Sequence: number;
-    Text: string | null;
-    Type: 'SingleSelect'|'MultiSelect';
-}
-
-export interface CourseAttachment extends Attachment {
-    Course: Partial<Course> | null;
-    CourseId: number;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-    Type: 'CertificateAttachment'|'CourseAttachment'|'CourseFeaturedImage';
-}
-
 export interface Basket extends IIdentity {
     Fruits: Array<Partial<Fruit>> | null;
     Name: string | null;
@@ -1209,158 +1126,6 @@ export interface EloquaSyncLogEntry extends IExpirable, IIdentity {
     Type: 'Ams360'|'BenefitPoint';
 }
 
-export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    PeopleGroupId: number;
-}
-
-export interface CourseReportee extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface EducationAnswerKey extends IIdentity {
-    Answer: Partial<EducationAnswer> | null;
-    IsCorrect: boolean;
-}
-
-export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity {
-    AnswerKey: Partial<EducationAnswerKey> | null;
-    CreatedDate: string;
-    Question: Partial<EducationQuestion> | null;
-    QuestionId: number;
-    Sequence: number;
-    Text: string | null;
-}
-
-export interface CourseCategory extends IIdentity {
-    Courses: Array<Partial<EducationCourse>> | null;
-    Name: string | null;
-}
-
-export interface EducationCourse extends IIdentity, IChangeTracking, ICreatedBy {
-    Category: Partial<CourseCategory> | null;
-    CategoryId: number | null;
-    CompletionCertificate: Partial<CourseCertificateAttachment> | null;
-    CompletionCertificateId: number | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseAdmins: Array<Partial<CourseAdmin>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseMembers: Array<Partial<CourseMember>> | null;
-    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
-    CourseReportees: Array<Partial<CourseReportee>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    CreatedDate: string;
-    Description: string | null;
-    FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
-    FeaturedImageId: number | null;
-    Lessons: Array<Partial<EducationLesson>> | null;
-    Reviewable: boolean;
-    Sequence: number;
-    ShortDescription: string | null;
-    Title: string | null;
-}
-
-export interface CourseAdmin extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface CourseAdminPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    PeopleGroupId: number;
-}
-
-export interface CourseMember extends IIdentity {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    IsRequired: boolean;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface CourseMemberPeopleGroup extends IIdentity {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    IsRequired: boolean;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    PeopleGroupId: number;
-}
-
-export interface CourseParticipantStatus extends IIdentity {
-    CompletedDate: string | null;
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    IsCompleted: boolean;
-    PercentageComplete: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface CourseCertificateAttachment extends Attachment {
-    EducationCourses: Array<Partial<EducationCourse>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface CourseFeaturedImageAttachment extends Attachment {
-    EducationCourses: Array<Partial<EducationCourse>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface LessonAttachment extends Attachment {
-    FolderName: string | null;
-    Lesson: Partial<EducationLesson> | null;
-    LessonId: number;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy {
-    Attachments: Array<Partial<LessonAttachment>> | null;
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
-    Name: string | null;
-    PassingPercentage: number;
-    Questions: Array<Partial<EducationQuestion>> | null;
-    Sequence: number;
-    VideoLength: string | null;
-    YoutubeVideoKey: string | null;
-}
-
-export interface LessonParticipantStatus extends IIdentity {
-    ActivityDate: string;
-    Attempts: number;
-    AttemptStatus: 'Pass'|'Fail'|'InProgress';
-    GradePercentage: number;
-    Lesson: Partial<EducationLesson> | null;
-    LessonId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-    TimeToFail: string | null;
-    TimeToPass: string | null;
-    TimeWatched: string | null;
-}
-
-export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentity {
-    Answers: Array<Partial<EducationAnswer>> | null;
-    CreatedDate: string;
-    Lesson: Partial<EducationLesson> | null;
-    LessonId: number;
-    Sequence: number;
-    Text: string | null;
-    Type: 'SingleSelect'|'MultiSelect';
-}
-
 export interface CrmBulkImport extends IIdentity {
     CompletedDate: string | null;
     CreatedDate: string;
@@ -2118,7 +1883,6 @@ export interface Person extends IIdentity, ISynchronizable {
     CourseMembers: Array<Partial<CourseMember>> | null;
     CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
     CourseReportees: Array<Partial<CourseReportee>> | null;
-    CourseToPeople: Array<Partial<CourseToPerson>> | null;
     CreatedAnswers: Array<Partial<EducationAnswer>> | null;
     CreatedCourses: Array<Partial<EducationCourse>> | null;
     CreatedFolders: Array<Partial<Folder>> | null;
@@ -2149,7 +1913,6 @@ export interface Person extends IIdentity, ISynchronizable {
     LastName: string | null;
     LdapAccount: Partial<PersonLdapAccount> | null;
     LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
-    LessonToPeople: Array<Partial<LessonToPerson>> | null;
     MessageNotifications: Array<Partial<MessageNotification>> | null;
     Messages: Array<Partial<Message>> | null;
     MiddleName: string | null;
@@ -2308,6 +2071,158 @@ export interface UsageStatistic extends IIdentity {
     WorkingSet: number;
 }
 
+export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+}
+
+export interface CourseReportee extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface EducationAnswerKey extends IIdentity {
+    Answer: Partial<EducationAnswer> | null;
+    IsCorrect: boolean;
+}
+
+export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity {
+    AnswerKey: Partial<EducationAnswerKey> | null;
+    CreatedDate: string;
+    Question: Partial<EducationQuestion> | null;
+    QuestionId: number;
+    Sequence: number;
+    Text: string | null;
+}
+
+export interface CourseCategory extends IIdentity {
+    Courses: Array<Partial<EducationCourse>> | null;
+    Name: string | null;
+}
+
+export interface EducationCourse extends IIdentity, IChangeTracking, ICreatedBy {
+    Category: Partial<CourseCategory> | null;
+    CategoryId: number | null;
+    CompletionCertificate: Partial<CourseCertificateAttachment> | null;
+    CompletionCertificateId: number | null;
+    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
+    CourseAdmins: Array<Partial<CourseAdmin>> | null;
+    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
+    CourseMembers: Array<Partial<CourseMember>> | null;
+    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
+    CourseReportees: Array<Partial<CourseReportee>> | null;
+    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
+    CreatedDate: string;
+    Description: string | null;
+    FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
+    FeaturedImageId: number | null;
+    Lessons: Array<Partial<EducationLesson>> | null;
+    Reviewable: boolean;
+    Sequence: number;
+    ShortDescription: string | null;
+    Title: string | null;
+}
+
+export interface CourseAdmin extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface CourseAdminPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+}
+
+export interface CourseMember extends IIdentity {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    IsRequired: boolean;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface CourseMemberPeopleGroup extends IIdentity {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    IsRequired: boolean;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+}
+
+export interface CourseParticipantStatus extends IIdentity {
+    CompletedDate: string | null;
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    IsCompleted: boolean;
+    PercentageComplete: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface CourseCertificateAttachment extends Attachment {
+    EducationCourses: Array<Partial<EducationCourse>> | null;
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface CourseFeaturedImageAttachment extends Attachment {
+    EducationCourses: Array<Partial<EducationCourse>> | null;
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface LessonAttachment extends Attachment {
+    FolderName: string | null;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy {
+    Attachments: Array<Partial<LessonAttachment>> | null;
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
+    Name: string | null;
+    PassingPercentage: number;
+    Questions: Array<Partial<EducationQuestion>> | null;
+    Sequence: number;
+    VideoLength: string | null;
+    YoutubeVideoKey: string | null;
+}
+
+export interface LessonParticipantStatus extends IIdentity {
+    ActivityDate: string;
+    Attempts: number;
+    AttemptStatus: 'Pass'|'Fail'|'InProgress';
+    GradePercentage: number;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    TimeToFail: string | null;
+    TimeToPass: string | null;
+    TimeWatched: string | null;
+}
+
+export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentity {
+    Answers: Array<Partial<EducationAnswer>> | null;
+    CreatedDate: string;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    Sequence: number;
+    Text: string | null;
+    Type: 'SingleSelect'|'MultiSelect';
+}
+
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
     PeopleGroup: Partial<PeopleGroup> | null;
     PeopleGroupId: number;
@@ -2330,6 +2245,7 @@ export interface WebComponentSlide extends Slide {
 }
 
 export interface VideoSlide extends Slide {
+    AdditionalDuration: string;
     YoutubeVideoKey: string | null;
 }
 
@@ -2344,14 +2260,9 @@ export interface SlideImageAttachment extends Attachment {
     StorageFileNameAndPath: string | null;
 }
 
-export interface SlideBackgroundImageAttachment extends Attachment {
-    FolderName: string | null;
-    Slides: Array<Partial<Slide>> | null;
-    StorageFileNameAndPath: string | null;
-}
-
 export interface Tv extends IIdentity {
     Description: string | null;
+    Hostname: string | null;
     IPAddress: string | null;
     Name: string | null;
     TvGroup: Partial<TvGroup> | null;
@@ -2366,9 +2277,7 @@ export interface TvGroup extends IIdentity {
 }
 
 export interface Slide extends IIdentity {
-    BackgroundColor: string | null;
-    BackgroundImage: Partial<SlideBackgroundImageAttachment> | null;
-    BackgroundImageId: number | null;
+    Background: string | null;
     Duration: string;
     Name: string | null;
     SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
@@ -2485,15 +2394,15 @@ export interface StandardChartOfAccount extends IIdentity {
     Tier4Description: string | null;
 }
 
-export interface ISynchronizable {
-    CreatedDate: string;
-    LastModifiedDate: string;
-}
-
 export interface IExpirable {
     EndDate: string | null;
     IsExpired: boolean;
     StartDate: string;
+}
+
+export interface ISynchronizable {
+    CreatedDate: string;
+    LastModifiedDate: string;
 }
 
 export interface IPhoneNumber {
