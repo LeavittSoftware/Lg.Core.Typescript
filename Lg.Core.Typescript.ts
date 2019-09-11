@@ -715,7 +715,7 @@ export interface EmployeeQuestion {
     CreatedDate: string;
     Id: number;
     PersonId: number | null;
-    PrivacyOption: 'Private'|'Public'|'ShowToPresident';
+    PrivacyOption: 'Public'|'ShowToPresident'|'Private';
     Question: string | null;
 }
 
