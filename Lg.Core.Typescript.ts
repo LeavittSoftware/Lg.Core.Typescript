@@ -600,6 +600,18 @@ export interface SalesExpectationStatus {
     StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
+export interface Ams360GroupCode extends IIdentity, IExpirable {
+    Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
+    Ams360ManagementSystemId: number;
+    Code: string | null;
+}
+
+export interface Ams360DepartmentCode extends IIdentity, IExpirable {
+    Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
+    Ams360ManagementSystemId: number;
+    Code: string | null;
+}
+
 export interface ManualEntryBranchCode extends IIdentity, IExpirable {
     Code: string | null;
     ManualEntryManagementSystem: Partial<ManualEntryManagementSystem> | null;
@@ -639,27 +651,15 @@ export interface Ams360ManagementSystem {
     Ams360ApiAgencyNumber: string | null;
     Ams360Users: Array<Partial<Ams360UserPersonRole>> | null;
     BranchCodes: Array<Partial<Ams360BranchCode>> | null;
+    DepartmentCodes: Array<Partial<Ams360DepartmentCode>> | null;
     GlDivCodes: Array<Partial<Ams360GlDivCode>> | null;
-}
-
-export interface Ams360UserBranchCode extends IIdentity, IExpirable {
-    Ams360UserPersonRole: Partial<Ams360UserPersonRole> | null;
-    Ams360UserPersonRoleId: number;
-    Code: string | null;
-}
-
-export interface Ams360UserGlDivCode extends IIdentity, IExpirable {
-    Ams360UserPersonRole: Partial<Ams360UserPersonRole> | null;
-    Ams360UserPersonRoleId: number;
-    Code: string | null;
+    GroupCodes: Array<Partial<Ams360GroupCode>> | null;
 }
 
 export interface Ams360UserPersonRole extends PersonRole {
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
     Ams360ManagementSystemId: number | null;
-    BranchCodes: Array<Partial<Ams360UserBranchCode>> | null;
     EmpCode: string | null;
-    GlCodes: Array<Partial<Ams360UserGlDivCode>> | null;
 }
 
 export interface ManagementSystemApi extends IIdentity {
@@ -1170,6 +1170,7 @@ export interface CrmAccount extends IIdentity {
     AccountType: number;
     Address1: string | null;
     Address2: string | null;
+    Ams360AccountId: string | null;
     AnnualPayroll: string | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
     City: string | null;
