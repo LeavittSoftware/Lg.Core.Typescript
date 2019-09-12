@@ -604,12 +604,14 @@ export interface Ams360GroupCode extends IIdentity, IExpirable {
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
     Ams360ManagementSystemId: number;
     Code: string | null;
+    Name: string | null;
 }
 
 export interface Ams360DepartmentCode extends IIdentity, IExpirable {
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
     Ams360ManagementSystemId: number;
     Code: string | null;
+    Name: string | null;
 }
 
 export interface ManualEntryBranchCode extends IIdentity, IExpirable {
@@ -636,12 +638,14 @@ export interface Ams360BranchCode extends IIdentity, IExpirable {
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
     Ams360ManagementSystemId: number;
     Code: string | null;
+    Name: string | null;
 }
 
 export interface Ams360GlDivCode extends IIdentity, IExpirable {
     Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
     Ams360ManagementSystemId: number;
     Code: string | null;
+    Name: string | null;
 }
 
 export interface BenefitPointManagementSystem {
