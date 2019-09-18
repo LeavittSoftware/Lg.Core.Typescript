@@ -1577,7 +1577,8 @@ export interface PercentOfFullTimeEquivalent extends IExpirable, IIdentity, ISyn
     Value: number;
 }
 
-export interface JobRoleType extends IExpirable, IIdentity, ISynchronizable {
+export interface JobRoleType extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    CreatedDate: string;
     IsFullTimeEquivalenceType: boolean;
     JobRolePeopleGroups: Array<Partial<JobRolePeopleGroup>> | null;
     JobRoles: Array<Partial<JobRole>> | null;
@@ -1891,6 +1892,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CreatedAnswers: Array<Partial<EducationAnswer>> | null;
     CreatedCourses: Array<Partial<EducationCourse>> | null;
     CreatedFolders: Array<Partial<Folder>> | null;
+    CreatedJobRoleTypes: Array<Partial<JobRoleType>> | null;
     CreatedLessons: Array<Partial<EducationLesson>> | null;
     CreatedOutboundCallerIdNumberGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
     CreatedQuestions: Array<Partial<EducationQuestion>> | null;
