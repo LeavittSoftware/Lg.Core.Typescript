@@ -1729,7 +1729,6 @@ export interface IAddress {
     City: string | null;
     Country: string | null;
     County: string | null;
-    Location: string | null;
     State: string | null;
     Street1: string | null;
     Street2: string | null;
