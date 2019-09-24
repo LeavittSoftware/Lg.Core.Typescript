@@ -399,7 +399,7 @@ export interface Surge extends IIdentity, IExpirable {
     SurgeAdminPersonRoles: Array<Partial<SurgeAdminPersonRole>> | null;
     SurgePrizes: Array<Partial<SurgePrize>> | null;
     Teams: Array<Partial<SurgeTeam>> | null;
-    Type: 'Standard'|'ConnectAndSell';
+    Type: 'Standard'|'ConnectAndSell'|'FollowUpAndAppointment';
 }
 
 export interface SurgePoint extends IIdentity, IExpirable {
