@@ -2285,6 +2285,7 @@ export interface TvGroup extends IIdentity {
 export interface Slide extends IIdentity {
     Background: string | null;
     Duration: string;
+    MakeFullscreen: boolean | null;
     Name: string | null;
     SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
 }
