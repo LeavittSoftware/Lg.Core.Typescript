@@ -601,7 +601,9 @@ export interface SalesExpectationStatus {
 }
 
 export interface Ams360Database extends IIdentity {
-    GlDivCodes: Array<Partial<Ams360GlDivCode>> | null;
+    Ams360DatabaseServer: Partial<Ams360DatabaseServer> | null;
+    Ams360DatabaseServerId: number;
+    GlDivisionCodes: Array<Partial<Ams360GlDivisionCode>> | null;
     Name: string | null;
 }
 
