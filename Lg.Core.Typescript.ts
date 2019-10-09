@@ -600,6 +600,42 @@ export interface SalesExpectationStatus {
     StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
+export interface Ams360Database extends IIdentity {
+    GlDivCodes: Array<Partial<Ams360GlDivCode>> | null;
+    Name: string | null;
+}
+
+export interface Ams360GlBranchCode extends IIdentity {
+    Ams360GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
+    Ams360GlDivisionCodeId: number;
+    Code: string | null;
+    DepartmentCodes: Array<Partial<Ams360GlDepartmentCode>> | null;
+    Name: string | null;
+}
+
+export interface Ams360GlDepartmentCode extends IIdentity {
+    Ams360GlBranchCode: Partial<Ams360GlBranchCode> | null;
+    Ams360GlBranchCodeId: number;
+    Code: string | null;
+    GroupCodes: Array<Partial<Ams360GlGroupCode>> | null;
+    Name: string | null;
+}
+
+export interface Ams360GlDivisionCode extends IIdentity {
+    Ams360Database: Partial<Ams360Database> | null;
+    Ams360DatabaseId: number;
+    BranchCodes: Array<Partial<Ams360GlBranchCode>> | null;
+    Code: string | null;
+    Name: string | null;
+}
+
+export interface Ams360GlGroupCode extends IIdentity {
+    Ams360GlDepartmentCode: Partial<Ams360GlDepartmentCode> | null;
+    Ams360GlDepartmentCodeId: number;
+    Code: string | null;
+    Name: string | null;
+}
+
 export interface Ams360GroupCode extends IIdentity {
     Ams360DepartmentCode: Partial<Ams360DepartmentCode> | null;
     Ams360DepartmentCodeId: number;
@@ -613,6 +649,38 @@ export interface Ams360DepartmentCode extends IIdentity {
     Code: string | null;
     GroupCodes: Array<Partial<Ams360GroupCode>> | null;
     Name: string | null;
+}
+
+export interface Ams360DatabaseServer extends IIdentity {
+    Databases: Array<Partial<Ams360Database>> | null;
+    Ip: string | null;
+    Name: string | null;
+    Password: string | null;
+    Username: string | null;
+}
+
+export interface Ams360Instance extends IIdentity, IExpirable {
+    Ams360GlDivisionCodeId: number;
+    Ams360WebserviceApi: Partial<Ams360WebserviceApi> | null;
+    Ams360WebserviceApiId: number | null;
+    Company: Partial<Company> | null;
+    CompanyId: number;
+    GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
+    Users: Array<Partial<Ams360PersonRole>> | null;
+}
+
+export interface Ams360PersonRole extends PersonRole {
+    Ams360Instance: Partial<Ams360Instance> | null;
+    Ams360InstanceId: number | null;
+    EmpCode: string | null;
+}
+
+export interface Ams360WebserviceApi extends IIdentity {
+    Instances: Array<Partial<Ams360Instance>> | null;
+    Name: string | null;
+    Password: string | null;
+    Url: string | null;
+    Username: string | null;
 }
 
 export interface ManualEntryBranchCode extends IIdentity, IExpirable {
