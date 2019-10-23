@@ -600,9 +600,25 @@ export interface SalesExpectationStatus {
     StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
+export interface Ams360ProducerCodeType extends IIdentity {
+    Name: string | null;
+    SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
+}
+
+export interface Ams360SupplementalCode extends IIdentity {
+    Ams360EmpCode: Partial<Ams360EmpCode> | null;
+    Ams360EmpCodeId: number;
+    Ams360Instance: Partial<Ams360Instance> | null;
+    Ams360InstanceId: number;
+    Ams360ProducerCodeType: Partial<Ams360ProducerCodeType> | null;
+    Ams360ProducerCodeTypeId: number;
+    Name: string | null;
+}
+
 export interface Ams360Database extends IIdentity {
     Ams360DatabaseServer: Partial<Ams360DatabaseServer> | null;
     Ams360DatabaseServerId: number;
+    Ams360EmpCodes: Array<Partial<Ams360EmpCode>> | null;
     GlDivisionCodes: Array<Partial<Ams360GlDivisionCode>> | null;
     Name: string | null;
 }
@@ -668,13 +684,25 @@ export interface Ams360Instance extends IIdentity, IExpirable {
     Company: Partial<Company> | null;
     CompanyId: number;
     GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
+    SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
     Users: Array<Partial<Ams360PersonRole>> | null;
+}
+
+export interface Ams360EmpCode {
+    Ams360Database: Partial<Ams360Database> | null;
+    Ams360DatabaseId: number;
+    Code: string | null;
+    FirstName: string | null;
+    Id: number;
+    LastName: string | null;
+    Status: string | null;
 }
 
 export interface Ams360PersonRole extends PersonRole {
     Ams360Instance: Partial<Ams360Instance> | null;
     Ams360InstanceId: number | null;
     EmpCode: string | null;
+    IsManual: boolean;
 }
 
 export interface Ams360WebserviceApi extends IIdentity {
