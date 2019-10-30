@@ -3,6 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+
 export interface CPrem {
     Acre: string | null;
     Applies: string | null;

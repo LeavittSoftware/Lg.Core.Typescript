@@ -3,6 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+
 export interface ThumbnailBase64Dto {
     FileName: string | null;
     value: string | null;

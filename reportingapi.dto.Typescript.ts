@@ -3,6 +3,8 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+
+import {LeaderDto} from "./api2.dto.Typescript";
 export interface CustomerSearchResultDto {
     AccountName: string | null;
     Address1: string | null;

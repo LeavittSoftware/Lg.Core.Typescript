@@ -3,6 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+
 export interface QuoteRequest {
     Campaign: string | null;
     CampaignId: number;
