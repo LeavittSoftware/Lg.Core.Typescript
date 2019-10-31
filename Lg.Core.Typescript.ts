@@ -607,51 +607,51 @@ export interface Ams360ProducerCodeType extends IIdentity {
 }
 
 export interface Ams360SupplementalCode extends IIdentity {
-    Ams360EmpCode: Partial<Ams360EmpCode> | null;
-    Ams360EmpCodeId: number;
-    Ams360Instance: Partial<Ams360Instance> | null;
-    Ams360InstanceId: number;
-    Ams360ProducerCodeType: Partial<Ams360ProducerCodeType> | null;
-    Ams360ProducerCodeTypeId: number;
+    EmpCode: Partial<Ams360EmpCode> | null;
+    Instance: Partial<Ams360Instance> | null;
+    InstanceId: number;
     Name: string | null;
+    ProducerCodeType: Partial<Ams360ProducerCodeType> | null;
+    ProducerCodeTypeId: number;
 }
 
 export interface Ams360Database extends IIdentity {
-    Ams360DatabaseServer: Partial<Ams360DatabaseServer> | null;
-    Ams360DatabaseServerId: number;
-    Ams360EmpCodes: Array<Partial<Ams360EmpCode>> | null;
+    DatabaseServer: Partial<Ams360DatabaseServer> | null;
+    DatabaseServerId: number;
+    EmpCodes: Array<Partial<Ams360EmpCode>> | null;
     GlDivisionCodes: Array<Partial<Ams360GlDivisionCode>> | null;
     Name: string | null;
 }
 
 export interface Ams360GlBranchCode extends IIdentity {
-    Ams360GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
-    Ams360GlDivisionCodeId: number;
     Code: string | null;
-    DepartmentCodes: Array<Partial<Ams360GlDepartmentCode>> | null;
+    GlDepartmentCodes: Array<Partial<Ams360GlDepartmentCode>> | null;
+    GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
+    GlDivisionCodeId: number;
     Name: string | null;
 }
 
 export interface Ams360GlDepartmentCode extends IIdentity {
-    Ams360GlBranchCode: Partial<Ams360GlBranchCode> | null;
-    Ams360GlBranchCodeId: number;
     Code: string | null;
-    GroupCodes: Array<Partial<Ams360GlGroupCode>> | null;
+    GlBranchCode: Partial<Ams360GlBranchCode> | null;
+    GlBranchCodeId: number;
+    GlGroupCodes: Array<Partial<Ams360GlGroupCode>> | null;
     Name: string | null;
 }
 
 export interface Ams360GlDivisionCode extends IIdentity {
-    Ams360Database: Partial<Ams360Database> | null;
-    Ams360DatabaseId: number;
-    BranchCodes: Array<Partial<Ams360GlBranchCode>> | null;
     Code: string | null;
+    Database: Partial<Ams360Database> | null;
+    DatabaseId: number;
+    GlBranchCodes: Array<Partial<Ams360GlBranchCode>> | null;
+    Instances: Array<Partial<Ams360Instance>> | null;
     Name: string | null;
 }
 
 export interface Ams360GlGroupCode extends IIdentity {
-    Ams360GlDepartmentCode: Partial<Ams360GlDepartmentCode> | null;
-    Ams360GlDepartmentCodeId: number;
     Code: string | null;
+    GlDepartmentCode: Partial<Ams360GlDepartmentCode> | null;
+    GlDepartmentCodeId: number;
     Name: string | null;
 }
 
@@ -679,30 +679,32 @@ export interface Ams360DatabaseServer extends IIdentity {
 }
 
 export interface Ams360Instance extends IIdentity, IExpirable {
-    Ams360GlDivisionCodeId: number;
-    Ams360WebserviceApi: Partial<Ams360WebserviceApi> | null;
-    Ams360WebserviceApiId: number | null;
     Company: Partial<Company> | null;
-    CompanyId: number;
     GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
+    GlDivisionCodeId: number;
+    PersonRoles: Array<Partial<Ams360PersonRole>> | null;
     SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
-    Users: Array<Partial<Ams360PersonRole>> | null;
+    WebserviceApi: Partial<Ams360WebserviceApi> | null;
+    WebserviceApiId: number | null;
 }
 
-export interface Ams360EmpCode {
-    Ams360Database: Partial<Ams360Database> | null;
-    Ams360DatabaseId: number;
+export interface Ams360EmpCode extends IExpirable {
     Code: string | null;
+    Database: Partial<Ams360Database> | null;
+    DatabaseId: number;
     FirstName: string | null;
     Id: number;
     LastName: string | null;
+    PersonRoles: Array<Partial<Ams360PersonRole>> | null;
     Status: string | null;
+    SupplementalCode: Partial<Ams360SupplementalCode> | null;
 }
 
 export interface Ams360PersonRole extends PersonRole {
-    Ams360Instance: Partial<Ams360Instance> | null;
-    Ams360InstanceId: number | null;
-    EmpCode: string | null;
+    EmpCode: Partial<Ams360EmpCode> | null;
+    EmpCodeId: number;
+    Instance: Partial<Ams360Instance> | null;
+    InstanceId: number;
     IsManual: boolean;
 }
 
@@ -1861,6 +1863,7 @@ export interface App extends IIdentity, ISynchronizable, IExpirable {
 export interface Company extends IExpirable, IIdentity, ISynchronizable {
     Addresses: Array<Partial<CompanyAddress>> | null;
     AgencyCommissionRates: Array<Partial<AgencyCommissionRate>> | null;
+    Ams360Instance: Partial<Ams360Instance> | null;
     BookOfBusinessChanges: Array<Partial<BookOfBusinessChange>> | null;
     CompanyGroupToCompanies: Array<Partial<CompanyGroupToCompany>> | null;
     CompanyUhcCode: Partial<CompanyUhcCode> | null;
