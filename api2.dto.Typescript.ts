@@ -528,6 +528,21 @@ export interface LeaderDto {
     Rank: number;
 }
 
+export interface LdapAdObject {
+    AccountStatus: 'Locked'|'Disabled'|'PasswordExpired'|'Active'|'NeverLoggedIn';
+    AdditionalProperties: Array<Partial<KeyValuePair`2>> | null;
+    CommonName: string | null;
+    DisplayName: string | null;
+    DistinguishedName: string | null;
+    FirstName: string | null;
+    Guid: string;
+    LastName: string | null;
+    MatchingPerson: Partial<Person> | null;
+    Path: string | null;
+    SchemaClassName: string | null;
+    Sid: string | null;
+}
+
 export interface CourseStatsDto {
     CourseStatsLessons: Array<Partial<CourseStatsLessonDto>> | null;
     Participants: number;
