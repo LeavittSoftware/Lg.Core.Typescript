@@ -692,6 +692,7 @@ export interface Ams360EmpCode extends IExpirable {
     Code: string | null;
     Database: Partial<Ams360Database> | null;
     DatabaseId: number;
+    Email: string | null;
     FirstName: string | null;
     Id: number;
     LastName: string | null;
