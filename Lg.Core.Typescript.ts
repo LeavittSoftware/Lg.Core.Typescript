@@ -608,6 +608,7 @@ export interface Ams360ProducerCodeType extends IIdentity {
 
 export interface Ams360SupplementalCode extends IIdentity {
     EmpCode: Partial<Ams360EmpCode> | null;
+    EmpCodeId: number;
     Instance: Partial<Ams360Instance> | null;
     InstanceId: number;
     Name: string | null;
@@ -698,7 +699,7 @@ export interface Ams360EmpCode extends IExpirable {
     LastName: string | null;
     PersonRoles: Array<Partial<Ams360PersonRole>> | null;
     Status: string | null;
-    SupplementalCode: Partial<Ams360SupplementalCode> | null;
+    SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
 }
 
 export interface Ams360PersonRole extends PersonRole {
