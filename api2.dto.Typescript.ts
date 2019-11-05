@@ -529,6 +529,7 @@ export interface LeaderDto {
 }
 
 export interface LdapAdObject {
+    AccountName: string | null;
     AccountStatus: 'Locked'|'Disabled'|'PasswordExpired'|'Active'|'NeverLoggedIn';
     AdditionalProperties: Array<Partial<KeyValuePair`2>> | null;
     CommonName: string | null;
