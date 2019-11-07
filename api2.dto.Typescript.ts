@@ -242,7 +242,7 @@ export interface TerminateDto {
     TerminationDate: string | null;
 }
 
-export interface NewEmployeeResult {
+export interface NewUserResult {
     Id: number;
 }
 
@@ -526,6 +526,14 @@ export interface LeaderDto {
     LastName: string | null;
     PersonId: number;
     Rank: number;
+}
+
+export interface AuditorDto {
+    CompanyId: number;
+    Email: string | null;
+    ExpirationDate: string;
+    FirstName: string | null;
+    LastName: string | null;
 }
 
 export interface LdapAdObject {
