@@ -1140,29 +1140,6 @@ export interface LGManagedDomoDataset extends IIdentity {
     DomoDatasetId: string | null;
 }
 
-export interface DairyDailyClassPrice extends IIdentity {
-    Class3Price: Partial<number>;
-    Class4Price: Partial<number>;
-    Quarter: 'First'|'Second'|'Third'|'Fourth';
-    QuoteDate: string;
-    Year: number;
-}
-
-export interface DairyDailyComponentPrice extends IIdentity {
-    ButterfatPrice: Partial<number>;
-    OtherFatsPrice: Partial<number>;
-    ProteinPrice: Partial<number>;
-    Quarter: 'First'|'Second'|'Third'|'Fourth';
-    QuoteDate: string;
-    Year: number;
-}
-
-export interface DairyDailyImportFileStatus extends IIdentity {
-    AttemptDate: string;
-    FileName: string | null;
-    ImportFileStatus: 'NoFile'|'Imported'|'Failure';
-}
-
 export interface EloquaContact {
     CrmAccount: Partial<CrmAccount> | null;
     EloquaContactId: number;
@@ -1479,9 +1456,6 @@ export interface LogSummaryNotificationMessage extends NotificationMessage {
 export interface PersonAdpAccount extends IIdentity {
     AssociateOid: string | null;
     Person: Partial<Person> | null;
-}
-
-export interface DairyCustomerPersonRole extends PersonRole {
 }
 
 export interface NotificationDistrubutionGroupRole extends PersonRole {

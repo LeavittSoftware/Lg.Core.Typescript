@@ -594,38 +594,6 @@ export interface CrmAccountExtendedDto extends CrmAccount {
     Longitude: number;
 }
 
-export interface DairyCustomerAccountDto {
-    DairyCustomerPersonRoleId: number;
-    EmailAddress: string | null;
-    EmailId: number;
-    FirstName: string | null;
-    LastName: string | null;
-    PersonId: number;
-    Username: string | null;
-}
-
-export interface DairyDailyClassPriceDto {
-    CanSign: boolean;
-    Class3Price: Partial<number>;
-    Class3PriceTrend: 'Down'|'Level'|'Up';
-    Class4Price: Partial<number>;
-    Class4PriceTrend: 'Down'|'Level'|'Up';
-    DairyDailyClassPriceId: number;
-    QuoteDate: string;
-}
-
-export interface DairyDailyComponentDto {
-    ButterfatPrice: Partial<number>;
-    ButterfatTrend: 'Down'|'Level'|'Up';
-    CanSign: boolean;
-    DairyDailyComponentPriceId: number;
-    OtherFatsPrice: Partial<number>;
-    OtherFatsTrend: 'Down'|'Level'|'Up';
-    ProteinPrice: Partial<number>;
-    ProteinTrend: 'Down'|'Level'|'Up';
-    QuoteDate: string;
-}
-
 export interface Ams360CustomerDto {
     AccountExecCode: string | null;
     AccountRepCode: string | null;
