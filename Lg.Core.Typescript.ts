@@ -223,7 +223,7 @@ export interface GamePoint extends IIdentity, ICreatedBy {
 }
 
 export interface GamePrize extends Prize {
-    GamePrizeType: 'SponsoredPrize'|'TopFiveOverallPrize'|'SponsoredOverallPrize';
+    GamePrizeType: 'SponsoredPrize'|'SecondSponsoredPrize'|'TopFiveOverallPrize'|'SponsoredOverallPrize';
     TheGameGame: Partial<TheGameGame> | null;
     TheGameGameId: number;
 }
