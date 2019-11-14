@@ -94,40 +94,6 @@ export interface Deduction extends IIdentity {
     Verified: string | null;
 }
 
-export interface BenefitsToGoCompanyRole extends CompanyRole {
-    BenefitsToGoCompanyRoleDetails: Array<Partial<BenefitsToGoCompanyRoleDetail>> | null;
-    CRMAccountId: string;
-    PeopleRoles: Array<Partial<BenefitsToGoPersonRole>> | null;
-    Plans: Array<Partial<Plan>> | null;
-    RegistrationKey: string | null;
-}
-
-export interface BenefitsToGoPersonRole extends PersonRole {
-    BenefitsToGoCompanyRole: Partial<BenefitsToGoCompanyRole> | null;
-    BenefitsToGoCompanyRoleId: number;
-}
-
-export interface BenefitsToGoCompanyRoleDetail extends Detail {
-    BenefitsToGoCompanyRole: Partial<BenefitsToGoCompanyRole> | null;
-    BenefitsToGoCompanyRoleId: number;
-}
-
-export interface Plan extends IIdentity {
-    BenefitsToGoCompanyRole: Partial<BenefitsToGoCompanyRole> | null;
-    BenefitsToGoCompanyRoleId: number;
-    Category: string | null;
-    CRMPolicyId: string;
-    Name: string | null;
-    PlanDetails: Array<Partial<PlanDetail>> | null;
-    PlanType: 'Core'|'Other';
-}
-
-export interface PlanDetail extends Detail {
-    Plan: Partial<Plan> | null;
-    PlanId: number;
-    SortOrder: number;
-}
-
 export interface LogEntryItem extends IIdentity {
     AutomatedApplication: Partial<AutomatedApplication> | null;
     AutomatedApplicationId: number;
@@ -1134,10 +1100,6 @@ export interface Reply {
 export interface ReplyReaction extends Reaction {
     Reply: Partial<Reply> | null;
     ReplyId: number;
-}
-
-export interface LGManagedDomoDataset extends IIdentity {
-    DomoDatasetId: string | null;
 }
 
 export interface EloquaContact {
@@ -2305,6 +2267,16 @@ export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentit
     Sequence: number;
     Text: string | null;
     Type: 'SingleSelect'|'MultiSelect';
+}
+
+export interface DomoDataSet extends IIdentity {
+    DomoDataSetId: string | null;
+    IsLgManaged: boolean;
+    Name: string | null;
+}
+
+export interface LGManagedDomoDataset extends IIdentity {
+    DomoDatasetId: string | null;
 }
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
