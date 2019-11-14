@@ -536,6 +536,16 @@ export interface AuditorDto {
     LastName: string | null;
 }
 
+export interface GuestDto {
+    Description: string | null;
+    Email: string | null;
+    ExpirationDate: string | null;
+    FirstName: string | null;
+    Id: number;
+    LastName: string | null;
+    RequestedByPersonId: number;
+}
+
 export interface LdapAdObject {
     AccountName: string | null;
     AccountStatus: 'Locked'|'Disabled'|'PasswordExpired'|'Active'|'NeverLoggedIn';
