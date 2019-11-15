@@ -536,6 +536,14 @@ export interface AuditorDto {
     LastName: string | null;
 }
 
+export interface InvestorDto {
+    Email: string | null;
+    ExpirationDate: string | null;
+    FirstName: string | null;
+    Id: number;
+    LastName: string | null;
+}
+
 export interface GuestDto {
     Description: string | null;
     Email: string | null;
