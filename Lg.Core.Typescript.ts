@@ -2270,7 +2270,7 @@ export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentit
 }
 
 export interface DomoDataSet extends IIdentity {
-    DomoDataSetId: string | null;
+    DataSetId: string | null;
     IsLgManaged: boolean;
     Name: string | null;
 }
