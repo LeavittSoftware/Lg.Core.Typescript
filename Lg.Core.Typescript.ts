@@ -2272,6 +2272,7 @@ export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentit
 export interface DomoDataSet extends IIdentity {
     DataSetId: string | null;
     IsLgManaged: boolean;
+    LgManagedLastModified: string | null;
     Name: string | null;
 }
 
