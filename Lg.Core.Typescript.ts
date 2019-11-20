@@ -567,6 +567,13 @@ export interface SalesExpectationStatus {
     StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
+export interface Ams360InstanceToGlDivisionCode extends IIdentity, ISynchronizable {
+    GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
+    GlDivisionCodeId: number;
+    Instance: Partial<Ams360Instance> | null;
+    InstanceId: number;
+}
+
 export interface Ams360ProducerCodeType extends IIdentity {
     Name: string | null;
     SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
@@ -607,11 +614,11 @@ export interface Ams360GlDepartmentCode extends IIdentity {
 }
 
 export interface Ams360GlDivisionCode extends IIdentity {
+    Ams360InstanceToGlDivisionCodes: Array<Partial<Ams360InstanceToGlDivisionCode>> | null;
     Code: string | null;
     Database: Partial<Ams360Database> | null;
     DatabaseId: number;
     GlBranchCodes: Array<Partial<Ams360GlBranchCode>> | null;
-    Instances: Array<Partial<Ams360Instance>> | null;
     Name: string | null;
 }
 
@@ -646,9 +653,8 @@ export interface Ams360DatabaseServer extends IIdentity {
 }
 
 export interface Ams360Instance extends IIdentity, IExpirable {
+    Ams360InstanceToGlDivisionCodes: Array<Partial<Ams360InstanceToGlDivisionCode>> | null;
     Company: Partial<Company> | null;
-    GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
-    GlDivisionCodeId: number;
     PersonRoles: Array<Partial<Ams360PersonRole>> | null;
     SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
     WebserviceApi: Partial<Ams360WebserviceApi> | null;
