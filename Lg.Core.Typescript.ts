@@ -2361,6 +2361,19 @@ export interface SlideShow extends IIdentity {
     TvGroups: Array<Partial<TvGroup>> | null;
 }
 
+export interface AppsPcCarrier extends IIdentity {
+    LineOfBusiness: string | null;
+    Name: string | null;
+    Territory: string | null;
+}
+
+export interface AppsWorkerCompCarrier {
+    Id: number;
+    LineOfBusiness: string | null;
+    Name: string | null;
+    Territory: string | null;
+}
+
 export interface AffiliationRole extends CompanyRole, ICreatedBy {
     AffiliationRoleNotifications: Array<Partial<AffiliationRoleNotification>> | null;
     AgencyPartner: Partial<JobRole> | null;
