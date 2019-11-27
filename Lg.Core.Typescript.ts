@@ -453,6 +453,33 @@ export interface CReportComment extends ISynchronizable {
     ReportDate: string;
 }
 
+export interface AgencyProductionBudget extends IIdentity {
+    Company: Partial<Company> | null;
+    CompanyId: number;
+    ProducerBudgets: Array<Partial<ProducerProductionBudget>> | null;
+    TotalCommissionRevenue: Partial<number>;
+    TotalProducerProductionGoal: Partial<number>;
+    Year: number;
+}
+
+export interface ProducerBudgetGoal extends IIdentity {
+    FiscalPeriod: number;
+    NewRevenue: Partial<number>;
+    ProducerProductionBudget: Partial<ProducerProductionBudget> | null;
+    ProducerProductionBudgetId: number;
+    RenewRevenue: Partial<number>;
+    TotalRevenue: Partial<number>;
+}
+
+export interface ProducerProductionBudget extends IIdentity {
+    AgencyProductionBudget: Partial<AgencyProductionBudget> | null;
+    AgencyProductionBudgetId: number;
+    Goals: Array<Partial<ProducerBudgetGoal>> | null;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    TotalGoalAmount: Partial<number>;
+}
+
 export interface FailReason {
     Id: number;
     Message: string | null;
@@ -472,6 +499,7 @@ export interface SalesExpectation extends IExpirable, IIdentity, ICreatedBy {
     HireDate: string | null;
     IsBookOfBusinessCompleted: boolean;
     IsCompleted: boolean;
+    IsExistingEmployee: boolean;
     IsExpectationsCompleted: boolean;
     IsProducerAssumptionsCompleted: boolean;
     LastModifiedByPerson: Partial<Person> | null;
@@ -668,6 +696,8 @@ export interface Ams360EmpCode extends IExpirable {
     Email: string | null;
     FirstName: string | null;
     Id: number;
+    IsProd: boolean;
+    IsRep: boolean;
     LastName: string | null;
     PersonRoles: Array<Partial<Ams360PersonRole>> | null;
     Status: string | null;
@@ -1822,6 +1852,7 @@ export interface Company extends IExpirable, IIdentity, ISynchronizable {
     Name: string | null;
     Names: Array<Partial<CompanyName>> | null;
     PhoneNumbers: Array<Partial<CompanyPhoneNumber>> | null;
+    ProductionBudgets: Array<Partial<AgencyProductionBudget>> | null;
     Roles: Array<Partial<CompanyRole>> | null;
     Teams: Array<Partial<CompanyTeam>> | null;
     UltiProAccount: Partial<CompanyUltiProAccount> | null;
@@ -1977,6 +2008,7 @@ export interface Person extends IIdentity, ISynchronizable {
     PersonToPermissions: Array<Partial<PersonToPermission>> | null;
     PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
     PhoneNumbers: Array<Partial<PersonPhoneNumber>> | null;
+    ProductionBudgets: Array<Partial<ProducerProductionBudget>> | null;
     QuickLinks: Array<Partial<QuickLink>> | null;
     Reactions: Array<Partial<Reaction>> | null;
     Replies: Array<Partial<Reply>> | null;
