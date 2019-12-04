@@ -499,7 +499,6 @@ export interface SalesExpectation extends IExpirable, IIdentity, ICreatedBy {
     HireDate: string | null;
     IsBookOfBusinessCompleted: boolean;
     IsCompleted: boolean;
-    IsExistingEmployee: boolean;
     IsExpectationsCompleted: boolean;
     IsProducerAssumptionsCompleted: boolean;
     LastModifiedByPerson: Partial<Person> | null;
@@ -541,6 +540,7 @@ export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
     AssignedBook: number;
     AverageAccountSize: number;
     CreatedDate: string;
+    IsExistingEmployee: boolean;
     LastModifiedByPerson: Partial<Person> | null;
     LastModifiedByPersonId: number | null;
     LastModifiedDate: string | null;
