@@ -549,6 +549,7 @@ export interface FileExplorerFileDto {
 }
 
 export interface FileExplorerFolderDto {
+    CanEdit: boolean;
     CreatedDate: string;
     CreatorPersonFirstName: string | null;
     CreatorPersonId: number;
