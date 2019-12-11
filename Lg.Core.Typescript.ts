@@ -1646,12 +1646,6 @@ export interface JobRoleToDivision extends IExpirable, IIdentity, ISynchronizabl
     JobRoleId: number;
 }
 
-export interface PercentOfFullTimeEquivalent extends IExpirable, IIdentity, ISynchronizable {
-    JobRole: Partial<JobRole> | null;
-    JobRoleId: number;
-    Value: number;
-}
-
 export interface JobRoleType extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
     CreatedDate: string;
     IsFullTimeEquivalenceType: boolean;
@@ -1746,7 +1740,6 @@ export interface JobRole extends Role {
     JobRoleTypeId: number;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
     LGEmployeeRoleId: number;
-    PercentOfFullTimeEquivalents: Array<Partial<PercentOfFullTimeEquivalent>> | null;
     SupervisorJobRoles: Array<Partial<SupervisorJobRole>> | null;
     TotalAssignmentPercent: number;
 }
@@ -2365,9 +2358,11 @@ export interface Tv extends IIdentity {
 }
 
 export interface TvGroup extends IIdentity {
+    Host: string | null;
     Name: string | null;
     SlideShow: Partial<SlideShow> | null;
     SlideShowId: number | null;
+    SubnetMask: string | null;
     Tvs: Array<Partial<Tv>> | null;
 }
 
@@ -2380,6 +2375,7 @@ export interface Slide extends IIdentity {
 }
 
 export interface SlideShowToSlide extends IIdentity {
+    Duration: string;
     Sequence: number;
     Slide: Partial<Slide> | null;
     SlideId: number;
