@@ -520,45 +520,6 @@ export interface LeaderBoardDto {
     TotalProducerCount: number;
 }
 
-export interface FileExplorerDto {
-    CanUpload: boolean;
-    Files: Array<Partial<FileExplorerFileDto>> | null;
-    Folders: Array<Partial<FileExplorerFolderDto>> | null;
-    ForumName: string | null;
-    Path: Array<Partial<FileExplorerPathDto>> | null;
-}
-
-export interface FileExplorerPathDto {
-    FolderId: number | null;
-    ForumId: number | null;
-    IsReadOnly: boolean;
-    Name: string | null;
-}
-
-export interface FileExplorerFileDto {
-    CreatedDate: string;
-    Description: string | null;
-    DownloadCount: number;
-    Extension: string | null;
-    Id: number;
-    Name: string | null;
-    OwnerFirstName: string | null;
-    OwnerId: number;
-    OwnerLastName: string | null;
-    Size: number;
-}
-
-export interface FileExplorerFolderDto {
-    CanEdit: boolean;
-    CreatedDate: string;
-    CreatorPersonFirstName: string | null;
-    CreatorPersonId: number;
-    CreatorPersonLastName: string | null;
-    Id: number;
-    IsReadOnly: boolean;
-    Name: string | null;
-}
-
 export interface LeaderDto {
     Amount: Partial<number>;
     FirstName: string | null;
