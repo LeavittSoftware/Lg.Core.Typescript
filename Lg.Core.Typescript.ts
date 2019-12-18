@@ -2008,6 +2008,7 @@ export interface Person extends IIdentity, ISynchronizable {
     Reservations: Array<Partial<Reservation>> | null;
     Roles: Array<Partial<PersonRole>> | null;
     SalesExpectations: Array<Partial<SalesExpectation>> | null;
+    SessionSpeakers: Array<Partial<SessionSpeaker>> | null;
     SurveyAdmins: Array<Partial<SurveyAdmin>> | null;
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
     SurveyRespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
@@ -2309,6 +2310,169 @@ export interface DomoDataSet extends IIdentity {
 
 export interface LGManagedDomoDataset extends IIdentity {
     DomoDatasetId: string | null;
+}
+
+export interface Conference {
+    Events: Array<Partial<ConferenceEvent>> | null;
+    Id: number;
+    Packages: Array<Partial<ConferencePackage>> | null;
+    RegistrationBegins: string;
+    RegistrationEnds: string;
+    Timeslots: Array<Partial<ConferenceTimeslot>> | null;
+    Title: string | null;
+    Tracks: Array<Partial<ConferenceTrack>> | null;
+    Year: number;
+}
+
+export interface ConferenceActivity extends ConferenceEvent {
+    AllowMultipleOptionSelection: boolean;
+    AttendeePreference: string | null;
+    Location: string | null;
+    MoreDetailsText: string | null;
+    MoreDetailsURL: string | null;
+    Options: Array<Partial<ConferenceActivityOption>> | null;
+}
+
+export interface ConferenceActivityOption {
+    Activity: Partial<ConferenceActivity> | null;
+    ActivityId: number;
+    Cost: Partial<number>;
+    Enrollments: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
+    Id: number;
+    Name: string | null;
+}
+
+export interface ConferenceActivityOptionToAttendee {
+    ActivityOption: Partial<ConferenceActivityOption> | null;
+    ActivityOptionId: number;
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    EnrollmentDate: string;
+    Id: number;
+}
+
+export interface ConferenceAttendeePersonRole extends PersonRole {
+    ActivityOptions: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
+    Conference: Partial<Conference> | null;
+    ConferenceId: number;
+    Events: Array<Partial<ConferenceEventToAttendee>> | null;
+    MealPreference: 'NoPreference'|'Vegetarian'|'Kosher'|'Vegan'|'Pollotarian'|'Pescatarian'|'GlutenFree';
+    Meals: Array<Partial<ConferenceMealToAttendee>> | null;
+    Packages: Array<Partial<ConferencePackageToAttendee>> | null;
+    Payments: Array<Partial<ConferencePayment>> | null;
+    RegisteredBy: Partial<Person> | null;
+    RegisteredById: number | null;
+    RegistrationDate: string;
+    Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
+}
+
+export interface ConferenceEvent {
+    Conference: Partial<Conference> | null;
+    ConferenceId: number;
+    Description: string | null;
+    Id: number;
+    MaxAttendees: number | null;
+    Name: string | null;
+    Timeslot: Partial<ConferenceTimeslot> | null;
+    TimeslotId: number;
+}
+
+export interface ConferenceEventToAttendee {
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    EnrollmentDate: string;
+    Event: Partial<ConferenceEvent> | null;
+    EventId: number;
+    Id: number;
+}
+
+export interface ConferenceMeal extends ConferenceEvent {
+    Cost: Partial<number>;
+    Enrollments: Array<Partial<ConferenceMealToAttendee>> | null;
+}
+
+export interface ConferenceMealToAttendee {
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    EnrollmentDate: string;
+    Id: number;
+    Meal: Partial<ConferenceMeal> | null;
+    MealId: number;
+}
+
+export interface ConferencePackage {
+    Attendees: Array<Partial<ConferencePackageToAttendee>> | null;
+    Conference: Partial<Conference> | null;
+    ConferenceId: number;
+    Cost: Partial<number>;
+    Id: number;
+    Name: string | null;
+}
+
+export interface ConferencePackageToAttendee {
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    Id: number;
+    Package: Partial<ConferencePackage> | null;
+    PackageId: number;
+}
+
+export interface ConferencePayment {
+    Amount: Partial<number>;
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    Date: string;
+    EnteredBy: Partial<Person> | null;
+    EnteredById: number;
+    Id: number;
+    PaymentType: 'CreditCard'|'Check'|'Comp'|'Cash'|'Refund';
+    TransactionId: string | null;
+}
+
+export interface ConferenceSession extends ConferenceEvent {
+    Enrollments: Array<Partial<ConferenceSessionToAttendee>> | null;
+    IsRegistrationRequired: boolean;
+    RoomNumber: string | null;
+    Speakers: Array<Partial<SessionSpeaker>> | null;
+    Track: Partial<ConferenceTrack> | null;
+    TrackId: number | null;
+}
+
+export interface ConferenceSessionToAttendee {
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    EnrollmentDate: string;
+    Id: number;
+    Session: Partial<ConferenceSession> | null;
+    SessionId: number;
+}
+
+export interface ConferenceTimeslot {
+    Conference: Partial<Conference> | null;
+    ConferenceId: number;
+    EndDate: string;
+    Events: Array<Partial<ConferenceEvent>> | null;
+    Id: number;
+    StartDate: string;
+}
+
+export interface ConferenceTrack {
+    Conference: Partial<Conference> | null;
+    ConferenceId: number;
+    Id: number;
+    Name: string | null;
+    Sessions: Array<Partial<ConferenceSession>> | null;
+}
+
+export interface ConferenceUserPersonRole extends PersonRole {
+}
+
+export interface SessionSpeaker {
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    Session: Partial<ConferenceSession> | null;
+    SessionId: number;
 }
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
