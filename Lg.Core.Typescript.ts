@@ -657,21 +657,6 @@ export interface Ams360GlGroupCode extends IIdentity {
     Name: string | null;
 }
 
-export interface Ams360GroupCode extends IIdentity {
-    Ams360DepartmentCode: Partial<Ams360DepartmentCode> | null;
-    Ams360DepartmentCodeId: number;
-    Code: string | null;
-    Name: string | null;
-}
-
-export interface Ams360DepartmentCode extends IIdentity {
-    Ams360BranchCode: Partial<Ams360BranchCode> | null;
-    Ams360BranchCodeId: number;
-    Code: string | null;
-    GroupCodes: Array<Partial<Ams360GroupCode>> | null;
-    Name: string | null;
-}
-
 export interface Ams360DatabaseServer extends IIdentity {
     Databases: Array<Partial<Ams360Database>> | null;
     Ip: string | null;
@@ -740,51 +725,13 @@ export interface ManualEntryManagementSystem {
 export interface SageManagementSystem {
 }
 
-export interface Ams360BranchCode extends IIdentity {
-    Ams360GlDivCode: Partial<Ams360GlDivCode> | null;
-    Ams360GlDivCodeId: number;
-    Code: string | null;
-    DepartmentCodes: Array<Partial<Ams360DepartmentCode>> | null;
-    Name: string | null;
-}
-
-export interface Ams360GlDivCode extends IIdentity {
-    Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
-    Ams360ManagementSystemId: number;
-    BranchCodes: Array<Partial<Ams360BranchCode>> | null;
-    Code: string | null;
-    Name: string | null;
-}
-
 export interface BenefitPointManagementSystem {
-}
-
-export interface Ams360ManagementSystem {
-    Ams360ApiAgencyNumber: string | null;
-    Ams360Users: Array<Partial<Ams360UserPersonRole>> | null;
-    GlDivCodes: Array<Partial<Ams360GlDivCode>> | null;
-}
-
-export interface Ams360UserPersonRole extends PersonRole {
-    Ams360ManagementSystem: Partial<Ams360ManagementSystem> | null;
-    Ams360ManagementSystemId: number | null;
-    EmpCode: string | null;
-}
-
-export interface ManagementSystemApi extends IIdentity {
-    ManagementSystems: Array<Partial<ManagementSystem>> | null;
-    Name: string | null;
-    Password: string | null;
-    Url: string | null;
-    Username: string | null;
 }
 
 export interface ManagementSystem extends IExpirable, IIdentity {
     Company: Partial<Company> | null;
     CompanyId: number;
     DatabaseName: string | null;
-    ManagementSystemApi: Partial<ManagementSystemApi> | null;
-    ManagementSystemApiId: number | null;
     ManagementSystemDatabaseServer: Partial<ManagementSystemDatabaseServer> | null;
     ManagementSystemDatabaseServerId: number | null;
     SupplementalProducerCodes: Array<Partial<SupplementalProducerCode>> | null;
