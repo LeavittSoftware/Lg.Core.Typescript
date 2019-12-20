@@ -1242,13 +1242,16 @@ export interface CrmAccount extends IIdentity {
 
 export interface CrmCommission extends IIdentity {
     Amount: Partial<number>;
+    CommissionSplitId: string | null;
     LastModifiedDate: string | null;
+    Name: string | null;
     Opportunity: Partial<CrmOpportunity> | null;
     OpportunityId: number;
     OwnerId: string;
     Percent: Partial<number>;
     Person: Partial<Person> | null;
     PersonId: number | null;
+    Sponsor: number | null;
 }
 
 export interface CrmAuditSyncLogEntry {
