@@ -104,6 +104,48 @@ export interface GeneralLedgerPeriod {
     StartDate: string;
 }
 
+export interface Vendor {
+    Addr1: string | null;
+    Addr2: string | null;
+    BusAreaCode: string | null;
+    BusExt: string | null;
+    BusPhone: string | null;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    City: string | null;
+    Contact: string | null;
+    ContactAreaCode: string | null;
+    ContactExt: string | null;
+    ContactPhone: string | null;
+    DatabaseName: string | null;
+    Description: string | null;
+    EIN: string | null;
+    EMail: string | null;
+    EnteredDate: string;
+    FaxAreaCode: string | null;
+    FaxExt: string | null;
+    FaxPhone: string | null;
+    FirstName: string | null;
+    GLNumber: string | null;
+    Id: number;
+    IsCompany: string | null;
+    IsHide: string | null;
+    LastName: string | null;
+    Memo: string | null;
+    MidName: string | null;
+    MobileAreaCode: string | null;
+    MobileExt: string | null;
+    MobilePhone: string | null;
+    S1099Category: number | null;
+    S1099Type: number | null;
+    ShortName: string | null;
+    State: string | null;
+    Terms: string | null;
+    VendorCode: string | null;
+    WebAddr: string | null;
+    ZipCode: string | null;
+}
+
 export interface InvoiceBillingEvent {
     BHId: string;
     BillingDate: string | null;
