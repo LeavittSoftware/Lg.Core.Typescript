@@ -61,7 +61,7 @@ export interface CPrem {
     IsSeasonal: string | null;
     IsWater: string | null;
     LimitLossPay: string | null;
-    LobId: string;
+    LOBId: string;
     Misc: string | null;
     NumOf: string | null;
     NumOfHead: string | null;

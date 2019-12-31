@@ -2263,8 +2263,10 @@ export interface LGManagedDomoDataset extends IIdentity {
 }
 
 export interface Conference {
+    EndDate: string | null;
     Events: Array<Partial<ConferenceEvent>> | null;
     Id: number;
+    IsExpired: boolean;
     Packages: Array<Partial<ConferencePackage>> | null;
     RegistrationBegins: string;
     RegistrationEnds: string;
@@ -2339,6 +2341,7 @@ export interface ConferenceEventToAttendee {
 export interface ConferenceMeal extends ConferenceEvent {
     Cost: Partial<number>;
     Enrollments: Array<Partial<ConferenceMealToAttendee>> | null;
+    Location: string | null;
 }
 
 export interface ConferenceMealToAttendee {
@@ -2355,6 +2358,7 @@ export interface ConferencePackage {
     Conference: Partial<Conference> | null;
     ConferenceId: number;
     Cost: Partial<number>;
+    Description: string | null;
     Id: number;
     Name: string | null;
 }
