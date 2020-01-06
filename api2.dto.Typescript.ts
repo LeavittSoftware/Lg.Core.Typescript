@@ -637,6 +637,12 @@ export interface Ams360CustomerDto {
     ZipCode: string | null;
 }
 
+export interface ConferencePersonDto {
+    Email: string | null;
+    FirstName: string | null;
+    LastName: string | null;
+}
+
 export interface IIdentity {
     Id: number;
 }

@@ -2303,6 +2303,9 @@ export interface ConferenceActivityOptionToAttendee {
     Id: number;
 }
 
+export interface ConferenceAccountPersonRole extends PersonRole {
+}
+
 export interface ConferenceAttendeePersonRole extends PersonRole {
     ActivityOptions: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Conference: Partial<Conference> | null;
