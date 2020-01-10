@@ -2268,8 +2268,8 @@ export interface Conference {
     Id: number;
     IsExpired: boolean;
     Packages: Array<Partial<ConferencePackage>> | null;
-    RegistrationBegins: string;
-    RegistrationEnds: string;
+    RegistrationBegins: string | null;
+    RegistrationEnds: string | null;
     Timeslots: Array<Partial<ConferenceTimeslot>> | null;
     Title: string | null;
     Tracks: Array<Partial<ConferenceTrack>> | null;
