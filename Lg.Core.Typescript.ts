@@ -2263,6 +2263,7 @@ export interface LGManagedDomoDataset extends IIdentity {
 }
 
 export interface Conference {
+    Attendees: Array<Partial<ConferenceAttendeePersonRole>> | null;
     ConferenceEndDate: string;
     ConferenceStartDate: string;
     EndDate: string | null;
