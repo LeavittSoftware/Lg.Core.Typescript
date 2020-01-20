@@ -2408,6 +2408,7 @@ export interface ConferenceTransaction {
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
     Packages: Array<Partial<ConferencePackageToAttendee>> | null;
     PaymentProcessorTransactionId: string | null;
+    PaymentType: 'None'|'Cash'|'Check'|'CreditCard'|'Comp'|'Sweep';
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
     Type: 'Purchase'|'Payment'|'Refund';
