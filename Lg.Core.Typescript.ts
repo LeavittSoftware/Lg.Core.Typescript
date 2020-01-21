@@ -2442,6 +2442,7 @@ export interface ConferenceTimeslot {
     EndDate: string;
     Events: Array<Partial<ConferenceEvent>> | null;
     Id: number;
+    Name: string | null;
     StartDate: string;
 }
 
