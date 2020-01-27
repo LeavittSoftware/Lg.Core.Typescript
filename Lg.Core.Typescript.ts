@@ -2307,7 +2307,7 @@ export interface ConferenceActivityOptionToAttendee {
     AttendeeId: number;
     EnrollmentDate: string;
     Id: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled';
+    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
     Transaction: Partial<ConferenceTransaction> | null;
     TransactionId: number | null;
 }
@@ -2356,7 +2356,7 @@ export interface ConferenceMealToAttendee {
     Id: number;
     Meal: Partial<ConferenceMeal> | null;
     MealId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled';
+    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
     Transaction: Partial<ConferenceTransaction> | null;
     TransactionId: number | null;
 }
@@ -2378,7 +2378,7 @@ export interface ConferencePackageToAttendee {
     Id: number;
     Package: Partial<ConferencePackage> | null;
     PackageId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled';
+    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
     Transaction: Partial<ConferenceTransaction> | null;
     TransactionId: number | null;
 }
@@ -2390,7 +2390,7 @@ export interface ConferenceSponsorshipToAttendee {
     Id: number;
     Sponsorship: Partial<ConferenceSponsorship> | null;
     SponsorshipId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled';
+    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
     Transaction: Partial<ConferenceTransaction> | null;
     TransactionId: number | null;
 }
@@ -2431,7 +2431,7 @@ export interface ConferenceSessionToAttendee {
     Id: number;
     Session: Partial<ConferenceSession> | null;
     SessionId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled';
+    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
     Transaction: Partial<ConferenceTransaction> | null;
     TransactionId: number | null;
 }
