@@ -637,6 +637,18 @@ export interface Ams360CustomerDto {
     ZipCode: string | null;
 }
 
+export interface ConferenceDashboardDto {
+    AttendeeId: number | null;
+    Balance: Partial<number>;
+    ConferenceTitle: string | null;
+    Id: number;
+    PackageNames: Array<Partial<String>> | null;
+    RegistrationEnd: string | null;
+    RegistrationStart: string | null;
+    Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
+    Status: string | null;
+}
+
 export interface ConferencePersonDto {
     Email: string | null;
     FirstName: string | null;
