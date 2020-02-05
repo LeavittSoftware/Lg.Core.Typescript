@@ -649,6 +649,18 @@ export interface ConferenceDashboardDto {
     Status: string | null;
 }
 
+export interface ConferenceCcPaymentDto {
+    Amount: Partial<number>;
+    BillingAddress: string | null;
+    City: string | null;
+    CreditCardNumber: string | null;
+    Cvv: string | null;
+    ExpirationDate: string;
+    Name: string | null;
+    State: string | null;
+    Zip: string | null;
+}
+
 export interface ConferencePersonDto {
     Email: string | null;
     FirstName: string | null;
