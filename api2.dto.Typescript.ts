@@ -641,6 +641,7 @@ export interface ConferenceDashboardDto {
     AttendeeId: number | null;
     Balance: Partial<number>;
     ConferenceTitle: string | null;
+    ConferenceYear: number;
     Id: number;
     PackageNames: Array<Partial<String>> | null;
     RegistrationEnd: string | null;
