@@ -645,6 +645,7 @@ export interface ConferenceDashboardDto {
     Id: number;
     PackageNames: Array<Partial<String>> | null;
     RegistrationEnd: string | null;
+    RegistrationOpen: boolean;
     RegistrationStart: string | null;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
     Status: string | null;
