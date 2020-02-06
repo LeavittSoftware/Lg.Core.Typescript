@@ -640,15 +640,14 @@ export interface Ams360CustomerDto {
 export interface ConferenceDashboardDto {
     AttendeeId: number | null;
     Balance: Partial<number>;
+    ConferenceRegistrationStatus: 'Open'|'NotStarted'|'Finished';
     ConferenceTitle: string | null;
     ConferenceYear: number;
     Id: number;
-    PackageNames: Array<Partial<String>> | null;
     RegistrationEnd: string | null;
-    RegistrationOpen: boolean;
     RegistrationStart: string | null;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
-    Status: string | null;
+    Status: 'Registered'|'Unregistered'|'Cancelled';
 }
 
 export interface ConferenceCcPaymentDto {
