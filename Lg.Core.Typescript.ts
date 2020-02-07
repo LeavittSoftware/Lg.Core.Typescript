@@ -2375,6 +2375,7 @@ export interface ConferencePackage {
 export interface ConferencePackageToAttendee {
     Attendee: Partial<ConferenceAttendeePersonRole> | null;
     AttendeeId: number;
+    EnrollmentDate: string;
     Id: number;
     Package: Partial<ConferencePackage> | null;
     PackageId: number;
