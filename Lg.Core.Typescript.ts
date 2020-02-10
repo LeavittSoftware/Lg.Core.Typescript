@@ -2385,6 +2385,7 @@ export interface Conference {
     Events: Array<Partial<ConferenceEvent>> | null;
     Id: number;
     IsExpired: boolean;
+    Location: string | null;
     Packages: Array<Partial<ConferencePackage>> | null;
     RegistrationBegins: string | null;
     RegistrationEnds: string | null;
@@ -2418,13 +2419,12 @@ export interface ConferenceActivityOption {
 export interface ConferenceActivityOptionToAttendee {
     ActivityOption: Partial<ConferenceActivityOption> | null;
     ActivityOptionId: number;
+    Amount: Partial<number>;
     Attendee: Partial<ConferenceAttendeePersonRole> | null;
     AttendeeId: number;
     EnrollmentDate: string;
     Id: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
-    Transaction: Partial<ConferenceTransaction> | null;
-    TransactionId: number | null;
+    Name: string | null;
 }
 
 export interface ConferenceAccountPersonRole extends PersonRole {
@@ -2434,19 +2434,20 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     ActivityOptions: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Conference: Partial<Conference> | null;
     ConferenceId: number;
-    IsCanceled: boolean;
     MealPreference: 'NoPreference'|'Vegetarian'|'Kosher'|'Vegan'|'Pollotarian'|'Pescatarian'|'GlutenFree';
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
     Packages: Array<Partial<ConferencePackageToAttendee>> | null;
     RegisteredBy: Partial<Person> | null;
     RegisteredById: number | null;
     RegistrationDate: string;
+    RegistrationStatus: 'Incomplete'|'PaidInFull';
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
     Transactions: Array<Partial<ConferenceTransaction>> | null;
 }
 
 export interface ConferenceEvent {
+    Available: number | null;
     Conference: Partial<Conference> | null;
     ConferenceId: number;
     Description: string | null;
@@ -2465,68 +2466,62 @@ export interface ConferenceMeal extends ConferenceEvent {
 }
 
 export interface ConferenceMealToAttendee {
+    Amount: Partial<number>;
     Attendee: Partial<ConferenceAttendeePersonRole> | null;
     AttendeeId: number;
     EnrollmentDate: string;
     Id: number;
     Meal: Partial<ConferenceMeal> | null;
     MealId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
-    Transaction: Partial<ConferenceTransaction> | null;
-    TransactionId: number | null;
+    Name: string | null;
 }
 
 export interface ConferencePackage {
-    Attendees: Array<Partial<ConferencePackageToAttendee>> | null;
     Conference: Partial<Conference> | null;
     ConferenceId: number;
     Cost: Partial<number>;
     Description: string | null;
+    Enrollments: Array<Partial<ConferencePackageToAttendee>> | null;
     Id: number;
     IsActive: boolean;
     Name: string | null;
 }
 
 export interface ConferencePackageToAttendee {
-    Attendee: Partial<ConferenceAttendeePersonRole> | null;
-    AttendeeId: number;
-    EnrollmentDate: string;
-    Id: number;
-    Package: Partial<ConferencePackage> | null;
-    PackageId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
-    Transaction: Partial<ConferenceTransaction> | null;
-    TransactionId: number | null;
-}
-
-export interface ConferenceSponsorshipToAttendee {
-    Attendee: Partial<ConferenceAttendeePersonRole> | null;
-    AttendeeId: number;
-    EnrollmentDate: string;
-    Id: number;
-    Sponsorship: Partial<ConferenceSponsorship> | null;
-    SponsorshipId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
-    Transaction: Partial<ConferenceTransaction> | null;
-    TransactionId: number | null;
-}
-
-export interface ConferenceTransaction {
-    ActivityOptions: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Amount: Partial<number>;
     Attendee: Partial<ConferenceAttendeePersonRole> | null;
     AttendeeId: number;
+    EnrollmentDate: string;
+    Id: number;
+    Name: string | null;
+    Package: Partial<ConferencePackage> | null;
+    PackageId: number;
+}
+
+export interface ConferenceSponsorshipToAttendee {
+    Amount: Partial<number>;
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    EnrollmentDate: string;
+    Id: number;
+    Name: string | null;
+    Sponsorship: Partial<ConferenceSponsorship> | null;
+    SponsorshipId: number;
+}
+
+export interface ConferenceTransaction {
+    Amount: Partial<number>;
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    CcLastFour: string | null;
+    CcType: string | null;
     Date: string;
     Description: string | null;
     EnteredBy: Partial<Person> | null;
     EnteredById: number;
     Id: number;
-    Meals: Array<Partial<ConferenceMealToAttendee>> | null;
-    Packages: Array<Partial<ConferencePackageToAttendee>> | null;
     PaymentProcessorTransactionId: string | null;
-    PaymentType: 'None'|'Cash'|'Check'|'CreditCard'|'Comp'|'Sweep';
-    Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
-    Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
+    PaymentType: 'None'|'Cash'|'Check'|'CreditCard'|'Comp'|'Sweep'|'ManualCreditCard';
     Type: 'Purchase'|'Payment'|'Refund';
 }
 
@@ -2534,22 +2529,21 @@ export interface ConferenceSession extends ConferenceEvent {
     Enrollments: Array<Partial<ConferenceSessionToAttendee>> | null;
     IsActive: boolean;
     IsRegistrationRequired: boolean;
-    RoomNumber: string | null;
+    Location: string | null;
     Speakers: Array<Partial<SessionSpeaker>> | null;
     Track: Partial<ConferenceTrack> | null;
     TrackId: number | null;
 }
 
 export interface ConferenceSessionToAttendee {
+    Amount: Partial<number>;
     Attendee: Partial<ConferenceAttendeePersonRole> | null;
     AttendeeId: number;
     EnrollmentDate: string;
     Id: number;
+    Name: string | null;
     Session: Partial<ConferenceSession> | null;
     SessionId: number;
-    Status: 'NotPaid'|'Paid'|'NotPaidReserved'|'Cancelled'|'CancelledRefunded';
-    Transaction: Partial<ConferenceTransaction> | null;
-    TransactionId: number | null;
 }
 
 export interface ConferenceTimeslot {
@@ -2574,6 +2568,7 @@ export interface ConferenceUserPersonRole extends PersonRole {
 }
 
 export interface ConferenceSponsorship {
+    Available: number | null;
     Conference: Partial<Conference> | null;
     ConferenceId: number;
     Cost: Partial<number>;

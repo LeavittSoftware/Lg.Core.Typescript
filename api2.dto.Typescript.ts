@@ -378,7 +378,7 @@ export interface TeamScoreboardReportDto {
 }
 
 export interface AccountDto {
-    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits';
+    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits'|'FinancialServices';
     Id: string;
     Name: string | null;
     Opportunities: Array<Partial<OpportunityDto>> | null;
@@ -640,14 +640,11 @@ export interface Ams360CustomerDto {
 export interface ConferenceDashboardDto {
     AttendeeId: number | null;
     Balance: Partial<number>;
+    Conference: Partial<Conference> | null;
     ConferenceRegistrationStatus: 'Open'|'NotStarted'|'Finished';
-    ConferenceTitle: string | null;
-    ConferenceYear: number;
     Id: number;
-    RegistrationEnd: string | null;
-    RegistrationStart: string | null;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
-    Status: 'Registered'|'Unregistered'|'Cancelled';
+    Status: 'Incomplete'|'PaidInFull';
 }
 
 export interface ConferenceCcPaymentDto {
