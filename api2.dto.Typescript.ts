@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 
-import { CrmAccount, ProducerCommissionRate, EloquaEmailTemplate, Person, ConferenceSponsorship } from "./Lg.Core.Typescript";
+import { CrmAccount, ProducerCommissionRate, EloquaEmailTemplate, Person, ConferenceSponsorship, Conference } from "./Lg.Core.Typescript";
 export interface FirebasePostNotification {
     LastPostDate: string;
     PersonId: number;
