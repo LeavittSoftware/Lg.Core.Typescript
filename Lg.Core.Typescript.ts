@@ -747,6 +747,7 @@ export interface ManagementSystemDatabaseServer extends IIdentity {
 
 export interface Lease {
     CompanyAddress: Partial<CompanyAddress> | null;
+    DisableEmailNotifications: boolean;
     HoldoverPercentage: Partial<number> | null;
     Id: number;
     LandlordType: 'ThirdParty'|'LLC'|'CoOwner' | null;
@@ -1155,146 +1156,94 @@ export interface EloquaSyncLogEntry extends IExpirable, IIdentity {
     Type: 'Ams360'|'BenefitPoint';
 }
 
-export interface CrmBulkImport extends IIdentity {
-    CompletedDate: string | null;
-    CreatedDate: string;
-    CreatorPerson: Partial<Person> | null;
-    CreatorPersonId: number;
-    FailureDate: string | null;
-    FailureReason: string | null;
-    Failures: Array<Partial<CrmBulkImportFailure>> | null;
-    FileName: string | null;
-    RecordCount: number;
-    SuccessCount: number;
-}
-
-export interface CrmBulkImportFailure {
-    AccountName: string | null;
-    AccountType: string | null;
-    BusinessPhone: string | null;
-    City: string | null;
-    ContactFirstName: string | null;
-    ContactLastName: string | null;
-    ContactTitle: string | null;
-    CrmBulkImport: Partial<CrmBulkImport> | null;
-    CrmBulkImportId: number;
+export interface CampaignV2 {
+    ActivationId: number | null;
+    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccountV2>> | null;
+    CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
+    CampaignToPeople: Array<Partial<CampaignToPersonV2>> | null;
+    CurrentStatus: string | null;
     Description: string | null;
-    DuplicateFieldType: 'None'|'Name'|'Address'|'Email'|'Phone'|'ContactFullname' | null;
-    Email: string | null;
-    ErrorMessage: string | null;
-    FollowUpDate: string | null;
+    EloquaCampaignId: number;
+    FolderId: number | null;
     Id: number;
-    State: string | null;
-    Street1: string | null;
-    Topic: string | null;
-    Type: 'GeneralFailure'|'Duplicate';
-    Website: string | null;
-    XDate: string | null;
-    Zip: string | null;
-}
-
-export interface CrmAccount extends IIdentity {
-    AccountId: string;
-    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
-    AccountType: number;
-    Address1: string | null;
-    Address2: string | null;
-    Ams360AccountId: string | null;
-    AnnualPayroll: string | null;
-    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
-    City: string | null;
-    ContactFirstName: string | null;
-    ContactJobTitle: string | null;
-    ContactLastName: string | null;
-    CreatedOn: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    DoNotCall: boolean;
-    EffectiveDate: string | null;
-    EloquaContact: Partial<EloquaContact> | null;
-    Email: string | null;
-    InitialAppointment: string | null;
-    LastActivityDate: string | null;
-    LastModifiedDate: string | null;
-    NAICSCode: string | null;
     Name: string | null;
-    NumberOfEmployees: string | null;
-    NumberOfLocations: string | null;
-    Opportunities: Array<Partial<CrmOpportunity>> | null;
-    OriginalSource: string | null;
-    OwnerId: string;
-    Person: Partial<Person> | null;
-    PersonId: number | null;
-    Phone: string | null;
-    PotentialRevenue: Partial<number> | null;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
-    RecentSource: string | null;
-    StageClientDate: string | null;
-    StageProspectDate: string | null;
-    StageSuspectDate: string | null;
-    State: string | null;
-    StateCode: 'Active'|'Inactive';
-    Status: 'Active'|'Inactive';
-    SurgeId: number | null;
-    Topic: string | null;
-    WrittenYtd: Partial<number> | null;
-    Zip: string | null;
 }
 
-export interface CrmCommission extends IIdentity {
-    Amount: Partial<number>;
-    CommissionSplitId: string | null;
+export interface CampaignToEloquaContact extends IIdentity, ICreatedBy {
+    Campaign: Partial<CampaignV2> | null;
+    CampaignId: number;
+    CreatedDate: string;
+    EloquaContact: Partial<EloquaContactV2> | null;
+    EloquaContactId: number;
     LastModifiedDate: string | null;
-    Name: string | null;
-    Opportunity: Partial<CrmOpportunity> | null;
-    OpportunityId: number;
-    OwnerId: string;
-    Percent: Partial<number>;
-    Person: Partial<Person> | null;
-    PersonId: number | null;
-    Sponsor: number | null;
 }
 
-export interface CrmAuditSyncLogEntry {
-    Action: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    EntityType: string | null;
+export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
+    CreatedDate: string;
+    CrmContact: Partial<CrmContact> | null;
+    CrmContactId: number;
+    EloquaContact: Partial<EloquaContactV2> | null;
+    EloquaContactId: number;
+    IsMaster: boolean;
+    LastModifiedDate: string | null;
+}
+
+export interface CampaignToCrmAccountV2 extends IIdentity, IChangeTracking, ICreatedBy {
+    Campaign: Partial<CampaignV2> | null;
+    CampaignId: number;
+    CreatedDate: string;
+    CrmAccount: Partial<CrmAccount> | null;
+    CrmAccountId: number;
+    InstanceId: number;
+}
+
+export interface CampaignToPersonV2 {
+    Campaign: Partial<CampaignV2> | null;
+    CampaignId: number;
     Id: number;
-    LastSyncDate: string;
+    Person: Partial<Person> | null;
+    PersonId: number;
 }
 
-export interface CrmUserPersonRole extends PersonRole {
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    SystemUserGuid: string;
+export interface CoreToEloquaSyncerLogEntryV2 {
+    CampaignToCrmAccountLastModifiedDate: string | null;
+    CrmAccountLastModifiedDate: string | null;
+    Id: number;
 }
 
-export interface CrmOpportunity extends IIdentity {
-    Account: Partial<CrmAccount> | null;
-    AccountId: number;
-    AppointmentDate: string | null;
-    Carrier: number | null;
-    CommissionFee: Partial<number>;
-    CommissionPercentage: Partial<number>;
-    ConversationDate: string | null;
-    CrmCommissions: Array<Partial<CrmCommission>> | null;
-    EffectiveDate: string | null;
-    LastModifiedDate: string | null;
-    LineOfBusiness: number;
-    LineOfCoverage: number;
-    LineOfCoverageFriendlyName: string | null;
-    LostDate: string | null;
+export interface EloquaContactV2 {
+    CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
+    CrmContact: Partial<CrmContact> | null;
+    CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
+    EloquaContactId: number;
+    Id: number;
+}
+
+export interface EloquaEmailTemplateV2 {
+    CssHeader: string | null;
+    CurrentStatus: string | null;
+    EloquaEmailId: number;
+    EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
+    FolderId: number | null;
+    HtmlBody: string | null;
+    Id: number;
     Name: string | null;
-    NewOrRenewal: 'New'|'Renewal';
-    OpportunityId: string;
-    OwnerId: string;
-    Premium: Partial<number>;
-    PresentationDate: string | null;
-    QualifiedDate: string | null;
-    ReportingDate: string | null;
-    SalesStageCode: number;
-    SoldDate: string | null;
-    StateCode: 'Active'|'Inactive';
-    SubmissionDate: string | null;
-    TotalRevenue: Partial<number>;
+    Subject: string | null;
+}
+
+export interface EloquaEmailTemplateToPersonV2 {
+    EloquaEmailTemplate: Partial<EloquaEmailTemplateV2> | null;
+    EloquaEmailTemplateId: number;
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
+    Company: Partial<Company> | null;
+    CompanyId: number;
+    LastSyncDate: string | null;
+    Type: 'Ams360'|'BenefitPoint';
 }
 
 export interface Scope extends IIdentity, ISynchronizable, IExpirable {
@@ -1789,6 +1738,7 @@ export interface Company extends IExpirable, IIdentity, ISynchronizable {
     Departments: Array<Partial<Department>> | null;
     Divisions: Array<Partial<CompanyDivision>> | null;
     EloquaSyncLogEntry: Partial<EloquaSyncLogEntry> | null;
+    EloquaSyncLogEntryV2: Partial<EloquaSyncLogEntryV2> | null;
     EmailAddresses: Array<Partial<CompanyEmailAddress>> | null;
     JobRoles: Array<Partial<JobRole>> | null;
     ManagementSystems: Array<Partial<ManagementSystem>> | null;
@@ -1902,7 +1852,10 @@ export interface Person extends IIdentity, ISynchronizable {
     Attachments: Array<Partial<Attachment>> | null;
     Biography: string | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
+    CampaignToCrmAccountsV2: Array<Partial<CampaignToCrmAccountV2>> | null;
+    CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
+    CampaignToPeopleV2: Array<Partial<CampaignToPersonV2>> | null;
     Comments: Array<Partial<Comment>> | null;
     CourseAdmins: Array<Partial<CourseAdmin>> | null;
     CourseMembers: Array<Partial<CourseMember>> | null;
@@ -1921,9 +1874,11 @@ export interface Person extends IIdentity, ISynchronizable {
     CReportComments: Array<Partial<CReportComment>> | null;
     CrmAccounts: Array<Partial<CrmAccount>> | null;
     CrmCommissions: Array<Partial<CrmCommission>> | null;
+    CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
     DateOfBirth: string | null;
     DeletedAttachments: Array<Partial<Attachment>> | null;
     EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
+    EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
     Extensions: Array<Partial<Extension>> | null;
     FirstName: string | null;
@@ -2260,6 +2215,166 @@ export interface DomoDataSet extends IIdentity {
 
 export interface LGManagedDomoDataset extends IIdentity {
     DomoDatasetId: string | null;
+}
+
+export interface CrmContact extends IIdentity {
+    Address1: string | null;
+    Address2: string | null;
+    City: string | null;
+    CrmAccountId: string;
+    CrmContactId: string;
+    CrmContactToEloquaContact: Partial<CrmContactToEloquaContact> | null;
+    Email: string | null;
+    FirstName: string | null;
+    InstanceId: number;
+    LastModifiedDate: string | null;
+    LastName: string | null;
+    OwnerId: string;
+    Phone: string | null;
+    State: string | null;
+    Zip: string | null;
+}
+
+export interface CrmBulkImport extends IIdentity {
+    CompletedDate: string | null;
+    CreatedDate: string;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
+    FailureDate: string | null;
+    FailureReason: string | null;
+    Failures: Array<Partial<CrmBulkImportFailure>> | null;
+    FileName: string | null;
+    RecordCount: number;
+    SuccessCount: number;
+}
+
+export interface CrmBulkImportFailure {
+    AccountName: string | null;
+    AccountType: string | null;
+    BusinessPhone: string | null;
+    City: string | null;
+    ContactFirstName: string | null;
+    ContactLastName: string | null;
+    ContactTitle: string | null;
+    CrmBulkImport: Partial<CrmBulkImport> | null;
+    CrmBulkImportId: number;
+    Description: string | null;
+    DuplicateFieldType: 'None'|'Name'|'Address'|'Email'|'Phone'|'ContactFullname' | null;
+    Email: string | null;
+    ErrorMessage: string | null;
+    FollowUpDate: string | null;
+    Id: number;
+    State: string | null;
+    Street1: string | null;
+    Topic: string | null;
+    Type: 'GeneralFailure'|'Duplicate';
+    Website: string | null;
+    XDate: string | null;
+    Zip: string | null;
+}
+
+export interface CrmAccount extends IIdentity {
+    AccountId: string;
+    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
+    AccountType: number;
+    Address1: string | null;
+    Address2: string | null;
+    Ams360AccountId: string | null;
+    AnnualPayroll: string | null;
+    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
+    City: string | null;
+    ContactFirstName: string | null;
+    ContactJobTitle: string | null;
+    ContactLastName: string | null;
+    CreatedOn: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    DoNotCall: boolean;
+    EffectiveDate: string | null;
+    EloquaContact: Partial<EloquaContact> | null;
+    Email: string | null;
+    InitialAppointment: string | null;
+    LastActivityDate: string | null;
+    LastModifiedDate: string | null;
+    NAICSCode: string | null;
+    Name: string | null;
+    NumberOfEmployees: string | null;
+    NumberOfLocations: string | null;
+    Opportunities: Array<Partial<CrmOpportunity>> | null;
+    OriginalSource: string | null;
+    OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    Phone: string | null;
+    PotentialRevenue: Partial<number> | null;
+    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    RecentSource: string | null;
+    StageClientDate: string | null;
+    StageProspectDate: string | null;
+    StageSuspectDate: string | null;
+    State: string | null;
+    StateCode: 'Active'|'Inactive';
+    Status: 'Active'|'Inactive';
+    SurgeId: number | null;
+    Topic: string | null;
+    WrittenYtd: Partial<number> | null;
+    Zip: string | null;
+}
+
+export interface CrmCommission extends IIdentity {
+    Amount: Partial<number>;
+    CommissionSplitId: string | null;
+    LastModifiedDate: string | null;
+    Name: string | null;
+    Opportunity: Partial<CrmOpportunity> | null;
+    OpportunityId: number;
+    OwnerId: string;
+    Percent: Partial<number>;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    Sponsor: number | null;
+}
+
+export interface CrmAuditSyncLogEntry {
+    Action: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    EntityType: string | null;
+    Id: number;
+    LastSyncDate: string;
+}
+
+export interface CrmUserPersonRole extends PersonRole {
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    SystemUserGuid: string;
+}
+
+export interface CrmOpportunity extends IIdentity {
+    Account: Partial<CrmAccount> | null;
+    AccountId: number;
+    AppointmentDate: string | null;
+    Carrier: number | null;
+    CommissionFee: Partial<number>;
+    CommissionPercentage: Partial<number>;
+    ConversationDate: string | null;
+    CrmCommissions: Array<Partial<CrmCommission>> | null;
+    EffectiveDate: string | null;
+    LastModifiedDate: string | null;
+    LineOfBusiness: number;
+    LineOfCoverage: number;
+    LineOfCoverageFriendlyName: string | null;
+    LostDate: string | null;
+    Name: string | null;
+    NewOrRenewal: 'New'|'Renewal';
+    OpportunityId: string;
+    OwnerId: string;
+    Premium: Partial<number>;
+    PresentationDate: string | null;
+    QualifiedDate: string | null;
+    ReportingDate: string | null;
+    SalesStageCode: number;
+    SoldDate: string | null;
+    StateCode: 'Active'|'Inactive';
+    SubmissionDate: string | null;
+    TotalRevenue: Partial<number>;
 }
 
 export interface Conference {
