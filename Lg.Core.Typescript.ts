@@ -2440,7 +2440,7 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     RegisteredBy: Partial<Person> | null;
     RegisteredById: number | null;
     RegistrationDate: string;
-    RegistrationStatus: 'Incomplete'|'PaidInFull';
+    RegistrationStatus: 'NotAttending'|'Attending';
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
     Transactions: Array<Partial<ConferenceTransaction>> | null;
