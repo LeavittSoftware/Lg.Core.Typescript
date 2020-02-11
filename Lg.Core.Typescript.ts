@@ -2408,6 +2408,7 @@ export interface ConferenceActivity extends ConferenceEvent {
 export interface ConferenceActivityOption {
     Activity: Partial<ConferenceActivity> | null;
     ActivityId: number;
+    Available: number | null;
     Cost: Partial<number>;
     Enrollments: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Id: number;
@@ -2437,6 +2438,7 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     MealPreference: 'NoPreference'|'Vegetarian'|'Kosher'|'Vegan'|'Pollotarian'|'Pescatarian'|'GlutenFree';
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
     Packages: Array<Partial<ConferencePackageToAttendee>> | null;
+    PaymentStatus: 'NotPaid'|'PaidInFull';
     RegisteredBy: Partial<Person> | null;
     RegisteredById: number | null;
     RegistrationDate: string;
