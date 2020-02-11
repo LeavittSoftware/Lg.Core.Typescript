@@ -643,8 +643,9 @@ export interface ConferenceDashboardDto {
     Conference: Partial<Conference> | null;
     ConferenceRegistrationStatus: 'Open'|'NotStarted'|'Finished';
     Id: number;
+    PaymentStatus: 'NotPaid'|'PaidInFull';
+    RegistrationStatus: 'NotAttending'|'Attending';
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
-    Status: 'NotAttending'|'Attending';
 }
 
 export interface ConferenceCcPaymentDto {
