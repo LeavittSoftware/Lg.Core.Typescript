@@ -1182,6 +1182,7 @@ export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
     CreatedDate: string;
     CrmContact: Partial<CrmContact> | null;
     CrmContactId: number;
+    CrmInstance: 'Production'|'Uat'|'Dev';
     EloquaContact: Partial<EloquaContactV2> | null;
     EloquaContactId: number;
     IsMaster: boolean;
@@ -1874,6 +1875,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CReportComments: Array<Partial<CReportComment>> | null;
     CrmAccounts: Array<Partial<CrmAccount>> | null;
     CrmCommissions: Array<Partial<CrmCommission>> | null;
+    CrmContacts: Array<Partial<CrmContact>> | null;
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
     DateOfBirth: string | null;
     DeletedAttachments: Array<Partial<Attachment>> | null;
@@ -2218,15 +2220,19 @@ export interface LGManagedDomoDataset extends IIdentity {
 }
 
 export interface CrmContact extends IIdentity {
+    Account: Partial<CrmAccount> | null;
+    AccountId: number;
     Address1: string | null;
     Address2: string | null;
     City: string | null;
-    CrmAccountId: string;
+    CrmAccountGuid: string;
     CrmContactId: string;
     CrmContactToEloquaContact: Partial<CrmContactToEloquaContact> | null;
+    CrmPerson: Partial<Person> | null;
+    CrmPersonId: number;
     Email: string | null;
     FirstName: string | null;
-    InstanceId: number;
+    Instance: 'Production'|'Uat'|'Dev';
     LastModifiedDate: string | null;
     LastName: string | null;
     OwnerId: string;
