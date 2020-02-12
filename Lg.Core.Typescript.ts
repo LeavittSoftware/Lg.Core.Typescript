@@ -1214,7 +1214,6 @@ export interface CoreToEloquaSyncerLogEntryV2 {
 
 export interface EloquaContactV2 {
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
-    CrmContact: Partial<CrmContact> | null;
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
     EloquaContactId: number;
     Id: number;
