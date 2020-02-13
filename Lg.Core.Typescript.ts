@@ -1216,6 +1216,7 @@ export interface EloquaContactV2 {
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
     EloquaContactId: number;
+    Email: string | null;
     Id: number;
 }
 
