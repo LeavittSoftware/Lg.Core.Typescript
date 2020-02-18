@@ -1175,6 +1175,7 @@ export interface CampaignToEloquaContact extends IIdentity, ICreatedBy {
     CreatedDate: string;
     EloquaContact: Partial<EloquaContactV2> | null;
     EloquaContactId: number;
+    EloquaInstanceId: number;
     LastModifiedDate: string | null;
 }
 
@@ -1215,7 +1216,7 @@ export interface CoreToEloquaSyncerLogEntryV2 {
 export interface EloquaContactV2 {
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
-    EloquaContactId: number;
+    EloquaId: number;
     Email: string | null;
     Id: number;
 }
@@ -2391,6 +2392,7 @@ export interface Conference {
     Events: Array<Partial<ConferenceEvent>> | null;
     Id: number;
     IsExpired: boolean;
+    IsTest: boolean;
     Location: string | null;
     Packages: Array<Partial<ConferencePackage>> | null;
     RegistrationBegins: string | null;
