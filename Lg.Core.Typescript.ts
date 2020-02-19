@@ -1205,7 +1205,6 @@ export interface CoreToEloquaSyncerLogEntryV2 {
 export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
     CreatedDate: string;
     CrmContact: Partial<CrmContact> | null;
-    CrmContactId: number;
     CrmInstance: 'Production'|'Uat'|'Dev';
     EloquaContact: Partial<EloquaContactV2> | null;
     EloquaContactId: number;
@@ -2229,7 +2228,6 @@ export interface CrmContact extends IIdentity {
     CrmAccountGuid: string;
     CrmContactId: string;
     CrmContactToEloquaContact: Partial<CrmContactToEloquaContact> | null;
-    CrmContactToEloquaContactId: number;
     CrmPerson: Partial<Person> | null;
     CrmPersonId: number;
     Email: string | null;
