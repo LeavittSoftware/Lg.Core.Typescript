@@ -2229,6 +2229,7 @@ export interface CrmContact extends IIdentity {
     CrmAccountGuid: string;
     CrmContactId: string;
     CrmContactToEloquaContact: Partial<CrmContactToEloquaContact> | null;
+    CrmContactToEloquaContactId: number;
     CrmPerson: Partial<Person> | null;
     CrmPersonId: number;
     Email: string | null;
