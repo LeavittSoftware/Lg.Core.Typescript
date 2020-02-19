@@ -5,6 +5,11 @@
 // ----------------------
 
 import { CrmAccount, ProducerCommissionRate, EloquaEmailTemplate, Person, ConferenceSponsorship, Conference } from "./Lg.Core.Typescript";
+export interface TemplateDataItemDto {
+    Key: string | null;
+    Value: string | null;
+}
+
 export interface FirebasePostNotification {
     LastPostDate: string;
     PersonId: number;
@@ -339,7 +344,7 @@ export interface SendTemplateDto {
     AdditionalRecipients: Array<Partial<String>> | null;
     FromAddress: string | null;
     IsTest: boolean | null;
-    TemplateData: Array<Partial<TemplateDataItem>> | null;
+    TemplateData: Array<Partial<TemplateDataItemDto>> | null;
 }
 
 export interface TopSellersByLeagueReportEntry {
