@@ -342,11 +342,6 @@ export interface SendTemplateDto {
     TemplateData: Array<Partial<TemplateDataItem>> | null;
 }
 
-export interface TemplateDataItem {
-    Key: string | null;
-    Value: string | null;
-}
-
 export interface TopSellersByLeagueReportEntry {
     LeagueId: number;
     LeagueName: string | null;

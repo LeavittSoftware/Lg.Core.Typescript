@@ -1179,17 +1179,6 @@ export interface CampaignToEloquaContact extends IIdentity, ICreatedBy {
     LastModifiedDate: string | null;
 }
 
-export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
-    CreatedDate: string;
-    CrmContact: Partial<CrmContact> | null;
-    CrmContactId: number;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    EloquaContact: Partial<EloquaContactV2> | null;
-    EloquaContactId: number;
-    IsMaster: boolean;
-    LastModifiedDate: string | null;
-}
-
 export interface CampaignToCrmAccountV2 extends IIdentity, IChangeTracking, ICreatedBy {
     Campaign: Partial<CampaignV2> | null;
     CampaignId: number;
@@ -1211,6 +1200,17 @@ export interface CoreToEloquaSyncerLogEntryV2 {
     CampaignToCrmAccountLastModifiedDate: string | null;
     CrmAccountLastModifiedDate: string | null;
     Id: number;
+}
+
+export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
+    CreatedDate: string;
+    CrmContact: Partial<CrmContact> | null;
+    CrmContactId: number;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    EloquaContact: Partial<EloquaContactV2> | null;
+    EloquaContactId: number;
+    IsMaster: boolean;
+    LastModifiedDate: string | null;
 }
 
 export interface EloquaContactV2 {
