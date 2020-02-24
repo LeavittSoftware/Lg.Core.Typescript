@@ -424,97 +424,6 @@ export interface CommissionRateDto {
     ReplacementId: number | null;
 }
 
-export interface CcrtListItemDto {
-    ConflictTotal: number;
-    Email: string | null;
-}
-
-export interface EloquaToCrmCompareDto {
-    CrmAccount: Partial<MarketingManagerEloquaContactDto> | null;
-    EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
-    HasConflicts: boolean;
-    Id: number;
-    MasterProducer: Partial<MasterProducerDto> | null;
-}
-
-export interface MarketingManagerBulkUnassignDto {
-    AlreadyDisabledWarnings: number;
-    EnabledByAnotherUserWarnings: number;
-    Failures: number;
-    Successes: number;
-}
-
-export interface MarketingManagerBulkAssignDto {
-    EnabledByAnotherUserWarnings: number;
-    Failures: number;
-    NoActivationIdWarnings: number;
-    NoEmailAddressWarnings: number;
-    Successes: number;
-}
-
-export interface LocDto {
-    Id: number;
-    LineOfCoverageFriendlyName: string | null;
-}
-
-export interface MarketingManagerEloquaContactDto {
-    Address1: string | null;
-    Address2: string | null;
-    AnnualPayroll: string | null;
-    City: string | null;
-    ContactFirstName: string | null;
-    ContactLastName: string | null;
-    EffectiveDate: string | null;
-    Email: string | null;
-    Id: number | null;
-    NAICSCode: string | null;
-    Name: string | null;
-    NumberOfEmployees: string | null;
-    NumberOfLocations: string | null;
-    OriginalSource: string | null;
-    Phone: string | null;
-    RecentSource: string | null;
-    State: string | null;
-    Topic: string | null;
-    Zip: string | null;
-}
-
-export interface MarketingManagerCampaignDto {
-    CampaignToCrmAccountId: number;
-    CanClaim: boolean;
-    Description: string | null;
-    Id: number;
-    IsEnabled: boolean;
-    Name: string | null;
-}
-
-export interface MarketingManagerDto {
-    Campaigns: Array<Partial<MarketingManagerCampaignDto>> | null;
-    CrmAccountId: number;
-    CrmAccountName: string | null;
-    CrmFirstName: string | null;
-    CrmLastName: string | null;
-    DoNotCall: boolean;
-    EloquaAccountName: string | null;
-    EloquaEmailTemplates: Array<Partial<EloquaEmailTemplate>> | null;
-    EloquaFirstName: string | null;
-    EloquaId: number | null;
-    EloquaLastName: string | null;
-    EloquaUserId: number;
-    EmailAddress: string | null;
-    IsGloballySubscribed: boolean;
-    IsLocked: boolean;
-    OriginalSource: string | null;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
-    RecentSource: string | null;
-}
-
-export interface MasterProducerDto {
-    Email: string | null;
-    FullName: string | null;
-    PersonId: number;
-}
-
 export interface LeaderBoardDto {
     Leaders: Array<Partial<LeaderDto>> | null;
     TotalProducerCount: number;
@@ -635,6 +544,136 @@ export interface Ams360CustomerDto {
     State: string | null;
     WebAddress: string | null;
     ZipCode: string | null;
+}
+
+export interface EloquaToCrmCompareDtoV2 {
+    CrmContact: Partial<MarketingManagerEloquaContactDto> | null;
+    EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
+    HasConflicts: boolean;
+    Id: number;
+    MasterProducer: Partial<MasterProducerDto> | null;
+}
+
+export interface MarketingManagerCampaignDtoV2 {
+    CampaignToEloquaId: number;
+    CanClaim: boolean;
+    Description: string | null;
+    Id: number;
+    IsEnabled: boolean;
+    Name: string | null;
+}
+
+export interface MarketingManagerDtoV2 {
+    Campaigns: Array<Partial<MarketingManagerCampaignDtoV2>> | null;
+    CrmAccountId: number;
+    CrmAccountName: string | null;
+    CrmContactId: number;
+    CrmFirstName: string | null;
+    CrmLastName: string | null;
+    DoNotCall: boolean;
+    EloquaAccountName: string | null;
+    EloquaEmailTemplates: Array<Partial<EloquaEmailTemplateV2>> | null;
+    EloquaFirstName: string | null;
+    EloquaId: number | null;
+    EloquaLastName: string | null;
+    EloquaUserId: number;
+    EmailAddress: string | null;
+    IsGloballySubscribed: boolean;
+    IsLocked: boolean;
+    OriginalSource: string | null;
+    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    RecentSource: string | null;
+}
+
+export interface CcrtListItemDto {
+    ConflictTotal: number;
+    Email: string | null;
+}
+
+export interface EloquaToCrmCompareDto {
+    CrmAccount: Partial<MarketingManagerEloquaContactDto> | null;
+    EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
+    HasConflicts: boolean;
+    Id: number;
+    MasterProducer: Partial<MasterProducerDto> | null;
+}
+
+export interface MarketingManagerBulkUnassignDto {
+    AlreadyDisabledWarnings: number;
+    EnabledByAnotherUserWarnings: number;
+    Failures: number;
+    Successes: number;
+}
+
+export interface MarketingManagerBulkAssignDto {
+    EnabledByAnotherUserWarnings: number;
+    Failures: number;
+    NoActivationIdWarnings: number;
+    NoEmailAddressWarnings: number;
+    Successes: number;
+}
+
+export interface LocDto {
+    Id: number;
+    LineOfCoverageFriendlyName: string | null;
+}
+
+export interface MarketingManagerEloquaContactDto {
+    Address1: string | null;
+    Address2: string | null;
+    AnnualPayroll: string | null;
+    City: string | null;
+    ContactFirstName: string | null;
+    ContactLastName: string | null;
+    EffectiveDate: string | null;
+    Email: string | null;
+    Id: number | null;
+    NAICSCode: string | null;
+    Name: string | null;
+    NumberOfEmployees: string | null;
+    NumberOfLocations: string | null;
+    OriginalSource: string | null;
+    Phone: string | null;
+    RecentSource: string | null;
+    State: string | null;
+    Topic: string | null;
+    Zip: string | null;
+}
+
+export interface MarketingManagerCampaignDto {
+    CampaignToCrmAccountId: number;
+    CanClaim: boolean;
+    Description: string | null;
+    Id: number;
+    IsEnabled: boolean;
+    Name: string | null;
+}
+
+export interface MarketingManagerDto {
+    Campaigns: Array<Partial<MarketingManagerCampaignDto>> | null;
+    CrmAccountId: number;
+    CrmAccountName: string | null;
+    CrmFirstName: string | null;
+    CrmLastName: string | null;
+    DoNotCall: boolean;
+    EloquaAccountName: string | null;
+    EloquaEmailTemplates: Array<Partial<EloquaEmailTemplate>> | null;
+    EloquaFirstName: string | null;
+    EloquaId: number | null;
+    EloquaLastName: string | null;
+    EloquaUserId: number;
+    EmailAddress: string | null;
+    IsGloballySubscribed: boolean;
+    IsLocked: boolean;
+    OriginalSource: string | null;
+    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    RecentSource: string | null;
+}
+
+export interface MasterProducerDto {
+    Email: string | null;
+    FullName: string | null;
+    PersonId: number;
 }
 
 export interface ConferenceAttendeeDto {
