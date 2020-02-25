@@ -2384,6 +2384,9 @@ export interface CrmOpportunity extends IIdentity {
 }
 
 export interface Conference {
+    AccommodationDescription: string | null;
+    AccommodationLink: string | null;
+    AccommodationLinkText: string | null;
     Attendees: Array<Partial<ConferenceAttendeePersonRole>> | null;
     ConferenceEndDate: string;
     ConferenceStartDate: string;
@@ -2405,7 +2408,6 @@ export interface Conference {
 
 export interface ConferenceActivity extends ConferenceEvent {
     AllowMultipleOptionSelection: boolean;
-    AttendeePreference: string | null;
     Location: string | null;
     MoreDetailsText: string | null;
     MoreDetailsURL: string | null;
@@ -2421,6 +2423,7 @@ export interface ConferenceActivityOption {
     Id: number;
     IsActive: boolean;
     Name: string | null;
+    SpouseCost: Partial<number>;
     TotalAvailable: number | null;
 }
 
@@ -2442,6 +2445,7 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     ActivityOptions: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Conference: Partial<Conference> | null;
     ConferenceId: number;
+    IsSpouse: boolean;
     MealPreference: 'NoPreference'|'Vegetarian'|'Kosher'|'Vegan'|'Pollotarian'|'Pescatarian'|'GlutenFree';
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
     Packages: Array<Partial<ConferencePackageToAttendee>> | null;
@@ -2452,7 +2456,25 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     RegistrationStatus: 'NotAttending'|'Attending';
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
+    Tables: Array<Partial<ConferenceTableToAttendee>> | null;
     Transactions: Array<Partial<ConferenceTransaction>> | null;
+}
+
+export interface ConferenceTableToAttendee {
+    Attendee: Partial<ConferenceAttendeePersonRole> | null;
+    AttendeeId: number;
+    Id: number;
+    IsHost: boolean;
+    Table: Partial<ConferenceTable> | null;
+    TableId: number;
+}
+
+export interface ConferenceTable {
+    Assignments: Array<Partial<ConferenceTableToAttendee>> | null;
+    Event: Partial<ConferenceEvent> | null;
+    EventId: number;
+    Id: number;
+    Name: string | null;
 }
 
 export interface ConferenceEvent {
@@ -2463,6 +2485,7 @@ export interface ConferenceEvent {
     Id: number;
     MaxAttendees: number | null;
     Name: string | null;
+    Tables: Array<Partial<ConferenceTable>> | null;
     Timeslot: Partial<ConferenceTimeslot> | null;
     TimeslotId: number;
 }
@@ -2472,6 +2495,7 @@ export interface ConferenceMeal extends ConferenceEvent {
     Enrollments: Array<Partial<ConferenceMealToAttendee>> | null;
     IsActive: boolean;
     Location: string | null;
+    SpouseCost: Partial<number>;
 }
 
 export interface ConferenceMealToAttendee {
@@ -2494,6 +2518,7 @@ export interface ConferencePackage {
     Id: number;
     IsActive: boolean;
     Name: string | null;
+    SpouseCost: Partial<number>;
 }
 
 export interface ConferencePackageToAttendee {
@@ -2674,6 +2699,14 @@ export interface SlideShow extends IIdentity {
     Name: string | null;
     SlideShowToSlides: Array<Partial<SlideShowToSlide>> | null;
     TvGroups: Array<Partial<TvGroup>> | null;
+}
+
+export interface BenefitPointSyncLogEntry {
+    Id: number;
+    LastSyncDate: string;
+    ManagementSystem: Partial<BenefitPointManagementSystem> | null;
+    ManagementSystemId: number;
+    TableName: string | null;
 }
 
 export interface AppsPcCarrier extends IIdentity {
