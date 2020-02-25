@@ -572,6 +572,7 @@ export interface MarketingManagerDtoV2 {
     CrmLastName: string | null;
     DoNotCall: boolean;
     EloquaAccountName: string | null;
+    EloquaContactId: number;
     EloquaEmailTemplates: Array<Partial<EloquaEmailTemplateV2>> | null;
     EloquaFirstName: string | null;
     EloquaId: number | null;
