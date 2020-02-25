@@ -693,6 +693,7 @@ export interface ConferenceDashboardDto {
     Conference: Partial<Conference> | null;
     ConferenceRegistrationStatus: 'Open'|'NotStarted'|'Finished';
     Id: number;
+    IsSpouse: boolean;
     PaymentStatus: 'NotPaid'|'PaidInFull';
     RegistrationStatus: 'NotAttending'|'Attending';
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
