@@ -2422,6 +2422,7 @@ export interface ConferenceActivityOption {
     Enrollments: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Id: number;
     IsActive: boolean;
+    IsIncludedWithRegistration: boolean;
     Name: string | null;
     SpouseCost: Partial<number>;
     TotalAvailable: number | null;
@@ -2494,6 +2495,7 @@ export interface ConferenceMeal extends ConferenceEvent {
     Cost: Partial<number>;
     Enrollments: Array<Partial<ConferenceMealToAttendee>> | null;
     IsActive: boolean;
+    IsIncludedWithRegistration: boolean;
     Location: string | null;
     SpouseCost: Partial<number>;
 }
@@ -2562,7 +2564,7 @@ export interface ConferenceTransaction {
 export interface ConferenceSession extends ConferenceEvent {
     Enrollments: Array<Partial<ConferenceSessionToAttendee>> | null;
     IsActive: boolean;
-    IsRegistrationRequired: boolean;
+    IsIncludedWithRegistration: boolean;
     Location: string | null;
     Speakers: Array<Partial<SessionSpeaker>> | null;
     Track: Partial<ConferenceTrack> | null;
