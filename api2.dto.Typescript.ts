@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 
-import { CrmAccount, ProducerCommissionRate, EloquaEmailTemplate, Person, ConferenceSponsorship, Conference } from "./Lg.Core.Typescript";
+import { CrmAccount, ProducerCommissionRate, EloquaEmailTemplate, Person, ConferenceSponsorship, Conference, EloquaEmailTemplateV2 } from "./Lg.Core.Typescript";
 export interface TemplateDataItemDto {
     Key: string | null;
     Value: string | null;
