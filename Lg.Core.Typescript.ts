@@ -2446,6 +2446,7 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     ActivityOptions: Array<Partial<ConferenceActivityOptionToAttendee>> | null;
     Conference: Partial<Conference> | null;
     ConferenceId: number;
+    IsEmployee: boolean;
     IsSpouse: boolean;
     MealPreference: 'NoPreference'|'Vegetarian'|'Kosher'|'Vegan'|'Pollotarian'|'Pescatarian'|'GlutenFree';
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
@@ -2484,6 +2485,7 @@ export interface ConferenceEvent {
     ConferenceId: number;
     Description: string | null;
     Id: number;
+    IsLGEmployeeOnly: boolean;
     MaxAttendees: number | null;
     Name: string | null;
     Tables: Array<Partial<ConferenceTable>> | null;
@@ -2519,6 +2521,7 @@ export interface ConferencePackage {
     Enrollments: Array<Partial<ConferencePackageToAttendee>> | null;
     Id: number;
     IsActive: boolean;
+    IsLGEmployeeOnly: boolean;
     Name: string | null;
     SpouseCost: Partial<number>;
 }
@@ -2612,6 +2615,7 @@ export interface ConferenceSponsorship {
     Enrollments: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
     Id: number;
     IsActive: boolean;
+    IsLGEmployeeOnly: boolean;
     Name: string | null;
     TotalAvailable: number | null;
     Type: 'AvailableForPurchase'|'Custom';
