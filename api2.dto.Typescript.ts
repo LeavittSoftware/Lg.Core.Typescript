@@ -689,14 +689,11 @@ export interface ConferenceAttendeeDto {
 }
 
 export interface ConferenceDashboardDto {
-    AttendeeId: number | null;
+    AttendeeRole: Partial<ConferenceAttendeePersonRole> | null;
     Balance: Partial<number>;
     Conference: Partial<Conference> | null;
     ConferenceRegistrationStatus: 'Open'|'NotStarted'|'Finished';
     Id: number;
-    IsSpouse: boolean;
-    PaymentStatus: 'NotPaid'|'PaidInFull';
-    RegistrationStatus: 'NotAttending'|'Attending';
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
 }
 
