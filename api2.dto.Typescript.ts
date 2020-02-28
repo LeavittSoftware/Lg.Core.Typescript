@@ -683,6 +683,7 @@ export interface ConferenceAttendeeDto {
     CompanyName: string | null;
     FirstName: string | null;
     IsLGEmployee: boolean;
+    IsSpouse: boolean;
     LastName: string | null;
     PersonId: number;
     RegistrationDate: string;
