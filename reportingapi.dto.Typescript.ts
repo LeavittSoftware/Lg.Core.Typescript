@@ -21,6 +21,7 @@ export interface CustomerSearchResultDto {
     LastModifiedDate: string | null;
     Phone: string | null;
     Score: number;
+    SortName: string | null;
     State: string | null;
     Zip: string | null;
 }
