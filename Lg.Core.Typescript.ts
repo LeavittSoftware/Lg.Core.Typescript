@@ -2087,6 +2087,7 @@ export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity 
 export interface CourseCategory extends IIdentity {
     Courses: Array<Partial<EducationCourse>> | null;
     Name: string | null;
+    Sequence: number;
 }
 
 export interface EducationCourse extends IIdentity, IChangeTracking, ICreatedBy {
