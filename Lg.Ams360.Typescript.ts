@@ -485,6 +485,7 @@ export interface Agency {
     DComRank2: number;
     DComRank3: number;
     DComRank4: number;
+    DComRank5: number;
     DefaultOperatingBankAgen: string | null;
     DefaultTrustBankAgen: string | null;
     DueDateBasis: string | null;
@@ -493,6 +494,7 @@ export interface Agency {
     FinCenterSummary: string | null;
     FormLetterSchedAddr: number | null;
     GLDivCode: string | null;
+    GlobalTenantId: string | null;
     GroupingOption: string | null;
     Id: number;
     IncludeBranch: string | null;
@@ -506,6 +508,7 @@ export interface Agency {
     IsHosted: string | null;
     IsPrintAgencyBill: string | null;
     IsPrintDirectBill: string | null;
+    IvansUsagecategory: string | null;
     LateCharge: string | null;
     Latitude: number | null;
     LCAnnualPercent: number | null;
@@ -1071,6 +1074,7 @@ export interface Employee {
     Address1: string | null;
     Address2: string | null;
     BJEClosedStatus: string | null;
+    BUAcsId: string | null;
     BusAreaCode: string | null;
     BusExt: string | null;
     BusFullPhone: string | null;
@@ -1089,6 +1093,7 @@ export interface Employee {
     EMail: string | null;
     EmergencyContact: string | null;
     EmpCode: string | null;
+    EmployeeId: string | null;
     EmpSupervisorCode: string | null;
     EnteredDate: string;
     FaxAreaCode: string | null;
@@ -1107,6 +1112,7 @@ export interface Employee {
     IsLicensed: string | null;
     IsLimitCustAccess: string | null;
     IsMemoCommissions: string | null;
+    IsOther: string | null;
     IsProd: string | null;
     IsRep: string | null;
     IsTeleMarketer: string | null;
