@@ -2459,24 +2459,14 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     RegistrationStatus: 'NotAttending'|'Attending';
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
-    Tables: Array<Partial<ConferenceTableToAttendee>> | null;
     Transactions: Array<Partial<ConferenceTransaction>> | null;
 }
 
-export interface ConferenceTableToAttendee {
-    Attendee: Partial<ConferenceAttendeePersonRole> | null;
-    AttendeeId: number;
-    Id: number;
-    IsHost: boolean;
-    Table: Partial<ConferenceTable> | null;
-    TableId: number;
-}
-
 export interface ConferenceTable {
-    Assignments: Array<Partial<ConferenceTableToAttendee>> | null;
-    Event: Partial<ConferenceEvent> | null;
-    EventId: number;
     Id: number;
+    Meal: Partial<ConferenceMeal> | null;
+    MealId: number;
+    MealToAttendees: Array<Partial<ConferenceMealToAttendee>> | null;
     Name: string | null;
 }
 
@@ -2489,7 +2479,6 @@ export interface ConferenceEvent {
     IsLGEmployeeOnly: boolean;
     MaxAttendees: number | null;
     Name: string | null;
-    Tables: Array<Partial<ConferenceTable>> | null;
     Timeslot: Partial<ConferenceTimeslot> | null;
     TimeslotId: number;
 }
@@ -2501,6 +2490,7 @@ export interface ConferenceMeal extends ConferenceEvent {
     IsIncludedWithRegistration: boolean;
     Location: string | null;
     SpouseCost: Partial<number>;
+    Tables: Array<Partial<ConferenceTable>> | null;
 }
 
 export interface ConferenceMealToAttendee {
@@ -2509,9 +2499,12 @@ export interface ConferenceMealToAttendee {
     AttendeeId: number;
     EnrollmentDate: string;
     Id: number;
+    IsHost: boolean;
     Meal: Partial<ConferenceMeal> | null;
     MealId: number;
     Name: string | null;
+    Table: Partial<ConferenceTable> | null;
+    TableId: number | null;
 }
 
 export interface ConferencePackage {
