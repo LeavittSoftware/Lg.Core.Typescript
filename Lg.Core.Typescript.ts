@@ -1858,6 +1858,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
     CampaignToPeopleV2: Array<Partial<CampaignToPersonV2>> | null;
     Comments: Array<Partial<Comment>> | null;
+    CompanyName: string | null;
     CourseAdmins: Array<Partial<CourseAdmin>> | null;
     CourseMembers: Array<Partial<CourseMember>> | null;
     CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
