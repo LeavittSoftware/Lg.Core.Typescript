@@ -711,9 +711,15 @@ export interface ConferenceCcPaymentDto {
 }
 
 export interface ConferencePersonDto {
+    City: string | null;
+    Company: string | null;
     Email: string | null;
     FirstName: string | null;
     LastName: string | null;
+    State: string | null;
+    Street: string | null;
+    Title: string | null;
+    Zip: string | null;
 }
 
 export interface IIdentity {
