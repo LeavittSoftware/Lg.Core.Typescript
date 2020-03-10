@@ -689,6 +689,15 @@ export interface ConferenceAttendeeDto {
     RegistrationDate: string;
 }
 
+export interface RegistrationStatusDto {
+    Address: Partial<PersonAddress> | null;
+    CompanyName: string | null;
+    FirstName: string | null;
+    IsLgEmployee: boolean;
+    LastName: string | null;
+    Title: string | null;
+}
+
 export interface ConferenceDashboardDto {
     AttendeeRole: Partial<ConferenceAttendeePersonRole> | null;
     Balance: Partial<number>;
