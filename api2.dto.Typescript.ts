@@ -689,6 +689,17 @@ export interface ConferenceAttendeeDto {
     RegistrationDate: string;
 }
 
+export interface ConferenceScheduleDto {
+    Description: string | null;
+    Id: number;
+    Name: string | null;
+    TimeslotEndDate: string;
+    TimeslotId: number;
+    TimeslotName: string | null;
+    TimeslotStartDate: string;
+    Type: string | null;
+}
+
 export interface RegistrationStatusDto {
     Address: Partial<PersonAddress> | null;
     CompanyName: string | null;
