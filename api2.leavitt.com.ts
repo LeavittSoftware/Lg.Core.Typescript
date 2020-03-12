@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,PersonAddress,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
 export interface TemplateDataItemDto {
     Key: string | null;
@@ -701,12 +701,15 @@ export interface ConferenceScheduleDto {
 }
 
 export interface RegistrationStatusDto {
-    Address: Partial<PersonAddress> | null;
+    City: string | null;
     CompanyName: string | null;
     FirstName: string | null;
     IsLgEmployee: boolean;
     LastName: string | null;
+    State: string | null;
+    Street: string | null;
     Title: string | null;
+    Zip: string | null;
 }
 
 export interface ConferenceDashboardDto {
