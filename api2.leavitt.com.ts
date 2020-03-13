@@ -686,6 +686,9 @@ export interface ConferenceAttendeeDto {
     IsSpouse: boolean;
     LastName: string | null;
     PersonId: number;
+    RegisteredById: number | null;
+    RegisteredFirstName: string | null;
+    RegisteredLastName: string | null;
     RegistrationDate: string;
 }
 
