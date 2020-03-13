@@ -682,13 +682,12 @@ export interface ConferenceAttendeeDto {
     Balance: Partial<number>;
     CompanyName: string | null;
     FirstName: string | null;
+    Guests: number;
     IsLGEmployee: boolean;
     IsSpouse: boolean;
     LastName: string | null;
     PersonId: number;
     RegisteredById: number | null;
-    RegisteredFirstName: string | null;
-    RegisteredLastName: string | null;
     RegistrationDate: string;
 }
 
