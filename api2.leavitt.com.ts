@@ -703,15 +703,12 @@ export interface ConferenceScheduleDto {
 }
 
 export interface RegistrationStatusDto {
-    City: string | null;
     CompanyName: string | null;
     FirstName: string | null;
+    HasAddress: boolean;
     IsLgEmployee: boolean;
     LastName: string | null;
-    State: string | null;
-    Street: string | null;
     Title: string | null;
-    Zip: string | null;
 }
 
 export interface ConferenceDashboardDto {
