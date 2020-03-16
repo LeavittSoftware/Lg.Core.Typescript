@@ -2598,9 +2598,6 @@ export interface ConferenceTrack {
     Sessions: Array<Partial<ConferenceSession>> | null;
 }
 
-export interface ConferenceUserPersonRole extends PersonRole {
-}
-
 export interface ConferenceSponsorship {
     Available: number | null;
     Conference: Partial<Conference> | null;
