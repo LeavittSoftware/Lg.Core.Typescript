@@ -141,18 +141,9 @@ export interface LgImageDTO {
 }
 
 export interface TheGameRegistrationDto {
-    AreaCode: string | null;
-    City: string | null;
-    Country: string | null;
-    County: string | null;
     GameId: number;
-    LineNumber: string | null;
     PersonId: number;
     RegistrationNote: string | null;
-    State: string | null;
-    Street1: string | null;
-    Street2: string | null;
-    Zip: string | null;
 }
 
 export interface TopSellersReportEntry {
