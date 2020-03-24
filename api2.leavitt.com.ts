@@ -735,6 +735,18 @@ export interface ConferencePersonDto {
     Zip: string | null;
 }
 
+export interface AccountsJobRoleDto {
+    BenefitsAssignmentPercentage: number | null;
+    CommercialAssignmentPercentage: number | null;
+    CompanyId: number;
+    CompanyName: string | null;
+    Id: number;
+    JobRoleTypeId: number;
+    JobRoleTypeName: string | null;
+    LifeAssignmentPercentage: number | null;
+    PersonalAssignmentPercentage: number | null;
+}
+
 export interface IIdentity {
     Id: number;
 }
