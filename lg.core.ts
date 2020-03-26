@@ -595,6 +595,17 @@ export interface SalesExpectationStatus {
     StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
+export interface PersonMondayAccount extends IIdentity {
+    MondayId: number;
+    Person: Partial<Person> | null;
+}
+
+export interface CrmAccountMondayItem extends IIdentity {
+    CrmAccountId: number;
+    NewGroupServicesItemId: number;
+    SpreadSheetItemId: number | null;
+}
+
 export interface Ams360InstanceToGlDivisionCode extends IIdentity, ISynchronizable {
     GlDivisionCode: Partial<Ams360GlDivisionCode> | null;
     GlDivisionCodeId: number;
@@ -1903,6 +1914,7 @@ export interface Person extends IIdentity, ISynchronizable {
     Names: Array<Partial<PersonName>> | null;
     NewsRecipients: Array<Partial<NewsRecipient>> | null;
     NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
+    PersonMondayAccount: Partial<PersonMondayAccount> | null;
     PersonToNotifications: Array<Partial<PersonToNotification>> | null;
     PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
     PersonToPermissionGroups: Array<Partial<PersonToPermissionGroup>> | null;
