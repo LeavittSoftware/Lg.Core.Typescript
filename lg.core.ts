@@ -1325,7 +1325,7 @@ export interface CompanyContactPersonRole extends PersonRole {
 }
 
 export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
-    EmailAddressTypes: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
+    EmailAddressTypes: 'PrimaryWork'|'Personal';
 }
 
 export interface InAppNotificationDeliveryMethod extends NotificationDeliveryMethod {
@@ -1704,7 +1704,7 @@ export interface ProfilePictureAttachment extends Attachment {
 }
 
 export interface IAddress {
-    AddressType: 'Business'|'Home'|'TheGamePrize'|'Surge';
+    AddressType: 'Business'|'Home';
     City: string | null;
     Country: string | null;
     County: string | null;
@@ -1804,7 +1804,7 @@ export interface CompanyRole extends Role {
 
 export interface EmailAddress extends IExpirable, IIdentity, ISynchronizable {
     Address: string | null;
-    EmailAddressType: 'PrimaryWork'|'AlternativeWork'|'Personal'|'AlternativePersonal'|'BenefitsHelp'|'Surge';
+    EmailAddressType: 'PrimaryWork'|'Personal';
 }
 
 export interface LGEmployeeRole extends PersonRole {
@@ -1953,7 +1953,7 @@ export interface PersonRole extends Role {
 }
 
 export interface PhoneNumber extends IPhoneNumber, IExpirable, IIdentity, ISynchronizable {
-    PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyTax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'HrCompanyAddressModem'|'PrimaryWork'|'AlternativeWork'|'PrimaryHome'|'AlternativeHome'|'Mobile'|'Fax'|'BenefitsHelp'|'TheGameContact'|'SurgeContact';
+    PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'PrimaryWork'|'PrimaryHome'|'Mobile'|'Fax';
 }
 
 export interface CompanyAddressUltiProAccount extends IIdentity, ISynchronizable {
