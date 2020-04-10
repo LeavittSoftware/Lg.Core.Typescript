@@ -2475,6 +2475,7 @@ export interface CrmAccount extends IIdentity {
     AnnualPayroll: string | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
     City: string | null;
+    CompanySize: number | null;
     ContactFirstName: string | null;
     ContactJobTitle: string | null;
     ContactLastName: string | null;
