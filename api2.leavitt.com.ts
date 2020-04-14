@@ -3,7 +3,29 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360SupplementalCode,Ams360PersonRole,Ams360EmpCode,ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+
+export interface Ams360UpsertDto {
+    Ams360PersonRole: Partial<Ams360PersonRole> | null;
+    Ams360SupplementalCode: Partial<Ams360SupplementalCode> | null;
+    Id: number;
+}
+
+export interface Ams360EmpCodesDto {
+    Agency: Partial<EmpCodeInstanceDto> | null;
+    Ams360DatabaseId: number;
+    Ams360SupplementalCode: Partial<Ams360SupplementalCode> | null;
+    AssignedRole: Partial<Ams360PersonRole> | null;
+    Database: string | null;
+    EmpCode: Partial<Ams360EmpCode> | null;
+    IsMapped: boolean;
+    Status: string | null;
+}
+
+export interface EmpCodeInstanceDto {
+    CompanyName: string | null;
+    InstanceId: number | null;
+}
 
 export interface TemplateDataItemDto {
     Key: string | null;
