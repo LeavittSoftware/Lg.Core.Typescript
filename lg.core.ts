@@ -773,7 +773,7 @@ export interface PersonMondayAccount extends IIdentity {
 
 export interface CrmAccountMondayItem extends IIdentity {
     CrmAccountId: number;
-    NewGroupServicesItemId: number;
+    NewGroupServicesItemId: number | null;
     SpreadSheetItemId: number | null;
 }
 
