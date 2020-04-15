@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360SupplementalCode,Ams360PersonRole,Ams360EmpCode,ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
 export interface Ams360UpsertDto {
     Ams360PersonRole: Partial<Ams360PersonRole> | null;
