@@ -17,6 +17,7 @@ export interface CustomerSearchResultDto {
     CustomerRepName: string | null;
     CustomerRepPhone: string | null;
     Email: string | null;
+    EsBasicPolInfos: Array<Partial<EsBasicPolInfo>> | null;
     Id: number;
     LastModifiedDate: string | null;
     Phone: string | null;
