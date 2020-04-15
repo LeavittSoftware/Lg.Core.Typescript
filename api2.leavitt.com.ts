@@ -690,6 +690,18 @@ export interface MasterProducerDto {
     PersonId: number;
 }
 
+export interface PLGamePlayerDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PlayerId: number;
+    TeamId: number | null;
+    TeamName: string | null;
+    TeamPersonRoleId: number | null;
+    TotalPoints: Partial<number>;
+}
+
 export interface ConferenceAttendeeDto {
     AttendeeId: number;
     Balance: Partial<number>;
