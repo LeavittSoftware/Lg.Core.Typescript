@@ -693,6 +693,7 @@ export interface MasterProducerDto {
 export interface PLGamePlayerDto {
     CompanyName: string | null;
     FirstName: string | null;
+    IsCaptain: boolean;
     LastName: string | null;
     PersonId: number;
     PlayerId: number;
