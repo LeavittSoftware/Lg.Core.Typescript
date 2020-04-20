@@ -564,6 +564,7 @@ export interface PLGamePrize extends IIdentity {
 }
 
 export interface PLGameScoreboard extends IIdentity {
+    IsEnabled: boolean;
     Name: string | null;
     PLGame: Partial<PLGame> | null;
     PLGameId: number;
@@ -643,7 +644,7 @@ export interface PLGameTeamReportPrize extends PLGamePrize {
 }
 
 export interface PLGameVideo extends IIdentity {
-    Enabled: boolean;
+    IsEnabled: boolean;
     Name: string | null;
     PLGame: Partial<PLGame> | null;
     PLGameId: number;
