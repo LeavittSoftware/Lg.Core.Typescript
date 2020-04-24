@@ -113,9 +113,13 @@ export interface AutomatedApplication extends IExpirable, IIdentity {
     Name: string | null;
 }
 
-export interface EmailTemplate extends IIdentity, ICreatedBy {
+export interface EmailTemplate extends IIdentity {
     Body: string | null;
     CreatedDate: string;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
+    EndDate: string | null;
+    IsExpired: boolean;
     Name: string | null;
     Recipients: Array<Partial<EmailTemplateRecipient>> | null;
     SendLogs: Array<Partial<EmailTemplateLog>> | null;
@@ -456,27 +460,35 @@ export interface CReportComment extends ISynchronizable {
 export interface AgencyProductionBudget extends IIdentity {
     Company: Partial<Company> | null;
     CompanyId: number;
-    ProducerBudgets: Array<Partial<ProducerProductionBudget>> | null;
+    ProductionBudgets: Array<Partial<ProductionBudget>> | null;
     TotalCommissionRevenue: Partial<number>;
     TotalProducerProductionGoal: Partial<number>;
     Year: number;
 }
 
-export interface ProducerBudgetGoal extends IIdentity {
+export interface BudgetGoal extends IIdentity {
     FiscalPeriod: number;
     NewRevenue: Partial<number>;
-    ProducerProductionBudget: Partial<ProducerProductionBudget> | null;
-    ProducerProductionBudgetId: number;
+    ProductionBudget: Partial<ProductionBudget> | null;
+    ProductionBudgetId: number;
     RenewRevenue: Partial<number>;
     TotalRevenue: Partial<number>;
 }
 
-export interface ProducerProductionBudget extends IIdentity {
-    AgencyProductionBudget: Partial<AgencyProductionBudget> | null;
-    AgencyProductionBudgetId: number;
-    Goals: Array<Partial<ProducerBudgetGoal>> | null;
+export interface ProducerCodeTypeProductionBudget extends ProductionBudget {
+    ProducerCodeType: Partial<ProducerCodeType> | null;
+    ProducerCodeTypeId: number;
+}
+
+export interface ProducerProductionBudget extends ProductionBudget {
     Person: Partial<Person> | null;
     PersonId: number;
+}
+
+export interface ProductionBudget extends IIdentity {
+    AgencyProductionBudget: Partial<AgencyProductionBudget> | null;
+    AgencyProductionBudgetId: number;
+    Goals: Array<Partial<BudgetGoal>> | null;
     TotalGoalAmount: Partial<number>;
 }
 
