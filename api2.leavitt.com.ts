@@ -5,6 +5,13 @@
 // ----------------------
 import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
+export interface ProductionBudgetTotal {
+    Budget: Partial<number>;
+    CompanyId: number;
+    FiscalPeriod: number;
+    FiscalYear: number;
+}
+
 export interface Ams360UpsertDto {
     Ams360PersonRole: Partial<Ams360PersonRole> | null;
     Ams360SupplementalCode: Partial<Ams360SupplementalCode> | null;

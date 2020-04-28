@@ -2106,7 +2106,7 @@ export interface Person extends IIdentity, ISynchronizable {
     PersonToPermissions: Array<Partial<PersonToPermission>> | null;
     PersonToWebComponentSlides: Array<Partial<PersonToWebComponentSlide>> | null;
     PhoneNumbers: Array<Partial<PersonPhoneNumber>> | null;
-    ProductionBudgets: Array<Partial<ProducerProductionBudget>> | null;
+    ProductionBudgets: Array<Partial<ProductionBudget>> | null;
     QuickLinks: Array<Partial<QuickLink>> | null;
     Reactions: Array<Partial<Reaction>> | null;
     Replies: Array<Partial<Reply>> | null;
