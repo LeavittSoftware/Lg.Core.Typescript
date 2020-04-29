@@ -58,6 +58,14 @@ export interface DuplicateSearchResultDto {
     Zip: string | null;
 }
 
+export interface VsSoldReportDTO {
+    CompanyName: string | null;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    SoldAmount: Partial<number> | null;
+}
+
 export interface SoldReportPremiumDTO {
     FirstName: string | null;
     LastName: string | null;
