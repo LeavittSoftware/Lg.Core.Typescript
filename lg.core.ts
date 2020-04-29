@@ -2661,6 +2661,12 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     Transactions: Array<Partial<ConferenceTransaction>> | null;
 }
 
+export interface ConferenceEventSponsorAttachment extends Attachment {
+    ConferenceEvent: Array<Partial<ConferenceEvent>> | null;
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+}
+
 export interface ConferenceTable {
     Id: number;
     Meal: Partial<ConferenceMeal> | null;
@@ -2672,14 +2678,19 @@ export interface ConferenceTable {
 export interface ConferenceEvent {
     Available: number | null;
     Conference: Partial<Conference> | null;
+    ConferenceEventSponsorAttachment: Partial<ConferenceEventSponsorAttachment> | null;
+    ConferenceEventSponsorAttachmentId: number | null;
     ConferenceId: number;
     Description: string | null;
     Id: number;
     IsLGEmployeeOnly: boolean;
     MaxAttendees: number | null;
     Name: string | null;
+    Sponsor: string | null;
     Timeslot: Partial<ConferenceTimeslot> | null;
     TimeslotId: number;
+    VideoName: string | null;
+    VideoURL: string | null;
 }
 
 export interface ConferenceMeal extends ConferenceEvent {
