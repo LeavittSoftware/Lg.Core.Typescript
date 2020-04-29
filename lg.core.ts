@@ -476,8 +476,8 @@ export interface BudgetGoal extends IIdentity {
 }
 
 export interface ProducerCodeTypeProductionBudget extends ProductionBudget {
-    ProducerCodeType: Partial<ProducerCodeType> | null;
-    ProducerCodeTypeId: number;
+    Ams360ProducerCodeType: Partial<Ams360ProducerCodeType> | null;
+    Ams360ProducerCodeTypeId: number;
 }
 
 export interface ProducerProductionBudget extends ProductionBudget {
@@ -799,6 +799,7 @@ export interface Ams360InstanceToGlDivisionCode extends IIdentity, ISynchronizab
 
 export interface Ams360ProducerCodeType extends IIdentity {
     Name: string | null;
+    ProductionBudget: Array<Partial<ProducerCodeTypeProductionBudget>> | null;
     SupplementalCodes: Array<Partial<Ams360SupplementalCode>> | null;
 }
 
