@@ -57,3 +57,36 @@ export interface ChartsLeaderDto {
     WrittenAmount: Partial<number> | null;
 }
 
+export interface PLGameBreakdownDto {
+    Divisions: Array<Partial<PLGameDivisionBreakdownDto>> | null;
+    TotalPoints: Partial<number>;
+}
+
+export interface PLGameDivisionBreakdownDto {
+    DivisionId: number;
+    DivisionName: string | null;
+    DivisionSequence: number;
+    Teams: Array<Partial<PLGameTeamBreakdownDto>> | null;
+}
+
+export interface PLGamePlayerBreakdownDto {
+    FirstName: string | null;
+    GrandPrizeName: string | null;
+    IsTeamCaptain: boolean;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    TeamStartDate: string;
+    TotalPoints: Partial<number>;
+}
+
+export interface PLGameTeamBreakdownDto {
+    GrandPrizeName: string | null;
+    Players: Array<Partial<PLGamePlayerBreakdownDto>> | null;
+    PrizeAmount: Partial<number> | null;
+    TeamId: number;
+    TeamImageId: number | null;
+    TeamName: string | null;
+    TotalPoints: Partial<number>;
+}
+
