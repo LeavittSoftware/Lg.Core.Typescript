@@ -47,7 +47,7 @@ export interface WrittenReportDto {
 
 export interface ChartsLeaderDto {
     AgencyName: string | null;
-    CompanyIds: Array<Int64> | null;
+    CompanyIds: Array<number> | null;
     FirstName: string | null;
     LastName: string | null;
     PersonId: number;
