@@ -69,6 +69,15 @@ export interface PLGameDivisionBreakdownDto {
     Teams: Array<Partial<PLGameTeamBreakdownDto>> | null;
 }
 
+export interface PLGameTopPlayerDto {
+    FirstName: string | null;
+    GrandPrizeName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    TotalPoints: Partial<number>;
+}
+
 export interface PLGamePlayerBreakdownDto {
     FirstName: string | null;
     GrandPrizeName: string | null;
