@@ -697,6 +697,7 @@ export interface PLGamePlayerDto {
     LastName: string | null;
     PersonId: number;
     PlayerId: number;
+    PlayerPersonRoleId: number | null;
     TeamId: number | null;
     TeamName: string | null;
     TeamPersonRoleId: number | null;
