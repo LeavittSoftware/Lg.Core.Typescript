@@ -352,6 +352,20 @@ export interface SurveyQuestion extends IChangeTracking, ICreatedBy, IIdentity {
     Type: 'SingleSelect'|'MultiSelect'|'Text';
 }
 
+export interface SurgeScoreboardPrize extends IIdentity {
+    Amount: number;
+    Rank: number;
+    SurgeScoreboard: Partial<SurgeScoreboard> | null;
+    SurgeScoreboardId: number;
+}
+
+export interface SurgeSponsor extends IIdentity {
+    Name: string | null;
+    Scoreboards: Array<Partial<SurgeScoreboard>> | null;
+    Surge: Partial<Surge> | null;
+    SurgeId: number;
+}
+
 export interface Surge extends IIdentity, IExpirable {
     CreatorPerson: Partial<Person> | null;
     CreatorPersonId: number;
@@ -366,9 +380,13 @@ export interface Surge extends IIdentity, IExpirable {
     Pauses: Array<Partial<SurgePause>> | null;
     RegisteredUsers: Array<Partial<SurgeRegisteredRole>> | null;
     Rules: string | null;
+    Scoreboards: Array<Partial<SurgeScoreboard>> | null;
     SegmentLength: string;
     SurgeAdminPersonRoles: Array<Partial<SurgeAdminPersonRole>> | null;
     SurgePrizes: Array<Partial<SurgePrize>> | null;
+    SurgeSegments: Array<Partial<SurgeReportingSegment>> | null;
+    SurgeSegmentTypes: Array<Partial<SurgeReportingSegmentType>> | null;
+    SurgeSponsors: Array<Partial<SurgeSponsor>> | null;
     Teams: Array<Partial<SurgeTeam>> | null;
     Type: 'Standard'|'ConnectAndSell'|'FollowUpAndAppointment';
 }
@@ -408,6 +426,39 @@ export interface SurgePlayerPersonRole extends PersonRole {
     TeamPrizePortion: Partial<number>;
     TopOnTeamPrizeAmount: Partial<number>;
     TopOnTeamRank: number;
+}
+
+export interface SurgeReportingSegmentType extends IIdentity {
+    Name: string | null;
+    Scoreboards: Array<Partial<SurgeScoreboard>> | null;
+    Segments: Array<Partial<SurgeReportingSegment>> | null;
+    Surge: Partial<Surge> | null;
+    SurgeId: number;
+}
+
+export interface SurgeReportingSegment extends IIdentity {
+    EndDate: string;
+    Name: string | null;
+    StartDate: string;
+    Surge: Partial<Surge> | null;
+    SurgeId: number;
+    SurgeSegmentType: Partial<SurgeReportingSegmentType> | null;
+    SurgeSegmentTypeId: number;
+}
+
+export interface SurgeScoreboard extends IIdentity {
+    IsEnabled: boolean;
+    Name: string | null;
+    PrizeEligibility: boolean;
+    Prizes: Array<Partial<SurgeScoreboardPrize>> | null;
+    SegmentTypeId: number | null;
+    Sequence: number;
+    Surge: Partial<Surge> | null;
+    SurgeId: number;
+    SurgeSponsor: Partial<SurgeSponsor> | null;
+    SurgeSponsorId: number | null;
+    Take: number | null;
+    WebComponentHtmlTag: string | null;
 }
 
 export interface SurgePrize extends IIdentity, IExpirable {
