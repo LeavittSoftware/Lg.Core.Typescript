@@ -722,6 +722,8 @@ export interface ConferenceScheduleDto {
     Description: string | null;
     Id: number;
     Name: string | null;
+    SponsorAttachmentId: number | null;
+    SponsorName: string | null;
     TimeslotEndDate: string;
     TimeslotId: number;
     TimeslotName: string | null;
