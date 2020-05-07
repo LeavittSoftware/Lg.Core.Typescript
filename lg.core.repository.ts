@@ -59,7 +59,6 @@ export interface ChartsLeaderDto {
 
 export interface PLGameBreakdownDto {
     Divisions: Array<Partial<PLGameDivisionBreakdownDto>> | null;
-    TotalPoints: Partial<number>;
 }
 
 export interface PLGameDivisionBreakdownDto {
