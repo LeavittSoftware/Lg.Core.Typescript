@@ -785,6 +785,13 @@ export interface AccountsJobRoleDto {
     PersonalAssignmentPercentage: number | null;
 }
 
+export interface UserSurgesDto {
+    IsActive: boolean;
+    Name: string | null;
+    SurgeId: number;
+    SurgeStartDate: string;
+}
+
 export interface IIdentity {
     Id: number;
 }
