@@ -98,3 +98,41 @@ export interface PLGameTeamBreakdownDto {
     TotalPoints: Partial<number>;
 }
 
+export interface SurgeReportsBreakdownDto {
+    Divisions: Array<Partial<SurgeReportsDivisionBreakdownDto>> | null;
+}
+
+export interface SurgeReportsDivisionBreakdownDto {
+    DivisionId: number;
+    DivisionName: string | null;
+    DivisionSequence: number;
+    Teams: Array<Partial<SurgeReportsTeamBreakdownDto>> | null;
+}
+
+export interface SurgeReportsPlayerBreakdownDto {
+    FirstName: string | null;
+    GrandPrizeName: string | null;
+    IsTeamCaptain: boolean;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    TeamStartDate: string;
+    TotalSold: Partial<number>;
+}
+
+export interface SurgeReportsTeamBreakdownDto {
+    Players: Array<Partial<SurgeReportsPlayerBreakdownDto>> | null;
+    PrizeAmount: Partial<number> | null;
+    TeamId: number;
+    TeamName: string | null;
+    TeamTotalSold: Partial<number>;
+}
+
+export interface SurgeReportsTopPlayerDto {
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    TotalSold: Partial<number>;
+}
+
