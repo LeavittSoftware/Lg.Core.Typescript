@@ -4,6 +4,30 @@
 // </auto-generated>
 // ----------------------
 
+export interface CoverageCode {
+    CCKey: number;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    CoCode: string | null;
+    Commercial: number;
+    CovCode: string | null;
+    Coverage: number;
+    CoverageGroup: number | null;
+    DatabaseName: string | null;
+    DefaultFormNo: string | null;
+    Description: string | null;
+    Endorsement: number;
+    EnteredDate: string;
+    Id: number;
+    IsHide: string | null;
+    IsPolLevel: string | null;
+    Liability: number;
+    PermFlag: number;
+    Personal: number;
+    Property: number;
+    YesNoIndicatorDesc: string | null;
+}
+
 export interface CPrem {
     Acre: string | null;
     Applies: string | null;
