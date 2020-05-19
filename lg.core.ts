@@ -545,10 +545,13 @@ export interface ProductionBudget extends IIdentity {
 
 export interface PLGame extends IIdentity {
     Divisions: Array<Partial<PLGameDivision>> | null;
+    EndDate: string | null;
     GracePeriod: string;
+    HasStarted: boolean;
     IsBlackedOut: boolean;
     IsDeleted: boolean;
     IsDevelopment: boolean;
+    IsGameOver: boolean;
     Logo: Partial<PLGameLogoAttachment> | null;
     LogoId: number | null;
     Name: string | null;
@@ -559,6 +562,7 @@ export interface PLGame extends IIdentity {
     SegmentTypes: Array<Partial<PLGameSegmentType>> | null;
     Slides: Array<Partial<PLGameCarouselSlideAttachment>> | null;
     Sponsors: Array<Partial<PLGameSponsor>> | null;
+    StartDate: string | null;
     Teams: Array<Partial<PLGameTeam>> | null;
     Videos: Array<Partial<PLGameVideo>> | null;
 }
