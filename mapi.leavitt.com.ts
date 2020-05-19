@@ -4,11 +4,6 @@
 // </auto-generated>
 // ----------------------
 
-export interface ThumbnailBase64Dto {
-    FileName: string | null;
-    value: string | null;
-}
-
 export interface Base64Dto {
     FileName: string | null;
     Value: string | null;
