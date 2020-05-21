@@ -370,6 +370,7 @@ export interface PayStatementDetail {
     PrimaryExecCode: string | null;
     PrimaryRepCode: string | null;
     PSDId: string;
+    PSHId: string;
     Sort1By: string | null;
     Sort2By: string | null;
     TranType: string | null;
