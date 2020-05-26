@@ -447,6 +447,8 @@ export interface SurgeReportingSegment extends IIdentity {
 }
 
 export interface SurgeScoreboard extends IIdentity {
+    CarrierId: number | null;
+    CarrierName: string | null;
     IsEnabled: boolean;
     Name: string | null;
     PrizeEligibility: boolean;
