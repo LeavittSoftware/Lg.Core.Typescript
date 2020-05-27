@@ -785,6 +785,11 @@ export interface AccountsJobRoleDto {
     PersonalAssignmentPercentage: number | null;
 }
 
+export interface CrmCarrierDto {
+    CarrierId: number;
+    CarrierName: string | null;
+}
+
 export interface UserSurgesDto {
     IsActive: boolean;
     Name: string | null;
