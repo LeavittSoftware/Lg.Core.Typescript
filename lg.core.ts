@@ -2657,8 +2657,11 @@ export interface Conference {
     Packages: Array<Partial<ConferencePackage>> | null;
     RegistrationBegins: string | null;
     RegistrationEnds: string | null;
+    SponsorCategories: Array<Partial<ConferenceSponsorCategory>> | null;
+    SponsorImageAttachments: Array<Partial<ConferenceSponsorImageAttachment>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
     Timeslots: Array<Partial<ConferenceTimeslot>> | null;
+    TimeZone: string | null;
     Title: string | null;
     Tracks: Array<Partial<ConferenceTrack>> | null;
     Year: number;
@@ -2719,10 +2722,41 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     Transactions: Array<Partial<ConferenceTransaction>> | null;
 }
 
+export interface ConferenceSponsorImageAttachment extends Attachment {
+    Conference: Partial<Conference> | null;
+    ConferenceId: number | null;
+    FolderName: string | null;
+    Sponsors: Array<Partial<ConferenceSponsor>> | null;
+    StorageFileNameAndPath: string | null;
+}
+
 export interface ConferenceEventSponsorAttachment extends Attachment {
     ConferenceEvent: Array<Partial<ConferenceEvent>> | null;
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
+}
+
+export interface ConferenceSponsorCategory {
+    Conference: Partial<Conference> | null;
+    ConferenceId: number | null;
+    Id: number;
+    IsEnabled: boolean;
+    Name: string | null;
+    Sequence: number;
+    Sponsors: Array<Partial<ConferenceSponsor>> | null;
+}
+
+export interface ConferenceSponsor {
+    Category: Partial<ConferenceSponsorCategory> | null;
+    ConferenceSponsorCategoryId: number;
+    ConferenceSponsorImageAttachmentId: number | null;
+    Description: string | null;
+    Id: number;
+    Image: Partial<ConferenceSponsorImageAttachment> | null;
+    IsEnabled: boolean;
+    Link: string | null;
+    Name: string | null;
+    Sequence: number;
 }
 
 export interface ConferenceTable {
