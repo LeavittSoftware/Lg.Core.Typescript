@@ -704,6 +704,35 @@ export interface PLGamePlayerDto {
     TotalPoints: Partial<number>;
 }
 
+export interface AccountsJobRoleDto {
+    BenefitsAssignmentPercentage: number | null;
+    CommercialAssignmentPercentage: number | null;
+    CompanyId: number;
+    CompanyName: string | null;
+    Id: number;
+    JobRoleTypeId: number;
+    JobRoleTypeName: string | null;
+    LifeAssignmentPercentage: number | null;
+    PersonalAssignmentPercentage: number | null;
+}
+
+export interface CrmCarrierDto {
+    CarrierId: number;
+    CarrierName: string | null;
+}
+
+export interface UserSurgesDto {
+    IsActive: boolean;
+    Name: string | null;
+    SurgeId: number;
+    SurgeStartDate: string;
+}
+
+export interface ConferenceEventsDto {
+    Events: Array<Partial<ConferenceScheduleDto>> | null;
+    TimeZone: string | null;
+}
+
 export interface ConferenceAttendeeDto {
     AttendeeId: number;
     Balance: Partial<number>;
@@ -771,30 +800,6 @@ export interface ConferencePersonDto {
     Street: string | null;
     Title: string | null;
     Zip: string | null;
-}
-
-export interface AccountsJobRoleDto {
-    BenefitsAssignmentPercentage: number | null;
-    CommercialAssignmentPercentage: number | null;
-    CompanyId: number;
-    CompanyName: string | null;
-    Id: number;
-    JobRoleTypeId: number;
-    JobRoleTypeName: string | null;
-    LifeAssignmentPercentage: number | null;
-    PersonalAssignmentPercentage: number | null;
-}
-
-export interface CrmCarrierDto {
-    CarrierId: number;
-    CarrierName: string | null;
-}
-
-export interface UserSurgesDto {
-    IsActive: boolean;
-    Name: string | null;
-    SurgeId: number;
-    SurgeStartDate: string;
 }
 
 export interface IIdentity {
