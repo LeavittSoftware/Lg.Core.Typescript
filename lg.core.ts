@@ -2133,6 +2133,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
     DateOfBirth: string | null;
     DeletedAttachments: Array<Partial<Attachment>> | null;
+    DeletedCLGamePoints: Array<Partial<CLGamePoint>> | null;
     DeletedPLGamePoints: Array<Partial<PLGamePoint>> | null;
     EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
     EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
@@ -2920,6 +2921,186 @@ export interface SessionSpeaker {
     PersonId: number;
     Session: Partial<ConferenceSession> | null;
     SessionId: number;
+}
+
+export interface CLGame extends IIdentity {
+    Divisions: Array<Partial<CLGameDivision>> | null;
+    EndDate: string | null;
+    GracePeriod: string;
+    HasStarted: boolean;
+    IsBlackedOut: boolean;
+    IsDeleted: boolean;
+    IsDevelopment: boolean;
+    IsGameOver: boolean;
+    Logo: Partial<CLGameLogoAttachment> | null;
+    LogoId: number | null;
+    Name: string | null;
+    Players: Array<Partial<CLGamePlayerPersonRole>> | null;
+    Rules: string | null;
+    Scoreboards: Array<Partial<CLGameScoreboard>> | null;
+    Segments: Array<Partial<CLGameSegment>> | null;
+    SegmentTypes: Array<Partial<CLGameSegmentType>> | null;
+    Slides: Array<Partial<CLGameCarouselSlideAttachment>> | null;
+    Sponsors: Array<Partial<CLGameSponsor>> | null;
+    StartDate: string | null;
+    Teams: Array<Partial<CLGameTeam>> | null;
+    Videos: Array<Partial<CLGameVideo>> | null;
+}
+
+export interface CLGameCarouselSlideAttachment extends Attachment {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    Enabled: boolean;
+    FolderName: string | null;
+    Link: string | null;
+    Sequence: number;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface CLGameDivision extends IIdentity {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    Name: string | null;
+    Prizes: Array<Partial<CLGameTeamReportPrize>> | null;
+    Sequence: number;
+    Teams: Array<Partial<CLGameDivisionToTeam>> | null;
+}
+
+export interface CLGameDivisionToTeam extends IIdentity {
+    Division: Partial<CLGameDivision> | null;
+    DivisionId: number;
+    Segment: Partial<CLGameSegment> | null;
+    SegmentId: number;
+    Team: Partial<CLGameTeam> | null;
+    TeamId: number;
+}
+
+export interface CLGameLogoAttachment extends Attachment {
+    FolderName: string | null;
+    Games: Array<Partial<CLGame>> | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface CLGamePlayerPersonRole extends PersonRole {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+}
+
+export interface CLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
+    Amount: Partial<number>;
+    ClientName: string | null;
+    CreatedDate: string;
+    CrmCommissionId: number | null;
+    DeletedByPerson: Partial<Person> | null;
+    DeletedByPersonId: number | null;
+    DeletedDate: string | null;
+    EffectiveDate: string;
+    IsDeleted: boolean;
+    IsEditedByAdmin: boolean;
+    Sponsor: Partial<CLGameSponsor> | null;
+    SponsorId: number | null;
+    TeamPersonRole: Partial<CLGameTeamPersonRole> | null;
+    TeamPersonRoleId: number;
+    Type: 'Sale'|'BOR';
+}
+
+export interface CLGamePrize extends IIdentity {
+    Amount: Partial<number> | null;
+    GrandPrizeName: string | null;
+    Rank: number;
+    Scoreboard: Partial<CLGameScoreboard> | null;
+    ScoreboardId: number;
+}
+
+export interface CLGameScoreboard extends IIdentity {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    IsEnabled: boolean;
+    Name: string | null;
+    Prizes: Array<Partial<CLGamePrize>> | null;
+    SegmentType: Partial<CLGameSegmentType> | null;
+    SegmentTypeId: number | null;
+    Sequence: number;
+    Sponsor: Partial<CLGameSponsor> | null;
+    SponsorId: number | null;
+    Take: number | null;
+    WebComponentHTMLTag: string | null;
+}
+
+export interface CLGameSegment extends IIdentity {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    DivisionToTeams: Array<Partial<CLGameDivisionToTeam>> | null;
+    EndDate: string;
+    Name: string | null;
+    Prizes: Array<Partial<CLGameSegmentToTeamReportPrize>> | null;
+    StartDate: string;
+    Type: Partial<CLGameSegmentType> | null;
+    TypeId: number;
+}
+
+export interface CLGameSegmentToTeamReportPrize extends IIdentity {
+    Segment: Partial<CLGameSegment> | null;
+    SegmentId: number;
+    TeamReportPrize: Partial<CLGameTeamReportPrize> | null;
+    TeamReportPrizeId: number;
+}
+
+export interface CLGameSegmentType extends IIdentity {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    IsPrimaryGameSegment: boolean;
+    Name: string | null;
+    Scoreboards: Array<Partial<CLGameScoreboard>> | null;
+    Segments: Array<Partial<CLGameSegment>> | null;
+}
+
+export interface CLGameSponsor extends IIdentity {
+    CarrierId: number | null;
+    CarrierName: string | null;
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    Name: string | null;
+    Points: Array<Partial<CLGamePoint>> | null;
+    Scoreboards: Array<Partial<CLGameScoreboard>> | null;
+}
+
+export interface CLGameTeam extends IIdentity {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    Divisions: Array<Partial<CLGameDivisionToTeam>> | null;
+    Image: Partial<CLGameTeamAttachment> | null;
+    ImageId: number | null;
+    Name: string | null;
+    Players: Array<Partial<CLGameTeamPersonRole>> | null;
+}
+
+export interface CLGameTeamAttachment extends Attachment {
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+    Teams: Array<Partial<CLGameTeam>> | null;
+}
+
+export interface CLGameTeamPersonRole extends PersonRole {
+    ClTeam: Partial<CLGameTeam> | null;
+    CLTeamId: number;
+    IsTeamCaptain: boolean;
+    Points: Array<Partial<CLGamePoint>> | null;
+}
+
+export interface CLGameTeamReportPrize extends CLGamePrize {
+    Division: Partial<CLGameDivision> | null;
+    DivisionId: number;
+    Segments: Array<Partial<CLGameSegmentToTeamReportPrize>> | null;
+}
+
+export interface CLGameVideo extends IIdentity {
+    CLGame: Partial<CLGame> | null;
+    CLGameId: number;
+    IsEnabled: boolean;
+    Name: string | null;
+    Sequence: number;
+    YoutubeKey: string | null;
 }
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
