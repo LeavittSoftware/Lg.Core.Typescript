@@ -359,13 +359,6 @@ export interface SurgeScoreboardPrize extends IIdentity {
     SurgeScoreboardId: number;
 }
 
-export interface SurgeSponsor extends IIdentity {
-    Name: string | null;
-    Scoreboards: Array<Partial<SurgeScoreboard>> | null;
-    Surge: Partial<Surge> | null;
-    SurgeId: number;
-}
-
 export interface Surge extends IIdentity, IExpirable {
     CreatorPerson: Partial<Person> | null;
     CreatorPersonId: number;
@@ -386,7 +379,6 @@ export interface Surge extends IIdentity, IExpirable {
     SurgePrizes: Array<Partial<SurgePrize>> | null;
     SurgeSegments: Array<Partial<SurgeReportingSegment>> | null;
     SurgeSegmentTypes: Array<Partial<SurgeReportingSegmentType>> | null;
-    SurgeSponsors: Array<Partial<SurgeSponsor>> | null;
     Teams: Array<Partial<SurgeTeam>> | null;
     Type: 'Standard'|'ConnectAndSell'|'FollowUpAndAppointment';
 }
@@ -457,8 +449,6 @@ export interface SurgeScoreboard extends IIdentity {
     Sequence: number;
     Surge: Partial<Surge> | null;
     SurgeId: number;
-    SurgeSponsor: Partial<SurgeSponsor> | null;
-    SurgeSponsorId: number | null;
     Take: number | null;
     WebComponentHtmlTag: string | null;
 }
