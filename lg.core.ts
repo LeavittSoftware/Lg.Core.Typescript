@@ -2948,12 +2948,12 @@ export interface CLGame extends IIdentity {
 }
 
 export interface CLGameCarouselSlideAttachment extends Attachment {
+    CLEnabled: boolean;
     CLGame: Partial<CLGame> | null;
     CLGameId: number;
-    Enabled: boolean;
+    CLLink: string | null;
+    CLSequence: number;
     FolderName: string | null;
-    Link: string | null;
-    Sequence: number;
     StorageFileNameAndPath: string | null;
 }
 
@@ -3084,7 +3084,7 @@ export interface CLGameTeamAttachment extends Attachment {
 export interface CLGameTeamPersonRole extends PersonRole {
     ClTeam: Partial<CLGameTeam> | null;
     CLTeamId: number;
-    IsTeamCaptain: boolean;
+    IsCLTeamCaptain: boolean;
     Points: Array<Partial<CLGamePoint>> | null;
 }
 
