@@ -3072,7 +3072,7 @@ export interface CLGameTeamAttachment extends Attachment {
 }
 
 export interface CLGameTeamPersonRole extends PersonRole {
-    ClTeam: Partial<CLGameTeam> | null;
+    CLTeam: Partial<CLGameTeam> | null;
     CLTeamId: number;
     IsCLTeamCaptain: boolean;
     Points: Array<Partial<CLGamePoint>> | null;

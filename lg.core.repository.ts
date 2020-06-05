@@ -136,3 +136,35 @@ export interface SurgeReportsTopPlayerDto {
     TotalSold: Partial<number>;
 }
 
+export interface CLGameBreakdownDto {
+    Divisions: Array<Partial<CLGameDivisionBreakdownDto>> | null;
+}
+
+export interface CLGameDivisionBreakdownDto {
+    DivisionId: number;
+    DivisionName: string | null;
+    DivisionSequence: number;
+    Teams: Array<Partial<CLGameTeamBreakdownDto>> | null;
+}
+
+export interface CLGamePlayerBreakdownDto {
+    FirstName: string | null;
+    GrandPrizeName: string | null;
+    IsTeamCaptain: boolean;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    TeamStartDate: string;
+    TotalPoints: Partial<number>;
+}
+
+export interface CLGameTeamBreakdownDto {
+    GrandPrizeName: string | null;
+    Players: Array<Partial<CLGamePlayerBreakdownDto>> | null;
+    PrizeAmount: Partial<number> | null;
+    TeamId: number;
+    TeamImageId: number | null;
+    TeamName: string | null;
+    TotalPoints: Partial<number>;
+}
+
