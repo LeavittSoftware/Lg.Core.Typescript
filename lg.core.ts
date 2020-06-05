@@ -2979,8 +2979,8 @@ export interface CLGamePlayerPersonRole extends PersonRole {
 export interface CLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     Amount: Partial<number>;
     ClientName: string | null;
+    CommissionSplitId: string | null;
     CreatedDate: string;
-    CrmCommissionId: number | null;
     DeletedByPerson: Partial<Person> | null;
     DeletedByPersonId: number | null;
     DeletedDate: string | null;
