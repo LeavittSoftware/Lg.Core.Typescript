@@ -168,3 +168,12 @@ export interface CLGameTeamBreakdownDto {
     TotalPoints: Partial<number>;
 }
 
+export interface CLGameTopPlayerDto {
+    FirstName: string | null;
+    GrandPrizeName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    TotalPoints: Partial<number>;
+}
+
