@@ -111,6 +111,7 @@ export interface AutomatedApplication extends IExpirable, IIdentity {
     LastRunDateTime: string | null;
     LogEntryItems: Array<Partial<LogEntryItem>> | null;
     Name: string | null;
+    Triggers: Array<Partial<Trigger>> | null;
 }
 
 export interface EmailTemplate extends IIdentity {
@@ -1734,14 +1735,19 @@ export interface StaticNotificationMessage extends NotificationMessage {
 }
 
 export interface Trigger extends IIdentity, IExpirable, ICreatedBy {
+    AutomatedApplication: Partial<AutomatedApplication> | null;
+    AutomatedApplicationId: number | null;
+    CreatedDate: string;
     DaysOfMonth: 'None'|'First'|'Second'|'Third'|'Fourth'|'Fifth'|'Sixth'|'Seventh'|'Eighth'|'Ninth'|'Tenth'|'Eleventh'|'Twelfth'|'Thirteenth'|'Fourteenth'|'Fiftieth'|'Sixteenth'|'Seventeenth'|'Eighteenth'|'Nineteenth'|'Twentieth'|'Twentyfirst'|'Twentysecond'|'Twentythrid'|'Twentyfourth'|'Twentyfifth'|'Twentysixth'|'Twentyseventh'|'Twentyeighth'|'Twentyninth'|'Thirtieth'|'Even'|'Thirtyfirst'|'Odd'|'All';
     DaysOfWeek: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
     Frequency: 'OneTime'|'Hourly'|'Daily'|'Weekly'|'Monthly'|'Minutes';
     Interval: number | null;
     IsComplete: boolean;
+    IsEnabled: boolean;
+    LastModifiedDate: string | null;
     LastRunDate: string | null;
     Notification: Partial<Notification> | null;
-    NotificationId: number;
+    NotificationId: number | null;
 }
 
 export interface CompanyDivision extends IExpirable, IIdentity, ISynchronizable {
@@ -2914,6 +2920,7 @@ export interface SessionSpeaker {
 }
 
 export interface CLGame extends IIdentity {
+    CrmInstance: 'Production'|'Uat'|'Dev';
     Divisions: Array<Partial<CLGameDivision>> | null;
     EndDate: string | null;
     GracePeriod: string;
