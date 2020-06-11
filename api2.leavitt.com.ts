@@ -728,20 +728,6 @@ export interface UserSurgesDto {
     SurgeStartDate: string;
 }
 
-export interface CLGamePlayerDto {
-    CompanyName: string | null;
-    FirstName: string | null;
-    IsCaptain: boolean;
-    LastName: string | null;
-    PersonId: number;
-    PlayerId: number;
-    PlayerPersonRoleId: number | null;
-    TeamId: number | null;
-    TeamName: string | null;
-    TeamPersonRoleId: number | null;
-    TotalPoints: Partial<number>;
-}
-
 export interface ConferenceEventsDto {
     Events: Array<Partial<ConferenceScheduleDto>> | null;
     TimeZone: string | null;
@@ -814,6 +800,25 @@ export interface ConferencePersonDto {
     Street: string | null;
     Title: string | null;
     Zip: string | null;
+}
+
+export interface CLGameCrmCarrierDto {
+    CarrierId: number;
+    CarrierName: string | null;
+}
+
+export interface CLGamePlayerDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    IsCaptain: boolean;
+    LastName: string | null;
+    PersonId: number;
+    PlayerId: number;
+    PlayerPersonRoleId: number | null;
+    TeamId: number | null;
+    TeamName: string | null;
+    TeamPersonRoleId: number | null;
+    TotalPoints: Partial<number>;
 }
 
 export interface IIdentity {
