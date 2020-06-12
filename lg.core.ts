@@ -1836,6 +1836,7 @@ export interface BaseChangeTracking {
 export interface Attachment extends IIdentity, ISynchronizable {
     AllowGuestReadAccess: boolean;
     BaseUncFileStoragePath: string | null;
+    CdnFileName: string | null;
     ContentType: string | null;
     DeletedByPerson: Partial<Person> | null;
     DeletedByPersonId: number | null;
@@ -1850,6 +1851,7 @@ export interface Attachment extends IIdentity, ISynchronizable {
     Owner: Partial<Person> | null;
     OwnerId: number;
     PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
+    PreviewSizes: string | null;
     Size: number;
     StorageFileName: string | null;
 }
