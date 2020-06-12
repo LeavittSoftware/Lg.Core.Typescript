@@ -3,6 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+import { CLGamePoint,CrmCommission } from './lg.core'
 
 export interface AMSCodeDto {
     Code: string | null;
@@ -134,6 +135,21 @@ export interface SurgeReportsTopPlayerDto {
     PersonId: number;
     PrizeAmount: Partial<number> | null;
     TotalSold: Partial<number>;
+}
+
+export interface CLGameAuditBreakdownDto {
+    CLGamePoint: Partial<CLGamePoint> | null;
+    CrmCommission: Partial<CrmCommission> | null;
+    SortDate: string | null;
+}
+
+export interface CLGameAuditSummaryDto {
+    FirstName: string | null;
+    IsEditedByAdmin: boolean;
+    LastName: string | null;
+    PersonId: number;
+    TotalCLPoints: Partial<number>;
+    TotalCRMPoints: Partial<number>;
 }
 
 export interface CLGameBreakdownDto {
