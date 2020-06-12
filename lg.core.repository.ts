@@ -94,6 +94,8 @@ export interface PLGameTeamBreakdownDto {
     Players: Array<Partial<PLGamePlayerBreakdownDto>> | null;
     PrizeAmount: Partial<number> | null;
     TeamId: number;
+    TeamImageCdnFileName: string | null;
+    TeamImageExtension: string | null;
     TeamImageId: number | null;
     TeamName: string | null;
     TotalPoints: Partial<number>;
