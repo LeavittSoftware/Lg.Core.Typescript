@@ -1851,6 +1851,7 @@ export interface Attachment extends IIdentity, ISynchronizable {
     Owner: Partial<Person> | null;
     OwnerId: number;
     PeoplePermissions: Array<Partial<PersonToAttachmentPermission>> | null;
+    PreviewExtension: string | null;
     PreviewSizes: string | null;
     Size: number;
     StorageFileName: string | null;
