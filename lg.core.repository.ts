@@ -97,6 +97,7 @@ export interface PLGameTeamBreakdownDto {
     TeamImageCdnFileName: string | null;
     TeamImageExtension: string | null;
     TeamImageId: number | null;
+    TeamImagePreviewExtension: string | null;
     TeamName: string | null;
     TotalPoints: Partial<number>;
 }
@@ -181,7 +182,10 @@ export interface CLGameTeamBreakdownDto {
     Players: Array<Partial<CLGamePlayerBreakdownDto>> | null;
     PrizeAmount: Partial<number> | null;
     TeamId: number;
+    TeamImageCdnFileName: string | null;
+    TeamImageExtension: string | null;
     TeamImageId: number | null;
+    TeamImagePreviewExtension: string | null;
     TeamName: string | null;
     TotalPoints: Partial<number>;
 }
