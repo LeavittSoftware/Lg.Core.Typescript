@@ -21,15 +21,19 @@ export interface FileExplorerPathDto {
 }
 
 export interface FileExplorerFileDto {
+    CdnFileName: string | null;
     CreatedDate: string;
     Description: string | null;
     DownloadCount: number;
     Extension: string | null;
+    FileName: string | null;
     Id: number;
     Name: string | null;
     OwnerFirstName: string | null;
     OwnerId: number;
     OwnerLastName: string | null;
+    PreviewExtension: string | null;
+    PreviewSizes: string | null;
     Size: number;
 }
 
