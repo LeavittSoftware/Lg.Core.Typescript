@@ -3195,6 +3195,16 @@ export interface AppsPcCarrier extends IIdentity {
     Territory: string | null;
 }
 
+export interface AppsCarrier {
+    Folder: Partial<Folder> | null;
+    FolderId: number | null;
+    Id: number;
+    LineOfBusiness: string | null;
+    Name: string | null;
+    Territory: string | null;
+    Type: 'PAndC'|'PersonalRisks'|'WorkersComp';
+}
+
 export interface AppsWorkerCompCarrier {
     Id: number;
     LineOfBusiness: string | null;
