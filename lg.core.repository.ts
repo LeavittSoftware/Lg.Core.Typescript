@@ -141,6 +141,7 @@ export interface PLGameTeamBreakdownDto {
     TeamImageExtension: string | null;
     TeamImageId: number | null;
     TeamImagePreviewExtension: string | null;
+    TeamImagePreviewSizes: string | null;
     TeamName: string | null;
     TotalPoints: Partial<number>;
 }
@@ -185,11 +186,16 @@ export interface SurgeReportsTopPlayerDto {
 
 export interface CLGameAuditBreakdownDto {
     CLGamePoint: Partial<CLGamePoint> | null;
+    CommissionSegmentId: number | null;
+    CommissionSegmentName: string | null;
     CrmCommission: Partial<CrmCommission> | null;
+    PointSegmentId: number | null;
+    PointSegmentName: string | null;
     SortDate: string | null;
 }
 
 export interface CLGameAuditSummaryDto {
+    Difference: Partial<number>;
     FirstName: string | null;
     IsEditedByAdmin: boolean;
     LastName: string | null;
@@ -229,6 +235,7 @@ export interface CLGameTeamBreakdownDto {
     TeamImageExtension: string | null;
     TeamImageId: number | null;
     TeamImagePreviewExtension: string | null;
+    TeamImagePreviewSizes: string | null;
     TeamName: string | null;
     TotalPoints: Partial<number>;
 }
