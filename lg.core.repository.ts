@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { CLGamePoint,CrmCommission } from './lg.core'
+import { CLGameSegment,CLGamePoint,CrmCommission } from './lg.core'
 
 export interface FileExplorerDto {
     CanUpload: boolean;
@@ -184,13 +184,22 @@ export interface SurgeReportsTopPlayerDto {
     TotalSold: Partial<number>;
 }
 
+export interface CLGameAuditBreakdownsBySegmentDto {
+    Breakdowns: Array<Partial<CLGameAuditBreakdownDto>> | null;
+    CrmTotal: Partial<number>;
+    GameTotal: Partial<number>;
+    IsAfterGame: boolean;
+    IsBeforeGame: boolean;
+    Segment: Partial<CLGameSegment> | null;
+    SegmentId: number | null;
+}
+
 export interface CLGameAuditBreakdownDto {
+    AmountsMatch: boolean;
     CLGamePoint: Partial<CLGamePoint> | null;
-    CommissionSegmentId: number | null;
-    CommissionSegmentName: string | null;
     CrmCommission: Partial<CrmCommission> | null;
-    PointSegmentId: number | null;
-    PointSegmentName: string | null;
+    DatesMatch: boolean;
+    IsCrmCommissionDeleted: boolean;
     SortDate: string | null;
 }
 
