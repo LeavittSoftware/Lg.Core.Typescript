@@ -446,19 +446,6 @@ export interface CommissionRateDto {
     ReplacementId: number | null;
 }
 
-export interface LeaderBoardDto {
-    Leaders: Array<Partial<LeaderDto>> | null;
-    TotalProducerCount: number;
-}
-
-export interface LeaderDto {
-    Amount: Partial<number>;
-    FirstName: string | null;
-    LastName: string | null;
-    PersonId: number;
-    Rank: number;
-}
-
 export interface AuditorDto {
     CompanyId: number;
     Email: string | null;
@@ -735,6 +722,19 @@ export interface UserSurgesDto {
     Name: string | null;
     SurgeId: number;
     SurgeStartDate: string;
+}
+
+export interface LeaderBoardDto {
+    Leaders: Array<Partial<LeaderDto>> | null;
+    TotalProducerCount: number;
+}
+
+export interface LeaderDto {
+    Amount: Partial<number>;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    Rank: number;
 }
 
 export interface ConferenceEventsDto {
