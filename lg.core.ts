@@ -94,10 +94,11 @@ export interface Deduction extends IIdentity {
     Verified: string | null;
 }
 
-export interface LogEntryItem extends IIdentity {
+export interface LogEntryItem {
     AutomatedApplication: Partial<AutomatedApplication> | null;
     AutomatedApplicationId: number;
     DateTime: string;
+    Id: number;
     Instance: string | null;
     Level: 'Info'|'Warn'|'Error';
     Message: string | null;
@@ -109,7 +110,6 @@ export interface AutomatedApplication extends IExpirable, IIdentity {
     LastHeardFromDateTime: string | null;
     LastHeardFromIp: string | null;
     LastRunDateTime: string | null;
-    LogEntryItems: Array<Partial<LogEntryItem>> | null;
     Name: string | null;
     Triggers: Array<Partial<Trigger>> | null;
 }
@@ -1738,7 +1738,7 @@ export interface Trigger extends IIdentity, IExpirable, ICreatedBy {
     AutomatedApplication: Partial<AutomatedApplication> | null;
     AutomatedApplicationId: number | null;
     CreatedDate: string;
-    DaysOfMonth: 'None'|'First'|'Second'|'Third'|'Fourth'|'Fifth'|'Sixth'|'Seventh'|'Eighth'|'Ninth'|'Tenth'|'Eleventh'|'Twelfth'|'Thirteenth'|'Fourteenth'|'Fiftieth'|'Sixteenth'|'Seventeenth'|'Eighteenth'|'Nineteenth'|'Twentieth'|'Twentyfirst'|'Twentysecond'|'Twentythrid'|'Twentyfourth'|'Twentyfifth'|'Twentysixth'|'Twentyseventh'|'Twentyeighth'|'Twentyninth'|'Thirtieth'|'Even'|'Thirtyfirst'|'Odd'|'All';
+    DaysOfMonth: 'None'|'First'|'Second'|'Third'|'Fourth'|'Fifth'|'Sixth'|'Seventh'|'Eighth'|'Ninth'|'Tenth'|'Eleventh'|'Twelfth'|'Thirteenth'|'Fourteenth'|'Fifteenth'|'Sixteenth'|'Seventeenth'|'Eighteenth'|'Nineteenth'|'Twentieth'|'Twentyfirst'|'Twentysecond'|'Twentythird'|'Twentyfourth'|'Twentyfifth'|'Twentysixth'|'Twentyseventh'|'Twentyeighth'|'Twentyninth'|'Thirtieth'|'Even'|'Thirtyfirst'|'Odd'|'All';
     DaysOfWeek: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
     Frequency: 'OneTime'|'Hourly'|'Daily'|'Weekly'|'Monthly'|'Minutes';
     Interval: number | null;
