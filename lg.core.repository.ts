@@ -5,6 +5,13 @@
 // ----------------------
 import { CLGameSegment,CLGamePoint } from './lg.core'
 
+export interface PermissionHolderDto {
+    FirstName: string | null;
+    LastName: string | null;
+    PermissionSource: Array<Partial<String>> | null;
+    PersonId: number;
+}
+
 export interface FileExplorerDto {
     CanUpload: boolean;
     Files: Array<Partial<FileExplorerFileDto>> | null;
