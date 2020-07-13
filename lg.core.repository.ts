@@ -196,6 +196,7 @@ export interface CLGameAuditBreakdownCommissionDto {
     Date: string | null;
     Id: number;
     LastModifiedDate: string | null;
+    LineOfCoverage: string | null;
     Name: string | null;
 }
 
