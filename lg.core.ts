@@ -332,6 +332,7 @@ export interface Survey extends IIdentity, IChangeTracking, ICreatedBy {
     RespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
     RespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
     Sequence: number;
+    StartDate: string | null;
 }
 
 export interface SurveyFeaturedImageAttachment extends Attachment {
@@ -3004,6 +3005,10 @@ export interface CLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     Type: 'Sale'|'BOR';
 }
 
+export interface CLGamePrequalifiedPrize extends CLGamePrize {
+    Segments: Array<Partial<CLGameSegmentToPrequalifiedPrize>> | null;
+}
+
 export interface CLGamePrize extends IIdentity {
     Amount: Partial<number> | null;
     GrandPrizeName: string | null;
@@ -3018,6 +3023,7 @@ export interface CLGameScoreboard extends IIdentity {
     IsEnabled: boolean;
     Name: string | null;
     Prizes: Array<Partial<CLGamePrize>> | null;
+    QualificationAmount: Partial<number> | null;
     SegmentType: Partial<CLGameSegmentType> | null;
     SegmentTypeId: number | null;
     Sequence: number;
@@ -3037,6 +3043,13 @@ export interface CLGameSegment extends IIdentity {
     StartDate: string;
     Type: Partial<CLGameSegmentType> | null;
     TypeId: number;
+}
+
+export interface CLGameSegmentToPrequalifiedPrize extends IIdentity {
+    PrequalifiedPrize: Partial<CLGamePrequalifiedPrize> | null;
+    PrequalifiedPrizeId: number;
+    Segment: Partial<CLGameSegment> | null;
+    SegmentId: number;
 }
 
 export interface CLGameSegmentToTeamReportPrize extends IIdentity {
