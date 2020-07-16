@@ -12,6 +12,12 @@ export interface PermissionHolderDto {
     PersonId: number;
 }
 
+export interface UserPermissionsDto {
+    PermissionId: number;
+    PermissionName: string | null;
+    PersonToPermissionId: number | null;
+}
+
 export interface FileExplorerDto {
     CanUpload: boolean;
     Files: Array<Partial<FileExplorerFileDto>> | null;
