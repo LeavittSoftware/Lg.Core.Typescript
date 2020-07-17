@@ -558,6 +558,7 @@ export interface PLGame extends IIdentity {
     Sponsors: Array<Partial<PLGameSponsor>> | null;
     StartDate: string | null;
     Teams: Array<Partial<PLGameTeam>> | null;
+    TimeZone: string | null;
     Videos: Array<Partial<PLGameVideo>> | null;
 }
 
@@ -826,6 +827,158 @@ export interface SalesExpectationStatus {
     ReviewRequesterId: number | null;
     SalesExpectation: Partial<SalesExpectation> | null;
     StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
+}
+
+export interface NewSurge extends IIdentity {
+    ColdCallingEndDate: string | null;
+    ColdCallingIntermissionLength: string;
+    ColdCallingIsPaused: boolean | null;
+    ColdCallingNumSegments: number;
+    ColdCallingSegmentLength: string;
+    CrmInstance: 'Production'|'Uat'|'Dev' | null;
+    EnableFirebase: boolean;
+    HasColdCallingStarted: boolean;
+    IsColdCallingOver: boolean;
+    IsDeleted: boolean;
+    IsDevelopment: boolean;
+    Name: string | null;
+    Pauses: Array<Partial<NewSurgePause>> | null;
+    Players: Array<Partial<NewSurgePlayerPersonRole>> | null;
+    PointTypes: Array<Partial<NewSurgePointType>> | null;
+    Rules: string | null;
+    Scoreboards: Array<Partial<NewSurgeScoreboard>> | null;
+    Segments: Array<Partial<NewSurgeSegment>> | null;
+    SegmentTypes: Array<Partial<NewSurgeSegmentType>> | null;
+    Slides: Array<Partial<NewSurgeCarouselSlideAttachment>> | null;
+    StartDate: string | null;
+    Teams: Array<Partial<NewSurgeTeam>> | null;
+    TimeZone: string | null;
+    ViewerGroups: Array<Partial<NewSurgeViewerToPeopleGroup>> | null;
+    Viewers: Array<Partial<NewSurgeViewerPersonRole>> | null;
+}
+
+export interface NewSurgeCarouselSlideAttachment extends Attachment {
+    Enabled: boolean;
+    Link: string | null;
+    Sequence: number;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgePoint extends IIdentity {
+    CreatedDate: string;
+    CrmAccountId: string | null;
+    Date: string;
+    DeletedBy: Partial<Person> | null;
+    DeletedById: number | null;
+    DeletedDate: string | null;
+    IsDeleted: boolean;
+    Name: string | null;
+    PointType: Partial<NewSurgePointType> | null;
+    PointTypeId: number;
+    TeamPersonRole: Partial<NewSurgeTeamPersonRole> | null;
+    TeamPersonRoleId: number;
+}
+
+export interface NewSurgeTeamPersonRole extends PersonRole {
+    Points: Array<Partial<NewSurgePoint>> | null;
+    PrimaryScoreboardIndividualPrizeAmount: Partial<number>;
+    PrimaryScoreboardIndividualRank: number;
+    PrimaryScoreboardIndividualTotalPoints: number;
+    PrimaryScoreboardTeamPrizePortion: Partial<number>;
+    PrimaryScoreboardTopOnTeamPrizeAmount: Partial<number>;
+    PrimaryScoreboardTopOnTeamRank: number;
+    Team: Partial<NewSurgeTeam> | null;
+    TeamId: number;
+}
+
+export interface NewSurgePlayerPersonRole extends PersonRole {
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgePointType extends IIdentity {
+    DeletedDate: string | null;
+    IsDeleted: boolean;
+    Name: string | null;
+    Points: Array<Partial<NewSurgePoint>> | null;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+    Value: number;
+}
+
+export interface NewSurgeScoreboard extends IIdentity {
+    CarrierId: number | null;
+    CarrierName: string | null;
+    IsEnabled: boolean;
+    Name: string | null;
+    Prizes: Array<Partial<NewSurgePrize>> | null;
+    SegmentType: Partial<NewSurgeSegmentType> | null;
+    SegmentTypeId: number | null;
+    Sequence: number;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+    Take: number | null;
+    WebComponentHTMLTag: string | null;
+}
+
+export interface NewSurgeSegment extends IIdentity {
+    EndDate: string;
+    Name: string | null;
+    SegmentType: Partial<NewSurgeSegmentType> | null;
+    SegmentTypeId: number;
+    StartDate: string;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgeSegmentType extends IIdentity {
+    Name: string | null;
+    Scoreboards: Array<Partial<NewSurgeScoreboard>> | null;
+    Segments: Array<Partial<NewSurgeSegment>> | null;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgePrize extends IIdentity {
+    Amount: Partial<number>;
+    Rank: number;
+    Scoreboard: Partial<NewSurgeScoreboard> | null;
+    ScoreboardId: number;
+    Type: 'TopOnTeam'|'TopTeams'|'TopIndividual' | null;
+}
+
+export interface NewSurgeTeamAttachment extends Attachment {
+    Teams: Array<Partial<NewSurgeTeam>> | null;
+}
+
+export interface NewSurgeTeam extends IIdentity {
+    Image: Partial<NewSurgeTeamAttachment> | null;
+    ImageId: number | null;
+    Name: string | null;
+    Players: Array<Partial<NewSurgeTeamPersonRole>> | null;
+    PrimaryScoreboardPrizeAmount: Partial<number>;
+    PrimaryScoreboardRank: number;
+    PrimaryScoreboardTotalPoint: number;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgeViewerToPeopleGroup extends IIdentity {
+    Group: Partial<PeopleGroup> | null;
+    GroupId: number;
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgeViewerPersonRole extends PersonRole {
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
+}
+
+export interface NewSurgePause extends IIdentity, IExpirable {
+    Surge: Partial<NewSurge> | null;
+    SurgeId: number;
 }
 
 export interface PersonMondayAccount extends IIdentity {
@@ -2945,6 +3098,7 @@ export interface CLGame extends IIdentity {
     Sponsors: Array<Partial<CLGameSponsor>> | null;
     StartDate: string | null;
     Teams: Array<Partial<CLGameTeam>> | null;
+    TimeZone: string | null;
     Videos: Array<Partial<CLGameVideo>> | null;
 }
 
