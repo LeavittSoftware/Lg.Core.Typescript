@@ -273,6 +273,8 @@ export interface CLGameTeamBreakdownDto {
 }
 
 export interface CLGameTopPlayerDto {
+    AgencyId: number | null;
+    AgencyName: string | null;
     FirstName: string | null;
     GrandPrizeName: string | null;
     LastName: string | null;
