@@ -2083,6 +2083,7 @@ export interface PeopleGroup extends Group, IExpirable {
     CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
+    GroupSurgeViewerToPeopleGroups: Array<Partial<NewSurgeViewerToPeopleGroup>> | null;
     NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
     PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
     PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;

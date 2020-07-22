@@ -555,6 +555,24 @@ export interface Ams360CustomerDto {
     ZipCode: string | null;
 }
 
+export interface TheSurgeViewerDto {
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+}
+
+export interface TheSurgePlayerDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PlayerId: number;
+    TeamId: number | null;
+    TeamName: string | null;
+    TeamPersonRoleId: number | null;
+    TotalPoints: number;
+}
+
 export interface EloquaToCrmCompareDtoV2 {
     CrmContact: Partial<MarketingManagerEloquaContactDto> | null;
     EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
