@@ -114,6 +114,17 @@ export interface ChartsLeaderDto {
     WrittenAmount: Partial<number> | null;
 }
 
+export interface VitalSignsLeaderDto {
+    AgencyName: string | null;
+    CompanyId: number;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    Rank: number;
+    ThreeMonthSales: Partial<number> | null;
+    WrittenAmount: Partial<number> | null;
+}
+
 export interface PLGameBreakdownDto {
     Divisions: Array<Partial<PLGameDivisionBreakdownDto>> | null;
 }
