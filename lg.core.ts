@@ -843,7 +843,7 @@ export interface NewSurge extends IIdentity {
     IsDevelopment: boolean;
     Name: string | null;
     Pauses: Array<Partial<NewSurgePause>> | null;
-    Players: Array<Partial<NewSurgePlayerPersonRole>> | null;
+    Players: Array<Partial<NewSurgeTeamPersonRole>> | null;
     PointTypes: Array<Partial<NewSurgePointType>> | null;
     Rules: string | null;
     Scoreboards: Array<Partial<NewSurgeScoreboard>> | null;
@@ -866,6 +866,8 @@ export interface NewSurgeCarouselSlideAttachment extends Attachment {
 }
 
 export interface NewSurgePoint extends IIdentity {
+    CreatedBy: Partial<Person> | null;
+    CreatedById: number | null;
     CreatedDate: string;
     CrmAccountId: string | null;
     Date: string;
@@ -888,13 +890,11 @@ export interface NewSurgeTeamPersonRole extends PersonRole {
     PrimaryScoreboardTeamPrizePortion: Partial<number>;
     PrimaryScoreboardTopOnTeamPrizeAmount: Partial<number>;
     PrimaryScoreboardTopOnTeamRank: number;
-    Team: Partial<NewSurgeTeam> | null;
-    TeamId: number;
-}
-
-export interface NewSurgePlayerPersonRole extends PersonRole {
+    PrimaryScoreboardTotalPrizeAmount: Partial<number>;
     Surge: Partial<NewSurge> | null;
     SurgeId: number;
+    Team: Partial<NewSurgeTeam> | null;
+    TeamId: number | null;
 }
 
 export interface NewSurgePointType extends IIdentity {
