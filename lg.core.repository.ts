@@ -121,7 +121,6 @@ export interface VitalSignsLeaderDto {
     LastName: string | null;
     PersonId: number;
     Rank: number;
-    ThreeMonthSales: Partial<number> | null;
     WrittenAmount: Partial<number> | null;
 }
 
