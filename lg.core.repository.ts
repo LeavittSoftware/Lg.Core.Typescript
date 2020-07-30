@@ -192,7 +192,11 @@ export interface SurgeReportsPlayerBreakdownDto {
 }
 
 export interface SurgeReportsTeamBreakdownDto {
+    CdnFileName: string | null;
+    ImageExtension: string | null;
     Players: Array<Partial<SurgeReportsPlayerBreakdownDto>> | null;
+    PreviewExtension: string | null;
+    PreviewSizes: string | null;
     PrizeAmount: Partial<number> | null;
     TeamId: number;
     TeamName: string | null;
