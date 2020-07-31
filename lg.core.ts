@@ -774,6 +774,8 @@ export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
     AssignedBook: number;
     AverageAccountSize: number;
     CreatedDate: string;
+    DeferredCompDate: string | null;
+    DeferredCompPercentage: number | null;
     IsExistingEmployee: boolean;
     LastModifiedByPerson: Partial<Person> | null;
     LastModifiedByPersonId: number | null;
@@ -2622,6 +2624,7 @@ export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentit
 
 export interface DomoDataSet extends IIdentity {
     DataSetId: string | null;
+    IsIgnored: boolean;
     IsLgManaged: boolean;
     LgManagedLastModified: string | null;
     Name: string | null;
