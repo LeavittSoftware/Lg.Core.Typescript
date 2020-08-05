@@ -840,6 +840,7 @@ export interface NewSurge extends IIdentity {
     CrmInstance: 'Production'|'Uat'|'Dev' | null;
     EnableFirebase: boolean;
     HasColdCallingStarted: boolean;
+    HasRules: boolean;
     IsColdCallingOver: boolean;
     IsDeleted: boolean;
     IsDevelopment: boolean;
@@ -848,6 +849,7 @@ export interface NewSurge extends IIdentity {
     Players: Array<Partial<NewSurgeTeamPersonRole>> | null;
     PointTypes: Array<Partial<NewSurgePointType>> | null;
     Rules: string | null;
+    SavePointsToCrm: boolean;
     Scoreboards: Array<Partial<NewSurgeScoreboard>> | null;
     Segments: Array<Partial<NewSurgeSegment>> | null;
     SegmentTypes: Array<Partial<NewSurgeSegmentType>> | null;
@@ -865,6 +867,26 @@ export interface NewSurgeCarouselSlideAttachment extends Attachment {
     Sequence: number;
     Surge: Partial<NewSurge> | null;
     SurgeId: number;
+}
+
+export interface NewSurgeCrmPoint extends IIdentity {
+    Amount: Partial<number>;
+    CarrierId: number;
+    CarrierName: string | null;
+    ClientName: string | null;
+    CommissionSplitId: string | null;
+    CreatedDate: string;
+    DeletedBy: Partial<Person> | null;
+    DeletedById: number | null;
+    DeletedDate: string | null;
+    EffectiveDate: string;
+    IsDeleted: boolean;
+    IsEditedByAdmin: boolean;
+    LastModifiedBy: Partial<Person> | null;
+    LastModifiedById: number | null;
+    LastModifiedDate: string | null;
+    TeamPersonRole: Partial<NewSurgeTeamPersonRole> | null;
+    TeamPersonRoleId: number;
 }
 
 export interface NewSurgePoint extends IIdentity {
@@ -885,6 +907,7 @@ export interface NewSurgePoint extends IIdentity {
 }
 
 export interface NewSurgeTeamPersonRole extends PersonRole {
+    CrmPoints: Array<Partial<NewSurgeCrmPoint>> | null;
     Points: Array<Partial<NewSurgePoint>> | null;
     PrimaryScoreboardIndividualPrizeAmount: Partial<number>;
     PrimaryScoreboardIndividualRank: number;
