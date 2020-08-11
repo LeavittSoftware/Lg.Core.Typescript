@@ -838,7 +838,6 @@ export interface NewSurge extends IIdentity {
     ColdCallingNumSegments: number;
     ColdCallingSegmentLength: string;
     CrmInstance: 'Production'|'Uat'|'Dev' | null;
-    EnableFirebase: boolean;
     HasColdCallingStarted: boolean;
     HasRules: boolean;
     IsColdCallingOver: boolean;
