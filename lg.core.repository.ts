@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { CLGameSegment,CLGamePoint } from './lg.core'
+import { NewSurgeSegment,NewSurgeCrmPoint,CLGameSegment,CLGamePoint } from './lg.core'
 
 export interface PermissionHolderDto {
     FirstName: string | null;
@@ -122,6 +122,45 @@ export interface VitalSignsLeaderDto {
     PersonId: number;
     Rank: number;
     WrittenAmount: Partial<number> | null;
+}
+
+export interface SurgeAuditSummaryDto {
+    Difference: Partial<number>;
+    FirstName: string | null;
+    IsEditedByAdmin: boolean;
+    LastName: string | null;
+    PersonId: number;
+    TotalCRMPoints: Partial<number>;
+    TotalPoints: Partial<number>;
+}
+
+export interface SurgeAuditBreakdownsBySegmentDto {
+    Breakdowns: Array<Partial<SurgeAuditBreakdownDto>> | null;
+    CrmTotal: Partial<number>;
+    IsAfterSurge: boolean;
+    IsBeforeSurge: boolean;
+    Segment: Partial<NewSurgeSegment> | null;
+    SegmentId: number | null;
+    SurgeTotal: Partial<number>;
+}
+
+export interface SurgeAuditBreakdownCommissionDto {
+    Amount: Partial<number>;
+    Date: string | null;
+    Id: number;
+    LastModifiedDate: string | null;
+    LineOfCoverage: string | null;
+    Name: string | null;
+}
+
+export interface SurgeAuditBreakdownDto {
+    AmountsMatch: boolean;
+    CrmCommission: Partial<SurgeAuditBreakdownCommissionDto> | null;
+    DatesMatch: boolean;
+    IsCrmCommissionDeleted: boolean;
+    IsPointCreatedByAdmin: boolean;
+    SortDate: string | null;
+    SurgeCrmPoint: Partial<NewSurgeCrmPoint> | null;
 }
 
 export interface PLGameBreakdownDto {
