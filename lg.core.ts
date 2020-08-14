@@ -870,7 +870,7 @@ export interface NewSurgeCarouselSlideAttachment extends Attachment {
 
 export interface NewSurgeCrmPoint extends IIdentity {
     Amount: Partial<number>;
-    CarrierId: number;
+    CarrierId: number | null;
     CarrierName: string | null;
     ClientName: string | null;
     CommissionSplitId: string | null;
