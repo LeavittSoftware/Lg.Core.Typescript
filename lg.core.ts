@@ -714,123 +714,6 @@ export interface PLGameVideo extends IIdentity {
     YoutubeKey: string | null;
 }
 
-export interface FailReason {
-    Id: number;
-    Message: string | null;
-    SalesExpectationStatus: Partial<SalesExpectationStatus> | null;
-    SalesExpectationStatusId: number;
-}
-
-export interface ProspectiveProducerRole extends PersonRole {
-    CompanyAddress: Partial<CompanyAddress> | null;
-    CompanyAddressId: number | null;
-}
-
-export interface SalesExpectation extends IExpirable, IIdentity, ICreatedBy {
-    BoBComposition: Array<Partial<BoBComposition>> | null;
-    CreatedDate: string;
-    Expectations: Array<Partial<Expectation>> | null;
-    HireDate: string | null;
-    IsBookOfBusinessCompleted: boolean;
-    IsCompleted: boolean;
-    IsExpectationsCompleted: boolean;
-    IsProducerAssumptionsCompleted: boolean;
-    LastModifiedByPerson: Partial<Person> | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedDate: string | null;
-    Person: Partial<Person> | null;
-    PersonId: number;
-    ProducerAssumptions: Array<Partial<ProducerAssumption>> | null;
-    ProducerCommissionRates: Array<Partial<ProducerCommissionRate>> | null;
-    Status: Partial<SalesExpectationStatus> | null;
-}
-
-export interface BoBComposition extends IExpirable, IIdentity, ICreatedBy {
-    CompositionPercent: number;
-    CreatedDate: string;
-    InstallmentPercent: number;
-    LastModifiedByPerson: Partial<Person> | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedDate: string | null;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    SalesExpectationId: number;
-    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
-}
-
-export interface Expectation extends IExpirable, IIdentity, ICreatedBy {
-    CreatedDate: string;
-    DrawAmount: number;
-    LastModifiedByPerson: Partial<Person> | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedDate: string | null;
-    ReportDate: string;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    SalesExpectationId: number;
-    SubsidyAmount: number;
-    WrittenNewAmount: number;
-}
-
-export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
-    AssignedBook: number;
-    AverageAccountSize: number;
-    CreatedDate: string;
-    DeferredCompDate: string | null;
-    DeferredCompPercentage: number | null;
-    IsExistingEmployee: boolean;
-    LastModifiedByPerson: Partial<Person> | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedDate: string | null;
-    NewToIndustry: boolean;
-    NewToSales: boolean;
-    QFAToCloseRatio: number;
-    RetentionPercent: number;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    SalesExpectationId: number;
-    TalentSearch: boolean;
-}
-
-export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy {
-    CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
-    Company: Partial<Company> | null;
-    CompanyId: number;
-    CreatedDate: string;
-    LastModifiedByPerson: Partial<Person> | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedDate: string | null;
-    Rate: number;
-    TransactionType: 'NewBusiness'|'RenewPolicy';
-}
-
-export interface ProducerCommissionRate extends IExpirable, IIdentity, ICreatedBy {
-    CommissionPercent: number;
-    CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
-    CreatedDate: string;
-    EffectiveDate: string;
-    ExpirationDate: string;
-    LastModifiedByPerson: Partial<Person> | null;
-    LastModifiedByPersonId: number | null;
-    LastModifiedDate: string | null;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    SalesExpectationId: number;
-    TransactionType: 'NewBusiness'|'RenewPolicy';
-}
-
-export interface SalesExpectationStatus {
-    ApprovalDate: string | null;
-    Approver: Partial<Person> | null;
-    ApproverId: number | null;
-    FailReasons: Array<Partial<FailReason>> | null;
-    Id: number;
-    Reviewer: Partial<Person> | null;
-    ReviewerId: number | null;
-    ReviewerMessage: string | null;
-    ReviewRequestDate: string | null;
-    ReviewRequester: Partial<Person> | null;
-    ReviewRequesterId: number | null;
-    SalesExpectation: Partial<SalesExpectation> | null;
-    StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
-}
-
 export interface NewSurge extends IIdentity {
     ColdCallingEndDate: string | null;
     ColdCallingIntermissionLength: string;
@@ -1003,6 +886,138 @@ export interface NewSurgeViewerPersonRole extends PersonRole {
 export interface NewSurgePause extends IIdentity, IExpirable {
     Surge: Partial<NewSurge> | null;
     SurgeId: number;
+}
+
+export interface DifferedCompensation extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    DifferedCompensationBreakdowns: Array<Partial<DifferedCompensationBreakdown>> | null;
+    RevenueThreshold: Partial<number>;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+}
+
+export interface DifferedCompensationBreakdown extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    DifferedCompensation: Partial<DifferedCompensation> | null;
+    DifferedCompensationId: number;
+    Percentage: Partial<number>;
+    QualificationDate: string;
+}
+
+export interface FailReason {
+    Id: number;
+    Message: string | null;
+    SalesExpectationStatus: Partial<SalesExpectationStatus> | null;
+    SalesExpectationStatusId: number;
+}
+
+export interface ProspectiveProducerRole extends PersonRole {
+    CompanyAddress: Partial<CompanyAddress> | null;
+    CompanyAddressId: number | null;
+}
+
+export interface SalesExpectation extends IExpirable, IIdentity, ICreatedBy {
+    BoBComposition: Array<Partial<BoBComposition>> | null;
+    CreatedDate: string;
+    DifferedCompensations: Array<Partial<DifferedCompensation>> | null;
+    Expectations: Array<Partial<Expectation>> | null;
+    HireDate: string | null;
+    IsBookOfBusinessCompleted: boolean;
+    IsCompleted: boolean;
+    IsExpectationsCompleted: boolean;
+    IsProducerAssumptionsCompleted: boolean;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    ProducerAssumptions: Array<Partial<ProducerAssumption>> | null;
+    ProducerCommissionRates: Array<Partial<ProducerCommissionRate>> | null;
+    Status: Partial<SalesExpectationStatus> | null;
+}
+
+export interface BoBComposition extends IExpirable, IIdentity, ICreatedBy {
+    CompositionPercent: number;
+    CreatedDate: string;
+    InstallmentPercent: number;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
+}
+
+export interface Expectation extends IExpirable, IIdentity, ICreatedBy {
+    CreatedDate: string;
+    DrawAmount: number;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    ReportDate: string;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    SubsidyAmount: number;
+    WrittenNewAmount: number;
+}
+
+export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
+    AssignedBook: number;
+    AverageAccountSize: number;
+    CreatedDate: string;
+    DeferredCompDate: string | null;
+    DeferredCompPercentage: number | null;
+    IsExistingEmployee: boolean;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    NewToIndustry: boolean;
+    NewToSales: boolean;
+    QFAToCloseRatio: number;
+    RetentionPercent: number;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    TalentSearch: boolean;
+}
+
+export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy {
+    CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
+    Company: Partial<Company> | null;
+    CompanyId: number;
+    CreatedDate: string;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    Rate: number;
+    TransactionType: 'NewBusiness'|'RenewPolicy';
+}
+
+export interface ProducerCommissionRate extends IExpirable, IIdentity, ICreatedBy {
+    CommissionPercent: number;
+    CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
+    CreatedDate: string;
+    EffectiveDate: string;
+    ExpirationDate: string;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    SalesExpectationId: number;
+    TransactionType: 'NewBusiness'|'RenewPolicy';
+}
+
+export interface SalesExpectationStatus {
+    ApprovalDate: string | null;
+    Approver: Partial<Person> | null;
+    ApproverId: number | null;
+    FailReasons: Array<Partial<FailReason>> | null;
+    Id: number;
+    Reviewer: Partial<Person> | null;
+    ReviewerId: number | null;
+    ReviewerMessage: string | null;
+    ReviewRequestDate: string | null;
+    ReviewRequester: Partial<Person> | null;
+    ReviewRequesterId: number | null;
+    SalesExpectation: Partial<SalesExpectation> | null;
+    StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
 }
 
 export interface PersonMondayAccount extends IIdentity {
@@ -2313,6 +2328,8 @@ export interface Person extends IIdentity, ISynchronizable {
     DeletedAttachments: Array<Partial<Attachment>> | null;
     DeletedCLGamePoints: Array<Partial<CLGamePoint>> | null;
     DeletedPLGamePoints: Array<Partial<PLGamePoint>> | null;
+    DifferedCompensationBreakdowns: Array<Partial<DifferedCompensationBreakdown>> | null;
+    DifferedCompensations: Array<Partial<DifferedCompensation>> | null;
     EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
     EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
