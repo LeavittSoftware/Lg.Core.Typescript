@@ -2276,10 +2276,7 @@ export interface Permission extends IIdentity, ISynchronizable, IExpirable {
     Application: Partial<App> | null;
     ApplicationId: number;
     Description: string | null;
-    MemberAccessQueues: Array<Partial<Queue>> | null;
     Name: string | null;
-    OutboundCallerIdNumberAccessGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
-    OutboundCallerIdNumberAdminGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
     PermissionToPermissionGroups: Array<Partial<PermissionToPermissionGroup>> | null;
     PersonToPermissions: Array<Partial<PersonToPermission>> | null;
@@ -2314,7 +2311,6 @@ export interface Person extends IIdentity, ISynchronizable {
     CreatedFolders: Array<Partial<Folder>> | null;
     CreatedJobRoleTypes: Array<Partial<JobRoleType>> | null;
     CreatedLessons: Array<Partial<EducationLesson>> | null;
-    CreatedOutboundCallerIdNumberGroups: Array<Partial<OutboundCallerIdNumberGroup>> | null;
     CreatedQuestions: Array<Partial<EducationQuestion>> | null;
     CreatedSurveyAnswers: Array<Partial<SurveyAnswer>> | null;
     CreatedSurveyQuestions: Array<Partial<SurveyQuestion>> | null;
@@ -2333,7 +2329,6 @@ export interface Person extends IIdentity, ISynchronizable {
     EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
     EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
-    Extensions: Array<Partial<Extension>> | null;
     FirstName: string | null;
     ForumAdmins: Array<Partial<ForumAdmin>> | null;
     ForumJoinRequests: Array<Partial<ForumJoinRequest>> | null;
@@ -2411,101 +2406,6 @@ export interface CompanyUltiProAccount extends IIdentity, ISynchronizable {
 export interface LGEmployeeRoleUltiProAccount extends IIdentity, ISynchronizable {
     EmpNo: string | null;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
-}
-
-export interface ExtensionToQueue extends IIdentity, ICreatedBy {
-    CreatedDate: string;
-    Extension: Partial<Extension> | null;
-    ExtensionId: number;
-    Penalty: number;
-    Queue: Partial<Queue> | null;
-    QueueId: number;
-}
-
-export interface Queue extends IIdentity, ICreatedBy {
-    CreatedDate: string;
-    ExtensionToQueues: Array<Partial<ExtensionToQueue>> | null;
-    Name: string | null;
-    Number: string | null;
-    QueueMemberManagerPermission: Partial<Permission> | null;
-    QueueMemberManagerPermissionId: number | null;
-    Server: Partial<Server> | null;
-    ServerId: number;
-}
-
-export interface Extension extends IIdentity {
-    Agent: number | null;
-    ExtensionNumber: number;
-    ExtensionToQueues: Array<Partial<ExtensionToQueue>> | null;
-    Person: Partial<Person> | null;
-    PersonId: number;
-    Phone: Partial<Phone> | null;
-    Server: Partial<Server> | null;
-    ServerId: number;
-}
-
-export interface OutboundCallerIdNumber {
-    CreatedDate: string;
-    CreatorPerson: Partial<Person> | null;
-    CreatorPersonId: number;
-    Id: number;
-    Name: string | null;
-    Number: string | null;
-    OutboundCallerIdNumberGroup: Partial<OutboundCallerIdNumberGroup> | null;
-    OutboundCallerIdNumberGroupId: number;
-}
-
-export interface OutboundCallerIdNumberGroup extends ICreatedBy {
-    CreatedDate: string;
-    GroupAccessPermission: Partial<Permission> | null;
-    GroupAccessPermissionId: number | null;
-    GroupAdminPermission: Partial<Permission> | null;
-    GroupAdminPermissionId: number | null;
-    Id: number;
-    Name: string | null;
-    Numbers: Array<Partial<OutboundCallerIdNumber>> | null;
-}
-
-export interface Phone {
-    Admin: string | null;
-    Extension: Partial<Extension> | null;
-    Id: number;
-    Manufacturer: string | null;
-    Model: string | null;
-    Nickname: string | null;
-    Password: string | null;
-    Protocol: string | null;
-    StaticIp: string | null;
-}
-
-export interface Server extends IIdentity {
-    AmiIp: string | null;
-    AmiPassword: string | null;
-    AmiPort: number | null;
-    AmiUserName: string | null;
-    Extensions: Array<Partial<Extension>> | null;
-    Ip: string | null;
-    Name: string | null;
-    OutgoingOrginateVariables: string | null;
-    OutgoingPrefix: number | null;
-    Queues: Array<Partial<Queue>> | null;
-    Version: Partial<number>;
-}
-
-export interface UsageStatistic extends IIdentity {
-    ApplicationNameAndVersion: string | null;
-    CommandLine: string | null;
-    Is64BitOperatingSystem: boolean;
-    Is64BitProcess: boolean;
-    LastReported: string;
-    MachineId: string | null;
-    MachineName: string | null;
-    OsVersion: string | null;
-    ProcessorCount: number;
-    TotalCalls: number;
-    UserDomainName: string | null;
-    Version: string | null;
-    WorkingSet: number;
 }
 
 export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
@@ -3311,6 +3211,52 @@ export interface CLGameVideo extends IIdentity {
     Name: string | null;
     Sequence: number;
     YoutubeKey: string | null;
+}
+
+export interface OutboundCallerIdToPersonRole extends PersonRole {
+    OutboundCallerId: Partial<OutboundCallerId> | null;
+    OutboundCallerIdId: number;
+}
+
+export interface OutboundCallerIdToPeopleGroup extends IIdentity {
+    Group: Partial<PeopleGroup> | null;
+    GroupId: number;
+    OutboundCallerId: Partial<OutboundCallerId> | null;
+    OutboundCallerIdId: number;
+}
+
+export interface OutboundCallerId extends IIdentity {
+    Name: string | null;
+    Number: string | null;
+    OutboundCallerIdToPeopleGroups: Array<Partial<OutboundCallerIdToPeopleGroup>> | null;
+    OutboundCallerIdToPersonRoles: Array<Partial<OutboundCallerIdToPersonRole>> | null;
+}
+
+export interface CallManagerVersion extends IIdentity {
+    Channel: 'Beta'|'Stable';
+    CreatedDate: string;
+    Major: number;
+    MajorRevision: number;
+    Minor: number;
+    MinorRevision: number;
+    Url: string | null;
+    Version: Partial<Version> | null;
+}
+
+export interface UsageStatistic extends IIdentity {
+    ApplicationNameAndVersion: string | null;
+    CommandLine: string | null;
+    Is64BitOperatingSystem: boolean;
+    Is64BitProcess: boolean;
+    LastReported: string;
+    MachineId: string | null;
+    MachineName: string | null;
+    OsVersion: string | null;
+    ProcessorCount: number;
+    TotalCalls: number;
+    UserDomainName: string | null;
+    Version: string | null;
+    WorkingSet: number;
 }
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
