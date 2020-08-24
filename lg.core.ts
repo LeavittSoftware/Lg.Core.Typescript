@@ -3465,6 +3465,15 @@ export interface StandardChartOfAccount extends IIdentity {
     Tier4Description: string | null;
 }
 
+export interface Version {
+    Build: number;
+    Major: number;
+    MajorRevision: number;
+    Minor: number;
+    MinorRevision: number;
+    Revision: number;
+}
+
 export interface IExpirable {
     EndDate: string | null;
     IsExpired: boolean;
