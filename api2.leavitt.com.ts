@@ -487,40 +487,6 @@ export interface LdapAdObject {
     Sid: string | null;
 }
 
-export interface CourseStatsDto {
-    CourseStatsLessons: Array<Partial<CourseStatsLessonDto>> | null;
-    Participants: number;
-    ParticipantsAttempted: number;
-    ParticipantsCompleted: number;
-}
-
-export interface CourseStatsLessonDto {
-    AverageAttemptsToPass: Partial<number>;
-    AverageTimeWatchedPercentage: Partial<number> | null;
-    AverageTotalTimeSpent: string;
-    LessonId: number;
-    Name: string | null;
-    ParticipantsAttempted: number;
-    ParticipantsCompleted: number;
-    PassRate: Partial<number> | null;
-}
-
-export interface ParticipantDashboardDto {
-    LessonsAvailable: number;
-    LessonsCompleted: number;
-    ParticipantDashboardLessons: Array<Partial<ParticipantDashboardLessonDto>> | null;
-    TotalTimeSpent: string;
-}
-
-export interface ParticipantDashboardLessonDto {
-    Attempts: number;
-    AttemptStatus: 'Pass'|'Fail'|'InProgress' | null;
-    GradePercentage: number | null;
-    LessonId: number;
-    Name: string | null;
-    TimeWatchedPercentage: Partial<number> | null;
-}
-
 export interface EmailAddressesDto {
     Addresses: Array<Partial<String>> | null;
 }
@@ -735,6 +701,50 @@ export interface LeaderDto {
     LastName: string | null;
     PersonId: number;
     Rank: number;
+}
+
+export interface CourseStatsItemDto {
+    CourseCategoryId: number | null;
+    CourseCategoryName: string | null;
+    CourseId: number;
+    CourseTitle: string | null;
+    ParticipantsAttempted: number;
+    ParticipantsCompleted: number;
+    StartDate: string;
+}
+
+export interface CourseStatsDto {
+    CourseStatsLessons: Array<Partial<CourseStatsLessonDto>> | null;
+    Participants: number;
+    ParticipantsAttempted: number;
+    ParticipantsCompleted: number;
+}
+
+export interface CourseStatsLessonDto {
+    AverageAttemptsToPass: Partial<number>;
+    AverageTimeWatchedPercentage: Partial<number> | null;
+    AverageTotalTimeSpent: string;
+    LessonId: number;
+    Name: string | null;
+    ParticipantsAttempted: number;
+    ParticipantsCompleted: number;
+    PassRate: Partial<number> | null;
+}
+
+export interface ParticipantDashboardDto {
+    LessonsAvailable: number;
+    LessonsCompleted: number;
+    ParticipantDashboardLessons: Array<Partial<ParticipantDashboardLessonDto>> | null;
+    TotalTimeSpent: string;
+}
+
+export interface ParticipantDashboardLessonDto {
+    Attempts: number;
+    AttemptStatus: 'Pass'|'Fail'|'InProgress' | null;
+    GradePercentage: number | null;
+    LessonId: number;
+    Name: string | null;
+    TimeWatchedPercentage: Partial<number> | null;
 }
 
 export interface ConferenceEventsDto {
