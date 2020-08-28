@@ -2124,6 +2124,7 @@ export interface PeopleGroup extends Group, IExpirable {
     ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
     GroupSurgeViewerToPeopleGroups: Array<Partial<NewSurgeViewerToPeopleGroup>> | null;
     NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
+    OutboundCallerIdToPeopleGroups: Array<Partial<OutboundCallerIdToPeopleGroup>> | null;
     PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
     PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
