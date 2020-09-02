@@ -1523,6 +1523,66 @@ export interface ReplyReaction extends Reaction {
     ReplyId: number;
 }
 
+export interface ExpenseAttachment extends Attachment {
+    ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface ExpenseCategory {
+    Id: number;
+    IsActive: boolean;
+    Items: Array<Partial<ExpenseFormItem>> | null;
+    Name: string | null;
+}
+
+export interface ExpenseForm extends IIdentity, ICreatedBy {
+    ApprovedByPerson: Partial<Person> | null;
+    ApprovedByPersonId: number | null;
+    ApprovedDate: string | null;
+    CreatedDate: string;
+    DeletedDate: string | null;
+    IsDeleted: boolean;
+    Items: Array<Partial<ExpenseFormItem>> | null;
+    LastModifiedByPerson: Partial<Person> | null;
+    LastModifiedByPersonId: number | null;
+    LastModifiedDate: string | null;
+    Name: string | null;
+    PaidByPerson: Partial<Person> | null;
+    PaidByPersonId: number | null;
+    PaidDate: string | null;
+    RejectedDate: string | null;
+    RejectedReason: string | null;
+    Status: 'Open'|'Submitted'|'Approved'|'Paid'|'Rejected';
+    SubmittedDate: string | null;
+    Total: Partial<number>;
+}
+
+export interface ExpenseFormItem {
+    Amount: Partial<number>;
+    BillToAgency: Partial<Company> | null;
+    BillToAgencyId: number | null;
+    Category: Partial<ExpenseCategory> | null;
+    Date: string;
+    Description: string | null;
+    ExpenseAttachment: Partial<ExpenseAttachment> | null;
+    ExpenseAttachmentId: number | null;
+    ExpenseCategoryId: number;
+    ExpenseForm: Partial<ExpenseForm> | null;
+    ExpenseFormId: number;
+    Id: number;
+    Merchant: string | null;
+    Miles: Partial<number>;
+    RequestingAgency: Partial<Company> | null;
+    RequestingAgencyId: number | null;
+    Type: 'BillTo'|'Reimbursable';
+}
+
+export interface MileageRate {
+    Id: number;
+    Rate: Partial<number>;
+}
+
 export interface EloquaContact {
     CrmAccount: Partial<CrmAccount> | null;
     EloquaContactId: number;
@@ -2188,6 +2248,7 @@ export interface Company extends IExpirable, IIdentity, ISynchronizable {
     EloquaSyncLogEntry: Partial<EloquaSyncLogEntry> | null;
     EloquaSyncLogEntryV2: Partial<EloquaSyncLogEntryV2> | null;
     EmailAddresses: Array<Partial<CompanyEmailAddress>> | null;
+    ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
     JobRoles: Array<Partial<JobRole>> | null;
     ManagementSystems: Array<Partial<ManagementSystem>> | null;
     Name: string | null;
@@ -2309,6 +2370,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CourseReportees: Array<Partial<CourseReportee>> | null;
     CreatedAnswers: Array<Partial<EducationAnswer>> | null;
     CreatedCourses: Array<Partial<EducationCourse>> | null;
+    CreatedExpenseForms: Array<Partial<ExpenseForm>> | null;
     CreatedFolders: Array<Partial<Folder>> | null;
     CreatedJobRoleTypes: Array<Partial<JobRoleType>> | null;
     CreatedLessons: Array<Partial<EducationLesson>> | null;
@@ -2330,6 +2392,7 @@ export interface Person extends IIdentity, ISynchronizable {
     EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
     EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
+    ExpenseForms: Array<Partial<ExpenseForm>> | null;
     FirstName: string | null;
     ForumAdmins: Array<Partial<ForumAdmin>> | null;
     ForumJoinRequests: Array<Partial<ForumJoinRequest>> | null;
