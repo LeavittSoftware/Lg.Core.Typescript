@@ -2637,6 +2637,49 @@ export interface LGManagedDomoDataset extends IIdentity {
     DomoDatasetId: string | null;
 }
 
+export interface CrmActivityPlanner extends IIdentity {
+    ActivityPlannerName: string | null;
+    ClosingRatio: number | null;
+    ConversationToInitialAppointmentRatio: number | null;
+    ConversionOfInitialAppointmentToClose: number | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    EndDate: string | null;
+    InitialAppointmentToPresentationRatio: number | null;
+    MonthlyConversationsNeeded: number | null;
+    MonthlyInitialAppointmentsNeeded: number | null;
+    MonthlyPresentationsNeeded: number | null;
+    MonthlyRevenueNeeded: Partial<number> | null;
+    MonthlySalesNeeded: number | null;
+    NewRevenueGoal: Partial<number> | null;
+    OwnerId: string;
+    RevenueAvgPerAccount: Partial<number> | null;
+    RevenueYtd: Partial<number> | null;
+    SaleProbabilityFromAppointmentToClose: number | null;
+    StartDate: string | null;
+    SubmissionPercentage: number | null;
+    WeeklyConversationsNeeded: number | null;
+    WeeklyInitialAppointmentsNeeded: number | null;
+    WeeklyPresentationsNeeded: number | null;
+    WeeklyRevenueNeeded: Partial<number> | null;
+    WeeklySalesNeeded: number | null;
+    WeeksRemaining: number | null;
+    YearlyConversationsNeeded: number | null;
+    YearlyInitialAppointmentsNeeded: number | null;
+    YearlyPresentationsNeeded: number | null;
+    YearlyRevenueNeeded: Partial<number> | null;
+    YearlySalesNeeded: number | null;
+}
+
+export interface CrmPhoneCall extends IIdentity {
+    ActivityId: string;
+    ActivityTypeCode: 'Appointment'|'Email'|'Fax'|'CaseResolution'|'Letter'|'OpportunityClose'|'OrderClose'|'PhoneCall'|'QuoteClose'|'Task'|'ServiceActivity'|'RecurringAppointment'|'CampaignResponse'|'CampaignActivity'|'BulkOperation'|'Converstaion'|'PromotionalMail'|'inMail'|'Message'|'PointDrivePresentationCreated'|'PointDrivePresentationViewed'|'Surveyinvite'|'Surveyresponse';
+    ActualEnd: string | null;
+    ActualStart: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    OwnerId: string;
+    ReguardingObjectId: string;
+}
+
 export interface CrmContact extends IIdentity {
     Account: Partial<CrmAccount> | null;
     AccountId: number;
@@ -2718,6 +2761,7 @@ export interface CrmAccount extends IIdentity {
     EloquaContact: Partial<EloquaContact> | null;
     Email: string | null;
     InitialAppointment: string | null;
+    InitialConversation: string | null;
     LastActivityDate: string | null;
     LastModifiedDate: string | null;
     NAICSCode: string | null;
