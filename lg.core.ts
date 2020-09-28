@@ -2638,6 +2638,7 @@ export interface LGManagedDomoDataset extends IIdentity {
 }
 
 export interface CrmActivityPlanner extends IIdentity {
+    ActivityPlannerId: string;
     ActivityPlannerName: string | null;
     ClosingRatio: number | null;
     ConversationToInitialAppointmentRatio: number | null;
@@ -2645,6 +2646,7 @@ export interface CrmActivityPlanner extends IIdentity {
     CrmInstance: 'Production'|'Uat'|'Dev';
     EndDate: string | null;
     InitialAppointmentToPresentationRatio: number | null;
+    LastModifiedDate: string | null;
     MonthlyConversationsNeeded: number | null;
     MonthlyInitialAppointmentsNeeded: number | null;
     MonthlyPresentationsNeeded: number | null;
@@ -2652,6 +2654,8 @@ export interface CrmActivityPlanner extends IIdentity {
     MonthlySalesNeeded: number | null;
     NewRevenueGoal: Partial<number> | null;
     OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
     RevenueAvgPerAccount: Partial<number> | null;
     RevenueYtd: Partial<number> | null;
     SaleProbabilityFromAppointmentToClose: number | null;
@@ -2676,7 +2680,11 @@ export interface CrmPhoneCall extends IIdentity {
     ActualEnd: string | null;
     ActualStart: string | null;
     CrmInstance: 'Production'|'Uat'|'Dev';
+    LastModifiedDate: string | null;
     OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    PhoneCallId: string;
     ReguardingObjectId: string;
 }
 
