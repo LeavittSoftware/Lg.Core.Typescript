@@ -399,30 +399,6 @@ export interface TeamScoreboardReportDto {
     TeamTotalPoints: number;
 }
 
-export interface AccountDto {
-    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits'|'FinancialServices';
-    Id: string;
-    Name: string | null;
-    Opportunities: Array<Partial<OpportunityDto>> | null;
-    OwnerId: string | null;
-}
-
-export interface OpportunityDto {
-    AccountId: string;
-    ActivityDate: string | null;
-    Commission: Partial<number> | null;
-    CommissionFee: Partial<number> | null;
-    Id: string;
-    IsSponsored: boolean;
-    IsSponsored2: boolean;
-    LineOfBusiness: 'Commercial'|'Personal'|'EmployeeBenefits'|'Retirement';
-    LineOfCoverage: 'Auto'|'BuildersRisk'|'BusinessOwnerPolicy'|'Dental'|'DirectorsOfficers'|'Dwelling'|'Earthquake'|'EPLI'|'Flood'|'GeneralLiability'|'GroupLife'|'Home'|'IndividualHealth'|'IndividualLife'|'InlandMarine'|'LongTermDisability'|'MedicalGroup'|'Other'|'PAF'|'ProfessionalLiability'|'Property'|'Retirement'|'SecondaryHome'|'ShortTermDisability'|'Surety'|'Umbrella'|'Vision'|'VoluntaryLines'|'WorkComp'|'WorkSite'|'BHCCP'|'EBConsultOutsource'|'BenefitsTechnology'|'COBRAAdministration'|'DefinedContribution'|'DirectReimbursePlan'|'EBOutsourcing'|'EBReview'|'EBEdEnrollment'|'EmployeeStatements'|'ExpenseReimbursement'|'FSA'|'HRA'|'HSA'|'InvestmentCommFees'|'LongTermCareIns'|'MBAAlliance'|'MERP'|'PensionPlanAssets'|'PremiumOnlyPlan'|'RetirementPlanAdmin'|'RHCCP'|'SalaryEBSurvey'|'FullServiceInvestment'|'FullServiceAdmin'|'PlanDocAdminWork'|'Package';
-    Name: string | null;
-    Other: string | null;
-    Premium: Partial<number> | null;
-    TotalRevenue: Partial<number> | null;
-}
-
 export interface VitalPersonIdAndCompanyIdDto {
     CompanyId: number;
     PersonId: number;
@@ -838,6 +814,49 @@ export interface CLGamePlayerDto {
     TeamName: string | null;
     TeamPersonRoleId: number | null;
     TotalPoints: Partial<number>;
+}
+
+export interface AccountStageReportDto {
+    Clients: number;
+    Leads: number;
+    Prospects: number;
+    Suspects: number;
+}
+
+export interface AccountSizeReportDto {
+    AverageAccountSize: Partial<number>;
+    MinSizeGoal: Partial<number>;
+    NumberOfAccounts: number;
+}
+
+export interface RevenueReportDto {
+    Bor: Partial<number>;
+    Goal: Partial<number>;
+    Total: Partial<number>;
+}
+
+export interface AccountDto {
+    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits'|'FinancialServices';
+    Id: string;
+    Name: string | null;
+    Opportunities: Array<Partial<OpportunityDto>> | null;
+    OwnerId: string | null;
+}
+
+export interface OpportunityDto {
+    AccountId: string;
+    ActivityDate: string | null;
+    Commission: Partial<number> | null;
+    CommissionFee: Partial<number> | null;
+    Id: string;
+    IsSponsored: boolean;
+    IsSponsored2: boolean;
+    LineOfBusiness: 'Commercial'|'Personal'|'EmployeeBenefits'|'Retirement';
+    LineOfCoverage: 'Auto'|'BuildersRisk'|'BusinessOwnerPolicy'|'Dental'|'DirectorsOfficers'|'Dwelling'|'Earthquake'|'EPLI'|'Flood'|'GeneralLiability'|'GroupLife'|'Home'|'IndividualHealth'|'IndividualLife'|'InlandMarine'|'LongTermDisability'|'MedicalGroup'|'Other'|'PAF'|'ProfessionalLiability'|'Property'|'Retirement'|'SecondaryHome'|'ShortTermDisability'|'Surety'|'Umbrella'|'Vision'|'VoluntaryLines'|'WorkComp'|'WorkSite'|'BHCCP'|'EBConsultOutsource'|'BenefitsTechnology'|'COBRAAdministration'|'DefinedContribution'|'DirectReimbursePlan'|'EBOutsourcing'|'EBReview'|'EBEdEnrollment'|'EmployeeStatements'|'ExpenseReimbursement'|'FSA'|'HRA'|'HSA'|'InvestmentCommFees'|'LongTermCareIns'|'MBAAlliance'|'MERP'|'PensionPlanAssets'|'PremiumOnlyPlan'|'RetirementPlanAdmin'|'RHCCP'|'SalaryEBSurvey'|'FullServiceInvestment'|'FullServiceAdmin'|'PlanDocAdminWork'|'Package';
+    Name: string | null;
+    Other: string | null;
+    Premium: Partial<number> | null;
+    TotalRevenue: Partial<number> | null;
 }
 
 export interface IIdentity {
