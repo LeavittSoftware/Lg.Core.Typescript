@@ -816,6 +816,16 @@ export interface CLGamePlayerDto {
     TotalPoints: Partial<number>;
 }
 
+export interface AccountActivityOverviewDto {
+    NewProspects: number;
+    NewProspectsYtd: number;
+    NewSuspects: number;
+    NewSuspectsYtd: number;
+    PhoneCallDetails: Array<Partial<OverviewPhoneCallDetailsDto>> | null;
+    PhoneCalls: number;
+    PhoneCallsYtd: number;
+}
+
 export interface AccountStageReportDto {
     Clients: number;
     Leads: number;
@@ -827,6 +837,13 @@ export interface AccountSizeReportDto {
     AverageAccountSize: Partial<number>;
     MinSizeGoal: Partial<number>;
     NumberOfAccounts: number;
+}
+
+export interface OverviewPhoneCallDetailsDto {
+    AccountName: string | null;
+    Details: string | null;
+    MostRecentCall: string | null;
+    NumberOfCallsMade: number;
 }
 
 export interface RevenueReportDto {
