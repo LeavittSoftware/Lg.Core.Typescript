@@ -816,6 +816,11 @@ export interface CLGamePlayerDto {
     TotalPoints: Partial<number>;
 }
 
+export interface PotentialDto {
+    OpenPotential: Partial<number>;
+    PeriodPotential: Partial<number>;
+}
+
 export interface AccountActivityOverviewDto {
     NewProspects: number;
     NewProspectsYtd: number;
