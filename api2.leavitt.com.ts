@@ -839,6 +839,35 @@ export interface AccountSizeReportDto {
     NumberOfAccounts: number;
 }
 
+export interface ActivityGoalAppointmentDetailsDto {
+    AccountName: string | null;
+    Details: string | null;
+    InitialAppointmentOn: string | null;
+}
+
+export interface ActivityGoalConversationDetailsDto {
+    AccountName: string | null;
+    Details: string | null;
+    InitialConversationOn: string | null;
+}
+
+export interface ActivityGoalsDto {
+    AppointmentDetails: Array<Partial<ActivityGoalAppointmentDetailsDto>> | null;
+    ConversationDetails: Array<Partial<ActivityGoalConversationDetailsDto>> | null;
+    InitialAppointmentsGoalAnnual: number;
+    InitialAppointmentsGoalWeekly: number;
+    InitialAppointmentsGoalYTD: number;
+    InitialAppointmentsPeriod: number;
+    InitialAppointmentsPeriodGoal: number;
+    InitialAppointmentsYTD: number;
+    InitialConversationsGoalAnnual: number;
+    InitialConversationsGoalWeekly: number;
+    InitialConversationsGoalYTD: number;
+    InitialConversationsPeriod: number;
+    InitialConversationsPeriodGoal: number;
+    InitialConversationsYTD: number;
+}
+
 export interface OverviewPhoneCallDetailsDto {
     AccountName: string | null;
     Details: string | null;
