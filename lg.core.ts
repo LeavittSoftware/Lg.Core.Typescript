@@ -355,7 +355,8 @@ export interface SurveyQuestion extends IChangeTracking, ICreatedBy, IIdentity {
 }
 
 export interface SurgeScoreboardPrize extends IIdentity {
-    Amount: number;
+    Amount: number | null;
+    GrandPrizeName: string | null;
     Rank: number;
     SurgeScoreboard: Partial<SurgeScoreboard> | null;
     SurgeScoreboardId: number;
