@@ -849,7 +849,8 @@ export interface NewSurgeSegmentType extends IIdentity {
 }
 
 export interface NewSurgePrize extends IIdentity {
-    Amount: Partial<number>;
+    Amount: Partial<number> | null;
+    GrandPrizeName: string | null;
     Rank: number;
     Scoreboard: Partial<NewSurgeScoreboard> | null;
     ScoreboardId: number;
