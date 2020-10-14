@@ -967,6 +967,7 @@ export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
     CreatedDate: string;
     DeferredCompDate: string | null;
     DeferredCompPercentage: number | null;
+    GoalPercentage: number;
     IsExistingEmployee: boolean;
     LastModifiedByPerson: Partial<Person> | null;
     LastModifiedByPersonId: number | null;
