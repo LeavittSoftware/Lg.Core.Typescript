@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,ProducerCommissionRate,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
 export interface AutomatedAppDto {
     ErrorCount: number;
@@ -417,11 +417,6 @@ export interface VitalActivityDto {
     WrittenYTD: Partial<number> | null;
 }
 
-export interface CommissionRateDto {
-    ProducerCommissionRate: Partial<ProducerCommissionRate> | null;
-    ReplacementId: number | null;
-}
-
 export interface AuditorDto {
     CompanyId: number;
     Email: string | null;
@@ -664,6 +659,66 @@ export interface UserSurgesDto {
     Name: string | null;
     SurgeId: number;
     SurgeStartDate: string;
+}
+
+export interface CriteriaStatus {
+    FailReasons: Array<Partial<FailReason>> | null;
+    ReturnReason: string | null;
+    ReturnStatus: 'Continue'|'SwitchingProtocols'|'OK'|'Created'|'Accepted'|'NonAuthoritativeInformation'|'NoContent'|'ResetContent'|'PartialContent'|'MultipleChoices'|'Ambiguous'|'MovedPermanently'|'Moved'|'Found'|'Redirect'|'SeeOther'|'RedirectMethod'|'NotModified'|'UseProxy'|'Unused'|'TemporaryRedirect'|'RedirectKeepVerb'|'BadRequest'|'Unauthorized'|'PaymentRequired'|'Forbidden'|'NotFound'|'MethodNotAllowed'|'NotAcceptable'|'ProxyAuthenticationRequired'|'RequestTimeout'|'Conflict'|'Gone'|'LengthRequired'|'PreconditionFailed'|'RequestEntityTooLarge'|'RequestUriTooLong'|'UnsupportedMediaType'|'RequestedRangeNotSatisfiable'|'ExpectationFailed'|'UpgradeRequired'|'InternalServerError'|'NotImplemented'|'BadGateway'|'ServiceUnavailable'|'GatewayTimeout'|'HttpVersionNotSupported';
+}
+
+export interface MinimumSalesExpectationReportDto {
+    AnnualizedBooked: number;
+    Date: string;
+    QFAs: number;
+    Written: number;
+}
+
+export interface NuppReportDto {
+    DrawsAfterMonth43: Array<Partial<DateTimeOffset>> | null;
+    ExpectationStartDate: string;
+    SalesExpectationId: number;
+    SeventyPercentOfYearOneSubsidyAndDraw: number;
+    SubsidyAfterMonth49: Array<Partial<DateTimeOffset>> | null;
+    Year4StandardCommissionsX2: number;
+    YearNuppTotals: Array<number> | null;
+    YearOneWritten: number;
+}
+
+export interface ProducerInvestmentReportDto {
+    BookOfBusiness: number;
+    CumulativeProfit: number;
+    CumulativeProfitMargin: number;
+    EstAnnualProfit: number;
+    LessAcquisitionCost: number;
+}
+
+export interface ProducerOpportunityReportDto {
+    NewWrittenCommissionsGoal: number;
+    NewWrittenCommissionsMinimum: number;
+    QFAsMonthlyMinimum: number;
+}
+
+export interface ProducerOpportunityReportValueDto {
+    NewCommission: number;
+    RenewalCommission: number;
+    RenewalCommissionAssignedBook: number;
+    Subsidy: number;
+    TotalIncome: number;
+    TotalProducerOpportnityValue: number;
+}
+
+export interface CommissionRateDto {
+    ProducerCommissionRate: Partial<ProducerCommissionRate> | null;
+    ReplacementId: number | null;
+}
+
+export interface AgencyInvestmentReportDto {
+    LessAcquisitionCost: number;
+    LessDeferredCompLiability: number;
+    NetAsset: number;
+    OrganicAssetValue: number;
+    Type: 'Minimum'|'Goal';
 }
 
 export interface LeaderBoardDto {
