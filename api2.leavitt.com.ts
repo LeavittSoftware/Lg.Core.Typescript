@@ -120,8 +120,8 @@ export interface PersonSearchActiveDirectoryResult {
     ImEnabled: boolean;
     IsOffice360User: boolean;
     LastLogin: string | null;
-    LdapEmailAdddresses: Array<Partial<String>> | null;
-    LdapUserGroups: Array<Partial<String>> | null;
+    LdapEmailAdddresses: Array<string> | null;
+    LdapUserGroups: Array<string> | null;
     ProfilePath: string | null;
     StorageGroups: string | null;
     UserDefaults: boolean;
@@ -363,7 +363,7 @@ export interface AcmSearchDetail {
 }
 
 export interface SendTemplateDto {
-    AdditionalRecipients: Array<Partial<String>> | null;
+    AdditionalRecipients: Array<string> | null;
     FromAddress: string | null;
     IsTest: boolean | null;
     TemplateData: Array<Partial<TemplateDataItemDto>> | null;
@@ -459,7 +459,7 @@ export interface LdapAdObject {
 }
 
 export interface EmailAddressesDto {
-    Addresses: Array<Partial<String>> | null;
+    Addresses: Array<string> | null;
 }
 
 export interface CrmAccountExtendedDto extends CrmAccount {
@@ -675,11 +675,11 @@ export interface MinimumSalesExpectationReportDto {
 }
 
 export interface NuppReportDto {
-    DrawsAfterMonth43: Array<Partial<DateTimeOffset>> | null;
+    DrawsAfterMonth43: Array<string> | null;
     ExpectationStartDate: string;
     SalesExpectationId: number;
     SeventyPercentOfYearOneSubsidyAndDraw: number;
-    SubsidyAfterMonth49: Array<Partial<DateTimeOffset>> | null;
+    SubsidyAfterMonth49: Array<string> | null;
     Year4StandardCommissionsX2: number;
     YearNuppTotals: Array<number> | null;
     YearOneWritten: number;

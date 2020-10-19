@@ -8,7 +8,7 @@ import { NewSurgeSegment,NewSurgeCrmPoint,CLGameSegment,CLGamePoint } from './lg
 export interface PermissionHolderDto {
     FirstName: string | null;
     LastName: string | null;
-    PermissionSource: Array<Partial<String>> | null;
+    PermissionSource: Array<string> | null;
     PersonId: number;
 }
 
