@@ -232,6 +232,7 @@ export interface SurgeReportsPlayerBreakdownDto {
 
 export interface SurgeReportsTeamBreakdownDto {
     CdnFileName: string | null;
+    GrandPrizeName: string | null;
     ImageExtension: string | null;
     Players: Array<Partial<SurgeReportsPlayerBreakdownDto>> | null;
     PreviewExtension: string | null;
@@ -244,6 +245,7 @@ export interface SurgeReportsTeamBreakdownDto {
 
 export interface SurgeReportsTopPlayerDto {
     FirstName: string | null;
+    GrandPrizeName: string | null;
     LastName: string | null;
     PersonId: number;
     PrizeAmount: Partial<number> | null;
