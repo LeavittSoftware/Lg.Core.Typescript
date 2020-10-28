@@ -700,6 +700,8 @@ export interface ProducerOpportunityReportDto {
 }
 
 export interface ProducerOpportunityReportValueDto {
+    DeferredCompensation: number;
+    Draw: number;
     NewCommission: number;
     RenewalCommission: number;
     RenewalCommissionAssignedBook: number;
