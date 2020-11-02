@@ -338,3 +338,20 @@ export interface CLGameTopPlayerDto {
     TotalPoints: Partial<number>;
 }
 
+export interface CallManagerEmployeeDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    HomePhoneAreaCode: string | null;
+    HomePhoneExtension: string | null;
+    HomePhoneLineNumber: string | null;
+    LastName: string | null;
+    MobilePhoneAreaCode: string | null;
+    MobilePhoneExtension: string | null;
+    MobilePhoneLineNumber: string | null;
+    PersonId: number;
+    Title: string | null;
+    WorkPhoneAreaCode: string | null;
+    WorkPhoneExtension: string | null;
+    WorkPhoneLineNumber: string | null;
+}
+
