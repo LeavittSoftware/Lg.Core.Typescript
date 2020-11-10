@@ -18,49 +18,6 @@ export interface UserPermissionsDto {
     PersonToPermissionId: number | null;
 }
 
-export interface FileExplorerDto {
-    CanUpload: boolean;
-    Files: Array<Partial<FileExplorerFileDto>> | null;
-    Folders: Array<Partial<FileExplorerFolderDto>> | null;
-    ForumName: string | null;
-    Path: Array<Partial<FileExplorerPathDto>> | null;
-}
-
-export interface FileExplorerPathDto {
-    FolderId: number | null;
-    ForumId: number | null;
-    IsReadOnly: boolean;
-    Name: string | null;
-}
-
-export interface FileExplorerFileDto {
-    CdnFileName: string | null;
-    CreatedDate: string;
-    Description: string | null;
-    DownloadCount: number;
-    Extension: string | null;
-    FileName: string | null;
-    Id: number;
-    Name: string | null;
-    OwnerFirstName: string | null;
-    OwnerId: number;
-    OwnerLastName: string | null;
-    PreviewExtension: string | null;
-    PreviewSizes: string | null;
-    Size: number;
-}
-
-export interface FileExplorerFolderDto {
-    CanEdit: boolean;
-    CreatedDate: string;
-    CreatorPersonFirstName: string | null;
-    CreatorPersonId: number;
-    CreatorPersonLastName: string | null;
-    Id: number;
-    IsReadOnly: boolean;
-    Name: string | null;
-}
-
 export interface AMSCodeDto {
     Code: string | null;
     Name: string | null;
@@ -250,6 +207,82 @@ export interface SurgeReportsTopPlayerDto {
     PersonId: number;
     PrizeAmount: Partial<number> | null;
     TotalSold: Partial<number>;
+}
+
+export interface ForumPermissionsDto {
+    IsFolderAdmin: boolean;
+    IsMember: boolean;
+}
+
+export interface LeaderDto {
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+    Rank: number;
+    WrittenAmount: Partial<number> | null;
+}
+
+export interface MemberContactDto {
+    AreaCode: string | null;
+    City: string | null;
+    CompanyName: string | null;
+    Email: string | null;
+    FirstName: string | null;
+    LastName: string | null;
+    LineNumber: string | null;
+    State: string | null;
+    Street1: string | null;
+    Zip: string | null;
+}
+
+export interface MyForumDto {
+    ForumId: number;
+    Name: string | null;
+    NewPostCount: number;
+}
+
+export interface FileExplorerDto {
+    CanUpload: boolean;
+    Files: Array<Partial<FileExplorerFileDto>> | null;
+    Folders: Array<Partial<FileExplorerFolderDto>> | null;
+    ForumName: string | null;
+    Path: Array<Partial<FileExplorerPathDto>> | null;
+}
+
+export interface FileExplorerPathDto {
+    FolderId: number | null;
+    ForumId: number | null;
+    IsReadOnly: boolean;
+    Name: string | null;
+}
+
+export interface FileExplorerFileDto {
+    CdnFileName: string | null;
+    CreatedDate: string;
+    Description: string | null;
+    DownloadCount: number;
+    Extension: string | null;
+    FileName: string | null;
+    Id: number;
+    Name: string | null;
+    OwnerFirstName: string | null;
+    OwnerId: number;
+    OwnerLastName: string | null;
+    PreviewExtension: string | null;
+    PreviewSizes: string | null;
+    Size: number;
+}
+
+export interface FileExplorerFolderDto {
+    CanEdit: boolean;
+    CreatedDate: string;
+    CreatorPersonFirstName: string | null;
+    CreatorPersonId: number;
+    CreatorPersonLastName: string | null;
+    Id: number;
+    IsReadOnly: boolean;
+    Name: string | null;
 }
 
 export interface CLGameAuditBreakdownCommissionDto {
