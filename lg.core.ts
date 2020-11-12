@@ -1747,6 +1747,394 @@ export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
     Type: 'Ams360'|'BenefitPoint';
 }
 
+export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+}
+
+export interface CourseReportee extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface EducationAnswerKey extends IIdentity {
+    Answer: Partial<EducationAnswer> | null;
+    IsCorrect: boolean;
+}
+
+export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity {
+    AnswerKey: Partial<EducationAnswerKey> | null;
+    CreatedDate: string;
+    Question: Partial<EducationQuestion> | null;
+    QuestionId: number;
+    Sequence: number;
+    Text: string | null;
+}
+
+export interface CourseCategory extends IIdentity {
+    Courses: Array<Partial<EducationCourse>> | null;
+    Name: string | null;
+    Sequence: number;
+}
+
+export interface EducationCourse extends IIdentity, IChangeTracking, ICreatedBy {
+    Category: Partial<CourseCategory> | null;
+    CategoryId: number | null;
+    CompletionCertificate: Partial<CourseCertificateAttachment> | null;
+    CompletionCertificateId: number | null;
+    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
+    CourseAdmins: Array<Partial<CourseAdmin>> | null;
+    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
+    CourseMembers: Array<Partial<CourseMember>> | null;
+    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
+    CourseReportees: Array<Partial<CourseReportee>> | null;
+    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
+    CreatedDate: string;
+    Description: string | null;
+    FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
+    FeaturedImageId: number | null;
+    Lessons: Array<Partial<EducationLesson>> | null;
+    Reviewable: boolean;
+    Sequence: number;
+    ShortDescription: string | null;
+    Title: string | null;
+}
+
+export interface CourseAdmin extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface CourseAdminPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+}
+
+export interface CourseMember extends IIdentity {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    IsRequired: boolean;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface CourseMemberPeopleGroup extends IIdentity {
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    IsRequired: boolean;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+}
+
+export interface CourseParticipantStatus extends IIdentity {
+    CompletedDate: string | null;
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    IsCompleted: boolean;
+    PercentageComplete: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface CourseCertificateAttachment extends Attachment {
+    EducationCourses: Array<Partial<EducationCourse>> | null;
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface CourseFeaturedImageAttachment extends Attachment {
+    EducationCourses: Array<Partial<EducationCourse>> | null;
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface LessonAttachment extends Attachment {
+    FolderName: string | null;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy {
+    Attachments: Array<Partial<LessonAttachment>> | null;
+    Course: Partial<EducationCourse> | null;
+    CourseId: number;
+    LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
+    Name: string | null;
+    PassingPercentage: number;
+    Questions: Array<Partial<EducationQuestion>> | null;
+    Sequence: number;
+    VideoLength: string | null;
+    YoutubeVideoKey: string | null;
+}
+
+export interface LessonParticipantStatus extends IIdentity {
+    ActivityDate: string;
+    Attempts: number;
+    AttemptStatus: 'Pass'|'Fail'|'InProgress';
+    GradePercentage: number;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    TimeToFail: string | null;
+    TimeToPass: string | null;
+    TimeWatched: string | null;
+}
+
+export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentity {
+    Answers: Array<Partial<EducationAnswer>> | null;
+    CreatedDate: string;
+    Lesson: Partial<EducationLesson> | null;
+    LessonId: number;
+    Sequence: number;
+    Text: string | null;
+    Type: 'SingleSelect'|'MultiSelect';
+}
+
+export interface DomoDataSet extends IIdentity {
+    DataSetId: string | null;
+    IsIgnored: boolean;
+    IsLgManaged: boolean;
+    LgManagedLastModified: string | null;
+    Name: string | null;
+}
+
+export interface LGManagedDomoDataset extends IIdentity {
+    DomoDatasetId: string | null;
+}
+
+export interface CrmActivityPlanner extends IIdentity {
+    ActivityPlannerId: string;
+    ActivityPlannerName: string | null;
+    ClosingRatio: number | null;
+    ConversationToInitialAppointmentRatio: number | null;
+    ConversionOfInitialAppointmentToClose: number | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    EndDate: string | null;
+    InitialAppointmentToPresentationRatio: number | null;
+    LastModifiedDate: string | null;
+    MonthlyConversationsNeeded: number | null;
+    MonthlyInitialAppointmentsNeeded: number | null;
+    MonthlyPresentationsNeeded: number | null;
+    MonthlyRevenueNeeded: Partial<number> | null;
+    MonthlySalesNeeded: number | null;
+    NewRevenueGoal: Partial<number> | null;
+    OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    RevenueAvgPerAccount: Partial<number> | null;
+    RevenueYtd: Partial<number> | null;
+    SaleProbabilityFromAppointmentToClose: number | null;
+    StartDate: string | null;
+    SubmissionPercentage: number | null;
+    WeeklyConversationsNeeded: number | null;
+    WeeklyInitialAppointmentsNeeded: number | null;
+    WeeklyPresentationsNeeded: number | null;
+    WeeklyRevenueNeeded: Partial<number> | null;
+    WeeklySalesNeeded: number | null;
+    WeeksRemaining: number | null;
+    YearlyConversationsNeeded: number | null;
+    YearlyInitialAppointmentsNeeded: number | null;
+    YearlyPresentationsNeeded: number | null;
+    YearlyRevenueNeeded: Partial<number> | null;
+    YearlySalesNeeded: number | null;
+}
+
+export interface CrmPhoneCall extends IIdentity {
+    ActivityId: string;
+    ActivityTypeCode: 'Appointment'|'Email'|'Fax'|'CaseResolution'|'Letter'|'OpportunityClose'|'OrderClose'|'PhoneCall'|'QuoteClose'|'Task'|'ServiceActivity'|'RecurringAppointment'|'CampaignResponse'|'CampaignActivity'|'BulkOperation'|'Converstaion'|'PromotionalMail'|'inMail'|'Message'|'PointDrivePresentationCreated'|'PointDrivePresentationViewed'|'Surveyinvite'|'Surveyresponse';
+    ActualEnd: string | null;
+    ActualStart: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    LastModifiedDate: string | null;
+    OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    PhoneCallId: string;
+    ReguardingObjectId: string;
+}
+
+export interface CrmContact extends IIdentity {
+    Account: Partial<CrmAccount> | null;
+    AccountId: number;
+    Address1: string | null;
+    Address2: string | null;
+    City: string | null;
+    CrmAccountGuid: string;
+    CrmContactId: string;
+    CrmContactToEloquaContact: Partial<CrmContactToEloquaContact> | null;
+    CrmPerson: Partial<Person> | null;
+    CrmPersonId: number;
+    Email: string | null;
+    FirstName: string | null;
+    Instance: 'Production'|'Uat'|'Dev';
+    LastModifiedDate: string | null;
+    LastName: string | null;
+    OwnerId: string;
+    Phone: string | null;
+    State: string | null;
+    Zip: string | null;
+}
+
+export interface CrmBulkImport extends IIdentity {
+    CompletedDate: string | null;
+    CreatedDate: string;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
+    FailureDate: string | null;
+    FailureReason: string | null;
+    Failures: Array<Partial<CrmBulkImportFailure>> | null;
+    FileName: string | null;
+    RecordCount: number;
+    SuccessCount: number;
+}
+
+export interface CrmBulkImportFailure {
+    AccountName: string | null;
+    AccountType: string | null;
+    BusinessPhone: string | null;
+    City: string | null;
+    ContactFirstName: string | null;
+    ContactLastName: string | null;
+    ContactTitle: string | null;
+    CrmBulkImport: Partial<CrmBulkImport> | null;
+    CrmBulkImportId: number;
+    Description: string | null;
+    DuplicateFieldType: 'None'|'Name'|'Address'|'Email'|'Phone'|'ContactFullname' | null;
+    Email: string | null;
+    ErrorMessage: string | null;
+    FollowUpDate: string | null;
+    Id: number;
+    State: string | null;
+    Street1: string | null;
+    Topic: string | null;
+    Type: 'GeneralFailure'|'Duplicate';
+    Website: string | null;
+    XDate: string | null;
+    Zip: string | null;
+}
+
+export interface CrmAccount extends IIdentity {
+    AccountId: string;
+    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
+    AccountType: number;
+    Address1: string | null;
+    Address2: string | null;
+    Ams360AccountId: string | null;
+    AnnualPayroll: string | null;
+    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
+    City: string | null;
+    CompanySize: number | null;
+    ContactFirstName: string | null;
+    ContactJobTitle: string | null;
+    ContactLastName: string | null;
+    CreatedOn: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    DoNotCall: boolean;
+    EffectiveDate: string | null;
+    EloquaContact: Partial<EloquaContact> | null;
+    Email: string | null;
+    InitialAppointment: string | null;
+    InitialConversation: string | null;
+    LastActivityDate: string | null;
+    LastModifiedDate: string | null;
+    NAICSCode: string | null;
+    Name: string | null;
+    NumberOfEmployees: string | null;
+    NumberOfLocations: string | null;
+    Opportunities: Array<Partial<CrmOpportunity>> | null;
+    OriginalSource: string | null;
+    OwnerId: string;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    Phone: string | null;
+    PotentialRevenue: Partial<number> | null;
+    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    RecentSource: string | null;
+    StageClientDate: string | null;
+    StageProspectDate: string | null;
+    StageSuspectDate: string | null;
+    State: string | null;
+    StateCode: 'Active'|'Inactive';
+    Status: 'Active'|'Inactive';
+    SurgeId: number | null;
+    Topic: string | null;
+    WrittenYtd: Partial<number> | null;
+    Zip: string | null;
+}
+
+export interface CrmCommission extends IIdentity {
+    Amount: Partial<number>;
+    CommissionSplitId: string | null;
+    LastModifiedDate: string | null;
+    Name: string | null;
+    Opportunity: Partial<CrmOpportunity> | null;
+    OpportunityId: number;
+    OwnerId: string;
+    Percent: Partial<number>;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    Sponsor: number | null;
+}
+
+export interface CrmAuditSyncLogEntry {
+    Action: string | null;
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    EntityType: string | null;
+    Id: number;
+    LastSyncDate: string;
+}
+
+export interface CrmUserPersonRole extends PersonRole {
+    CrmInstance: 'Production'|'Uat'|'Dev';
+    SystemUserGuid: string;
+}
+
+export interface CrmOpportunity extends IIdentity {
+    Account: Partial<CrmAccount> | null;
+    AccountId: number;
+    AppointmentDate: string | null;
+    Carrier: number | null;
+    CommissionFee: Partial<number>;
+    CommissionPercentage: Partial<number>;
+    ConversationDate: string | null;
+    CrmCommissions: Array<Partial<CrmCommission>> | null;
+    EffectiveDate: string | null;
+    LastModifiedDate: string | null;
+    LineOfBusiness: number;
+    LineOfCoverage: number;
+    LineOfCoverageFriendlyName: string | null;
+    LostDate: string | null;
+    Name: string | null;
+    NewOrRenewal: 'New'|'Renewal';
+    OpportunityId: string;
+    OwnerId: string;
+    Premium: Partial<number>;
+    PresentationDate: string | null;
+    QualifiedDate: string | null;
+    ReportingDate: string | null;
+    SalesStageCode: number;
+    SoldDate: string | null;
+    StateCode: 'Active'|'Inactive';
+    SubmissionDate: string | null;
+    TotalRevenue: Partial<number>;
+}
+
+export interface Extension extends IIdentity {
+    Number: string | null;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
 export interface Scope extends IIdentity, ISynchronizable, IExpirable {
     Description: string | null;
     Name: string | null;
@@ -2396,6 +2784,7 @@ export interface Person extends IIdentity, ISynchronizable {
     EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
     ExpenseForms: Array<Partial<ExpenseForm>> | null;
+    Extensions: Array<Partial<Extension>> | null;
     FirstName: string | null;
     ForumAdmins: Array<Partial<ForumAdmin>> | null;
     ForumJoinRequests: Array<Partial<ForumJoinRequest>> | null;
@@ -2473,388 +2862,6 @@ export interface CompanyUltiProAccount extends IIdentity, ISynchronizable {
 export interface LGEmployeeRoleUltiProAccount extends IIdentity, ISynchronizable {
     EmpNo: string | null;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
-}
-
-export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    PeopleGroupId: number;
-}
-
-export interface CourseReportee extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface EducationAnswerKey extends IIdentity {
-    Answer: Partial<EducationAnswer> | null;
-    IsCorrect: boolean;
-}
-
-export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity {
-    AnswerKey: Partial<EducationAnswerKey> | null;
-    CreatedDate: string;
-    Question: Partial<EducationQuestion> | null;
-    QuestionId: number;
-    Sequence: number;
-    Text: string | null;
-}
-
-export interface CourseCategory extends IIdentity {
-    Courses: Array<Partial<EducationCourse>> | null;
-    Name: string | null;
-    Sequence: number;
-}
-
-export interface EducationCourse extends IIdentity, IChangeTracking, ICreatedBy {
-    Category: Partial<CourseCategory> | null;
-    CategoryId: number | null;
-    CompletionCertificate: Partial<CourseCertificateAttachment> | null;
-    CompletionCertificateId: number | null;
-    CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
-    CourseAdmins: Array<Partial<CourseAdmin>> | null;
-    CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
-    CourseMembers: Array<Partial<CourseMember>> | null;
-    CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
-    CourseReportees: Array<Partial<CourseReportee>> | null;
-    CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
-    CreatedDate: string;
-    Description: string | null;
-    FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
-    FeaturedImageId: number | null;
-    Lessons: Array<Partial<EducationLesson>> | null;
-    Reviewable: boolean;
-    Sequence: number;
-    ShortDescription: string | null;
-    Title: string | null;
-}
-
-export interface CourseAdmin extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface CourseAdminPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    PeopleGroupId: number;
-}
-
-export interface CourseMember extends IIdentity {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    IsRequired: boolean;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface CourseMemberPeopleGroup extends IIdentity {
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    IsRequired: boolean;
-    PeopleGroup: Partial<PeopleGroup> | null;
-    PeopleGroupId: number;
-}
-
-export interface CourseParticipantStatus extends IIdentity {
-    CompletedDate: string | null;
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    IsCompleted: boolean;
-    PercentageComplete: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface CourseCertificateAttachment extends Attachment {
-    EducationCourses: Array<Partial<EducationCourse>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface CourseFeaturedImageAttachment extends Attachment {
-    EducationCourses: Array<Partial<EducationCourse>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface LessonAttachment extends Attachment {
-    FolderName: string | null;
-    Lesson: Partial<EducationLesson> | null;
-    LessonId: number;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy {
-    Attachments: Array<Partial<LessonAttachment>> | null;
-    Course: Partial<EducationCourse> | null;
-    CourseId: number;
-    LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
-    Name: string | null;
-    PassingPercentage: number;
-    Questions: Array<Partial<EducationQuestion>> | null;
-    Sequence: number;
-    VideoLength: string | null;
-    YoutubeVideoKey: string | null;
-}
-
-export interface LessonParticipantStatus extends IIdentity {
-    ActivityDate: string;
-    Attempts: number;
-    AttemptStatus: 'Pass'|'Fail'|'InProgress';
-    GradePercentage: number;
-    Lesson: Partial<EducationLesson> | null;
-    LessonId: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-    TimeToFail: string | null;
-    TimeToPass: string | null;
-    TimeWatched: string | null;
-}
-
-export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentity {
-    Answers: Array<Partial<EducationAnswer>> | null;
-    CreatedDate: string;
-    Lesson: Partial<EducationLesson> | null;
-    LessonId: number;
-    Sequence: number;
-    Text: string | null;
-    Type: 'SingleSelect'|'MultiSelect';
-}
-
-export interface DomoDataSet extends IIdentity {
-    DataSetId: string | null;
-    IsIgnored: boolean;
-    IsLgManaged: boolean;
-    LgManagedLastModified: string | null;
-    Name: string | null;
-}
-
-export interface LGManagedDomoDataset extends IIdentity {
-    DomoDatasetId: string | null;
-}
-
-export interface CrmActivityPlanner extends IIdentity {
-    ActivityPlannerId: string;
-    ActivityPlannerName: string | null;
-    ClosingRatio: number | null;
-    ConversationToInitialAppointmentRatio: number | null;
-    ConversionOfInitialAppointmentToClose: number | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    EndDate: string | null;
-    InitialAppointmentToPresentationRatio: number | null;
-    LastModifiedDate: string | null;
-    MonthlyConversationsNeeded: number | null;
-    MonthlyInitialAppointmentsNeeded: number | null;
-    MonthlyPresentationsNeeded: number | null;
-    MonthlyRevenueNeeded: Partial<number> | null;
-    MonthlySalesNeeded: number | null;
-    NewRevenueGoal: Partial<number> | null;
-    OwnerId: string;
-    Person: Partial<Person> | null;
-    PersonId: number | null;
-    RevenueAvgPerAccount: Partial<number> | null;
-    RevenueYtd: Partial<number> | null;
-    SaleProbabilityFromAppointmentToClose: number | null;
-    StartDate: string | null;
-    SubmissionPercentage: number | null;
-    WeeklyConversationsNeeded: number | null;
-    WeeklyInitialAppointmentsNeeded: number | null;
-    WeeklyPresentationsNeeded: number | null;
-    WeeklyRevenueNeeded: Partial<number> | null;
-    WeeklySalesNeeded: number | null;
-    WeeksRemaining: number | null;
-    YearlyConversationsNeeded: number | null;
-    YearlyInitialAppointmentsNeeded: number | null;
-    YearlyPresentationsNeeded: number | null;
-    YearlyRevenueNeeded: Partial<number> | null;
-    YearlySalesNeeded: number | null;
-}
-
-export interface CrmPhoneCall extends IIdentity {
-    ActivityId: string;
-    ActivityTypeCode: 'Appointment'|'Email'|'Fax'|'CaseResolution'|'Letter'|'OpportunityClose'|'OrderClose'|'PhoneCall'|'QuoteClose'|'Task'|'ServiceActivity'|'RecurringAppointment'|'CampaignResponse'|'CampaignActivity'|'BulkOperation'|'Converstaion'|'PromotionalMail'|'inMail'|'Message'|'PointDrivePresentationCreated'|'PointDrivePresentationViewed'|'Surveyinvite'|'Surveyresponse';
-    ActualEnd: string | null;
-    ActualStart: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    LastModifiedDate: string | null;
-    OwnerId: string;
-    Person: Partial<Person> | null;
-    PersonId: number | null;
-    PhoneCallId: string;
-    ReguardingObjectId: string;
-}
-
-export interface CrmContact extends IIdentity {
-    Account: Partial<CrmAccount> | null;
-    AccountId: number;
-    Address1: string | null;
-    Address2: string | null;
-    City: string | null;
-    CrmAccountGuid: string;
-    CrmContactId: string;
-    CrmContactToEloquaContact: Partial<CrmContactToEloquaContact> | null;
-    CrmPerson: Partial<Person> | null;
-    CrmPersonId: number;
-    Email: string | null;
-    FirstName: string | null;
-    Instance: 'Production'|'Uat'|'Dev';
-    LastModifiedDate: string | null;
-    LastName: string | null;
-    OwnerId: string;
-    Phone: string | null;
-    State: string | null;
-    Zip: string | null;
-}
-
-export interface CrmBulkImport extends IIdentity {
-    CompletedDate: string | null;
-    CreatedDate: string;
-    CreatorPerson: Partial<Person> | null;
-    CreatorPersonId: number;
-    FailureDate: string | null;
-    FailureReason: string | null;
-    Failures: Array<Partial<CrmBulkImportFailure>> | null;
-    FileName: string | null;
-    RecordCount: number;
-    SuccessCount: number;
-}
-
-export interface CrmBulkImportFailure {
-    AccountName: string | null;
-    AccountType: string | null;
-    BusinessPhone: string | null;
-    City: string | null;
-    ContactFirstName: string | null;
-    ContactLastName: string | null;
-    ContactTitle: string | null;
-    CrmBulkImport: Partial<CrmBulkImport> | null;
-    CrmBulkImportId: number;
-    Description: string | null;
-    DuplicateFieldType: 'None'|'Name'|'Address'|'Email'|'Phone'|'ContactFullname' | null;
-    Email: string | null;
-    ErrorMessage: string | null;
-    FollowUpDate: string | null;
-    Id: number;
-    State: string | null;
-    Street1: string | null;
-    Topic: string | null;
-    Type: 'GeneralFailure'|'Duplicate';
-    Website: string | null;
-    XDate: string | null;
-    Zip: string | null;
-}
-
-export interface CrmAccount extends IIdentity {
-    AccountId: string;
-    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
-    AccountType: number;
-    Address1: string | null;
-    Address2: string | null;
-    Ams360AccountId: string | null;
-    AnnualPayroll: string | null;
-    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
-    City: string | null;
-    CompanySize: number | null;
-    ContactFirstName: string | null;
-    ContactJobTitle: string | null;
-    ContactLastName: string | null;
-    CreatedOn: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    DoNotCall: boolean;
-    EffectiveDate: string | null;
-    EloquaContact: Partial<EloquaContact> | null;
-    Email: string | null;
-    InitialAppointment: string | null;
-    InitialConversation: string | null;
-    LastActivityDate: string | null;
-    LastModifiedDate: string | null;
-    NAICSCode: string | null;
-    Name: string | null;
-    NumberOfEmployees: string | null;
-    NumberOfLocations: string | null;
-    Opportunities: Array<Partial<CrmOpportunity>> | null;
-    OriginalSource: string | null;
-    OwnerId: string;
-    Person: Partial<Person> | null;
-    PersonId: number | null;
-    Phone: string | null;
-    PotentialRevenue: Partial<number> | null;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
-    RecentSource: string | null;
-    StageClientDate: string | null;
-    StageProspectDate: string | null;
-    StageSuspectDate: string | null;
-    State: string | null;
-    StateCode: 'Active'|'Inactive';
-    Status: 'Active'|'Inactive';
-    SurgeId: number | null;
-    Topic: string | null;
-    WrittenYtd: Partial<number> | null;
-    Zip: string | null;
-}
-
-export interface CrmCommission extends IIdentity {
-    Amount: Partial<number>;
-    CommissionSplitId: string | null;
-    LastModifiedDate: string | null;
-    Name: string | null;
-    Opportunity: Partial<CrmOpportunity> | null;
-    OpportunityId: number;
-    OwnerId: string;
-    Percent: Partial<number>;
-    Person: Partial<Person> | null;
-    PersonId: number | null;
-    Sponsor: number | null;
-}
-
-export interface CrmAuditSyncLogEntry {
-    Action: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    EntityType: string | null;
-    Id: number;
-    LastSyncDate: string;
-}
-
-export interface CrmUserPersonRole extends PersonRole {
-    CrmInstance: 'Production'|'Uat'|'Dev';
-    SystemUserGuid: string;
-}
-
-export interface CrmOpportunity extends IIdentity {
-    Account: Partial<CrmAccount> | null;
-    AccountId: number;
-    AppointmentDate: string | null;
-    Carrier: number | null;
-    CommissionFee: Partial<number>;
-    CommissionPercentage: Partial<number>;
-    ConversationDate: string | null;
-    CrmCommissions: Array<Partial<CrmCommission>> | null;
-    EffectiveDate: string | null;
-    LastModifiedDate: string | null;
-    LineOfBusiness: number;
-    LineOfCoverage: number;
-    LineOfCoverageFriendlyName: string | null;
-    LostDate: string | null;
-    Name: string | null;
-    NewOrRenewal: 'New'|'Renewal';
-    OpportunityId: string;
-    OwnerId: string;
-    Premium: Partial<number>;
-    PresentationDate: string | null;
-    QualifiedDate: string | null;
-    ReportingDate: string | null;
-    SalesStageCode: number;
-    SoldDate: string | null;
-    StateCode: 'Active'|'Inactive';
-    SubmissionDate: string | null;
-    TotalRevenue: Partial<number>;
 }
 
 export interface Conference {
