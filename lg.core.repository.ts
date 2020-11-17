@@ -371,6 +371,14 @@ export interface CLGameTopPlayerDto {
     TotalPoints: Partial<number>;
 }
 
+export interface CallManagerPhoneNumberDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    Title: string | null;
+}
+
 export interface CallManagerEmployeeDto {
     CompanyName: string | null;
     FirstName: string | null;
