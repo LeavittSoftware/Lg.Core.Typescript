@@ -2024,6 +2024,7 @@ export interface CrmBulkImportFailure {
 }
 
 export interface CrmAccount extends IIdentity {
+    AccountDivision: 'Insurance'|'Pathology' | null;
     AccountId: string;
     AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
     AccountType: number;
