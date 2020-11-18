@@ -678,11 +678,9 @@ export interface NuppReportDto {
     DrawsAfterMonth43: Array<string> | null;
     ExpectationStartDate: string;
     SalesExpectationId: number;
-    SeventyPercentOfYearOneSubsidyAndDraw: number;
     SubsidyAfterMonth49: Array<string> | null;
     Year4StandardCommissionsX2: number;
     YearNuppTotals: Array<number> | null;
-    YearOneWritten: number;
 }
 
 export interface ProducerInvestmentReportDto {
