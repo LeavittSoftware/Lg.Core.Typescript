@@ -387,6 +387,7 @@ export interface CallManagerAmsClientPolicyDto {
     ExpirationDate: string | null;
     IsExpired: boolean;
     IsSuspended: boolean;
+    PolicyNumber: string | null;
     PolicyUrl: string | null;
     Title: string | null;
     Type: string | null;
@@ -395,6 +396,7 @@ export interface CallManagerAmsClientPolicyDto {
 export interface CallManagerAmsClientPhoneNumberDto {
     City: string | null;
     CompanyName: string | null;
+    Email: string | null;
     FirstName: string | null;
     LastName: string | null;
     Policies: Array<Partial<CallManagerAmsClientPolicyDto>> | null;
@@ -405,11 +407,16 @@ export interface CallManagerAmsClientPhoneNumberDto {
 }
 
 export interface CallManagerEmployeePhoneNumberDto {
+    City: string | null;
     CompanyName: string | null;
+    Email: string | null;
     FirstName: string | null;
     LastName: string | null;
     PersonId: number;
+    State: string | null;
+    Street1: string | null;
     Title: string | null;
+    Zip: string | null;
 }
 
 export interface CallManagerEmployeeDto {
