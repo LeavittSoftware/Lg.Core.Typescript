@@ -662,8 +662,9 @@ export interface UserSurgesDto {
 }
 
 export interface AgencyProfitabilityReportDto {
-    AgencyProfitabilityPercentage: Array<number> | null;
-    AgencyProfitabilityValue: Array<number> | null;
+    AgencyProfitabilityPercentage: number;
+    AgencyProfitabilityValue: number;
+    Year: number;
 }
 
 export interface CriteriaStatus {
