@@ -422,17 +422,11 @@ export interface CallManagerEmployeePhoneNumberDto {
 export interface CallManagerEmployeeDto {
     CompanyName: string | null;
     FirstName: string | null;
-    HomePhoneAreaCode: string | null;
-    HomePhoneExtension: string | null;
-    HomePhoneLineNumber: string | null;
+    HomePhone: string | null;
     LastName: string | null;
-    MobilePhoneAreaCode: string | null;
-    MobilePhoneExtension: string | null;
-    MobilePhoneLineNumber: string | null;
+    MobilePhone: string | null;
     PersonId: number;
     Title: string | null;
-    WorkPhoneAreaCode: string | null;
-    WorkPhoneExtension: string | null;
-    WorkPhoneLineNumber: string | null;
+    WorkPhone: string | null;
 }
 
