@@ -661,6 +661,11 @@ export interface UserSurgesDto {
     SurgeStartDate: string;
 }
 
+export interface AgencyProfitabilityReportDto {
+    AgencyProfitabilityPercentage: Array<number> | null;
+    AgencyProfitabilityValue: Array<number> | null;
+}
+
 export interface CriteriaStatus {
     FailReasons: Array<Partial<FailReason>> | null;
     ReturnReason: string | null;
