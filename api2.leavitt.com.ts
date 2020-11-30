@@ -404,19 +404,6 @@ export interface VitalPersonIdAndCompanyIdDto {
     PersonId: number;
 }
 
-export interface VitalActivityDto {
-    Appointments: number | null;
-    CompanyId: number | null;
-    CompanyName: string | null;
-    FirstName: string | null;
-    HireDate: string | null;
-    LastName: string | null;
-    MonthlyAppointmentsAverage: number | null;
-    PersonId: number;
-    RenewalWrittenYTD: Partial<number> | null;
-    WrittenYTD: Partial<number> | null;
-}
-
 export interface AuditorDto {
     CompanyId: number;
     Email: string | null;

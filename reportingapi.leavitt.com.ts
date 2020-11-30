@@ -90,22 +90,6 @@ export interface AllPointsReportDTO {
     TotalVisitedPoints: number;
 }
 
-export interface VitalActivityDto {
-    Appointments: number | null;
-    BookedYTD: Partial<number> | null;
-    CompanyId: number | null;
-    CompanyName: string | null;
-    ExpectedTotalBook: Partial<number> | null;
-    FirstName: string | null;
-    HireDate: string | null;
-    IsSubsidized: boolean;
-    LastName: string | null;
-    MonthlyAppointmentsAverage: number | null;
-    PersonId: number;
-    TotalBook: Partial<number> | null;
-    WrittenYTD: Partial<number> | null;
-}
-
 export interface ChartsLeaderBoardDto {
     Leaders: Array<Partial<ChartsLeaderDto>> | null;
     TotalProducerCount: number;

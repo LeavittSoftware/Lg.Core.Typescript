@@ -71,16 +71,6 @@ export interface ChartsLeaderDto {
     WrittenAmount: Partial<number> | null;
 }
 
-export interface VitalSignsLeaderDto {
-    AgencyName: string | null;
-    CompanyId: number;
-    FirstName: string | null;
-    LastName: string | null;
-    PersonId: number;
-    Rank: number;
-    WrittenAmount: Partial<number> | null;
-}
-
 export interface SurgeAuditSummaryDto {
     Difference: Partial<number>;
     FirstName: string | null;
@@ -430,5 +420,30 @@ export interface CallManagerEmployeeDto {
     PersonId: number;
     Title: string | null;
     WorkPhone: string | null;
+}
+
+export interface BookedByPersonId {
+    booked_ttm: Partial<number>;
+    bookedmonth: Partial<number>;
+    bookedytd: Partial<number>;
+    corepersonid: number;
+    expected_ttm: Partial<number>;
+}
+
+export interface VitalSignsLeaderDto {
+    AgencyName: string | null;
+    CompanyId: number;
+    FirstName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    Rank: number;
+    WrittenAmount: Partial<number> | null;
+}
+
+export interface DomoBookedData {
+    BookedYtd: Partial<number>;
+    ExpectedTotalBook: Partial<number>;
+    PersonId: number;
+    TotalBook: Partial<number>;
 }
 
