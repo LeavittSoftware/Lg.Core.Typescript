@@ -372,6 +372,7 @@ export interface CLGameTopPlayerDto {
 }
 
 export interface AmsClientSearchDto {
+    AgencyName: string | null;
     CompanyName: string | null;
     FirstName: string | null;
     HomePhone: string | null;
@@ -394,6 +395,7 @@ export interface CallManagerAmsClientPolicyDto {
 }
 
 export interface CallManagerAmsClientPhoneNumberDto {
+    AgencyName: string | null;
     City: string | null;
     CompanyName: string | null;
     Email: string | null;
