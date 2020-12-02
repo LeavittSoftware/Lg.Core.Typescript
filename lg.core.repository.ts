@@ -413,6 +413,7 @@ export interface CallManagerEmployeePhoneNumberDto {
 
 export interface CallManagerEmployeeDto {
     CompanyName: string | null;
+    Extension: string | null;
     FirstName: string | null;
     HomePhone: string | null;
     LastName: string | null;
