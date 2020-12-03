@@ -3379,9 +3379,11 @@ export interface UsageStatistic extends IIdentity {
     MachineId: string | null;
     MachineName: string | null;
     OsVersion: string | null;
+    PhoneType: string | null;
     ProcessorCount: number;
     TotalCalls: number;
     UserDomainName: string | null;
+    Username: string | null;
     Version: string | null;
     WorkingSet: number;
 }
