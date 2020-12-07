@@ -128,6 +128,118 @@ export interface GeneralLedgerPeriod {
     StartDate: string;
 }
 
+export interface SVehicle {
+    ChangedBy: string | null;
+    ChangedDate: string;
+    DatabaseName: string | null;
+    EffDate: string;
+    EnteredDate: string;
+    Id: number;
+    LobId: string;
+    Miles0to50: string | null;
+    Miles50to200: string | null;
+    MilesOver200: string | null;
+    NoLeased: string | null;
+    NoNonOwned: string | null;
+    NoOwned: string | null;
+    PolId: string;
+    PropertyHauled: string | null;
+    Status: string | null;
+    UVehId: string;
+    VehicleType: string | null;
+}
+
+export interface CoverageHome {
+    Addr1: string | null;
+    Addr2: string | null;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    CHomId: string;
+    CHomZone: string | null;
+    City: string | null;
+    CoverageForm: string | null;
+    CoverageId: string;
+    Credit: number | null;
+    DatabaseName: string | null;
+    EffDate: string;
+    EnteredDate: string;
+    Id: number;
+    Liability: number | null;
+    LobId: string;
+    LocId: string;
+    MaterialType: string | null;
+    NoOfChildren: number | null;
+    NoOfEmployees: number | null;
+    NoOfFamilies: number | null;
+    NoOfPlates: number | null;
+    PolId: string;
+    SqFootage: number | null;
+    State: string | null;
+    Status: string | null;
+    StructureType: string | null;
+    YesNoIndicator: string | null;
+    Zip: string | null;
+}
+
+export interface Vehicle {
+    AgeGroup: string | null;
+    AirbagType: string | null;
+    AntiLockType: string | null;
+    AntiTheftCredit: string | null;
+    AntiTheftType: string | null;
+    BodyType: string | null;
+    CC: number | null;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    Class: string | null;
+    ColSymbol: string | null;
+    CompSymbol: string | null;
+    CostNew: number | null;
+    CoVehicleNo: string | null;
+    DatabaseName: string | null;
+    EffDate: string;
+    EnteredDate: string;
+    Garaged: string | null;
+    HP: number | null;
+    Id: number;
+    IsBumper: string | null;
+    IsCarpool: string | null;
+    IsDamage: string | null;
+    IsLeased: string | null;
+    IsMultiCar: string | null;
+    IsNew: string | null;
+    IsNonOwned: string | null;
+    IsSalvaged: string | null;
+    LeasedDate: string | null;
+    LicensePlateNoVeh: string | null;
+    LobId: string;
+    Make: string | null;
+    MilesAnnual: number | null;
+    MilesOneWay: number | null;
+    Misc1: string | null;
+    Misc2: string | null;
+    Misc3: string | null;
+    Model: string | null;
+    NoOfDays: number | null;
+    NoOfWeeks: number | null;
+    Odometer: number | null;
+    PassRestraint: string | null;
+    Performance: string | null;
+    PolId: string;
+    PurchaseDate: string | null;
+    Recovery: string | null;
+    RegisterState: string | null;
+    Status: string | null;
+    Symbol: string | null;
+    Territory: string | null;
+    TotalPrem: Partial<number> | null;
+    VehicleNo: string | null;
+    VehId: string;
+    VehUsage: string | null;
+    VehYear: string | null;
+    VIN: string | null;
+}
+
 export interface Vendor {
     Addr1: string | null;
     Addr2: string | null;
