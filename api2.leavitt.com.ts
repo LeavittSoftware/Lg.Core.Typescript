@@ -648,6 +648,15 @@ export interface UserSurgesDto {
     SurgeStartDate: string;
 }
 
+export interface PhonesCrashReportDto {
+    Date: string;
+    Id: string | null;
+    Message: string | null;
+    StackTrace: string | null;
+    Username: string | null;
+    Version: string | null;
+}
+
 export interface AgencyProfitabilityReportDto {
     AgencyProfitabilityPercentage: number;
     AgencyProfitabilityValue: number;
