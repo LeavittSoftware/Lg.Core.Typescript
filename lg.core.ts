@@ -1718,6 +1718,7 @@ export interface EloquaContactV2 {
     EloquaId: number;
     Email: string | null;
     Id: number;
+    MasterAMS360AccountId: string | null;
 }
 
 export interface EloquaEmailTemplateV2 {
@@ -2024,7 +2025,6 @@ export interface CrmBulkImportFailure {
 }
 
 export interface CrmAccount extends IIdentity {
-    AccountDivision: 'Insurance'|'Pathology' | null;
     AccountId: string;
     AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
     AccountType: number;
@@ -2054,6 +2054,7 @@ export interface CrmAccount extends IIdentity {
     NumberOfLocations: string | null;
     Opportunities: Array<Partial<CrmOpportunity>> | null;
     OriginalSource: string | null;
+    OwnerBusinessUnitId: string | null;
     OwnerId: string;
     Person: Partial<Person> | null;
     PersonId: number | null;
