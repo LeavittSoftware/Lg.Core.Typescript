@@ -792,10 +792,12 @@ export interface NewSurgePoint extends IIdentity {
 export interface NewSurgeTeamPersonRole extends PersonRole {
     CrmPoints: Array<Partial<NewSurgeCrmPoint>> | null;
     Points: Array<Partial<NewSurgePoint>> | null;
+    PrimaryScoreboardIndividualGrandPrizes: string | null;
     PrimaryScoreboardIndividualPrizeAmount: Partial<number>;
     PrimaryScoreboardIndividualRank: number;
     PrimaryScoreboardIndividualTotalPoints: number;
     PrimaryScoreboardTeamPrizePortion: Partial<number>;
+    PrimaryScoreboardTopOnTeamGrandPrizes: string | null;
     PrimaryScoreboardTopOnTeamPrizeAmount: Partial<number>;
     PrimaryScoreboardTopOnTeamRank: number;
     PrimaryScoreboardTotalPrizeAmount: Partial<number>;
@@ -866,6 +868,7 @@ export interface NewSurgeTeam extends IIdentity {
     ImageId: number | null;
     Name: string | null;
     Players: Array<Partial<NewSurgeTeamPersonRole>> | null;
+    PrimaryScoreboardGrandPrizes: string | null;
     PrimaryScoreboardPrizeAmount: Partial<number>;
     PrimaryScoreboardRank: number;
     PrimaryScoreboardTotalPoint: number;
