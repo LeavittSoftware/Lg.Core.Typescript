@@ -461,6 +461,35 @@ export interface User {
     WorkPhoneNumber: string | null;
 }
 
+export interface Agency {
+    CampaignId: number;
+    CarrierLogins: Array<Partial<CarrierLogin>> | null;
+    Id: number;
+    Name: string | null;
+}
+
+export interface CarrierError {
+    AutoQuoteRequest: Partial<AutoQuoteRequest> | null;
+    AutoQuoteRequestId: number;
+    Carrier: Partial<Carrier> | null;
+    CarrierId: number;
+    Id: number;
+    Message: string | null;
+}
+
+export interface CarrierLogin {
+    Agency: Partial<Agency> | null;
+    AgencyCode: string | null;
+    AgencyId: number;
+    Carrier: Partial<Carrier> | null;
+    CarrierId: number;
+    CompanyUnits: Array<Partial<CompanyUnit>> | null;
+    Id: number;
+    ImageUrl: string | null;
+    Password: string | null;
+    Username: string | null;
+}
+
 export interface DriverToVehicle {
     Driver: Partial<Driver> | null;
     DriverId: number;
@@ -470,8 +499,8 @@ export interface DriverToVehicle {
 }
 
 export interface CompanyUnit {
-    Carrier: Partial<Carrier> | null;
-    CarrierId: number;
+    CarrierLogin: Partial<CarrierLogin> | null;
+    CarrierLoginId: number;
     CompanyUnitId: number;
     Id: number;
     IsActive: boolean;
@@ -479,14 +508,10 @@ export interface CompanyUnit {
 }
 
 export interface Carrier {
-    AgencyCode: string | null;
-    AgencyType: 'LeavitLink'|'Mais'|'Lgnw';
-    CompanyUnits: Array<Partial<CompanyUnit>> | null;
+    CarrierErrors: Array<Partial<CarrierError>> | null;
+    CarrierLogins: Array<Partial<CarrierLogin>> | null;
     Id: number;
-    ImageUrl: string | null;
     Name: string | null;
-    Password: string | null;
-    Username: string | null;
 }
 
 export interface Accident {
@@ -603,6 +628,7 @@ export interface AutoQuote {
     AutoQuoteRequest: Partial<AutoQuoteRequest> | null;
     AutoQuoteRequestId: number;
     CarrierCompanyName: string | null;
+    CompanyUnitId: number;
     CreatedDate: string;
     Error: string | null;
     FatalError: string | null;
@@ -653,6 +679,7 @@ export interface QuotedVehicle extends IVehicle {
 
 export interface AutoQuoteRequest extends QuoteRequest {
     AutoQuotes: Array<Partial<AutoQuote>> | null;
+    CarrierErrors: Array<Partial<CarrierError>> | null;
     ClientDetail: Partial<ClientDetail> | null;
     Drivers: Array<Partial<Driver>> | null;
     HasFulfillBeenRequested: boolean;
