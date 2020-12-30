@@ -1659,6 +1659,16 @@ export interface EloquaSyncLogEntry extends IExpirable, IIdentity {
     Type: 'Ams360'|'BenefitPoint';
 }
 
+export interface AMS360ToEloquaEmailMaster {
+    AMS360MasterCustomerId: string | null;
+    EmailAddress: string | null;
+}
+
+export interface BenefitPointToEloquaEmailMaster {
+    BenefitPointMasterCustomerId: string | null;
+    EmailAddress: string | null;
+}
+
 export interface CampaignV2 {
     ActivationId: number | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccountV2>> | null;
@@ -1716,12 +1726,14 @@ export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
 }
 
 export interface EloquaContactV2 {
+    Ams360SyncDate: string | null;
+    BenefitPointSyncDate: string | null;
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
+    CrmSyncDate: string | null;
     EloquaId: number;
     Email: string | null;
     Id: number;
-    MasterAMS360AccountId: string | null;
 }
 
 export interface EloquaEmailTemplateV2 {
