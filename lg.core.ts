@@ -1290,6 +1290,7 @@ export interface ForumFolder extends Folder {
     IsReadOnly: boolean;
     ParentFolder: Partial<ForumFolder> | null;
     ParentFolderId: number | null;
+    Path: string | null;
 }
 
 export interface ForumSetting {
