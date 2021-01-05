@@ -442,6 +442,86 @@ export interface LifeQuote {
     ProductCode: string | null;
 }
 
+export interface LifeAboutYouAnswerDto {
+    CoverageAmount: Partial<number>;
+    Gender: 'Unknown'|'Male'|'Female';
+    HealthRating: 'Unknown'|'PreferredPlus'|'Preferred'|'StandardPlus'|'Standard';
+    IsLargeQuoteRequest: boolean;
+    ProductType: 'Unknown'|'YearTerm5'|'YearTerm10'|'YearTerm15'|'YearTerm20'|'YearTerm25'|'YearTerm30'|'YearTerm35'|'YearTerm40';
+    Tobacco: 'Unknown'|'Yes'|'No';
+}
+
+export interface LifeAnswerDto {
+    AllowTextMessaging: boolean;
+    Campaign: string | null;
+    CampaignId: number;
+    City: string | null;
+    CoverageAmount: Partial<number>;
+    DateOfBirth: string;
+    EmailAddress: string | null;
+    FirstName: string | null;
+    Gender: 'Unknown'|'Male'|'Female';
+    HealthRating: 'Unknown'|'PreferredPlus'|'Preferred'|'StandardPlus'|'Standard';
+    HomePhoneNumber: string | null;
+    IsLargeQuoteRequest: boolean;
+    LastName: string | null;
+    LeadType: string | null;
+    LifeQuoteRequestId: number | null;
+    PartnerId: string | null;
+    ProductType: 'Unknown'|'YearTerm5'|'YearTerm10'|'YearTerm15'|'YearTerm20'|'YearTerm25'|'YearTerm30'|'YearTerm35'|'YearTerm40';
+    RecaptchaUserResponse: string | null;
+    ReferringUrl: string | null;
+    State: string | null;
+    Street1: string | null;
+    Tobacco: 'Unknown'|'Yes'|'No';
+    UserGuid: string | null;
+    ZipCode: string | null;
+}
+
+export interface LifeGettingStartedAnswerDto {
+    AllowTextMessaging: boolean;
+    Campaign: string | null;
+    CampaignId: number;
+    City: string | null;
+    DateOfBirth: string;
+    EmailAddress: string | null;
+    FirstName: string | null;
+    HomePhoneNumber: string | null;
+    LastName: string | null;
+    LeadType: string | null;
+    LifeQuoteRequestId: number | null;
+    PartnerId: string | null;
+    RecaptchaUserResponse: string | null;
+    ReferringUrl: string | null;
+    State: string | null;
+    Street1: string | null;
+    UserGuid: string | null;
+    ZipCode: string | null;
+}
+
+export interface LifeQuoteErrorResultDto {
+    DateSubmitted: string;
+    ErrorMessage: string | null;
+    LifeQuoteRequestId: number;
+    Name: string | null;
+}
+
+export interface LifeQuoteRequestSummaryDto {
+    AboutYou: number;
+    Error: number;
+    GettingStarted: number;
+    LGNWAttempt: number;
+    LGNWCompleted: number;
+    LLAttempt: number;
+    LLCompleted: number;
+    MacuAttempt: number;
+    MacuCompleted: number;
+    MillionDollarQuote: number;
+    Quotes: number;
+    SelectedQuote: number;
+    Uninsurable: number;
+}
+
 export interface User {
     AutoQuoteRequest: Array<Partial<AutoQuoteRequest>> | null;
     CellPhoneNumber: string | null;
