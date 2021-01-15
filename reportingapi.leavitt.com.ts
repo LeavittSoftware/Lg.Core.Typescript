@@ -17,8 +17,8 @@ export interface CustomerSearchResultDto {
     CustomerRepName: string | null;
     CustomerRepPhone: string | null;
     Email: string | null;
-    EsBasicPolInfos: Array<Partial<EsBasicPolInfo>> | null;
-    Id: number;
+    EsBasicPolInfos: Array<Partial<BasicPolInfo>> | null;
+    Id: string | null;
     LastModifiedDate: string | null;
     Phone: string | null;
     Score: number;
@@ -39,13 +39,12 @@ export interface DuplicateSearchResultDto {
     ContactLastName: string | null;
     CreatedOn: string | null;
     CustId: number;
-    CustomerRepFirstName: string | null;
     CustomerRepId: number | null;
-    CustomerRepLastName: string | null;
+    CustomerRepName: string | null;
     DatabaseName: string | null;
     EffectiveDate: string | null;
     Email: string | null;
-    Id: number;
+    Id: string | null;
     LastActivityDate: string | null;
     LastModifiedDate: string | null;
     PersonId: number | null;
