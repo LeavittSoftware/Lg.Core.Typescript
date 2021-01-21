@@ -538,183 +538,6 @@ export interface ProductionBudget extends IIdentity {
     TotalGoalAmount: Partial<number>;
 }
 
-export interface PLGame extends IIdentity {
-    Divisions: Array<Partial<PLGameDivision>> | null;
-    EndDate: string | null;
-    GracePeriod: string;
-    HasStarted: boolean;
-    IsBlackedOut: boolean;
-    IsDeleted: boolean;
-    IsDevelopment: boolean;
-    IsGameOver: boolean;
-    Logo: Partial<PLGameLogoAttachment> | null;
-    LogoId: number | null;
-    Name: string | null;
-    Players: Array<Partial<PLGamePlayerPersonRole>> | null;
-    Rules: string | null;
-    Scoreboards: Array<Partial<PLGameScoreboard>> | null;
-    Segments: Array<Partial<PLGameSegment>> | null;
-    SegmentTypes: Array<Partial<PLGameSegmentType>> | null;
-    Slides: Array<Partial<PLGameCarouselSlideAttachment>> | null;
-    Sponsors: Array<Partial<PLGameSponsor>> | null;
-    StartDate: string | null;
-    Teams: Array<Partial<PLGameTeam>> | null;
-    TimeZone: string | null;
-    Videos: Array<Partial<PLGameVideo>> | null;
-}
-
-export interface PLGameCarouselSlideAttachment extends Attachment {
-    Enabled: boolean;
-    FolderName: string | null;
-    Link: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Sequence: number;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface PLGameDivision extends IIdentity {
-    Name: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Prizes: Array<Partial<PLGameTeamReportPrize>> | null;
-    Sequence: number;
-    Teams: Array<Partial<PLGameDivisionToTeam>> | null;
-}
-
-export interface PLGameDivisionToTeam extends IIdentity {
-    Division: Partial<PLGameDivision> | null;
-    DivisionId: number;
-    Segment: Partial<PLGameSegment> | null;
-    SegmentId: number;
-    Team: Partial<PLGameTeam> | null;
-    TeamId: number;
-}
-
-export interface PLGameLogoAttachment extends Attachment {
-    FolderName: string | null;
-    Games: Array<Partial<PLGame>> | null;
-    StorageFileNameAndPath: string | null;
-}
-
-export interface PLGamePlayerPersonRole extends PersonRole {
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-}
-
-export interface PLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
-    Amount: Partial<number>;
-    ClientName: string | null;
-    CreatedDate: string;
-    DeletedByPerson: Partial<Person> | null;
-    DeletedByPersonId: number | null;
-    DeletedDate: string | null;
-    EffectiveDate: string;
-    IsDeleted: boolean;
-    Sponsor: Partial<PLGameSponsor> | null;
-    SponsorId: number | null;
-    TeamPersonRole: Partial<PLGameTeamPersonRole> | null;
-    TeamPersonRoleId: number;
-    Type: 'Sale'|'BOR';
-}
-
-export interface PLGamePrize extends IIdentity {
-    Amount: Partial<number> | null;
-    GrandPrizeName: string | null;
-    Rank: number;
-    Scoreboard: Partial<PLGameScoreboard> | null;
-    ScoreboardId: number;
-}
-
-export interface PLGameScoreboard extends IIdentity {
-    IsEnabled: boolean;
-    Name: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Prizes: Array<Partial<PLGamePrize>> | null;
-    SegmentType: Partial<PLGameSegmentType> | null;
-    SegmentTypeId: number | null;
-    Sequence: number;
-    Sponsor: Partial<PLGameSponsor> | null;
-    SponsorId: number | null;
-    Take: number | null;
-    WebComponentHTMLTag: string | null;
-}
-
-export interface PLGameSegment extends IIdentity {
-    DivisionToTeams: Array<Partial<PLGameDivisionToTeam>> | null;
-    EndDate: string;
-    Name: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Prizes: Array<Partial<PLGameSegmentToTeamReportPrize>> | null;
-    StartDate: string;
-    Type: Partial<PLGameSegmentType> | null;
-    TypeId: number;
-}
-
-export interface PLGameSegmentToTeamReportPrize extends IIdentity {
-    Segment: Partial<PLGameSegment> | null;
-    SegmentId: number;
-    TeamReportPrize: Partial<PLGameTeamReportPrize> | null;
-    TeamReportPrizeId: number;
-}
-
-export interface PLGameSegmentType extends IIdentity {
-    IsPrimaryGameSegment: boolean;
-    Name: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Scoreboards: Array<Partial<PLGameScoreboard>> | null;
-    Segments: Array<Partial<PLGameSegment>> | null;
-}
-
-export interface PLGameSponsor extends IIdentity {
-    Name: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Points: Array<Partial<PLGamePoint>> | null;
-    Scoreboards: Array<Partial<PLGameScoreboard>> | null;
-}
-
-export interface PLGameTeam extends IIdentity {
-    Divisions: Array<Partial<PLGameDivisionToTeam>> | null;
-    Image: Partial<PLGameTeamAttachment> | null;
-    ImageId: number | null;
-    Name: string | null;
-    Players: Array<Partial<PLGameTeamPersonRole>> | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-}
-
-export interface PLGameTeamAttachment extends Attachment {
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
-    Teams: Array<Partial<PLGameTeam>> | null;
-}
-
-export interface PLGameTeamPersonRole extends PersonRole {
-    IsTeamCapitan: boolean;
-    PLTeam: Partial<PLGameTeam> | null;
-    PLTeamId: number;
-    Points: Array<Partial<PLGamePoint>> | null;
-}
-
-export interface PLGameTeamReportPrize extends PLGamePrize {
-    Division: Partial<PLGameDivision> | null;
-    DivisionId: number;
-    Segments: Array<Partial<PLGameSegmentToTeamReportPrize>> | null;
-}
-
-export interface PLGameVideo extends IIdentity {
-    IsEnabled: boolean;
-    Name: string | null;
-    PLGame: Partial<PLGame> | null;
-    PLGameId: number;
-    Sequence: number;
-    YoutubeKey: string | null;
-}
-
 export interface NewSurge extends IIdentity {
     ColdCallingEndDate: string | null;
     ColdCallingIntermissionLength: string;
@@ -891,6 +714,185 @@ export interface NewSurgeViewerPersonRole extends PersonRole {
 export interface NewSurgePause extends IIdentity, IExpirable {
     Surge: Partial<NewSurge> | null;
     SurgeId: number;
+}
+
+export interface PLGame extends IIdentity {
+    Divisions: Array<Partial<PLGameDivision>> | null;
+    EndDate: string | null;
+    GracePeriod: string;
+    HasStarted: boolean;
+    IsBlackedOut: boolean;
+    IsDeleted: boolean;
+    IsDevelopment: boolean;
+    IsGameOver: boolean;
+    Logo: Partial<PLGameLogoAttachment> | null;
+    LogoId: number | null;
+    MinPrizeCutoffQualificationAmount: Partial<number>;
+    Name: string | null;
+    Players: Array<Partial<PLGamePlayerPersonRole>> | null;
+    Rules: string | null;
+    Scoreboards: Array<Partial<PLGameScoreboard>> | null;
+    Segments: Array<Partial<PLGameSegment>> | null;
+    SegmentTypes: Array<Partial<PLGameSegmentType>> | null;
+    Slides: Array<Partial<PLGameCarouselSlideAttachment>> | null;
+    Sponsors: Array<Partial<PLGameSponsor>> | null;
+    StartDate: string | null;
+    Teams: Array<Partial<PLGameTeam>> | null;
+    TimeZone: string | null;
+    Videos: Array<Partial<PLGameVideo>> | null;
+}
+
+export interface PLGameCarouselSlideAttachment extends Attachment {
+    Enabled: boolean;
+    FolderName: string | null;
+    Link: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    Sequence: number;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface PLGameDivision extends IIdentity {
+    Name: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    Prizes: Array<Partial<PLGameTeamReportPrize>> | null;
+    Sequence: number;
+    Teams: Array<Partial<PLGameDivisionToTeam>> | null;
+}
+
+export interface PLGameDivisionToTeam extends IIdentity {
+    Division: Partial<PLGameDivision> | null;
+    DivisionId: number;
+    Segment: Partial<PLGameSegment> | null;
+    SegmentId: number;
+    Team: Partial<PLGameTeam> | null;
+    TeamId: number;
+}
+
+export interface PLGameLogoAttachment extends Attachment {
+    FolderName: string | null;
+    Games: Array<Partial<PLGame>> | null;
+    StorageFileNameAndPath: string | null;
+}
+
+export interface PLGamePlayerPersonRole extends PersonRole {
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+}
+
+export interface PLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
+    Amount: Partial<number>;
+    ClientName: string | null;
+    CreatedDate: string;
+    DeletedByPerson: Partial<Person> | null;
+    DeletedByPersonId: number | null;
+    DeletedDate: string | null;
+    EffectiveDate: string;
+    IsDeleted: boolean;
+    Sponsor: Partial<PLGameSponsor> | null;
+    SponsorId: number | null;
+    TeamPersonRole: Partial<PLGameTeamPersonRole> | null;
+    TeamPersonRoleId: number;
+    Type: 'Sale'|'BOR';
+}
+
+export interface PLGamePrize extends IIdentity {
+    Amount: Partial<number> | null;
+    GrandPrizeName: string | null;
+    Rank: number;
+    Scoreboard: Partial<PLGameScoreboard> | null;
+    ScoreboardId: number;
+}
+
+export interface PLGameScoreboard extends IIdentity {
+    IsEnabled: boolean;
+    Name: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    PrizeDistributionOption: 'Split'|'Individual';
+    Prizes: Array<Partial<PLGamePrize>> | null;
+    SegmentType: Partial<PLGameSegmentType> | null;
+    SegmentTypeId: number | null;
+    Sequence: number;
+    Sponsor: Partial<PLGameSponsor> | null;
+    SponsorId: number | null;
+    Take: number | null;
+    WebComponentHTMLTag: string | null;
+}
+
+export interface PLGameSegment extends IIdentity {
+    DivisionToTeams: Array<Partial<PLGameDivisionToTeam>> | null;
+    EndDate: string;
+    Name: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    Prizes: Array<Partial<PLGameSegmentToTeamReportPrize>> | null;
+    StartDate: string;
+    Type: Partial<PLGameSegmentType> | null;
+    TypeId: number;
+}
+
+export interface PLGameSegmentToTeamReportPrize extends IIdentity {
+    Segment: Partial<PLGameSegment> | null;
+    SegmentId: number;
+    TeamReportPrize: Partial<PLGameTeamReportPrize> | null;
+    TeamReportPrizeId: number;
+}
+
+export interface PLGameSegmentType extends IIdentity {
+    IsPrimaryGameSegment: boolean;
+    Name: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    Scoreboards: Array<Partial<PLGameScoreboard>> | null;
+    Segments: Array<Partial<PLGameSegment>> | null;
+}
+
+export interface PLGameSponsor extends IIdentity {
+    Name: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    Points: Array<Partial<PLGamePoint>> | null;
+    Scoreboards: Array<Partial<PLGameScoreboard>> | null;
+}
+
+export interface PLGameTeam extends IIdentity {
+    Divisions: Array<Partial<PLGameDivisionToTeam>> | null;
+    Image: Partial<PLGameTeamAttachment> | null;
+    ImageId: number | null;
+    Name: string | null;
+    Players: Array<Partial<PLGameTeamPersonRole>> | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+}
+
+export interface PLGameTeamAttachment extends Attachment {
+    FolderName: string | null;
+    StorageFileNameAndPath: string | null;
+    Teams: Array<Partial<PLGameTeam>> | null;
+}
+
+export interface PLGameTeamPersonRole extends PersonRole {
+    IsTeamCapitan: boolean;
+    PLTeam: Partial<PLGameTeam> | null;
+    PLTeamId: number;
+    Points: Array<Partial<PLGamePoint>> | null;
+}
+
+export interface PLGameTeamReportPrize extends PLGamePrize {
+    Division: Partial<PLGameDivision> | null;
+    DivisionId: number;
+    Segments: Array<Partial<PLGameSegmentToTeamReportPrize>> | null;
+}
+
+export interface PLGameVideo extends IIdentity {
+    IsEnabled: boolean;
+    Name: string | null;
+    PLGame: Partial<PLGame> | null;
+    PLGameId: number;
+    Sequence: number;
+    YoutubeKey: string | null;
 }
 
 export interface DifferedCompensation extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
