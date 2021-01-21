@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,EloquaEmailTemplateV2,EloquaEmailTemplate,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
 export interface AutomatedAppDto {
     ErrorCount: number;
@@ -479,6 +479,149 @@ export interface Ams360CustomerDto {
     ZipCode: string | null;
 }
 
+export interface PLGamePlayerDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    IsCaptain: boolean;
+    LastName: string | null;
+    PersonId: number;
+    PlayerId: number;
+    PlayerPersonRoleId: number | null;
+    TeamId: number | null;
+    TeamName: string | null;
+    TeamPersonRoleId: number | null;
+    TotalPoints: Partial<number>;
+}
+
+export interface AccountsJobRoleDto {
+    BenefitsAssignmentPercentage: number | null;
+    CommercialAssignmentPercentage: number | null;
+    CompanyId: number;
+    CompanyName: string | null;
+    Id: number;
+    JobRoleTypeId: number;
+    JobRoleTypeName: string | null;
+    LifeAssignmentPercentage: number | null;
+    PersonalAssignmentPercentage: number | null;
+}
+
+export interface CrmCarrierDto {
+    CarrierId: number;
+    CarrierName: string | null;
+}
+
+export interface UserSurgesDto {
+    IsActive: boolean;
+    Name: string | null;
+    SurgeId: number;
+    SurgeStartDate: string;
+}
+
+export interface PhonesCrashReportDto {
+    Date: string;
+    Id: string | null;
+    Message: string | null;
+    StackTrace: string | null;
+    Username: string | null;
+    Version: string | null;
+}
+
+export interface AgencyProfitabilityReportDto {
+    AgencyProfitabilityPercentage: number;
+    AgencyProfitabilityValue: number;
+    Year: number;
+}
+
+export interface CriteriaStatus {
+    FailReasons: Array<Partial<FailReason>> | null;
+    ReturnReason: string | null;
+    ReturnStatus: 'Continue'|'SwitchingProtocols'|'OK'|'Created'|'Accepted'|'NonAuthoritativeInformation'|'NoContent'|'ResetContent'|'PartialContent'|'MultipleChoices'|'Ambiguous'|'MovedPermanently'|'Moved'|'Found'|'Redirect'|'SeeOther'|'RedirectMethod'|'NotModified'|'UseProxy'|'Unused'|'TemporaryRedirect'|'RedirectKeepVerb'|'BadRequest'|'Unauthorized'|'PaymentRequired'|'Forbidden'|'NotFound'|'MethodNotAllowed'|'NotAcceptable'|'ProxyAuthenticationRequired'|'RequestTimeout'|'Conflict'|'Gone'|'LengthRequired'|'PreconditionFailed'|'RequestEntityTooLarge'|'RequestUriTooLong'|'UnsupportedMediaType'|'RequestedRangeNotSatisfiable'|'ExpectationFailed'|'UpgradeRequired'|'InternalServerError'|'NotImplemented'|'BadGateway'|'ServiceUnavailable'|'GatewayTimeout'|'HttpVersionNotSupported';
+}
+
+export interface MinimumSalesExpectationReportDto {
+    AnnualizedBooked: number;
+    Date: string;
+    QFAs: number;
+    Written: number;
+}
+
+export interface NuppReportDto {
+    DrawsAfterMonth43: Array<string> | null;
+    ExpectationStartDate: string;
+    SalesExpectationId: number;
+    SubsidyAfterMonth49: Array<string> | null;
+    Year4StandardCommissionsX2: number;
+    YearNuppTotals: Array<number> | null;
+}
+
+export interface ProducerInvestmentReportDto {
+    BookOfBusiness: number;
+    CumulativeProfit: number;
+    CumulativeProfitMargin: number;
+    EstAnnualProfit: number;
+    LessAcquisitionCost: number;
+}
+
+export interface ProducerOpportunityReportDto {
+    NewWrittenCommissionsGoal: number;
+    NewWrittenCommissionsMinimum: number;
+    QFAsMonthlyMinimum: number;
+}
+
+export interface ProducerOpportunityReportValueDto {
+    DeferredCompensation: number;
+    Draw: number;
+    NewCommission: number;
+    RenewalCommission: number;
+    RenewalCommissionAssignedBook: number;
+    Subsidy: number;
+    TotalIncome: number;
+    TotalProducerOpportnityValue: number;
+}
+
+export interface CommissionRateDto {
+    ProducerCommissionRate: Partial<ProducerCommissionRate> | null;
+    ReplacementId: number | null;
+}
+
+export interface AgencyInvestmentReportDto {
+    LessAcquisitionCost: number;
+    LessDeferredCompLiability: number;
+    NetAsset: number;
+    OrganicAssetValue: number;
+    Type: 'Minimum'|'Goal';
+}
+
+export interface MarketingAms360CustomerDto {
+    Active: string | null;
+    Addr1: string | null;
+    Addr2: string | null;
+    BusFullPhone: string | null;
+    BusinessSince: string | null;
+    City: string | null;
+    CompanyId: string | null;
+    County: string | null;
+    CustId: string | null;
+    Dba: string | null;
+    Email: string | null;
+    Email2: string | null;
+    EntityId: string | null;
+    FirmName: string | null;
+    FirstName: string | null;
+    FullName: string | null;
+    Id: string | null;
+    IsMaster: boolean;
+    LastName: string | null;
+    NAICS: string | null;
+    Occupation: string | null;
+    OtherFullPhone: string | null;
+    PagerFullPhone: string | null;
+    ResFullPhone: string | null;
+    State: string | null;
+    TypeCust: string | null;
+    ZipCode: string | null;
+}
+
 export interface EloquaToCrmCompareDtoV2 {
     CrmContact: Partial<MarketingManagerEloquaContactDto> | null;
     EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
@@ -608,119 +751,6 @@ export interface MasterProducerDto {
     Email: string | null;
     FullName: string | null;
     PersonId: number;
-}
-
-export interface PLGamePlayerDto {
-    CompanyName: string | null;
-    FirstName: string | null;
-    IsCaptain: boolean;
-    LastName: string | null;
-    PersonId: number;
-    PlayerId: number;
-    PlayerPersonRoleId: number | null;
-    TeamId: number | null;
-    TeamName: string | null;
-    TeamPersonRoleId: number | null;
-    TotalPoints: Partial<number>;
-}
-
-export interface AccountsJobRoleDto {
-    BenefitsAssignmentPercentage: number | null;
-    CommercialAssignmentPercentage: number | null;
-    CompanyId: number;
-    CompanyName: string | null;
-    Id: number;
-    JobRoleTypeId: number;
-    JobRoleTypeName: string | null;
-    LifeAssignmentPercentage: number | null;
-    PersonalAssignmentPercentage: number | null;
-}
-
-export interface CrmCarrierDto {
-    CarrierId: number;
-    CarrierName: string | null;
-}
-
-export interface UserSurgesDto {
-    IsActive: boolean;
-    Name: string | null;
-    SurgeId: number;
-    SurgeStartDate: string;
-}
-
-export interface PhonesCrashReportDto {
-    Date: string;
-    Id: string | null;
-    Message: string | null;
-    StackTrace: string | null;
-    Username: string | null;
-    Version: string | null;
-}
-
-export interface AgencyProfitabilityReportDto {
-    AgencyProfitabilityPercentage: number;
-    AgencyProfitabilityValue: number;
-    Year: number;
-}
-
-export interface CriteriaStatus {
-    FailReasons: Array<Partial<FailReason>> | null;
-    ReturnReason: string | null;
-    ReturnStatus: 'Continue'|'SwitchingProtocols'|'OK'|'Created'|'Accepted'|'NonAuthoritativeInformation'|'NoContent'|'ResetContent'|'PartialContent'|'MultipleChoices'|'Ambiguous'|'MovedPermanently'|'Moved'|'Found'|'Redirect'|'SeeOther'|'RedirectMethod'|'NotModified'|'UseProxy'|'Unused'|'TemporaryRedirect'|'RedirectKeepVerb'|'BadRequest'|'Unauthorized'|'PaymentRequired'|'Forbidden'|'NotFound'|'MethodNotAllowed'|'NotAcceptable'|'ProxyAuthenticationRequired'|'RequestTimeout'|'Conflict'|'Gone'|'LengthRequired'|'PreconditionFailed'|'RequestEntityTooLarge'|'RequestUriTooLong'|'UnsupportedMediaType'|'RequestedRangeNotSatisfiable'|'ExpectationFailed'|'UpgradeRequired'|'InternalServerError'|'NotImplemented'|'BadGateway'|'ServiceUnavailable'|'GatewayTimeout'|'HttpVersionNotSupported';
-}
-
-export interface MinimumSalesExpectationReportDto {
-    AnnualizedBooked: number;
-    Date: string;
-    QFAs: number;
-    Written: number;
-}
-
-export interface NuppReportDto {
-    DrawsAfterMonth43: Array<string> | null;
-    ExpectationStartDate: string;
-    SalesExpectationId: number;
-    SubsidyAfterMonth49: Array<string> | null;
-    Year4StandardCommissionsX2: number;
-    YearNuppTotals: Array<number> | null;
-}
-
-export interface ProducerInvestmentReportDto {
-    BookOfBusiness: number;
-    CumulativeProfit: number;
-    CumulativeProfitMargin: number;
-    EstAnnualProfit: number;
-    LessAcquisitionCost: number;
-}
-
-export interface ProducerOpportunityReportDto {
-    NewWrittenCommissionsGoal: number;
-    NewWrittenCommissionsMinimum: number;
-    QFAsMonthlyMinimum: number;
-}
-
-export interface ProducerOpportunityReportValueDto {
-    DeferredCompensation: number;
-    Draw: number;
-    NewCommission: number;
-    RenewalCommission: number;
-    RenewalCommissionAssignedBook: number;
-    Subsidy: number;
-    TotalIncome: number;
-    TotalProducerOpportnityValue: number;
-}
-
-export interface CommissionRateDto {
-    ProducerCommissionRate: Partial<ProducerCommissionRate> | null;
-    ReplacementId: number | null;
-}
-
-export interface AgencyInvestmentReportDto {
-    LessAcquisitionCost: number;
-    LessDeferredCompLiability: number;
-    NetAsset: number;
-    OrganicAssetValue: number;
-    Type: 'Minimum'|'Goal';
 }
 
 export interface LeaderBoardDto {
