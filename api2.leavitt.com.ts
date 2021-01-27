@@ -5,6 +5,26 @@
 // ----------------------
 import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
+export interface Ams360ConflictDto {
+    Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
+    Count: number;
+}
+
+export interface Ams360CustomerConflict {
+    Email: string | null;
+    NumberOfConflicts: number | null;
+}
+
+export interface BenefitPointConflictDto {
+    Conflicts: Array<Partial<BenefitPointCustomerConflict>> | null;
+    Count: number;
+}
+
+export interface BenefitPointCustomerConflict {
+    Email: string | null;
+    NumberOfConflicts: number | null;
+}
+
 export interface AutomatedAppDto {
     ErrorCount: number;
     Id: number;
@@ -592,34 +612,12 @@ export interface AgencyInvestmentReportDto {
     Type: 'Minimum'|'Goal';
 }
 
-export interface MarketingAms360CustomerDto {
-    Active: string | null;
-    Addr1: string | null;
-    Addr2: string | null;
-    BusFullPhone: string | null;
-    BusinessSince: string | null;
-    City: string | null;
-    CompanyId: string | null;
-    County: string | null;
-    CustId: string | null;
-    Dba: string | null;
-    Email: string | null;
-    Email2: string | null;
-    EntityId: string | null;
-    FirmName: string | null;
-    FirstName: string | null;
-    FullName: string | null;
-    Id: string | null;
+export interface MarketingBenefitPointCustomerDto extends BenefitPointCustomer {
     IsMaster: boolean;
-    LastName: string | null;
-    NAICS: string | null;
-    Occupation: string | null;
-    OtherFullPhone: string | null;
-    PagerFullPhone: string | null;
-    ResFullPhone: string | null;
-    State: string | null;
-    TypeCust: string | null;
-    ZipCode: string | null;
+}
+
+export interface MarketingAms360CustomerDto extends Ams360Customer {
+    IsMaster: boolean;
 }
 
 export interface EloquaToCrmCompareDtoV2 {
