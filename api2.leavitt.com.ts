@@ -3,6 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
 import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
 export interface Ams360ConflictDto {

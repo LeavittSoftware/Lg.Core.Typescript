@@ -4,6 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { ChartsLeaderDto,LeaderDto } from './lg.core.repository'
+import { BasicPolInfo } from './elasticsearch'
 
 export interface CustomerSearchResultDto {
     AccountName: string | null;
