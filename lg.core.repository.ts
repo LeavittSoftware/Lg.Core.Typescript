@@ -3,7 +3,7 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
-import { NewSurgeSegment,NewSurgeCrmPoint,CLGameSegment,CLGamePoint } from './lg.core'
+import { SurgeSegment,SurgeCrmPoint,CLGameSegment,CLGamePoint } from './lg.core'
 
 export interface PermissionHolderDto {
     FirstName: string | null;
@@ -86,7 +86,7 @@ export interface SurgeAuditBreakdownsBySegmentDto {
     CrmTotal: Partial<number>;
     IsAfterSurge: boolean;
     IsBeforeSurge: boolean;
-    Segment: Partial<NewSurgeSegment> | null;
+    Segment: Partial<SurgeSegment> | null;
     SegmentId: number | null;
     SurgeTotal: Partial<number>;
 }
@@ -107,7 +107,7 @@ export interface SurgeAuditBreakdownDto {
     IsCrmCommissionDeleted: boolean;
     IsPointCreatedByAdmin: boolean;
     SortDate: string | null;
-    SurgeCrmPoint: Partial<NewSurgeCrmPoint> | null;
+    SurgeCrmPoint: Partial<SurgeCrmPoint> | null;
 }
 
 export interface PLGameBreakdownDto {

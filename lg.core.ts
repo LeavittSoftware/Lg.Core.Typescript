@@ -413,7 +413,7 @@ export interface ProductionBudget extends IIdentity {
     TotalGoalAmount: Partial<number>;
 }
 
-export interface NewSurge extends IIdentity {
+export interface Surge extends IIdentity {
     ColdCallingEndDate: string | null;
     ColdCallingIntermissionLength: string;
     ColdCallingIsPaused: boolean | null;
@@ -426,31 +426,31 @@ export interface NewSurge extends IIdentity {
     IsDeleted: boolean;
     IsDevelopment: boolean;
     Name: string | null;
-    Pauses: Array<Partial<NewSurgePause>> | null;
-    Players: Array<Partial<NewSurgeTeamPersonRole>> | null;
-    PointTypes: Array<Partial<NewSurgePointType>> | null;
+    Pauses: Array<Partial<SurgePause>> | null;
+    Players: Array<Partial<SurgeTeamPersonRole>> | null;
+    PointTypes: Array<Partial<SurgePointType>> | null;
     Rules: string | null;
     SavePointsToCrm: boolean;
-    Scoreboards: Array<Partial<NewSurgeScoreboard>> | null;
-    Segments: Array<Partial<NewSurgeSegment>> | null;
-    SegmentTypes: Array<Partial<NewSurgeSegmentType>> | null;
-    Slides: Array<Partial<NewSurgeCarouselSlideAttachment>> | null;
+    Scoreboards: Array<Partial<SurgeScoreboard>> | null;
+    Segments: Array<Partial<SurgeSegment>> | null;
+    SegmentTypes: Array<Partial<SurgeSegmentType>> | null;
+    Slides: Array<Partial<SurgeCarouselSlideAttachment>> | null;
     StartDate: string | null;
-    Teams: Array<Partial<NewSurgeTeam>> | null;
+    Teams: Array<Partial<SurgeTeam>> | null;
     TimeZone: string | null;
-    ViewerGroups: Array<Partial<NewSurgeViewerToPeopleGroup>> | null;
-    Viewers: Array<Partial<NewSurgeViewerPersonRole>> | null;
+    ViewerGroups: Array<Partial<SurgeViewerToPeopleGroup>> | null;
+    Viewers: Array<Partial<SurgeViewerPersonRole>> | null;
 }
 
-export interface NewSurgeCarouselSlideAttachment extends Attachment {
+export interface SurgeCarouselSlideAttachment extends Attachment {
     Enabled: boolean;
     Link: string | null;
     Sequence: number;
-    Surge: Partial<NewSurge> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface NewSurgeCrmPoint extends IIdentity {
+export interface SurgeCrmPoint extends IIdentity {
     Amount: Partial<number>;
     CarrierId: number | null;
     CarrierName: string | null;
@@ -466,11 +466,11 @@ export interface NewSurgeCrmPoint extends IIdentity {
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
     LastModifiedDate: string | null;
-    TeamPersonRole: Partial<NewSurgeTeamPersonRole> | null;
+    TeamPersonRole: Partial<SurgeTeamPersonRole> | null;
     TeamPersonRoleId: number;
 }
 
-export interface NewSurgePoint extends IIdentity {
+export interface SurgePoint extends IIdentity {
     CreatedBy: Partial<Person> | null;
     CreatedById: number | null;
     CreatedDate: string;
@@ -481,15 +481,15 @@ export interface NewSurgePoint extends IIdentity {
     DeletedDate: string | null;
     IsDeleted: boolean;
     Name: string | null;
-    PointType: Partial<NewSurgePointType> | null;
+    PointType: Partial<SurgePointType> | null;
     PointTypeId: number;
-    TeamPersonRole: Partial<NewSurgeTeamPersonRole> | null;
+    TeamPersonRole: Partial<SurgeTeamPersonRole> | null;
     TeamPersonRoleId: number;
 }
 
-export interface NewSurgeTeamPersonRole extends PersonRole {
-    CrmPoints: Array<Partial<NewSurgeCrmPoint>> | null;
-    Points: Array<Partial<NewSurgePoint>> | null;
+export interface SurgeTeamPersonRole extends PersonRole {
+    CrmPoints: Array<Partial<SurgeCrmPoint>> | null;
+    Points: Array<Partial<SurgePoint>> | null;
     PrimaryScoreboardIndividualGrandPrizes: string | null;
     PrimaryScoreboardIndividualPrizeAmount: Partial<number>;
     PrimaryScoreboardIndividualRank: number;
@@ -499,95 +499,95 @@ export interface NewSurgeTeamPersonRole extends PersonRole {
     PrimaryScoreboardTopOnTeamPrizeAmount: Partial<number>;
     PrimaryScoreboardTopOnTeamRank: number;
     PrimaryScoreboardTotalPrizeAmount: Partial<number>;
-    Surge: Partial<NewSurge> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
-    Team: Partial<NewSurgeTeam> | null;
+    Team: Partial<SurgeTeam> | null;
     TeamId: number | null;
 }
 
-export interface NewSurgePointType extends IIdentity {
+export interface SurgePointType extends IIdentity {
     DeletedDate: string | null;
     IsDeleted: boolean;
     Name: string | null;
-    Points: Array<Partial<NewSurgePoint>> | null;
-    Surge: Partial<NewSurge> | null;
+    Points: Array<Partial<SurgePoint>> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
     Value: number;
 }
 
-export interface NewSurgeScoreboard extends IIdentity {
+export interface SurgeScoreboard extends IIdentity {
     CarrierId: number | null;
     CarrierName: string | null;
     IsEnabled: boolean;
     Name: string | null;
-    Prizes: Array<Partial<NewSurgePrize>> | null;
-    SegmentType: Partial<NewSurgeSegmentType> | null;
+    Prizes: Array<Partial<SurgePrize>> | null;
+    SegmentType: Partial<SurgeSegmentType> | null;
     SegmentTypeId: number | null;
     Sequence: number;
-    Surge: Partial<NewSurge> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
     Take: number | null;
     WebComponentHTMLTag: string | null;
 }
 
-export interface NewSurgeSegment extends IIdentity {
+export interface SurgeSegment extends IIdentity {
     EndDate: string;
     Name: string | null;
-    SegmentType: Partial<NewSurgeSegmentType> | null;
+    SegmentType: Partial<SurgeSegmentType> | null;
     SegmentTypeId: number;
     StartDate: string;
-    Surge: Partial<NewSurge> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface NewSurgeSegmentType extends IIdentity {
+export interface SurgeSegmentType extends IIdentity {
     Name: string | null;
-    Scoreboards: Array<Partial<NewSurgeScoreboard>> | null;
-    Segments: Array<Partial<NewSurgeSegment>> | null;
-    Surge: Partial<NewSurge> | null;
+    Scoreboards: Array<Partial<SurgeScoreboard>> | null;
+    Segments: Array<Partial<SurgeSegment>> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface NewSurgePrize extends IIdentity {
+export interface SurgePrize extends IIdentity {
     Amount: Partial<number> | null;
     GrandPrizeName: string | null;
     Rank: number;
-    Scoreboard: Partial<NewSurgeScoreboard> | null;
+    Scoreboard: Partial<SurgeScoreboard> | null;
     ScoreboardId: number;
     Type: 'TopOnTeam'|'TopTeams'|'TopIndividual' | null;
 }
 
-export interface NewSurgeTeamAttachment extends Attachment {
-    Teams: Array<Partial<NewSurgeTeam>> | null;
+export interface SurgeTeamAttachment extends Attachment {
+    Teams: Array<Partial<SurgeTeam>> | null;
 }
 
-export interface NewSurgeTeam extends IIdentity {
-    Image: Partial<NewSurgeTeamAttachment> | null;
+export interface SurgeTeam extends IIdentity {
+    Image: Partial<SurgeTeamAttachment> | null;
     ImageId: number | null;
     Name: string | null;
-    Players: Array<Partial<NewSurgeTeamPersonRole>> | null;
+    Players: Array<Partial<SurgeTeamPersonRole>> | null;
     PrimaryScoreboardGrandPrizes: string | null;
     PrimaryScoreboardPrizeAmount: Partial<number>;
     PrimaryScoreboardRank: number;
     PrimaryScoreboardTotalPoint: number;
-    Surge: Partial<NewSurge> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface NewSurgeViewerToPeopleGroup extends IIdentity {
+export interface SurgeViewerToPeopleGroup extends IIdentity {
     Group: Partial<PeopleGroup> | null;
     GroupId: number;
-    Surge: Partial<NewSurge> | null;
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface NewSurgeViewerPersonRole extends PersonRole {
-    Surge: Partial<NewSurge> | null;
+export interface SurgeViewerPersonRole extends PersonRole {
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
-export interface NewSurgePause extends IIdentity, IExpirable {
-    Surge: Partial<NewSurge> | null;
+export interface SurgePause extends IIdentity, IExpirable {
+    Surge: Partial<Surge> | null;
     SurgeId: number;
 }
 
@@ -2468,7 +2468,7 @@ export interface PeopleGroup extends Group, IExpirable {
     CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    GroupSurgeViewerToPeopleGroups: Array<Partial<NewSurgeViewerToPeopleGroup>> | null;
+    GroupSurgeViewerToPeopleGroups: Array<Partial<SurgeViewerToPeopleGroup>> | null;
     NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
     OutboundCallerIdToPeopleGroups: Array<Partial<OutboundCallerIdToPeopleGroup>> | null;
     PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
