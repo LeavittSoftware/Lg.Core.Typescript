@@ -621,9 +621,78 @@ export interface MarketingAms360CustomerDto extends Ams360Customer {
     IsMaster: boolean;
 }
 
+export interface MarketingManagerEloquaBenefitPointContactDto {
+    Administrator: string | null;
+    BenefitManagementSystem: string | null;
+    Company: string | null;
+    CompanyId: string | null;
+    CustomerId: string | null;
+    CustomerType: string | null;
+    Department: string | null;
+    DoingBusinessAs: string | null;
+    EstimatedAnnualizedPremiumRevenue: string | null;
+    FirstName: string | null;
+    Id: number | null;
+    LastName: string | null;
+    MarketSize: string | null;
+    MobilePhone: string | null;
+    Naics: string | null;
+    NumberOfEmployees: string | null;
+    Office: string | null;
+    PremiumYTD: Partial<number>;
+    PrimaryContact: string | null;
+    PrimarySalesLead: string | null;
+    PrimaryServiceLead: string | null;
+    RevenueYTD: Partial<number>;
+    Status: string | null;
+}
+
+export interface MarketingManagerEloquaAms360ContactDto {
+    Acquisition: string | null;
+    Active: string | null;
+    AMS360BenefitsEmployees: string | null;
+    AMS360BenefitsIndustry: string | null;
+    AMS360BenefitsLeadSource: string | null;
+    AMS360BenefitsSaleProbablity: string | null;
+    AMS360EstimatedBenefitsRevenue: string | null;
+    AMS360Notation: string | null;
+    BenefitsBusinessType: string | null;
+    Branch: string | null;
+    Broker: string | null;
+    BusinessEntity: string | null;
+    BusinessOrigin: string | null;
+    BusinessType: string | null;
+    CompanyAMS360: string | null;
+    CompanyID: string | null;
+    CustomerAddedDate: string | null;
+    CustomerID: string | null;
+    CustomerType: string | null;
+    Department: string | null;
+    Division: string | null;
+    DoingBusinessAs: string | null;
+    FirstNameAMS360: string | null;
+    Id: number | null;
+    InBusinessSince: string | null;
+    KnownbyAgencyBrokerSinceYear: string | null;
+    LastNameAMS360: string | null;
+    MaritalStatus: string | null;
+    MobilePhone: string | null;
+    MutliEntityCustomerType: string | null;
+    NAICS: string | null;
+    NumberofDependentUnits: string | null;
+    NumberofEligibleEmployees: string | null;
+    Occupation: string | null;
+    Producer: string | null;
+    ResidencePhone: string | null;
+    Salesperson: string | null;
+    SICNAICS: string | null;
+    VERTAMDateofBirth: string | null;
+    YearEmployed: string | null;
+}
+
 export interface EloquaToCrmCompareDtoV2 {
-    CrmContact: Partial<MarketingManagerEloquaContactDto> | null;
-    EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
+    CrmContact: Partial<MarketingManagerEloquaCrmContactDto> | null;
+    EloquaContact: Partial<MarketingManagerEloquaCrmContactDto> | null;
     HasConflicts: boolean;
     Id: number;
     MasterProducer: Partial<MasterProducerDto> | null;
@@ -667,8 +736,8 @@ export interface CcrtListItemDto {
 }
 
 export interface EloquaToCrmCompareDto {
-    CrmAccount: Partial<MarketingManagerEloquaContactDto> | null;
-    EloquaContact: Partial<MarketingManagerEloquaContactDto> | null;
+    CrmAccount: Partial<MarketingManagerEloquaCrmContactDto> | null;
+    EloquaContact: Partial<MarketingManagerEloquaCrmContactDto> | null;
     HasConflicts: boolean;
     Id: number;
     MasterProducer: Partial<MasterProducerDto> | null;
@@ -694,7 +763,7 @@ export interface LocDto {
     LineOfCoverageFriendlyName: string | null;
 }
 
-export interface MarketingManagerEloquaContactDto {
+export interface MarketingManagerEloquaCrmContactDto {
     Address1: string | null;
     Address2: string | null;
     AnnualPayroll: string | null;
