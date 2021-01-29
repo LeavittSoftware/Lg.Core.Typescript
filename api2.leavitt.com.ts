@@ -952,25 +952,6 @@ export interface ConferencePersonDto {
     Zip: string | null;
 }
 
-export interface CLGameCrmCarrierDto {
-    CarrierId: number;
-    CarrierName: string | null;
-}
-
-export interface CLGamePlayerDto {
-    CompanyName: string | null;
-    FirstName: string | null;
-    IsCaptain: boolean;
-    LastName: string | null;
-    PersonId: number;
-    PlayerId: number;
-    PlayerPersonRoleId: number | null;
-    TeamId: number | null;
-    TeamName: string | null;
-    TeamPersonRoleId: number | null;
-    TotalPoints: Partial<number>;
-}
-
 export interface PotentialDto {
     OpenPotential: Partial<number>;
     PeriodPotential: Partial<number>;
@@ -1063,6 +1044,33 @@ export interface OpportunityDto {
     Other: string | null;
     Premium: Partial<number> | null;
     TotalRevenue: Partial<number> | null;
+}
+
+export interface CLGamePrizePayoutDto {
+    FirstName: string | null;
+    GrandPrizeName: string | null;
+    LastName: string | null;
+    PersonId: number;
+    PrizeAmount: Partial<number> | null;
+}
+
+export interface CLGameCrmCarrierDto {
+    CarrierId: number;
+    CarrierName: string | null;
+}
+
+export interface CLGamePlayerDto {
+    CompanyName: string | null;
+    FirstName: string | null;
+    IsCaptain: boolean;
+    LastName: string | null;
+    PersonId: number;
+    PlayerId: number;
+    PlayerPersonRoleId: number | null;
+    TeamId: number | null;
+    TeamName: string | null;
+    TeamPersonRoleId: number | null;
+    TotalPoints: Partial<number>;
 }
 
 export interface IIdentity {
