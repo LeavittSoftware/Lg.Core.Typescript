@@ -49,6 +49,7 @@ export interface BenefitPointCustomer {
 export interface Contact {
     Email: string | null;
     FirstName: string | null;
+    IsEmailValid: boolean;
     IsPrimary: boolean;
     LastName: string | null;
     Phones: Array<Partial<Phone>> | null;
@@ -147,6 +148,7 @@ export interface Ams360Customer {
     GLDivCode: string | null;
     GLGrpCode: string | null;
     Id: string | null;
+    IsEmailValid: boolean;
     LastName: string | null;
     MarineFullPhone: string | null;
     NAICS: string | null;
