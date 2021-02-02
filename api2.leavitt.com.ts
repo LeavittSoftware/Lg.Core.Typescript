@@ -622,6 +622,7 @@ export interface MarketingAms360CustomerDto extends Ams360Customer {
 }
 
 export interface MarketingManagerEloquaBenefitPointContactDto {
+    AccountName: string | null;
     Administrator: string | null;
     BenefitManagementSystem: string | null;
     Company: string | null;
