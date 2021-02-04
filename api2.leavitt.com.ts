@@ -1053,6 +1053,7 @@ export interface CLGamePrizePayoutDto {
     LastName: string | null;
     PersonId: number;
     PrizeAmount: Partial<number> | null;
+    Rank: number;
 }
 
 export interface CLGameCrmCarrierDto {
