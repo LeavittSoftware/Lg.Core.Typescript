@@ -1040,6 +1040,7 @@ export interface ManualEntryGlDivCode extends IIdentity, IExpirable {
 export interface ManualEntryManagementSystem {
     BranchCodes: Array<Partial<ManualEntryBranchCode>> | null;
     GlDivCodes: Array<Partial<ManualEntryGlDivCode>> | null;
+    TypeOfBusiness: 'Commercial'|'Life'|'Personal'|'Benefit' | null;
 }
 
 export interface SageManagementSystem {
@@ -3435,6 +3436,15 @@ export interface AffiliationRoleAttachment extends Attachment, IExpirable {
 export interface AffiliationContactPersonRole extends PersonRole {
 }
 
+export interface AgencyLOBPercentage {
+    BookOfBusinessChange: Partial<BookOfBusinessChange> | null;
+    BookOfBusinessChangeId: number;
+    Id: number;
+    LineOfBusinessType: 'Commercial'|'Life'|'Personal'|'Benefit';
+    Percentage: number;
+    ProducerLOBPercentages: Array<Partial<ProducerLOBPercentage>> | null;
+}
+
 export interface FiscalPeriod extends IIdentity, IExpirable {
     AgencyRole: Partial<AgencyRole> | null;
     AgencyRoleId: number;
@@ -3463,6 +3473,7 @@ export interface SupplementalProducerCode extends IIdentity, IExpirable {
 }
 
 export interface BookOfBusinessChange extends IIdentity {
+    AgencyLineOfBusinessPercentages: Array<Partial<AgencyLOBPercentage>> | null;
     Amount: Partial<number>;
     Company: Partial<Company> | null;
     CompanyId: number;
