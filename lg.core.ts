@@ -3461,6 +3461,17 @@ export interface ProducerCodeType extends IIdentity {
     Names: Array<Partial<ProducerCodeName>> | null;
 }
 
+export interface ProducerLOBPercentage {
+    AgencyLOBPercentage: Partial<AgencyLOBPercentage> | null;
+    AgencyLOBPercentageId: number;
+    Id: number;
+    Percentage: number;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    ProducerCodeType: Partial<ProducerCodeType> | null;
+    ProducerCodeTypeId: number | null;
+}
+
 export interface SupplementalProducerCode extends IIdentity, IExpirable {
     Ams360FullName: string | null;
     Empcode: string | null;
