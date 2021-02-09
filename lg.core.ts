@@ -3464,12 +3464,12 @@ export interface ProducerCodeType extends IIdentity {
 export interface ProducerLOBPercentage {
     AgencyLOBPercentage: Partial<AgencyLOBPercentage> | null;
     AgencyLOBPercentageId: number;
+    Ams360ProducerCodeType: Partial<Ams360ProducerCodeType> | null;
+    Ams360ProducerCodeTypeId: number | null;
     Id: number;
     Percentage: number;
     Person: Partial<Person> | null;
     PersonId: number | null;
-    ProducerCodeType: Partial<ProducerCodeType> | null;
-    ProducerCodeTypeId: number | null;
 }
 
 export interface SupplementalProducerCode extends IIdentity, IExpirable {
@@ -3484,7 +3484,7 @@ export interface SupplementalProducerCode extends IIdentity, IExpirable {
 }
 
 export interface BookOfBusinessChange extends IIdentity {
-    AgencyLineOfBusinessPercentages: Array<Partial<AgencyLOBPercentage>> | null;
+    AgencyLOBPercentages: Array<Partial<AgencyLOBPercentage>> | null;
     Amount: Partial<number>;
     Company: Partial<Company> | null;
     CompanyId: number;
