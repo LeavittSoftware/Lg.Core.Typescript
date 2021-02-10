@@ -1040,7 +1040,6 @@ export interface ManualEntryGlDivCode extends IIdentity, IExpirable {
 export interface ManualEntryManagementSystem {
     BranchCodes: Array<Partial<ManualEntryBranchCode>> | null;
     GlDivCodes: Array<Partial<ManualEntryGlDivCode>> | null;
-    TypeOfBusiness: 'Commercial'|'Life'|'Personal'|'Benefit' | null;
 }
 
 export interface SageManagementSystem {

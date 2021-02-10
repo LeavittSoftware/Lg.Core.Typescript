@@ -2057,6 +2057,27 @@ export interface UvisUnclaimedPolicy {
     TranId: string;
 }
 
+export interface HistoricalProduction {
+    CommAmt: Partial<number>;
+    DatabaseName: string | null;
+    GLDivision: string | null;
+    Id: number;
+    TranDate: string;
+    TranType: string | null;
+}
+
+export interface HistoricalGeneralLedger {
+    CreditAmt: Partial<number>;
+    DatabaseName: string | null;
+    DebitAmt: Partial<number>;
+    FiscalPeriod: number;
+    FiscalYear: number;
+    GLDivision: string | null;
+    GLNumber: string | null;
+    Id: number;
+    TranDate: string;
+}
+
 export interface ManualEntryBudget {
     BudgetAmt: Partial<number>;
     DatabaseName: string | null;
@@ -2085,26 +2106,6 @@ export interface ManualEntryProduction {
     ProducerCodeTypeId: number | null;
     ProductionType: 'New'|'Renew';
     TranDate: string;
-}
-
-export interface HistoricalProduction {
-    CommAmt: Partial<number>;
-    DatabaseName: string | null;
-    GLDivision: string | null;
-    Id: number;
-    TranDate: string;
-    TranType: string | null;
-}
-
-export interface HistoricalGeneralLedger {
-    CreditAmt: Partial<number>;
-    DatabaseName: string | null;
-    DebitAmt: Partial<number>;
-    FiscalPeriod: number;
-    FiscalYear: number;
-    GLDivision: string | null;
-    GLNumber: string | null;
-    Id: number;
-    TranDate: string;
+    TypeOfBusiness: 'Commercial'|'Life'|'Personal'|'Benefit' | null;
 }
 
