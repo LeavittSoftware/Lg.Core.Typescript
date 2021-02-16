@@ -31,7 +31,7 @@ export interface CustomerSearchResultDto {
 export interface DuplicateSearchResultDto {
     AccountName: string | null;
     AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
-    AccountType: number;
+    AccountType: number | null;
     Active: string | null;
     Address1: string | null;
     Address2: string | null;
