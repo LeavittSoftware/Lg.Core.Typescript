@@ -1603,6 +1603,11 @@ export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
     LastModifiedDate: string | null;
 }
 
+export interface CrmContactToEloquaEmailMaster {
+    CrmContactMasterCustomerId: string;
+    EmailAddress: string | null;
+}
+
 export interface EloquaContactV2 {
     Ams360SyncDate: string | null;
     BenefitPointSyncDate: string | null;
@@ -2738,6 +2743,7 @@ export interface PersonRole extends Role {
 }
 
 export interface PhoneNumber extends IPhoneNumber, IExpirable, IIdentity, ISynchronizable {
+    FullPhoneNumber: string | null;
     PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'PrimaryWork'|'PrimaryHome'|'Mobile'|'Fax';
 }
 
