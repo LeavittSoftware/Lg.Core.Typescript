@@ -1467,86 +1467,6 @@ export interface MileageRate {
     Rate: Partial<number>;
 }
 
-export interface EloquaContact {
-    CrmAccount: Partial<CrmAccount> | null;
-    EloquaContactId: number;
-    Id: number;
-    IsMaster: boolean;
-}
-
-export interface CoreToEloquaSyncerLogEntry {
-    CampaignToCrmAccountLastModifiedDate: string | null;
-    CrmAccountLastModifiedDate: string | null;
-    Id: number;
-}
-
-export interface CampaignToCrmAccount extends IIdentity, ICreatedBy {
-    Campaign: Partial<Campaign> | null;
-    CampaignId: number;
-    CreatedDate: string;
-    CrmAccount: Partial<CrmAccount> | null;
-    CrmAccountId: number;
-    InstanceId: number;
-    LastModifiedDate: string | null;
-}
-
-export interface CampaignToPerson {
-    Campaign: Partial<Campaign> | null;
-    CampaignId: number;
-    Id: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface EloquaEmailTemplateToPerson {
-    EloquaEmailTemplate: Partial<EloquaEmailTemplate> | null;
-    EloquaEmailTemplateId: number;
-    Id: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
-}
-
-export interface EloquaEmailTemplate {
-    CssHeader: string | null;
-    CurrentStatus: string | null;
-    EloquaEmailId: number;
-    EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
-    FolderId: number | null;
-    HtmlBody: string | null;
-    Id: number;
-    Name: string | null;
-    Subject: string | null;
-}
-
-export interface Campaign {
-    ActivationId: number | null;
-    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
-    CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
-    CurrentStatus: string | null;
-    Description: string | null;
-    EloquaCampaignId: number;
-    FolderId: number | null;
-    Id: number;
-    Name: string | null;
-}
-
-export interface EloquaSyncLogEntry extends IExpirable, IIdentity {
-    Company: Partial<Company> | null;
-    CompanyId: number;
-    LastSyncDate: string | null;
-    Type: 'Ams360'|'BenefitPoint';
-}
-
-export interface AMS360ToEloquaEmailMaster {
-    AMS360MasterCustomerId: string | null;
-    EmailAddress: string | null;
-}
-
-export interface BenefitPointToEloquaEmailMaster {
-    BenefitPointMasterCustomerId: string | null;
-    EmailAddress: string | null;
-}
-
 export interface CampaignV2 {
     ActivationId: number | null;
     CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccountV2>> | null;
@@ -1599,7 +1519,6 @@ export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
     CrmInstance: 'Production'|'Uat'|'Dev';
     EloquaContact: Partial<EloquaContactV2> | null;
     EloquaContactId: number;
-    IsMaster: boolean;
     LastModifiedDate: string | null;
 }
 
@@ -1617,26 +1536,6 @@ export interface EloquaContactV2 {
     EloquaId: number;
     Email: string | null;
     Id: number;
-}
-
-export interface EloquaEmailTemplateV2 {
-    CssHeader: string | null;
-    CurrentStatus: string | null;
-    EloquaEmailId: number;
-    EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
-    FolderId: number | null;
-    HtmlBody: string | null;
-    Id: number;
-    Name: string | null;
-    Subject: string | null;
-}
-
-export interface EloquaEmailTemplateToPersonV2 {
-    EloquaEmailTemplate: Partial<EloquaEmailTemplateV2> | null;
-    EloquaEmailTemplateId: number;
-    Id: number;
-    Person: Partial<Person> | null;
-    PersonId: number;
 }
 
 export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
@@ -1930,7 +1829,6 @@ export interface CrmAccount extends IIdentity {
     Address2: string | null;
     Ams360AccountId: string | null;
     AnnualPayroll: string | null;
-    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
     City: string | null;
     CompanySize: number | null;
     ContactFirstName: string | null;
@@ -1940,7 +1838,6 @@ export interface CrmAccount extends IIdentity {
     CrmInstance: 'Production'|'Uat'|'Dev';
     DoNotCall: boolean;
     EffectiveDate: string | null;
-    EloquaContact: Partial<EloquaContact> | null;
     Email: string | null;
     InitialAppointment: string | null;
     InitialConversation: string | null;
@@ -2536,7 +2433,6 @@ export interface Company extends IExpirable, IIdentity, ISynchronizable {
     CReportComments: Array<Partial<CReportComment>> | null;
     Departments: Array<Partial<Department>> | null;
     Divisions: Array<Partial<CompanyDivision>> | null;
-    EloquaSyncLogEntry: Partial<EloquaSyncLogEntry> | null;
     EloquaSyncLogEntryV2: Partial<EloquaSyncLogEntryV2> | null;
     EmailAddresses: Array<Partial<CompanyEmailAddress>> | null;
     ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
@@ -2648,10 +2544,8 @@ export interface Person extends IIdentity, ISynchronizable {
     AdpAccount: Partial<PersonAdpAccount> | null;
     Attachments: Array<Partial<Attachment>> | null;
     Biography: string | null;
-    CampaignToCrmAccounts: Array<Partial<CampaignToCrmAccount>> | null;
     CampaignToCrmAccountsV2: Array<Partial<CampaignToCrmAccountV2>> | null;
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
-    CampaignToPeople: Array<Partial<CampaignToPerson>> | null;
     CampaignToPeopleV2: Array<Partial<CampaignToPersonV2>> | null;
     Comments: Array<Partial<Comment>> | null;
     CompanyName: string | null;
@@ -2680,8 +2574,6 @@ export interface Person extends IIdentity, ISynchronizable {
     DeletedPLGamePoints: Array<Partial<PLGamePoint>> | null;
     DifferedCompensationBreakdowns: Array<Partial<DifferedCompensationBreakdown>> | null;
     DifferedCompensations: Array<Partial<DifferedCompensation>> | null;
-    EloquaEmailTemplateToPeople: Array<Partial<EloquaEmailTemplateToPerson>> | null;
-    EloquaEmailTemplateToPeopleV2: Array<Partial<EloquaEmailTemplateToPersonV2>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
     ExpenseForms: Array<Partial<ExpenseForm>> | null;
     Extensions: Array<Partial<Extension>> | null;

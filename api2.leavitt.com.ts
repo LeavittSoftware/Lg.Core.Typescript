@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,EloquaEmailTemplateV2,EloquaEmailTemplate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -718,7 +718,6 @@ export interface MarketingManagerDtoV2 {
     DoNotCall: boolean;
     EloquaAccountName: string | null;
     EloquaContactId: number;
-    EloquaEmailTemplates: Array<Partial<EloquaEmailTemplateV2>> | null;
     EloquaFirstName: string | null;
     EloquaId: number | null;
     EloquaLastName: string | null;
@@ -803,7 +802,6 @@ export interface MarketingManagerDto {
     CrmLastName: string | null;
     DoNotCall: boolean;
     EloquaAccountName: string | null;
-    EloquaEmailTemplates: Array<Partial<EloquaEmailTemplate>> | null;
     EloquaFirstName: string | null;
     EloquaId: number | null;
     EloquaLastName: string | null;
