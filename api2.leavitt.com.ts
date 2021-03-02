@@ -900,6 +900,8 @@ export interface ConferenceScheduleDto {
     Description: string | null;
     Id: number;
     Name: string | null;
+    SponsorAttachmentCdnFileName: string | null;
+    SponsorAttachmentExtension: string | null;
     SponsorAttachmentId: number | null;
     SponsorName: string | null;
     TimeslotEndDate: string;
