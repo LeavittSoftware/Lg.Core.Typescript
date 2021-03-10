@@ -591,6 +591,28 @@ export interface SurgePause extends IIdentity, IExpirable {
     SurgeId: number;
 }
 
+export interface SnapshotViewership {
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface SnapshotViewershipToPeopleGroup {
+    Id: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+    SnapshotViewership: Partial<SnapshotViewership> | null;
+    SnapshotViewershipId: number;
+}
+
+export interface SnapshotViewershipToPerson {
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+    SnapshotViewership: Partial<SnapshotViewership> | null;
+    SnapshotViewershipId: number;
+}
+
 export interface PLGame extends IIdentity {
     Divisions: Array<Partial<PLGameDivision>> | null;
     EndDate: string | null;
@@ -2377,6 +2399,7 @@ export interface PeopleGroup extends Group, IExpirable {
     PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
     PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
+    SnapViewershipToPeopleGroups: Array<Partial<SnapshotViewershipToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
     SurveyRespondentToPeopleGroups: Array<Partial<SurveyRespondentToPeopleGroup>> | null;
 }
@@ -2611,6 +2634,8 @@ export interface Person extends IIdentity, ISynchronizable {
     Roles: Array<Partial<PersonRole>> | null;
     SalesExpectations: Array<Partial<SalesExpectation>> | null;
     SessionSpeakers: Array<Partial<SessionSpeaker>> | null;
+    SnapshotViewerships: Array<Partial<SnapshotViewership>> | null;
+    SnapViewershipToPeopleGroups: Array<Partial<SnapshotViewershipToPeopleGroup>> | null;
     SurveyAdmins: Array<Partial<SurveyAdmin>> | null;
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
     SurveyRespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
