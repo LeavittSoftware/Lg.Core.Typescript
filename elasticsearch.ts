@@ -135,6 +135,8 @@ export interface Ams360Customer {
     CoreCompanyId: number | null;
     CoreCompanyName: string | null;
     County: string | null;
+    CsrName: string | null;
+    CsrPersonId: number | null;
     CustId: string | null;
     DatabaseName: string | null;
     Dba: string | null;
@@ -143,10 +145,10 @@ export interface Ams360Customer {
     FirmNameCust: string | null;
     FirstName: string | null;
     FullName: string | null;
-    GLBrnchCode: string | null;
-    GLDeptCode: string | null;
-    GLDivCode: string | null;
-    GLGrpCode: string | null;
+    GLBrnchCodeName: string | null;
+    GLDeptCodeName: string | null;
+    GLDivCodeName: string | null;
+    GLGrpCodeName: string | null;
     Id: string | null;
     IsEmailValid: boolean;
     LastName: string | null;
