@@ -2635,6 +2635,7 @@ export interface Person extends IIdentity, ISynchronizable {
     SalesExpectations: Array<Partial<SalesExpectation>> | null;
     SessionSpeakers: Array<Partial<SessionSpeaker>> | null;
     SnapshotViewerships: Array<Partial<SnapshotViewership>> | null;
+    SnapViewershipToPeople: Array<Partial<SnapshotViewershipToPerson>> | null;
     SnapViewershipToPeopleGroups: Array<Partial<SnapshotViewershipToPeopleGroup>> | null;
     SurveyAdmins: Array<Partial<SurveyAdmin>> | null;
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
