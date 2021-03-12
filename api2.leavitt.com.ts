@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -1073,6 +1073,22 @@ export interface CLGamePlayerDto {
     TeamName: string | null;
     TeamPersonRoleId: number | null;
     TotalPoints: Partial<number>;
+}
+
+export interface ViewableUsersDTO {
+    CustomAccess: Array<Partial<ViewableUsersPersonDTO>> | null;
+    DefaultAccess: Array<Partial<Person>> | null;
+    Id: number;
+    People: Array<Partial<ViewableUsersPersonDTO>> | null;
+    PeopleGroups: Array<Partial<PeopleGroup>> | null;
+}
+
+export interface ViewableUsersPersonDTO {
+    FirstName: string | null;
+    LastName: string | null;
+    LinkingId: number;
+    PeopleGroupName: string | null;
+    PersonId: number;
 }
 
 export interface IIdentity {
