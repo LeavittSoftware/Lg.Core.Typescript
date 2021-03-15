@@ -1089,6 +1089,7 @@ export interface ViewableUsersPersonDTO {
     LinkingId: number;
     PeopleGroupName: string | null;
     PersonId: number;
+    WaysIncluded: string | null;
 }
 
 export interface IIdentity {
