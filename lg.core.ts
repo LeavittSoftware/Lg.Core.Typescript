@@ -593,6 +593,8 @@ export interface SurgePause extends IIdentity, IExpirable {
 
 export interface SnapshotViewership {
     Id: number;
+    People: Array<Partial<SnapshotViewershipToPerson>> | null;
+    PeopleGroups: Array<Partial<SnapshotViewershipToPeopleGroup>> | null;
     Person: Partial<Person> | null;
     PersonId: number;
 }
