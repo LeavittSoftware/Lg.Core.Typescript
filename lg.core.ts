@@ -1431,6 +1431,18 @@ export interface ReplyReaction extends Reaction {
     ReplyId: number;
 }
 
+export interface GpNomination extends ICreatedBy {
+    AwardedByPerson: Partial<Person> | null;
+    AwardedByPersonId: number | null;
+    AwardedDate: string | null;
+    CreatedDate: string;
+    Id: number;
+    NominatedPerson: Partial<Person> | null;
+    NominatedPersonId: number;
+    NominationPrinciple: 'BeHonestAndOperateWithIntegrity'|'ServeStakeholders'|'AlignInterests'|'GrowProfitably'|'Adapt'|'Enjoy'|'CommunicateWithReasonAndCivility';
+    NominationReason: string | null;
+}
+
 export interface ExpenseAttachment extends Attachment {
     ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
     FolderName: string | null;
@@ -2568,6 +2580,7 @@ export interface Person extends IIdentity, ISynchronizable {
     Addresses: Array<Partial<PersonAddress>> | null;
     AdpAccount: Partial<PersonAdpAccount> | null;
     Attachments: Array<Partial<Attachment>> | null;
+    AwardedNominations: Array<Partial<GpNomination>> | null;
     Biography: string | null;
     CampaignToCrmAccountsV2: Array<Partial<CampaignToCrmAccountV2>> | null;
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
@@ -2584,6 +2597,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CreatedFolders: Array<Partial<Folder>> | null;
     CreatedJobRoleTypes: Array<Partial<JobRoleType>> | null;
     CreatedLessons: Array<Partial<EducationLesson>> | null;
+    CreatedNominations: Array<Partial<GpNomination>> | null;
     CreatedQuestions: Array<Partial<EducationQuestion>> | null;
     CreatedSurveyAnswers: Array<Partial<SurveyAnswer>> | null;
     CreatedSurveyQuestions: Array<Partial<SurveyQuestion>> | null;
@@ -2609,6 +2623,7 @@ export interface Person extends IIdentity, ISynchronizable {
     ForumOptOuts: Array<Partial<ForumOptOut>> | null;
     ForumViews: Array<Partial<ForumView>> | null;
     Gender: string | null;
+    GpNominations: Array<Partial<GpNomination>> | null;
     HomeUserAnalytics: Array<Partial<HomeUserAnalytic>> | null;
     InAppNotifications: Array<Partial<InAppNotification>> | null;
     JobTitle: string | null;
