@@ -1024,7 +1024,7 @@ export interface RevenueReportDto {
 }
 
 export interface AccountDto {
-    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits'|'FinancialServices';
+    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits'|'FinancialServices'|'CenterofInfluence';
     Id: string;
     Name: string | null;
     Opportunities: Array<Partial<OpportunityDto>> | null;
