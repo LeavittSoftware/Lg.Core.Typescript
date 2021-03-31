@@ -1581,6 +1581,14 @@ export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
     Type: 'Ams360'|'BenefitPoint';
 }
 
+export interface CourseEmailRecipient {
+    EducationCourse: Partial<EducationCourse> | null;
+    EducationCourseId: number;
+    Id: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
 export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
     Course: Partial<EducationCourse> | null;
     CourseId: number;
@@ -1629,6 +1637,7 @@ export interface EducationCourse extends IIdentity, IChangeTracking, ICreatedBy 
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
     CreatedDate: string;
     Description: string | null;
+    EmailRecipients: Array<Partial<CourseEmailRecipient>> | null;
     FeaturedImage: Partial<CourseFeaturedImageAttachment> | null;
     FeaturedImageId: number | null;
     Lessons: Array<Partial<EducationLesson>> | null;
@@ -1966,6 +1975,20 @@ export interface Extension extends IIdentity {
     Number: string | null;
     Person: Partial<Person> | null;
     PersonId: number;
+}
+
+export interface PermissionManagerToPermission extends IExpirable, IIdentity {
+    Permission: Partial<Permission> | null;
+    PermissionId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface PermissionToPermissionManagerGroup extends IExpirable, IIdentity {
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
+    Permission: Partial<Permission> | null;
+    PermissionId: number;
 }
 
 export interface Scope extends IIdentity, ISynchronizable, IExpirable {
@@ -2412,6 +2435,7 @@ export interface PeopleGroup extends Group, IExpirable {
     PeopleGroupToPermissionGroups: Array<Partial<PeopleGroupToPermissionGroup>> | null;
     PeopleGroupToWebComponentSlides: Array<Partial<PeopleGroupToWebComponentSlide>> | null;
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
+    PermissionToPermissionManagerGroups: Array<Partial<PermissionToPermissionManagerGroup>> | null;
     PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
     SnapViewershipToPeopleGroups: Array<Partial<SnapshotViewershipToPeopleGroup>> | null;
     SurveyAdminToPeopleGroups: Array<Partial<SurveyAdminToPeopleGroup>> | null;
@@ -2563,8 +2587,10 @@ export interface Permission extends IIdentity, ISynchronizable, IExpirable {
     ApplicationId: number;
     Description: string | null;
     Name: string | null;
+    PermissionManagerToPermissions: Array<Partial<PermissionManagerToPermission>> | null;
     PermissionToPeopleGroups: Array<Partial<PermissionToPeopleGroup>> | null;
     PermissionToPermissionGroups: Array<Partial<PermissionToPermissionGroup>> | null;
+    PermissionToPermissionManagerGroups: Array<Partial<PermissionToPermissionManagerGroup>> | null;
     PersonToPermissions: Array<Partial<PersonToPermission>> | null;
     Scope: Partial<Scope> | null;
     ScopeId: number | null;
@@ -2586,6 +2612,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CampaignToPeopleV2: Array<Partial<CampaignToPersonV2>> | null;
     Comments: Array<Partial<Comment>> | null;
+    CompanyId: number | null;
     CompanyName: string | null;
     CourseAdmins: Array<Partial<CourseAdmin>> | null;
     CourseMembers: Array<Partial<CourseMember>> | null;
@@ -2614,6 +2641,7 @@ export interface Person extends IIdentity, ISynchronizable {
     DifferedCompensationBreakdowns: Array<Partial<DifferedCompensationBreakdown>> | null;
     DifferedCompensations: Array<Partial<DifferedCompensation>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
+    EmailRecipients: Array<Partial<CourseEmailRecipient>> | null;
     ExpenseForms: Array<Partial<ExpenseForm>> | null;
     Extensions: Array<Partial<Extension>> | null;
     FirstName: string | null;
@@ -2636,6 +2664,7 @@ export interface Person extends IIdentity, ISynchronizable {
     Names: Array<Partial<PersonName>> | null;
     NewsRecipients: Array<Partial<NewsRecipient>> | null;
     NotificationActivityLogs: Array<Partial<NotificationActivityLog>> | null;
+    PermissionManagerToPermissions: Array<Partial<PermissionManagerToPermission>> | null;
     PersonMondayAccount: Partial<PersonMondayAccount> | null;
     PersonToNotifications: Array<Partial<PersonToNotification>> | null;
     PersonToPeopleGroups: Array<Partial<PersonToPeopleGroup>> | null;
