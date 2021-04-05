@@ -4,6 +4,18 @@
 // </auto-generated>
 // ----------------------
 
+export interface AgencyXRefType {
+    AXRefId: string;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    DatabaseName: string | null;
+    Description: string | null;
+    EnteredDate: string;
+    Id: number;
+    IsHide: string | null;
+    PermFlag: number;
+}
+
 export interface CoverageCode {
     CCKey: number;
     ChangedBy: string | null;
@@ -112,6 +124,18 @@ export interface CPrem {
     vLimit4: string | null;
     WaitingPeriod: number | null;
     Zone: number | null;
+}
+
+export interface CustXRef {
+    AXRefId: string;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    CustId: string;
+    CXRefId: string;
+    DatabaseName: string | null;
+    EnteredDate: string;
+    Id: number;
+    XReference: string | null;
 }
 
 export interface GeneralLedgerPeriod {
