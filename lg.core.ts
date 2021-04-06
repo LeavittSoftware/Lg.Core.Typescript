@@ -2631,6 +2631,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CreatedSurveys: Array<Partial<Survey>> | null;
     CReportComments: Array<Partial<CReportComment>> | null;
     CrmAccounts: Array<Partial<CrmAccount>> | null;
+    CrmActivityPlanners: Array<Partial<CrmActivityPlanner>> | null;
     CrmCommissions: Array<Partial<CrmCommission>> | null;
     CrmContacts: Array<Partial<CrmContact>> | null;
     CrmContactToEloquaContacts: Array<Partial<CrmContactToEloquaContact>> | null;
