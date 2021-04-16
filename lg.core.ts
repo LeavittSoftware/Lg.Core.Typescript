@@ -591,6 +591,26 @@ export interface SurgePause extends IIdentity, IExpirable {
     SurgeId: number;
 }
 
+export interface StateRate {
+    ClearingFee: Partial<number>;
+    EffectiveDate: string;
+    Id: number;
+    LegalDisclaimer: string | null;
+    LiabilityTax: Partial<number>;
+    Notes: string | null;
+    OtherFee: Partial<number>;
+    OtherFlatFee: Partial<number>;
+    PropertyTax: Partial<number>;
+    State: string | null;
+    StateTaxCalc: string | null;
+}
+
+export interface NaicsCode {
+    Code: number;
+    Id: number;
+    Title: string | null;
+}
+
 export interface SnapshotViewership {
     Id: number;
     People: Array<Partial<SnapshotViewershipToPerson>> | null;
