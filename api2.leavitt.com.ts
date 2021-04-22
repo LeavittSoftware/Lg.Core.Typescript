@@ -1092,6 +1092,11 @@ export interface ViewableUsersPersonDTO {
     WaysIncluded: string | null;
 }
 
+export interface NaicsCsvUploadDto {
+    FileName: string | null;
+    RecordCount: number;
+}
+
 export interface IIdentity {
     Id: number;
 }
