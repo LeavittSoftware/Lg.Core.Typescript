@@ -1111,6 +1111,13 @@ export interface NaicsReportTopStatesDto {
     State: string | null;
 }
 
+export interface NaicsReportTopAgenciesDto {
+    Agency: string | null;
+    NaicsCode: number;
+    Premium: number;
+    Rank: number;
+}
+
 export interface IIdentity {
     Id: number;
 }

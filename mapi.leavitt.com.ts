@@ -9,6 +9,13 @@ export interface Base64Dto {
     Value: string | null;
 }
 
+export interface NaicsReportTopAgenciesDto {
+    Agency: string | null;
+    NaicsCode: number;
+    Premium: number;
+    Rank: number;
+}
+
 export interface NaicsReportTopCarriersDto {
     NaicsCode: number;
     ParentCompany: string | null;
