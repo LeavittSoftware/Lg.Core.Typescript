@@ -1092,6 +1092,13 @@ export interface ViewableUsersPersonDTO {
     WaysIncluded: string | null;
 }
 
+export interface NaicsReportTopProducersDto {
+    AgencyName: string | null;
+    NaicsCode: number;
+    Producer: string | null;
+    Rank: number;
+}
+
 export interface NaicsReportTopCarriersDto {
     NaicsCode: number;
     ParentCompany: string | null;

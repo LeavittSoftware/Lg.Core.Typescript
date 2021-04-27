@@ -16,6 +16,13 @@ export interface NaicsReportTopAgenciesDto {
     Rank: number;
 }
 
+export interface NaicsReportTopProducersDto {
+    AgencyName: string | null;
+    NaicsCode: number;
+    Producer: string | null;
+    Rank: number;
+}
+
 export interface NaicsReportTopCarriersDto {
     NaicsCode: number;
     ParentCompany: string | null;
