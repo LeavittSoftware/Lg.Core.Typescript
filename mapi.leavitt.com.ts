@@ -16,3 +16,10 @@ export interface NaicsReportTopCarriersDto {
     Rank: number;
 }
 
+export interface NaicsReportTopStatesDto {
+    NaicsCode: number;
+    Premium: number;
+    Rank: number;
+    State: string | null;
+}
+
