@@ -1092,6 +1092,13 @@ export interface ViewableUsersPersonDTO {
     WaysIncluded: string | null;
 }
 
+export interface NaicsReportTopCarriersDto {
+    NaicsCode: number;
+    ParentCompany: string | null;
+    Premium: number;
+    Rank: number;
+}
+
 export interface NaicsCsvUploadDto {
     FileName: string | null;
     RecordCount: number;
