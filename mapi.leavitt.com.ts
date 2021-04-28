@@ -19,6 +19,7 @@ export interface NaicsReportTopAgenciesDto {
 export interface NaicsReportTopProducersDto {
     AgencyName: string | null;
     NaicsCode: number;
+    Premium: number;
     Producer: string | null;
     Rank: number;
 }
