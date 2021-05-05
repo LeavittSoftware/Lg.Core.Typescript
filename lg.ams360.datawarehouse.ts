@@ -4,6 +4,51 @@
 // </auto-generated>
 // ----------------------
 
+export interface Coverage {
+    AppliesTo: string | null;
+    AttachId: string;
+    AttachType: number;
+    ChangedBy: string | null;
+    ChangedDate: string;
+    CoinPercent: number | null;
+    CoverageCode: string | null;
+    CoverageId: string;
+    DatabaseName: string | null;
+    Deduct1: number | null;
+    Deduct2: number | null;
+    Deduct3: number | null;
+    DeductType1: string | null;
+    DeductType2: string | null;
+    DeductType3: string | null;
+    DescrCov: string | null;
+    EffDate: string;
+    EnteredDate: string;
+    ExpDate: string | null;
+    FormDate: string | null;
+    FormNo: string | null;
+    FullTermPrem: Partial<number> | null;
+    Id: number;
+    InsertSeqNo: number;
+    IsBlanket: string | null;
+    IsCoverage: string | null;
+    IsStatutory: string | null;
+    Limit1: number | null;
+    Limit2: number | null;
+    Limit3: number | null;
+    LobId: string;
+    ModType: string | null;
+    NetChange: Partial<number> | null;
+    NumOf: string | null;
+    ParentCovId: string | null;
+    PolId: string;
+    SLOBOption1: string | null;
+    SLOBOption2: string | null;
+    SortNo: number | null;
+    Status: string | null;
+    Step: string | null;
+    TypeOfCode: string | null;
+}
+
 export interface AgencyXRefType {
     AXRefId: string;
     ChangedBy: string | null;
