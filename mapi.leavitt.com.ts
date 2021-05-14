@@ -9,6 +9,24 @@ export interface Base64Dto {
     Value: string | null;
 }
 
+export interface PlaceBusinessCardOrderDto {
+    AgencyName: string | null;
+    Fields: Array<Partial<PdfField>> | null;
+    OrderedFor: string | null;
+    Price: Partial<number>;
+    Quantity: number;
+    SpecialInstructions: string | null;
+}
+
+export interface PdfFieldData {
+    Fields: Array<Partial<PdfField>> | null;
+}
+
+export interface PdfField {
+    Name: string | null;
+    Value: string | null;
+}
+
 export interface NaicsReportTopAgenciesDto {
     Agency: string | null;
     NaicsCode: number;
