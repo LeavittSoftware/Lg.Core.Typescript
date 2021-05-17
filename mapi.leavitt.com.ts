@@ -13,8 +13,7 @@ export interface PlaceBusinessCardOrderDto {
     AgencyName: string | null;
     Fields: Array<Partial<PdfField>> | null;
     OrderedFor: string | null;
-    Price: Partial<number>;
-    Quantity: number;
+    PriceId: number;
     SpecialInstructions: string | null;
 }
 
