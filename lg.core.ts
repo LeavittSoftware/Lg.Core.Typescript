@@ -3341,6 +3341,7 @@ export interface PDFTemplateFieldKey {
     BusinessCardTemplate: Partial<BusinessCardTemplate> | null;
     BusinessCardTemplateId: number;
     Id: number;
+    IsMultiline: boolean;
     Key: string | null;
 }
 
