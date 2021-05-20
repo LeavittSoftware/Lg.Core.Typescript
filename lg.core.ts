@@ -635,6 +635,159 @@ export interface SnapshotViewershipToPerson {
     SnapshotViewershipId: number;
 }
 
+export interface Task {
+    Id: number;
+    Name: string | null;
+    RelativeDate: string;
+    Reminders: Array<Partial<TaskReminder>> | null;
+    SendCalendarInvite: boolean;
+    SendEmailReminder: boolean;
+    Status: 'NotStarted'|'InProgress'|'Completed';
+}
+
+export interface TaskReminder {
+    Date: string | null;
+    Id: number;
+    RelativeDate: string;
+    Task: Partial<Task> | null;
+    TaskId: number;
+}
+
+export interface TimelineCoverPageAttachment extends Attachment {
+    IsActive: boolean;
+    Name: string | null;
+    Pages: Array<Partial<TimelineEnabledPage>> | null;
+}
+
+export interface Timeline {
+    City: string | null;
+    CompanyName: string | null;
+    CreatedDate: string;
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    EnabledPages: Array<Partial<TimelineEnabledPage>> | null;
+    Id: number;
+    LastModifiedBy: Partial<Person> | null;
+    LastModifiedById: number | null;
+    LastModifiedDate: string | null;
+    Owner: Partial<TimelineContact> | null;
+    OwnerId: number | null;
+    StartDate: string | null;
+    State: string | null;
+    Status: 'InActive'|'Active';
+    Street1: string | null;
+    Street2: string | null;
+    TimelineContacts: Array<Partial<TimelineContact>> | null;
+    TimelineDocument: Partial<TimelineDocument> | null;
+    TimelineDocumentId: number | null;
+    TimelineTasks: Array<Partial<TimelineTask>> | null;
+    Website: string | null;
+    Zip: string | null;
+}
+
+export interface TimelineContact {
+    AssignedTasks: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
+    Biography: string | null;
+    DoNotEmail: boolean;
+    Email: string | null;
+    FaxPhoneNumber: string | null;
+    Id: number;
+    Name: string | null;
+    Person: Partial<Person> | null;
+    PersonId: number | null;
+    Timeline: Partial<Timeline> | null;
+    TimelineId: number;
+    Title: string | null;
+    WatchedTasks: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
+    WorkPhoneNumber: string | null;
+}
+
+export interface TimelineDocument {
+    Id: number;
+    IsActive: boolean;
+    Name: string | null;
+    Pages: Array<Partial<TimelineDocumentPage>> | null;
+    PDFs: Array<Partial<TimelineDocumentPDFAttachment>> | null;
+    Timelines: Array<Partial<Timeline>> | null;
+}
+
+export interface TimelineDocumentPage {
+    Description: string | null;
+    Id: number;
+    IsCoverPage: boolean;
+    Name: string | null;
+    TimelineDocument: Partial<TimelineDocument> | null;
+    TimelineDocumentId: number;
+    TimelineEnabledPages: Array<Partial<TimelineEnabledPage>> | null;
+}
+
+export interface TimelineDocumentPDFAttachment extends Attachment {
+    TimelineDocument: Partial<TimelineDocument> | null;
+    TimelineDocumentId: number;
+}
+
+export interface TimelineEnabledPage {
+    Id: number;
+    Timeline: Partial<Timeline> | null;
+    TimelineCoverPageAttachment: Partial<TimelineCoverPageAttachment> | null;
+    TimelineCoverPageAttachmentId: number | null;
+    TimelineDocumentPage: Partial<TimelineDocumentPage> | null;
+    TimelineDocumentPageId: number;
+    TimelineId: number;
+}
+
+export interface TimelineTaskToTimelineContactAssignee {
+    Id: number;
+    TimelineContact: Partial<TimelineContact> | null;
+    TimelineContactId: number;
+    TimelineTask: Partial<TimelineTask> | null;
+    TimelineTaskId: number;
+}
+
+export interface TimelineTask extends Task {
+    Assignees: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
+    CalendarInviteSentDate: string;
+    DueDate: string;
+    NotifyWatchersOnComplete: boolean;
+    NotifyWatchersOnDueDate: boolean;
+    Timeline: Partial<Timeline> | null;
+    TimelineId: number;
+    Watchers: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
+}
+
+export interface TimelineTaskToTimelineContactWatcher {
+    Id: number;
+    TimelineContact: Partial<TimelineContact> | null;
+    TimelineContactId: number;
+    TimelineTask: Partial<TimelineTask> | null;
+    TimelineTaskId: number;
+}
+
+export interface TimelineTemplate {
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    Description: string | null;
+    Id: number;
+    Name: string | null;
+    SharedAgencies: Array<Partial<TimelineTemplateToCompany>> | null;
+    Tasks: Array<Partial<TimelineTemplateTask>> | null;
+}
+
+export interface TimelineTemplateTask extends Task {
+    TimelineTemplate: Partial<TimelineTemplate> | null;
+    TimelineTemplateId: number;
+}
+
+export interface TimelineTemplateToCompany {
+    Company: Partial<Company> | null;
+    CompanyId: number;
+    Creator: Partial<Person> | null;
+    CreatorId: number;
+    Id: number;
+    TimelineTemplate: Partial<TimelineTemplate> | null;
+    TimelineTemplateId: number;
+}
+
 export interface PLGame extends IIdentity {
     Divisions: Array<Partial<PLGameDivision>> | null;
     EndDate: string | null;
@@ -2712,6 +2865,7 @@ export interface Person extends IIdentity, ISynchronizable {
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
     SurveyRespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
     SurveyResponses: Array<Partial<SurveyResponse>> | null;
+    Timelines: Array<Partial<Timeline>> | null;
     TrackableAttachmentToPeople: Array<Partial<TrackableAttachmentToPerson>> | null;
     UltiProAccounts: Array<Partial<PersonUltiProAccount>> | null;
 }
