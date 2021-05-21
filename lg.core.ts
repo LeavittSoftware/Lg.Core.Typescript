@@ -655,8 +655,8 @@ export interface TaskReminder {
 }
 
 export interface TimelineCoverPageAttachment extends Attachment {
+    CoverPageName: string | null;
     IsActive: boolean;
-    Name: string | null;
     Pages: Array<Partial<TimelineEnabledPage>> | null;
 }
 
