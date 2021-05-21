@@ -107,6 +107,7 @@ export interface LogEntryItem {
 }
 
 export interface AutomatedApplication extends IExpirable, IIdentity {
+    Frequency: string;
     LastHeardFromDateTime: string | null;
     LastHeardFromIp: string | null;
     LastRunDateTime: string | null;
@@ -3475,7 +3476,7 @@ export interface BusinessCardTemplate extends IChangeTracking, ICreatedBy {
     Name: string | null;
     PDF: Partial<BusinessCardTemplateAttachment> | null;
     PDFId: number | null;
-    PDFTemplateFieldKeys: Array<Partial<PDFTemplateFieldKey>> | null;
+    PdfTemplateFieldKeys: Array<Partial<PdfTemplateFieldKey>> | null;
 }
 
 export interface BusinessCardTemplateAttachment extends Attachment {
@@ -3491,12 +3492,12 @@ export interface BusinessCardOrderAttachment extends Attachment {
     StorageFileNameAndPath: string | null;
 }
 
-export interface PDFTemplateFieldKey {
+export interface PdfTemplateFieldKey {
     BusinessCardTemplate: Partial<BusinessCardTemplate> | null;
     BusinessCardTemplateId: number;
     Id: number;
-    IsMultiline: boolean;
     Key: string | null;
+    Type: 'Text'|'Image';
 }
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
