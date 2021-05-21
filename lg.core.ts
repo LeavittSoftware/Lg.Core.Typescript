@@ -107,7 +107,7 @@ export interface LogEntryItem {
 }
 
 export interface AutomatedApplication extends IExpirable, IIdentity {
-    Frequency: string;
+    Frequency: number;
     LastHeardFromDateTime: string | null;
     LastHeardFromIp: string | null;
     LastRunDateTime: string | null;
@@ -639,7 +639,7 @@ export interface SnapshotViewershipToPerson {
 export interface Task {
     Id: number;
     Name: string | null;
-    RelativeDate: string;
+    RelativeDate: number;
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
@@ -649,7 +649,7 @@ export interface Task {
 export interface TaskReminder {
     Date: string | null;
     Id: number;
-    RelativeDate: string;
+    RelativeDate: number;
     Task: Partial<Task> | null;
     TaskId: number;
 }
@@ -747,8 +747,8 @@ export interface TimelineTaskToTimelineContactAssignee {
 
 export interface TimelineTask extends Task {
     Assignees: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
-    CalendarInviteSentDate: string;
-    DueDate: string;
+    CalendarInviteSentDate: string | null;
+    DueDate: string | null;
     NotifyWatchersOnComplete: boolean;
     NotifyWatchersOnDueDate: boolean;
     Timeline: Partial<Timeline> | null;
