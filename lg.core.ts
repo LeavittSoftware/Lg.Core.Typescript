@@ -675,7 +675,7 @@ export interface Timeline {
     OwnerId: number | null;
     StartDate: string | null;
     State: string | null;
-    Status: 'InActive'|'Active';
+    Status: 'Inactive'|'Active';
     Street1: string | null;
     Street2: string | null;
     TimelineContacts: Array<Partial<TimelineContact>> | null;
