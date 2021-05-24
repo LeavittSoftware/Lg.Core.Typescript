@@ -1092,6 +1092,10 @@ export interface ViewableUsersPersonDTO {
     WaysIncluded: string | null;
 }
 
+export interface CreateTimelineDto {
+    TimelineTemplateId: number | null;
+}
+
 export interface NaicsReportTopProducersDto {
     AgencyName: string | null;
     NaicsCode: number;
