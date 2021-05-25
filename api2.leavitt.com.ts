@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TaskReminder } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -1094,6 +1094,17 @@ export interface ViewableUsersPersonDTO {
 
 export interface CreateTimelineDto {
     TimelineTemplateId: number | null;
+}
+
+export interface TemplateTaskDto {
+    Id: number | null;
+    Name: string | null;
+    RelativeDate: number;
+    Reminders: Array<Partial<TaskReminder>> | null;
+    SendCalendarInvite: boolean;
+    SendEmailReminder: boolean;
+    Status: 'NotStarted'|'InProgress'|'Completed';
+    TimelineTemplateId: number;
 }
 
 export interface NaicsReportTopProducersDto {
