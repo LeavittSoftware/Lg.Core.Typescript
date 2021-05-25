@@ -27,10 +27,9 @@ export interface BenefitPointCustomerConflict {
 }
 
 export interface AutomatedAppDto {
-    ErrorCount: number;
+    HasError: boolean;
     Id: number;
-    LastHeardFromDateTime: string | null;
-    LastHeardFromIp: string | null;
+    IsDown: boolean;
     LastRunDateTime: string | null;
     Name: string | null;
 }
