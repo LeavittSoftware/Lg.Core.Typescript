@@ -16,12 +16,44 @@ export interface ICreatedBy {
 }
 
 export interface Detail extends IIdentity {
-    DataType: 'PhoneNumber'|'Url'|'Currency'|'String'|'DateTime'|'Int';
+    DataType: DataTypesString;
     Name: string | null;
     Section: string | null;
     SubCategory: string | null;
     Value: string | null;
 }
+
+export enum DataTypes {
+    PhoneNumber = 0,
+    Url = 1,
+    Currency = 2,
+    String = 3,
+    DateTime = 4,
+    Int = 5
+}
+
+export type DataTypesString = keyof typeof DataTypes;
+
+export enum AddressTypes {
+    Business = 0,
+    Home = 1
+}
+
+export type AddressTypesString = keyof typeof AddressTypes;
+
+export enum PhoneNumberTypes {
+    HrCompanyMain = 0,
+    HrCompanyFax = 1,
+    HrCompanyOther = 3,
+    HrCompanyAddressMain = 4,
+    HrCompanyAddressFax = 5,
+    PrimaryWork = 7,
+    PrimaryHome = 9,
+    Mobile = 11,
+    Fax = 12
+}
+
+export type PhoneNumberTypesString = keyof typeof PhoneNumberTypes;
 
 export interface IIdentity {
     Id: number;
@@ -58,7 +90,7 @@ export interface Fruit extends IIdentity {
     Decimal1Nullable: number | null;
     Double1: number;
     Double1Nullable: number | null;
-    FlagEnumSample: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
+    FlagEnumSample: DaysOfWeek;
     Float1: number;
     Float1Nullable: number | null;
     FruitMold: Partial<FruitMold> | null;
@@ -71,9 +103,18 @@ export interface Fruit extends IIdentity {
     Int641Nullable: number | null;
     Name: string | null;
     Pesticides: Array<Partial<Pesticide>> | null;
-    SeasonAvailable: 'Spring'|'Winter'|'Summer'|'Fall';
-    SeasonAvailableNullable: 'Spring'|'Winter'|'Summer'|'Fall' | null;
+    SeasonAvailable: SeasonsString;
+    SeasonAvailableNullable: SeasonsString | null;
 }
+
+export enum Seasons {
+    Spring = 0,
+    Winter = 1,
+    Summer = 2,
+    Fall = 3
+}
+
+export type SeasonsString = keyof typeof Seasons;
 
 export interface Pesticide extends IIdentity {
     Fruits: Array<Partial<Fruit>> | null;
@@ -83,12 +124,22 @@ export interface Pesticide extends IIdentity {
 export interface CPACDeduction extends Deduction {
 }
 
+export enum DeductionFrequency {
+    OneTime = 0,
+    PerPaycheck = 1,
+    Monthly = 2,
+    Annually = 3,
+    Quarterly = 4
+}
+
+export type DeductionFrequencyString = keyof typeof DeductionFrequency;
+
 export interface Deduction extends IIdentity {
     Amount: Partial<number>;
     Canceled: string | null;
     DateCreated: string;
     Enacted: string | null;
-    Frequency: 'OneTime'|'PerPaycheck'|'Monthly'|'Annually'|'Quarterly';
+    Frequency: DeductionFrequencyString;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
     LGEmployeeRoleId: number;
     Verified: string | null;
@@ -100,10 +151,10 @@ export interface LogEntryItem {
     DateTime: string;
     Id: number;
     Instance: string | null;
-    Level: 'Info'|'Warn'|'Error';
+    Level: LogEntryLevelString;
     Message: string | null;
     Source: string | null;
-    Type: 'Feedback'|'Summary';
+    Type: LogEntryTypeString;
 }
 
 export interface AutomatedApplication extends IExpirable, IIdentity {
@@ -114,6 +165,21 @@ export interface AutomatedApplication extends IExpirable, IIdentity {
     Name: string | null;
     Triggers: Array<Partial<Trigger>> | null;
 }
+
+export enum LogEntryLevel {
+    Info = 0,
+    Warn = 1,
+    Error = 2
+}
+
+export type LogEntryLevelString = keyof typeof LogEntryLevel;
+
+export enum LogEntryType {
+    Feedback = 0,
+    Summary = 1
+}
+
+export type LogEntryTypeString = keyof typeof LogEntryType;
 
 export interface EmailTemplate extends IIdentity {
     Body: string | null;
@@ -150,9 +216,15 @@ export interface TeamAttachment extends Attachment {
     FolderName: string | null;
     StorageFileNameAndPath: string | null;
     Team: Partial<Team> | null;
-    TeamAttachmentType: 'TeamPicture';
+    TeamAttachmentType: TeamAttachmentTypeString;
     TeamId: number;
 }
+
+export enum TeamAttachmentType {
+    TeamPicture = 0
+}
+
+export type TeamAttachmentTypeString = keyof typeof TeamAttachmentType;
 
 export interface PrizeToSegment extends IIdentity {
     Prize: Partial<Prize> | null;
@@ -169,7 +241,7 @@ export interface GameSegment {
     StartDate: string;
     TheGame: Partial<TheGameGame> | null;
     TheGameId: number;
-    Type: 'PointEntry'|'ExtendedPeriod';
+    Type: SegmentTypeString;
 }
 
 export interface CrmGamePoint extends GamePoint {
@@ -178,6 +250,29 @@ export interface CrmGamePoint extends GamePoint {
     OpportunityId: string;
     SplitPercentage: Partial<number> | null;
 }
+
+export enum SegmentType {
+    PointEntry = 0,
+    ExtendedPeriod = 1
+}
+
+export type SegmentTypeString = keyof typeof SegmentType;
+
+export enum GameType {
+    CL = 0,
+    PL = 1
+}
+
+export type GameTypeString = keyof typeof GameType;
+
+export enum LeaguePrizeType {
+    TeamPlay = 0,
+    Overall = 1,
+    OverallSponsored = 2,
+    Monthly = 3
+}
+
+export type LeaguePrizeTypeString = keyof typeof LeaguePrizeType;
 
 export interface GamePoint extends IIdentity, ICreatedBy {
     Amount: Partial<number>;
@@ -195,10 +290,19 @@ export interface GamePoint extends IIdentity, ICreatedBy {
 }
 
 export interface GamePrize extends Prize {
-    GamePrizeType: 'SponsoredPrize'|'SecondSponsoredPrize'|'TopFiveOverallPrize'|'SponsoredOverallPrize';
+    GamePrizeType: GamePrizeTypeString;
     TheGameGame: Partial<TheGameGame> | null;
     TheGameGameId: number;
 }
+
+export enum GamePrizeType {
+    SponsoredPrize = 0,
+    SecondSponsoredPrize = 1,
+    TopFiveOverallPrize = 2,
+    SponsoredOverallPrize = 3
+}
+
+export type GamePrizeTypeString = keyof typeof GamePrizeType;
 
 export interface League extends IIdentity {
     LeaguePrizes: Array<Partial<LeaguePrize>> | null;
@@ -212,7 +316,7 @@ export interface League extends IIdentity {
 export interface LeaguePrize extends Prize {
     League: Partial<League> | null;
     LeagueId: number;
-    LeaguePrizeType: 'TeamPlay'|'Overall'|'OverallSponsored'|'Monthly';
+    LeaguePrizeType: LeaguePrizeTypeString;
 }
 
 export interface LeagueToTeam extends IIdentity {
@@ -248,7 +352,7 @@ export interface TheGameGame extends IIdentity {
     RegistrationPersonRoles: Array<Partial<TheGameRegistrationPersonRole>> | null;
     Segments: Array<Partial<GameSegment>> | null;
     StartDate: string;
-    Type: 'CL'|'PL';
+    Type: GameTypeString;
 }
 
 export interface TheGameRegistrationPersonRole extends PersonRole {
@@ -309,6 +413,14 @@ export interface SurveyResponse extends IIdentity {
     QuestionId: number;
 }
 
+export enum SurveyQuestionType {
+    SingleSelect = 0,
+    MultiSelect = 1,
+    Text = 2
+}
+
+export type SurveyQuestionTypeString = keyof typeof SurveyQuestionType;
+
 export interface SurveyAnswer extends IChangeTracking, ICreatedBy, IIdentity {
     CreatedDate: string;
     Question: Partial<SurveyQuestion> | null;
@@ -352,7 +464,7 @@ export interface SurveyQuestion extends IChangeTracking, ICreatedBy, IIdentity {
     Survey: Partial<Survey> | null;
     SurveyId: number;
     Text: string | null;
-    Type: 'SingleSelect'|'MultiSelect'|'Text';
+    Type: SurveyQuestionTypeString;
 }
 
 export interface HolidayPartyReservation extends Reservation {
@@ -420,7 +532,7 @@ export interface Surge extends IIdentity {
     ColdCallingIsPaused: boolean | null;
     ColdCallingNumSegments: number;
     ColdCallingSegmentLength: string;
-    CrmInstance: 'Production'|'Uat'|'Dev' | null;
+    CrmInstance: CrmInstanceString | null;
     HasColdCallingStarted: boolean;
     HasRules: boolean;
     IsColdCallingOver: boolean;
@@ -516,6 +628,14 @@ export interface SurgePointType extends IIdentity {
     Value: number;
 }
 
+export enum SurgePrizeType {
+    TopOnTeam = 0,
+    TopTeams = 1,
+    TopIndividual = 2
+}
+
+export type SurgePrizeTypeString = keyof typeof SurgePrizeType;
+
 export interface SurgeScoreboard extends IIdentity {
     CarrierId: number | null;
     CarrierName: string | null;
@@ -555,7 +675,7 @@ export interface SurgePrize extends IIdentity {
     Rank: number;
     Scoreboard: Partial<SurgeScoreboard> | null;
     ScoreboardId: number;
-    Type: 'TopOnTeam'|'TopTeams'|'TopIndividual' | null;
+    Type: SurgePrizeTypeString | null;
 }
 
 export interface SurgeTeamAttachment extends Attachment {
@@ -643,7 +763,7 @@ export interface Task {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: 'NotStarted'|'InProgress'|'Completed';
+    Status: TaskStatusTypeString;
 }
 
 export interface TaskReminder {
@@ -653,6 +773,14 @@ export interface TaskReminder {
     Task: Partial<Task> | null;
     TaskId: number;
 }
+
+export enum TaskStatusType {
+    NotStarted = 0,
+    InProgress = 1,
+    Completed = 2
+}
+
+export type TaskStatusTypeString = keyof typeof TaskStatusType;
 
 export interface TimelineCoverPageAttachment extends Attachment {
     CoverPageName: string | null;
@@ -675,7 +803,7 @@ export interface Timeline {
     OwnerId: number | null;
     StartDate: string | null;
     State: string | null;
-    Status: 'Inactive'|'Active';
+    Status: TimelineStatusTypeString;
     Street1: string | null;
     Street2: string | null;
     TimelineContacts: Array<Partial<TimelineContact>> | null;
@@ -737,6 +865,13 @@ export interface TimelineEnabledPage {
     TimelineId: number;
 }
 
+export enum TimelineStatusType {
+    Inactive = 0,
+    Active = 1
+}
+
+export type TimelineStatusTypeString = keyof typeof TimelineStatusType;
+
 export interface TimelineTaskToTimelineContactAssignee {
     Id: number;
     TimelineContact: Partial<TimelineContact> | null;
@@ -788,6 +923,13 @@ export interface TimelineTemplateToCompany {
     TimelineTemplate: Partial<TimelineTemplate> | null;
     TimelineTemplateId: number;
 }
+
+export enum PrizeDistributionOption {
+    Split = 0,
+    Individual = 1
+}
+
+export type PrizeDistributionOptionString = keyof typeof PrizeDistributionOption;
 
 export interface PLGame extends IIdentity {
     Divisions: Array<Partial<PLGameDivision>> | null;
@@ -867,8 +1009,15 @@ export interface PLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     SponsorId: number | null;
     TeamPersonRole: Partial<PLGameTeamPersonRole> | null;
     TeamPersonRoleId: number;
-    Type: 'Sale'|'BOR';
+    Type: PLGamePointTypeString;
 }
+
+export enum PLGamePointType {
+    Sale = 0,
+    BOR = 1
+}
+
+export type PLGamePointTypeString = keyof typeof PLGamePointType;
 
 export interface PLGamePrize extends IIdentity {
     Amount: Partial<number> | null;
@@ -883,7 +1032,7 @@ export interface PLGameScoreboard extends IIdentity {
     Name: string | null;
     PLGame: Partial<PLGame> | null;
     PLGameId: number;
-    PrizeDistributionOption: 'Split'|'Individual';
+    PrizeDistributionOption: PrizeDistributionOptionString;
     Prizes: Array<Partial<PLGamePrize>> | null;
     SegmentType: Partial<PLGameSegmentType> | null;
     SegmentTypeId: number | null;
@@ -1023,7 +1172,7 @@ export interface BoBComposition extends IExpirable, IIdentity, ICreatedBy {
     LastModifiedDate: string | null;
     SalesExpectation: Partial<SalesExpectation> | null;
     SalesExpectationId: number;
-    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
+    Type: PolicyTypeString;
 }
 
 export interface Expectation extends IExpirable, IIdentity, ICreatedBy {
@@ -1059,8 +1208,27 @@ export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
     TalentSearch: boolean;
 }
 
+export enum CommissionRateType {
+    CommercialLines = 0,
+    PersonalLines = 1,
+    Benefits = 2,
+    Life = 3,
+    Assigned = 4
+}
+
+export type CommissionRateTypeString = keyof typeof CommissionRateType;
+
+export enum PolicyType {
+    CommercialLines = 0,
+    PersonalLines = 1,
+    Benefits = 2,
+    Life = 3
+}
+
+export type PolicyTypeString = keyof typeof PolicyType;
+
 export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy {
-    CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
+    CommissionRateType: CommissionRateTypeString;
     Company: Partial<Company> | null;
     CompanyId: number;
     CreatedDate: string;
@@ -1068,12 +1236,12 @@ export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy 
     LastModifiedByPersonId: number | null;
     LastModifiedDate: string | null;
     Rate: number;
-    TransactionType: 'NewBusiness'|'RenewPolicy';
+    TransactionType: TransactionTypeString;
 }
 
 export interface ProducerCommissionRate extends IExpirable, IIdentity, ICreatedBy {
     CommissionPercent: number;
-    CommissionRateType: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life'|'Assigned';
+    CommissionRateType: CommissionRateTypeString;
     CreatedDate: string;
     EffectiveDate: string;
     ExpirationDate: string;
@@ -1082,7 +1250,7 @@ export interface ProducerCommissionRate extends IExpirable, IIdentity, ICreatedB
     LastModifiedDate: string | null;
     SalesExpectation: Partial<SalesExpectation> | null;
     SalesExpectationId: number;
-    TransactionType: 'NewBusiness'|'RenewPolicy';
+    TransactionType: TransactionTypeString;
 }
 
 export interface SalesExpectationStatus {
@@ -1098,8 +1266,24 @@ export interface SalesExpectationStatus {
     ReviewRequester: Partial<Person> | null;
     ReviewRequesterId: number | null;
     SalesExpectation: Partial<SalesExpectation> | null;
-    StatusType: 'SystemRejected'|'AplRejected'|'SystemApproved'|'AplApproved';
+    StatusType: SalesExpectationStatusTypeString;
 }
+
+export enum SalesExpectationStatusType {
+    SystemRejected = 0,
+    AplRejected = 1,
+    SystemApproved = 2,
+    AplApproved = 3
+}
+
+export type SalesExpectationStatusTypeString = keyof typeof SalesExpectationStatusType;
+
+export enum TransactionType {
+    NewBusiness = 0,
+    RenewPolicy = 1
+}
+
+export type TransactionTypeString = keyof typeof TransactionType;
 
 export interface PersonMondayAccount extends IIdentity {
     MondayId: number;
@@ -1263,12 +1447,20 @@ export interface ManagementSystemDatabaseServer extends IIdentity {
     Username: string | null;
 }
 
+export enum LandlordType {
+    ThirdParty = 0,
+    LLC = 1,
+    CoOwner = 2
+}
+
+export type LandlordTypeString = keyof typeof LandlordType;
+
 export interface Lease {
     CompanyAddress: Partial<CompanyAddress> | null;
     DisableEmailNotifications: boolean;
     HoldoverPercentage: Partial<number> | null;
     Id: number;
-    LandlordType: 'ThirdParty'|'LLC'|'CoOwner' | null;
+    LandlordType: LandlordTypeString | null;
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
     LastModifiedDate: string | null;
@@ -1290,8 +1482,19 @@ export interface EmployeeQuestion {
     CreatedDate: string;
     Id: number;
     PersonId: number | null;
-    PrivacyOption: 'Public'|'ShowToPresident'|'Private';
+    PrivacyOption: EmployeeQuestionPrivacyOptionString;
     Question: string | null;
+}
+
+export enum ForumAdminPermission {
+    ManageLockedFolders = 1,
+    ManageForumAdmins = 2,
+    ManageMessages = 4,
+    ManageForumMembers = 8,
+    DeleteForum = 16,
+    EditForum = 32,
+    PostPinner = 64,
+    All = 127
 }
 
 export interface PostAttachment extends Attachment {
@@ -1300,6 +1503,14 @@ export interface PostAttachment extends Attachment {
     PostId: number;
     StorageFileNameAndPath: string | null;
 }
+
+export enum EmployeeQuestionPrivacyOption {
+    Public = 0,
+    ShowToPresident = 1,
+    Private = 2
+}
+
+export type EmployeeQuestionPrivacyOptionString = keyof typeof EmployeeQuestionPrivacyOption;
 
 export interface TrackableAttachment extends Attachment {
     DownloadedBy: Array<Partial<TrackableAttachmentToPerson>> | null;
@@ -1368,11 +1579,17 @@ export interface ForumFolder extends Folder {
     Path: string | null;
 }
 
+export enum ForumSettingsType {
+    SendEmailNotificationsOnPost = 0
+}
+
+export type ForumSettingsTypeString = keyof typeof ForumSettingsType;
+
 export interface ForumSetting {
     Forum: Partial<Forum> | null;
     ForumId: number;
     Id: number;
-    Type: 'SendEmailNotificationsOnPost';
+    Type: ForumSettingsTypeString;
 }
 
 export interface ForumOptOut {
@@ -1382,7 +1599,7 @@ export interface ForumOptOut {
     Id: number;
     Person: Partial<Person> | null;
     PersonId: number;
-    Type: 'Email';
+    Type: ForumOptOutTypeString;
 }
 
 export interface Forum extends IExpirable {
@@ -1402,14 +1619,14 @@ export interface Forum extends IExpirable {
     PeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
     Posts: Array<Partial<Post>> | null;
     Settings: Array<Partial<ForumSetting>> | null;
-    Type: 'Private'|'Public'|'Hidden';
+    Type: ForumTypeString;
 }
 
 export interface ForumAdmin extends IExpirable {
     Forum: Partial<Forum> | null;
     ForumId: number;
     Id: number;
-    Permissions: 'ManageLockedFolders'|'ManageForumAdmins'|'ManageMessages'|'ManageForumMembers'|'DeleteForum'|'EditForum'|'PostPinner'|'All';
+    Permissions: ForumAdminPermission;
     Person: Partial<Person> | null;
     PersonId: number;
 }
@@ -1423,7 +1640,7 @@ export interface ForumJoinRequest extends IExpirable {
     Id: number;
     RequesterPerson: Partial<Person> | null;
     RequesterPersonId: number;
-    Status: 'Pending'|'Accepted'|'Rejected'|'Canceled';
+    Status: RequestToJoinStatusString;
 }
 
 export interface ForumMember {
@@ -1442,6 +1659,21 @@ export interface ForumToPeopleGroup {
     PeopleGroupId: number;
 }
 
+export enum MessageNotificationType {
+    NewMessage = 0,
+    MessageActivity = 1
+}
+
+export type MessageNotificationTypeString = keyof typeof MessageNotificationType;
+
+export enum ForumType {
+    Private = 0,
+    Public = 1,
+    Hidden = 2
+}
+
+export type ForumTypeString = keyof typeof ForumType;
+
 export interface ForumView {
     Forum: Partial<Forum> | null;
     ForumId: number;
@@ -1457,7 +1689,7 @@ export interface QuickLink {
     Name: string | null;
     Person: Partial<Person> | null;
     PersonId: number;
-    Type: 'Internal'|'External';
+    Type: QuickLinkTypeString;
     Url: string | null;
 }
 
@@ -1526,7 +1758,7 @@ export interface MessageNotification {
     Person: Partial<Person> | null;
     PersonId: number;
     ReadDate: string | null;
-    Type: 'NewMessage'|'MessageActivity';
+    Type: MessageNotificationTypeString;
 }
 
 export interface News extends Message {
@@ -1542,7 +1774,7 @@ export interface News extends Message {
     ShowInCarousel: boolean;
     ShowInCarouselUntilDate: string | null;
     Title: string | null;
-    Type: 'Announcement'|'Article'|'ExternalArticle';
+    Type: NewsTypeString;
 }
 
 export interface NewsAttachment extends Attachment {
@@ -1569,6 +1801,20 @@ export interface NewsToPeopleGroup {
     PeopleGroupId: number;
 }
 
+export enum ForumOptOutType {
+    Email = 0
+}
+
+export type ForumOptOutTypeString = keyof typeof ForumOptOutType;
+
+export enum NewsType {
+    Announcement = 0,
+    Article = 1,
+    ExternalArticle = 2
+}
+
+export type NewsTypeString = keyof typeof NewsType;
+
 export interface Post extends Message {
     Attachments: Array<Partial<PostAttachment>> | null;
     Forum: Partial<Forum> | null;
@@ -1583,8 +1829,21 @@ export interface Reaction {
     CreatorId: number;
     Id: number;
     MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
-    Type: 'Like';
+    Type: ReactionTypeString;
 }
+
+export enum QuickLinkType {
+    Internal = 0,
+    External = 1
+}
+
+export type QuickLinkTypeString = keyof typeof QuickLinkType;
+
+export enum ReactionType {
+    Like = 0
+}
+
+export type ReactionTypeString = keyof typeof ReactionType;
 
 export interface Reply {
     Body: string | null;
@@ -1605,6 +1864,15 @@ export interface ReplyReaction extends Reaction {
     ReplyId: number;
 }
 
+export enum RequestToJoinStatus {
+    Pending = 0,
+    Accepted = 1,
+    Rejected = 2,
+    Canceled = 3
+}
+
+export type RequestToJoinStatusString = keyof typeof RequestToJoinStatus;
+
 export interface GpNomination extends ICreatedBy {
     AwardedByPerson: Partial<Person> | null;
     AwardedByPersonId: number | null;
@@ -1613,9 +1881,21 @@ export interface GpNomination extends ICreatedBy {
     Id: number;
     NominatedPerson: Partial<Person> | null;
     NominatedPersonId: number;
-    NominationPrinciple: 'BeHonestAndOperateWithIntegrity'|'ServeStakeholders'|'AlignInterests'|'GrowProfitably'|'Adapt'|'Enjoy'|'CommunicateWithReasonAndCivility';
+    NominationPrinciple: GoverningPrincipleString;
     NominationReason: string | null;
 }
+
+export enum GoverningPrinciple {
+    BeHonestAndOperateWithIntegrity = 0,
+    ServeStakeholders = 1,
+    AlignInterests = 2,
+    GrowProfitably = 3,
+    Adapt = 4,
+    Enjoy = 5,
+    CommunicateWithReasonAndCivility = 6
+}
+
+export type GoverningPrincipleString = keyof typeof GoverningPrinciple;
 
 export interface ExpenseAttachment extends Attachment {
     ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
@@ -1647,7 +1927,7 @@ export interface ExpenseForm extends IIdentity, ICreatedBy {
     PaidDate: string | null;
     RejectedDate: string | null;
     RejectedReason: string | null;
-    Status: 'Open'|'Submitted'|'Approved'|'Paid'|'Rejected';
+    Status: ExpenseStatusString;
     SubmittedDate: string | null;
     Total: Partial<number>;
 }
@@ -1669,8 +1949,25 @@ export interface ExpenseFormItem {
     Miles: Partial<number>;
     RequestingAgency: Partial<Company> | null;
     RequestingAgencyId: number | null;
-    Type: 'BillTo'|'Reimbursable';
+    Type: ExpenseItemTypeString;
 }
+
+export enum ExpenseItemType {
+    BillTo = 0,
+    Reimbursable = 1
+}
+
+export type ExpenseItemTypeString = keyof typeof ExpenseItemType;
+
+export enum ExpenseStatus {
+    Open = 0,
+    Submitted = 1,
+    Approved = 2,
+    Paid = 3,
+    Rejected = 4
+}
+
+export type ExpenseStatusString = keyof typeof ExpenseStatus;
 
 export interface MileageRate {
     Id: number;
@@ -1726,7 +2023,7 @@ export interface CoreToEloquaSyncerLogEntryV2 {
 export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
     CreatedDate: string;
     CrmContact: Partial<CrmContact> | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     EloquaContact: Partial<EloquaContactV2> | null;
     EloquaContactId: number;
     LastModifiedDate: string | null;
@@ -1752,8 +2049,15 @@ export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
     Company: Partial<Company> | null;
     CompanyId: number;
     LastSyncDate: string | null;
-    Type: 'Ams360'|'BenefitPoint';
+    Type: EloquaSyncTypeV2String;
 }
+
+export enum EloquaSyncTypeV2 {
+    Ams360 = 0,
+    BenefitPoint = 1
+}
+
+export type EloquaSyncTypeV2String = keyof typeof EloquaSyncTypeV2;
 
 export interface CourseEmailRecipient {
     EducationCourse: Partial<EducationCourse> | null;
@@ -1762,6 +2066,13 @@ export interface CourseEmailRecipient {
     Person: Partial<Person> | null;
     PersonId: number;
 }
+
+export enum QuestionType {
+    SingleSelect = 0,
+    MultiSelect = 1
+}
+
+export type QuestionTypeString = keyof typeof QuestionType;
 
 export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
     Course: Partial<EducationCourse> | null;
@@ -1781,6 +2092,14 @@ export interface EducationAnswerKey extends IIdentity {
     Answer: Partial<EducationAnswer> | null;
     IsCorrect: boolean;
 }
+
+export enum LessonAttemptStatus {
+    Pass = 0,
+    Fail = 1,
+    InProgress = 2
+}
+
+export type LessonAttemptStatusString = keyof typeof LessonAttemptStatus;
 
 export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity {
     AnswerKey: Partial<EducationAnswerKey> | null;
@@ -1896,7 +2215,7 @@ export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy 
 export interface LessonParticipantStatus extends IIdentity {
     ActivityDate: string;
     Attempts: number;
-    AttemptStatus: 'Pass'|'Fail'|'InProgress';
+    AttemptStatus: LessonAttemptStatusString;
     GradePercentage: number;
     Lesson: Partial<EducationLesson> | null;
     LessonId: number;
@@ -1914,7 +2233,7 @@ export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentit
     LessonId: number;
     Sequence: number;
     Text: string | null;
-    Type: 'SingleSelect'|'MultiSelect';
+    Type: QuestionTypeString;
 }
 
 export interface DomoDataSet extends IIdentity {
@@ -1929,13 +2248,48 @@ export interface LGManagedDomoDataset extends IIdentity {
     DomoDatasetId: string | null;
 }
 
+export enum ActivityType {
+    Appointment = 4201,
+    Email = 4202,
+    Fax = 4204,
+    CaseResolution = 4206,
+    Letter = 4207,
+    OpportunityClose = 4208,
+    OrderClose = 4209,
+    PhoneCall = 4210,
+    QuoteClose = 4211,
+    Task = 4212,
+    ServiceActivity = 4214,
+    RecurringAppointment = 4251,
+    CampaignResponse = 4401,
+    CampaignActivity = 4402,
+    BulkOperation = 4406,
+    Converstaion = 10036,
+    PromotionalMail = 10037,
+    inMail = 10078,
+    Message = 10079,
+    PointDrivePresentationCreated = 10080,
+    PointDrivePresentationViewed = 10081,
+    Surveyinvite = 10158,
+    Surveyresponse = 10159
+}
+
+export type ActivityTypeString = keyof typeof ActivityType;
+
+export enum CompanySizeType {
+    Large = 100000000,
+    Small = 100000001
+}
+
+export type CompanySizeTypeString = keyof typeof CompanySizeType;
+
 export interface CrmActivityPlanner extends IIdentity {
     ActivityPlannerId: string;
     ActivityPlannerName: string | null;
     ClosingRatio: number | null;
     ConversationToInitialAppointmentRatio: number | null;
     ConversionOfInitialAppointmentToClose: number | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     EndDate: string | null;
     InitialAppointmentToPresentationRatio: number | null;
     LastModifiedDate: string | null;
@@ -1968,10 +2322,10 @@ export interface CrmActivityPlanner extends IIdentity {
 
 export interface CrmPhoneCall extends IIdentity {
     ActivityId: string;
-    ActivityTypeCode: 'Appointment'|'Email'|'Fax'|'CaseResolution'|'Letter'|'OpportunityClose'|'OrderClose'|'PhoneCall'|'QuoteClose'|'Task'|'ServiceActivity'|'RecurringAppointment'|'CampaignResponse'|'CampaignActivity'|'BulkOperation'|'Converstaion'|'PromotionalMail'|'inMail'|'Message'|'PointDrivePresentationCreated'|'PointDrivePresentationViewed'|'Surveyinvite'|'Surveyresponse';
+    ActivityTypeCode: ActivityTypeString;
     ActualEnd: string | null;
     ActualStart: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     LastModifiedDate: string | null;
     OwnerId: string;
     Person: Partial<Person> | null;
@@ -1993,7 +2347,7 @@ export interface CrmContact extends IIdentity {
     CrmPersonId: number;
     Email: string | null;
     FirstName: string | null;
-    Instance: 'Production'|'Uat'|'Dev';
+    Instance: CrmInstanceString;
     LastModifiedDate: string | null;
     LastName: string | null;
     OwnerId: string;
@@ -2026,7 +2380,7 @@ export interface CrmBulkImportFailure {
     CrmBulkImport: Partial<CrmBulkImport> | null;
     CrmBulkImportId: number;
     Description: string | null;
-    DuplicateFieldType: 'None'|'Name'|'Address'|'Email'|'Phone'|'ContactFullname' | null;
+    DuplicateFieldType: DuplicateFieldType | null;
     Email: string | null;
     ErrorMessage: string | null;
     FollowUpDate: string | null;
@@ -2034,15 +2388,56 @@ export interface CrmBulkImportFailure {
     State: string | null;
     Street1: string | null;
     Topic: string | null;
-    Type: 'GeneralFailure'|'Duplicate';
+    Type: FailureTypeString;
     Website: string | null;
     XDate: string | null;
     Zip: string | null;
 }
 
+export enum FailureType {
+    GeneralFailure = 0,
+    Duplicate = 1
+}
+
+export type FailureTypeString = keyof typeof FailureType;
+
+export enum DuplicateFieldType {
+    None = 0,
+    Name = 1,
+    Address = 2,
+    Email = 4,
+    Phone = 8,
+    ContactFullname = 16
+}
+
+export enum PreferredContactMethodType {
+    Any = 1,
+    Email = 2,
+    Phone = 3,
+    Fax = 4,
+    Mail = 5,
+    Text = 6
+}
+
+export type PreferredContactMethodTypeString = keyof typeof PreferredContactMethodType;
+
+export enum NewOrRenewalType {
+    New = 0,
+    Renewal = 1
+}
+
+export type NewOrRenewalTypeString = keyof typeof NewOrRenewalType;
+
+export enum StateCodeType {
+    Active = 0,
+    Inactive = 1
+}
+
+export type StateCodeTypeString = keyof typeof StateCodeType;
+
 export interface CrmAccount extends IIdentity {
     AccountId: string;
-    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
+    AccountStage: CrmAccountStageString | null;
     AccountType: number;
     Address1: string | null;
     Address2: string | null;
@@ -2054,7 +2449,7 @@ export interface CrmAccount extends IIdentity {
     ContactJobTitle: string | null;
     ContactLastName: string | null;
     CreatedOn: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     DoNotCall: boolean;
     EffectiveDate: string | null;
     Email: string | null;
@@ -2074,19 +2469,28 @@ export interface CrmAccount extends IIdentity {
     PersonId: number | null;
     Phone: string | null;
     PotentialRevenue: Partial<number> | null;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    PreferredContactMethod: PreferredContactMethodTypeString;
     RecentSource: string | null;
     StageClientDate: string | null;
     StageProspectDate: string | null;
     StageSuspectDate: string | null;
     State: string | null;
-    StateCode: 'Active'|'Inactive';
-    Status: 'Active'|'Inactive';
+    StateCode: StateCodeTypeString;
+    Status: AccountStatusCodeTypeString;
     SurgeId: number | null;
     Topic: string | null;
     WrittenYtd: Partial<number> | null;
     Zip: string | null;
 }
+
+export enum CrmAccountStage {
+    Lead = 100000000,
+    Suspect = 100000001,
+    Prospect = 100000002,
+    Client = 100000003
+}
+
+export type CrmAccountStageString = keyof typeof CrmAccountStage;
 
 export interface CrmCommission extends IIdentity {
     Amount: Partial<number>;
@@ -2104,16 +2508,31 @@ export interface CrmCommission extends IIdentity {
 
 export interface CrmAuditSyncLogEntry {
     Action: string | null;
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     EntityType: string | null;
     Id: number;
     LastSyncDate: string;
 }
 
+export enum AccountStatusCodeType {
+    Active = 0,
+    Inactive = 1
+}
+
+export type AccountStatusCodeTypeString = keyof typeof AccountStatusCodeType;
+
 export interface CrmUserPersonRole extends PersonRole {
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     SystemUserGuid: string;
 }
+
+export enum CrmInstance {
+    Production = 0,
+    Uat = 1,
+    Dev = 2
+}
+
+export type CrmInstanceString = keyof typeof CrmInstance;
 
 export interface CrmOpportunity extends IIdentity {
     Account: Partial<CrmAccount> | null;
@@ -2131,7 +2550,7 @@ export interface CrmOpportunity extends IIdentity {
     LineOfCoverageFriendlyName: string | null;
     LostDate: string | null;
     Name: string | null;
-    NewOrRenewal: 'New'|'Renewal';
+    NewOrRenewal: NewOrRenewalTypeString;
     OpportunityId: string;
     OwnerId: string;
     Premium: Partial<number>;
@@ -2140,7 +2559,7 @@ export interface CrmOpportunity extends IIdentity {
     ReportingDate: string | null;
     SalesStageCode: number;
     SoldDate: string | null;
-    StateCode: 'Active'|'Inactive';
+    StateCode: StateCodeTypeString;
     SubmissionDate: string | null;
     TotalRevenue: Partial<number>;
 }
@@ -2222,6 +2641,15 @@ export interface GuestPersonRole extends PersonRole, ICreatedBy {
     RequestedByPersonId: number;
 }
 
+export enum JobRoleAssignmentType {
+    CommercialLines = 0,
+    PersonalLines = 1,
+    Benefits = 2,
+    Life = 3
+}
+
+export type JobRoleAssignmentTypeString = keyof typeof JobRoleAssignmentType;
+
 export interface CarrierCompanyRole extends CompanyRole {
 }
 
@@ -2231,9 +2659,78 @@ export interface CompanyContactPersonRole extends PersonRole {
     Title: string | null;
 }
 
-export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
-    EmailAddressTypes: 'PrimaryWork'|'Personal';
+export enum DaysOfMonth {
+    None = 0,
+    First = 1,
+    Second = 2,
+    Third = 4,
+    Fourth = 8,
+    Fifth = 16,
+    Sixth = 32,
+    Seventh = 64,
+    Eighth = 128,
+    Ninth = 256,
+    Tenth = 512,
+    Eleventh = 1024,
+    Twelfth = 2048,
+    Thirteenth = 4096,
+    Fourteenth = 8192,
+    Fifteenth = 16384,
+    Sixteenth = 32768,
+    Seventeenth = 65536,
+    Eighteenth = 131072,
+    Nineteenth = 262144,
+    Twentieth = 524288,
+    Twentyfirst = 1048576,
+    Twentysecond = 2097152,
+    Twentythird = 4194304,
+    Twentyfourth = 8388608,
+    Twentyfifth = 16777216,
+    Twentysixth = 33554432,
+    Twentyseventh = 67108864,
+    Twentyeighth = 134217728,
+    Twentyninth = 268435456,
+    Thirtieth = 536870912,
+    Even = 715827882,
+    Thirtyfirst = 1073741824,
+    Odd = 1431655765,
+    All = 2147483647
 }
+
+export enum DaysOfWeek {
+    None = 0,
+    Sunday = 1,
+    Monday = 2,
+    Tuesday = 4,
+    Wednesday = 8,
+    Thursday = 16,
+    Friday = 32,
+    Saturday = 64,
+    All = 127
+}
+
+export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
+    EmailAddressTypes: EmailAddressTypesString;
+}
+
+export enum EmploymentType {
+    PaidEmployee = 0,
+    UnpaidEmployee = 1,
+    Contractor = 2
+}
+
+export type EmploymentTypeString = keyof typeof EmploymentType;
+
+export enum Frequency {
+    OneTime = 0,
+    Hourly = 1,
+    Daily = 2,
+    Weekly = 3,
+    Monthly = 4,
+    Minutes = 5
+}
+
+export type FrequencyString = keyof typeof Frequency;
 
 export interface InAppNotificationDeliveryMethod extends NotificationDeliveryMethod {
     AppName: string | null;
@@ -2247,9 +2744,17 @@ export interface InAppNotification extends IIdentity {
     NotificationId: number;
     Recipient: Partial<Person> | null;
     RecipientId: number;
-    Status: 'Read'|'Unread'|'Archived';
+    Status: InAppNotificationStatusString;
     Subject: string | null;
 }
+
+export enum InAppNotificationStatus {
+    Read = 0,
+    Unread = 1,
+    Archived = 2
+}
+
+export type InAppNotificationStatusString = keyof typeof InAppNotificationStatus;
 
 export interface InvestorPersonRole extends PersonRole {
 }
@@ -2259,7 +2764,7 @@ export interface JobRoleAssignmentPercentage extends IExpirable {
     JobRole: Partial<JobRole> | null;
     JobRoleId: number;
     Percentage: number;
-    Type: 'CommercialLines'|'PersonalLines'|'Benefits'|'Life';
+    Type: JobRoleAssignmentTypeString;
 }
 
 export interface CityPeopleGroup extends PeopleGroup {
@@ -2412,9 +2917,9 @@ export interface Trigger extends IIdentity, IExpirable, ICreatedBy {
     AutomatedApplication: Partial<AutomatedApplication> | null;
     AutomatedApplicationId: number | null;
     CreatedDate: string;
-    DaysOfMonth: 'None'|'First'|'Second'|'Third'|'Fourth'|'Fifth'|'Sixth'|'Seventh'|'Eighth'|'Ninth'|'Tenth'|'Eleventh'|'Twelfth'|'Thirteenth'|'Fourteenth'|'Fifteenth'|'Sixteenth'|'Seventeenth'|'Eighteenth'|'Nineteenth'|'Twentieth'|'Twentyfirst'|'Twentysecond'|'Twentythird'|'Twentyfourth'|'Twentyfifth'|'Twentysixth'|'Twentyseventh'|'Twentyeighth'|'Twentyninth'|'Thirtieth'|'Even'|'Thirtyfirst'|'Odd'|'All';
-    DaysOfWeek: 'None'|'Sunday'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'All';
-    Frequency: 'OneTime'|'Hourly'|'Daily'|'Weekly'|'Monthly'|'Minutes';
+    DaysOfMonth: DaysOfMonth;
+    DaysOfWeek: DaysOfWeek;
+    Frequency: FrequencyString;
     Interval: number | null;
     IsComplete: boolean;
     IsEnabled: boolean;
@@ -2483,13 +2988,20 @@ export interface INote {
     Text: string | null;
 }
 
+export enum PersonNameType {
+    Legal = 0,
+    Preffered = 1
+}
+
+export type PersonNameTypeString = keyof typeof PersonNameType;
+
 export interface PersonName extends IExpirable, IIdentity, ISynchronizable {
     FirstName: string | null;
     LastName: string | null;
     MiddleName: string | null;
     Person: Partial<Person> | null;
     PersonId: number;
-    Type: 'Legal'|'Preffered';
+    Type: PersonNameTypeString;
 }
 
 export interface ITag {
@@ -2623,7 +3135,7 @@ export interface ProfilePictureAttachment extends Attachment {
 }
 
 export interface IAddress {
-    AddressType: 'Business'|'Home';
+    AddressType: AddressTypesString;
     City: string | null;
     Country: string | null;
     County: string | null;
@@ -2707,9 +3219,19 @@ export interface CompanyEmailAddress extends EmailAddress {
 export interface CompanyName extends IExpirable, IIdentity, ISynchronizable {
     Company: Partial<Company> | null;
     CompanyId: number;
-    CompanyNameType: 'HrCompanyName'|'HrCompanyDbaName'|'Legal'|'Short'|'Main';
+    CompanyNameType: CompanyNameTypesString;
     Name: string | null;
 }
+
+export enum CompanyNameTypes {
+    HrCompanyName = 0,
+    HrCompanyDbaName = 1,
+    Legal = 2,
+    Short = 3,
+    Main = 4
+}
+
+export type CompanyNameTypesString = keyof typeof CompanyNameTypes;
 
 export interface CompanyPhoneNumber extends PhoneNumber {
     Company: Partial<Company> | null;
@@ -2724,8 +3246,15 @@ export interface CompanyRole extends Role {
 
 export interface EmailAddress extends IExpirable, IIdentity, ISynchronizable {
     Address: string | null;
-    EmailAddressType: 'PrimaryWork'|'Personal';
+    EmailAddressType: EmailAddressTypesString;
 }
+
+export enum EmailAddressTypes {
+    PrimaryWork = 0,
+    Personal = 2
+}
+
+export type EmailAddressTypesString = keyof typeof EmailAddressTypes;
 
 export interface LGEmployeeRole extends PersonRole {
     CreatedBy: Partial<Person> | null;
@@ -2735,7 +3264,7 @@ export interface LGEmployeeRole extends PersonRole {
     Deductions: Array<Partial<Deduction>> | null;
     Department: Partial<Department> | null;
     DepartmentId: number | null;
-    EmploymentType: 'PaidEmployee'|'UnpaidEmployee'|'Contractor';
+    EmploymentType: EmploymentTypeString;
     FTEs: Array<Partial<FullTimeEquivalent>> | null;
     JobRoles: Array<Partial<JobRole>> | null;
     LastModifiedBy: Partial<Person> | null;
@@ -2888,7 +3417,7 @@ export interface PersonRole extends Role {
 
 export interface PhoneNumber extends IPhoneNumber, IExpirable, IIdentity, ISynchronizable {
     FullPhoneNumber: string | null;
-    PhoneNumberType: 'HrCompanyMain'|'HrCompanyFax'|'HrCompanyOther'|'HrCompanyAddressMain'|'HrCompanyAddressFax'|'PrimaryWork'|'PrimaryHome'|'Mobile'|'Fax';
+    PhoneNumberType: PhoneNumberTypesString;
 }
 
 export interface CompanyAddressUltiProAccount extends IIdentity, ISynchronizable {
@@ -2977,14 +3506,14 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     ConferenceId: number;
     IsEmployee: boolean;
     IsSpouse: boolean;
-    MealPreference: 'NoPreference'|'Vegetarian'|'Kosher'|'Vegan'|'Pollotarian'|'Pescatarian'|'GlutenFree';
+    MealPreference: MealPreferenceString;
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
     Packages: Array<Partial<ConferencePackageToAttendee>> | null;
-    PaymentStatus: 'NotPaid'|'PaidInFull';
+    PaymentStatus: PaymentStatusTypeString;
     RegisteredBy: Partial<Person> | null;
     RegisteredById: number | null;
     RegistrationDate: string;
-    RegistrationStatus: 'NotAttending'|'Attending';
+    RegistrationStatus: RegistrationStatusTypeString;
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
     Transactions: Array<Partial<ConferenceTransaction>> | null;
@@ -3124,8 +3653,8 @@ export interface ConferenceTransaction {
     EnteredById: number;
     Id: number;
     PaymentProcessorTransactionId: string | null;
-    PaymentType: 'None'|'Cash'|'Check'|'CreditCard'|'Comp'|'Sweep'|'ManualCreditCard';
-    Type: 'Purchase'|'Payment'|'Refund';
+    PaymentType: TransactionPaymentTypeString;
+    Type: ConferenceTransactionTypeString;
 }
 
 export interface ConferenceSession extends ConferenceEvent {
@@ -3167,6 +3696,28 @@ export interface ConferenceTrack {
     Sessions: Array<Partial<ConferenceSession>> | null;
 }
 
+export enum EnrollmentStatus {
+    NotPaid = 0,
+    Paid = 1,
+    NotPaidReserved = 2,
+    Cancelled = 3,
+    CancelledRefunded = 4
+}
+
+export type EnrollmentStatusString = keyof typeof EnrollmentStatus;
+
+export enum MealPreference {
+    NoPreference = 0,
+    Vegetarian = 1,
+    Kosher = 2,
+    Vegan = 3,
+    Pollotarian = 4,
+    Pescatarian = 5,
+    GlutenFree = 6
+}
+
+export type MealPreferenceString = keyof typeof MealPreference;
+
 export interface ConferenceSponsorship {
     Available: number | null;
     Conference: Partial<Conference> | null;
@@ -3179,8 +3730,49 @@ export interface ConferenceSponsorship {
     IsLGEmployeeOnly: boolean;
     Name: string | null;
     TotalAvailable: number | null;
-    Type: 'AvailableForPurchase'|'Custom';
+    Type: SponsorshipTypeString;
 }
+
+export enum PaymentStatusType {
+    NotPaid = 0,
+    PaidInFull = 1
+}
+
+export type PaymentStatusTypeString = keyof typeof PaymentStatusType;
+
+export enum RegistrationStatusType {
+    NotAttending = 0,
+    Attending = 1
+}
+
+export type RegistrationStatusTypeString = keyof typeof RegistrationStatusType;
+
+export enum SponsorshipType {
+    AvailableForPurchase = 0,
+    Custom = 1
+}
+
+export type SponsorshipTypeString = keyof typeof SponsorshipType;
+
+export enum TransactionPaymentType {
+    None = 0,
+    Cash = 1,
+    Check = 2,
+    CreditCard = 3,
+    Comp = 4,
+    Sweep = 5,
+    ManualCreditCard = 6
+}
+
+export type TransactionPaymentTypeString = keyof typeof TransactionPaymentType;
+
+export enum ConferenceTransactionType {
+    Purchase = 0,
+    Payment = 1,
+    Refund = 2
+}
+
+export type ConferenceTransactionTypeString = keyof typeof ConferenceTransactionType;
 
 export interface SessionSpeaker {
     Id: number;
@@ -3191,7 +3783,7 @@ export interface SessionSpeaker {
 }
 
 export interface CLGame extends IIdentity {
-    CrmInstance: 'Production'|'Uat'|'Dev';
+    CrmInstance: CrmInstanceString;
     Divisions: Array<Partial<CLGameDivision>> | null;
     EndDate: string | null;
     GracePeriod: string;
@@ -3270,8 +3862,15 @@ export interface CLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     SponsorId: number | null;
     TeamPersonRole: Partial<CLGameTeamPersonRole> | null;
     TeamPersonRoleId: number;
-    Type: 'Sale'|'BOR';
+    Type: CLGamePointTypeString;
 }
+
+export enum CLGamePointType {
+    Sale = 0,
+    BOR = 1
+}
+
+export type CLGamePointTypeString = keyof typeof CLGamePointType;
 
 export interface CLGamePrequalifiedPrize extends CLGamePrize {
     Segments: Array<Partial<CLGameSegmentToPrequalifiedPrize>> | null;
@@ -3403,8 +4002,15 @@ export interface OutboundCallerId extends IIdentity {
     OutboundCallerIdToPersonRoles: Array<Partial<OutboundCallerIdToPersonRole>> | null;
 }
 
+export enum UpdateChannel {
+    Beta = 0,
+    Stable = 1
+}
+
+export type UpdateChannelString = keyof typeof UpdateChannel;
+
 export interface CallManagerVersion extends IIdentity {
-    Channel: 'Beta'|'Stable';
+    Channel: UpdateChannelString;
     CreatedDate: string;
     Major: number;
     MajorRevision: number;
@@ -3452,7 +4058,7 @@ export interface BusinessCardPrice {
     Id: number;
     Price: Partial<number>;
     Quantity: number;
-    Type: 'SingleSided'|'DoubleSided';
+    Type: BusinessCardTypeString;
 }
 
 export interface BusinessCard extends IChangeTracking, ICreatedBy {
@@ -3485,6 +4091,13 @@ export interface BusinessCardTemplateAttachment extends Attachment {
     StorageFileNameAndPath: string | null;
 }
 
+export enum BusinessCardType {
+    SingleSided = 0,
+    DoubleSided = 1
+}
+
+export type BusinessCardTypeString = keyof typeof BusinessCardType;
+
 export interface BusinessCardOrderAttachment extends Attachment {
     BackOrderAttachment: Array<Partial<BusinessCardOrder>> | null;
     FolderName: string | null;
@@ -3497,8 +4110,15 @@ export interface PdfTemplateFieldKey {
     BusinessCardTemplateId: number;
     Id: number;
     Key: string | null;
-    Type: 'Text'|'Image';
+    Type: PdfTemplateFieldTypeString;
 }
+
+export enum PdfTemplateFieldType {
+    Text = 0,
+    Image = 1
+}
+
+export type PdfTemplateFieldTypeString = keyof typeof PdfTemplateFieldType;
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
     PeopleGroup: Partial<PeopleGroup> | null;
@@ -3586,6 +4206,14 @@ export interface BenefitPointSyncLogEntry {
     TableName: string | null;
 }
 
+export enum AppsCarrierType {
+    PAndC = 0,
+    PersonalRisks = 1,
+    WorkersComp = 2
+}
+
+export type AppsCarrierTypeString = keyof typeof AppsCarrierType;
+
 export interface AppsPcCarrier extends IIdentity {
     LineOfBusiness: string | null;
     Name: string | null;
@@ -3599,7 +4227,7 @@ export interface AppsCarrier {
     LineOfBusiness: string | null;
     Name: string | null;
     Territory: string | null;
-    Type: 'PAndC'|'PersonalRisks'|'WorkersComp';
+    Type: AppsCarrierTypeString;
 }
 
 export interface AppsWorkerCompCarrier {
@@ -3621,7 +4249,7 @@ export interface AffiliationRole extends CompanyRole, ICreatedBy {
     IsDeveloperEntry: boolean;
     NumberOfYearsOnEarnOut: number;
     Reviews: Array<Partial<AffiliationRoleReview>> | null;
-    State: 'Active'|'Inactive';
+    State: AffiliationRoleStateString;
 }
 
 export interface AffiliationRoleNotification extends Notification {
@@ -3635,6 +4263,13 @@ export interface AffiliationRoleReview extends IExpirable, IIdentity {
     PaymentDate: string;
     ReviewDate: string;
 }
+
+export enum AffiliationRoleState {
+    Active = 0,
+    Inactive = 1
+}
+
+export type AffiliationRoleStateString = keyof typeof AffiliationRoleState;
 
 export interface AffiliationRoleEffectiveDate extends IExpirable, IIdentity {
     AffiliationRole: Partial<AffiliationRole> | null;
@@ -3657,7 +4292,7 @@ export interface AgencyLOBPercentage {
     BookOfBusinessChange: Partial<BookOfBusinessChange> | null;
     BookOfBusinessChangeId: number;
     Id: number;
-    LineOfBusinessType: 'Commercial'|'Life'|'Personal'|'Benefit';
+    LineOfBusinessType: LineOfBusinessTypeString;
     Percentage: number;
     ProducerLOBPercentages: Array<Partial<ProducerLOBPercentage>> | null;
 }

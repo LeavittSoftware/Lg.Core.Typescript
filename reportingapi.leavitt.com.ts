@@ -30,7 +30,7 @@ export interface CustomerSearchResultDto {
 
 export interface DuplicateSearchResultDto {
     AccountName: string | null;
-    AccountStage: 'Lead'|'Suspect'|'Prospect'|'Client' | null;
+    AccountStage: CrmAccountStageString | null;
     AccountType: number | null;
     Active: string | null;
     Address1: string | null;
@@ -51,12 +51,19 @@ export interface DuplicateSearchResultDto {
     PersonId: number | null;
     Phone: string | null;
     Score: number;
-    Source: 'Core'|'Ams360';
+    Source: SourceTypeString;
     State: string | null;
-    StateCode: 'Active'|'Inactive';
-    Status: 'Active'|'Inactive';
+    StateCode: StateCodeTypeString;
+    Status: AccountStatusCodeTypeString;
     Zip: string | null;
 }
+
+export enum SourceType {
+    Core = 0,
+    Ams360 = 1
+}
+
+export type SourceTypeString = keyof typeof SourceType;
 
 export interface VsSoldReportDTO {
     CompanyName: string | null;

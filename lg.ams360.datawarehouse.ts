@@ -2147,6 +2147,15 @@ export interface HistoricalGeneralLedger {
     TranDate: string;
 }
 
+export enum TypeOfBusiness {
+    Commercial = 0,
+    Life = 1,
+    Personal = 2,
+    Benefit = 3
+}
+
+export type TypeOfBusinessString = keyof typeof TypeOfBusiness;
+
 export interface ManualEntryBudget {
     BudgetAmt: Partial<number>;
     DatabaseName: string | null;
@@ -2173,8 +2182,15 @@ export interface ManualEntryProduction {
     Id: number;
     PersonId: number | null;
     ProducerCodeTypeId: number | null;
-    ProductionType: 'New'|'Renew';
+    ProductionType: ManualEntryProductionTypeString;
     TranDate: string;
-    TypeOfBusiness: 'Commercial'|'Life'|'Personal'|'Benefit' | null;
+    TypeOfBusiness: TypeOfBusinessString | null;
 }
+
+export enum ManualEntryProductionType {
+    New = 0,
+    Renew = 1
+}
+
+export type ManualEntryProductionTypeString = keyof typeof ManualEntryProductionType;
 

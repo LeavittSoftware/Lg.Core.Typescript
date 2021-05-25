@@ -242,7 +242,7 @@ export interface RehireDTO {
     DepartmentId: number | null;
     EmailLists: string | null;
     EmployeeBenefits: boolean;
-    EmploymentType: 'PaidEmployee'|'UnpaidEmployee'|'Contractor';
+    EmploymentType: EmploymentTypeString;
     HireDate: string | null;
     HoursPerWeek: number | null;
     IsAgencyPartner: boolean;
@@ -302,7 +302,7 @@ export interface NewHireDTO {
     DepartmentId: number | null;
     EmailLists: string | null;
     EmployeeBenefits: boolean;
-    EmploymentType: 'PaidEmployee'|'UnpaidEmployee'|'Contractor';
+    EmploymentType: EmploymentTypeString;
     FirstName: string | null;
     Gender: string | null;
     HireDate: string | null;
@@ -452,7 +452,7 @@ export interface GuestDto {
 
 export interface LdapAdObject {
     AccountName: string | null;
-    AccountStatus: 'Locked'|'Disabled'|'PasswordExpired'|'Active'|'NeverLoggedIn';
+    AccountStatus: AccountStatusString;
     CommonName: string | null;
     DisplayName: string | null;
     DistinguishedName: string | null;
@@ -546,6 +546,13 @@ export interface PhonesCrashReportDto {
     Version: string | null;
 }
 
+export enum AgencyInvestmentType {
+    Minimum = 0,
+    Goal = 1
+}
+
+export type AgencyInvestmentTypeString = keyof typeof AgencyInvestmentType;
+
 export interface AgencyProfitabilityReportDto {
     AgencyProfitabilityPercentage: number;
     AgencyProfitabilityValue: number;
@@ -555,7 +562,7 @@ export interface AgencyProfitabilityReportDto {
 export interface CriteriaStatus {
     FailReasons: Array<Partial<FailReason>> | null;
     ReturnReason: string | null;
-    ReturnStatus: 'Continue'|'SwitchingProtocols'|'OK'|'Created'|'Accepted'|'NonAuthoritativeInformation'|'NoContent'|'ResetContent'|'PartialContent'|'MultipleChoices'|'Ambiguous'|'MovedPermanently'|'Moved'|'Found'|'Redirect'|'SeeOther'|'RedirectMethod'|'NotModified'|'UseProxy'|'Unused'|'TemporaryRedirect'|'RedirectKeepVerb'|'BadRequest'|'Unauthorized'|'PaymentRequired'|'Forbidden'|'NotFound'|'MethodNotAllowed'|'NotAcceptable'|'ProxyAuthenticationRequired'|'RequestTimeout'|'Conflict'|'Gone'|'LengthRequired'|'PreconditionFailed'|'RequestEntityTooLarge'|'RequestUriTooLong'|'UnsupportedMediaType'|'RequestedRangeNotSatisfiable'|'ExpectationFailed'|'UpgradeRequired'|'InternalServerError'|'NotImplemented'|'BadGateway'|'ServiceUnavailable'|'GatewayTimeout'|'HttpVersionNotSupported';
+    ReturnStatus: HttpStatusCodeString;
 }
 
 export interface MinimumSalesExpectationReportDto {
@@ -609,7 +616,7 @@ export interface AgencyInvestmentReportDto {
     LessDeferredCompLiability: number;
     NetAsset: number;
     OrganicAssetValue: number;
-    Type: 'Minimum'|'Goal';
+    Type: AgencyInvestmentTypeString;
 }
 
 export interface MarketingBenefitPointCustomerDto extends BenefitPointCustomer {
@@ -725,7 +732,7 @@ export interface MarketingManagerDtoV2 {
     IsGloballySubscribed: boolean;
     IsLocked: boolean;
     OriginalSource: string | null;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    PreferredContactMethod: PreferredContactMethodTypeString;
     RecentSource: string | null;
 }
 
@@ -809,7 +816,7 @@ export interface MarketingManagerDto {
     IsGloballySubscribed: boolean;
     IsLocked: boolean;
     OriginalSource: string | null;
-    PreferredContactMethod: 'Any'|'Email'|'Phone'|'Fax'|'Mail'|'Text';
+    PreferredContactMethod: PreferredContactMethodTypeString;
     RecentSource: string | null;
 }
 
@@ -869,7 +876,7 @@ export interface ParticipantDashboardDto {
 
 export interface ParticipantDashboardLessonDto {
     Attempts: number;
-    AttemptStatus: 'Pass'|'Fail'|'InProgress' | null;
+    AttemptStatus: LessonAttemptStatusString | null;
     GradePercentage: number | null;
     LessonId: number;
     Name: string | null;
@@ -923,10 +930,18 @@ export interface ConferenceDashboardDto {
     AttendeeRole: Partial<ConferenceAttendeePersonRole> | null;
     Balance: Partial<number>;
     Conference: Partial<Conference> | null;
-    ConferenceRegistrationStatus: 'Open'|'NotStarted'|'Finished';
+    ConferenceRegistrationStatus: ConferenceRegistrationStatusString;
     Id: number;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
 }
+
+export enum ConferenceRegistrationStatus {
+    Open = 0,
+    NotStarted = 1,
+    Finished = 2
+}
+
+export type ConferenceRegistrationStatusString = keyof typeof ConferenceRegistrationStatus;
 
 export interface ConferenceCcPaymentDto {
     Amount: Partial<number>;
@@ -1023,7 +1038,7 @@ export interface RevenueReportDto {
 }
 
 export interface AccountDto {
-    AccountType: 'Commercial'|'Personal'|'EmployeeBenefits'|'FinancialServices'|'CenterofInfluence';
+    AccountType: new_AccountTypeString;
     Id: string;
     Name: string | null;
     Opportunities: Array<Partial<OpportunityDto>> | null;
@@ -1038,8 +1053,8 @@ export interface OpportunityDto {
     Id: string;
     IsSponsored: boolean;
     IsSponsored2: boolean;
-    LineOfBusiness: 'Commercial'|'Personal'|'EmployeeBenefits'|'Retirement';
-    LineOfCoverage: 'Auto'|'BuildersRisk'|'BusinessOwnerPolicy'|'Dental'|'DirectorsOfficers'|'Dwelling'|'Earthquake'|'EPLI'|'Flood'|'GeneralLiability'|'GroupLife'|'Home'|'IndividualHealth'|'IndividualLife'|'InlandMarine'|'LongTermDisability'|'MedicalGroup'|'Other'|'PAF'|'ProfessionalLiability'|'Property'|'Retirement'|'SecondaryHome'|'ShortTermDisability'|'Surety'|'Umbrella'|'Vision'|'VoluntaryLines'|'WorkComp'|'WorkSite'|'BHCCP'|'EBConsultOutsource'|'BenefitsTechnology'|'COBRAAdministration'|'DefinedContribution'|'DirectReimbursePlan'|'EBOutsourcing'|'EBReview'|'EBEdEnrollment'|'EmployeeStatements'|'ExpenseReimbursement'|'FSA'|'HRA'|'HSA'|'InvestmentCommFees'|'LongTermCareIns'|'MBAAlliance'|'MERP'|'PensionPlanAssets'|'PremiumOnlyPlan'|'RetirementPlanAdmin'|'RHCCP'|'SalaryEBSurvey'|'FullServiceInvestment'|'FullServiceAdmin'|'PlanDocAdminWork'|'Package';
+    LineOfBusiness: Opportunity_new_LineofBusinessString;
+    LineOfCoverage: Opportunity_new_LineofCoverageString;
     Name: string | null;
     Other: string | null;
     Premium: Partial<number> | null;
@@ -1091,8 +1106,23 @@ export interface ViewableUsersPersonDTO {
     WaysIncluded: string | null;
 }
 
-export interface CreateTimelineDto {
+export interface SaveTimelineCompanyDetailContactDto {
+    Email: string | null;
+    Name: string | null;
+}
+
+export interface SaveTimelineCompanyDetailDto {
+    City: string | null;
+    CompanyName: string | null;
+    CustomContacts: Array<Partial<SaveTimelineCompanyDetailContactDto>> | null;
+    StartDate: string;
+    State: string | null;
+    Street1: string | null;
+    Street2: string | null;
+    TimelineId: number | null;
     TimelineTemplateId: number | null;
+    Website: string | null;
+    Zip: string | null;
 }
 
 export interface TemplateTaskDto {
@@ -1102,7 +1132,7 @@ export interface TemplateTaskDto {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: 'NotStarted'|'InProgress'|'Completed';
+    Status: TaskStatusTypeString;
     TimelineTemplateId: number;
 }
 

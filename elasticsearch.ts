@@ -5,7 +5,7 @@
 // ----------------------
 
 export interface AccountAddress {
-    AddressType: 'Main'|'Billing'|'Mailing';
+    AddressType: AddressTypeString;
     City: string | null;
     Country: string | null;
     State: string | null;
@@ -13,6 +13,25 @@ export interface AccountAddress {
     Street2: string | null;
     Zip: string | null;
 }
+
+export enum AccountType {
+    None_Selected = 0,
+    Client = 1,
+    Informational = 2,
+    Marketing_Group = 3,
+    Other = 4,
+    Prospect = 5
+}
+
+export type AccountTypeString = keyof typeof AccountType;
+
+export enum AddressType {
+    Main = 0,
+    Billing = 1,
+    Mailing = 2
+}
+
+export type AddressTypeString = keyof typeof AddressType;
 
 export interface BenefitPointCustomers {
     Customer: Partial<BenefitPointCustomer> | null;
@@ -24,7 +43,7 @@ export interface BenefitPointCustomers {
 
 export interface BenefitPointCustomer {
     AccountName: string | null;
-    AccountType: 'None_Selected'|'Client'|'Informational'|'Marketing_Group'|'Other'|'Prospect';
+    AccountType: AccountTypeString;
     Addresses: Array<Partial<AccountAddress>> | null;
     AdministratorUserId: number;
     BudgetedTotalAnnualPremium: Partial<number>;
@@ -59,13 +78,38 @@ export interface Contact {
 export interface Phone {
     AreaCode: string | null;
     Number: string | null;
-    PhoneType: 'None_Selected'|'Assistant'|'Customer_Service'|'Fax'|'Home'|'Main'|'Mobile'|'Pager'|'Work'|'Other';
+    PhoneType: PhoneTypeString;
 }
+
+export enum PhoneType {
+    None_Selected = 0,
+    Assistant = 1,
+    Customer_Service = 2,
+    Fax = 3,
+    Home = 4,
+    Main = 5,
+    Mobile = 6,
+    Pager = 7,
+    Work = 8,
+    Other = 9
+}
+
+export type PhoneTypeString = keyof typeof PhoneType;
 
 export interface Product {
     NumberOfEligibleEmployees: number;
-    ProductStatus: 'None_Selected'|'Cancelled'|'Current'|'Expired'|'Pending';
+    ProductStatus: ProductStatusString;
 }
+
+export enum ProductStatus {
+    None_Selected = 0,
+    Cancelled = 1,
+    Current = 2,
+    Expired = 3,
+    Pending = 4
+}
+
+export type ProductStatusString = keyof typeof ProductStatus;
 
 export interface Account {
     AccountId: string | null;
