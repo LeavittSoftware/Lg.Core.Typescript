@@ -11,7 +11,8 @@ export interface Base64Dto {
 
 export interface PlaceBusinessCardOrderDto {
     AgencyName: string | null;
-    Fields: Array<Partial<PdfField>> | null;
+    BackFields: Array<Partial<PdfField>> | null;
+    FrontFields: Array<Partial<PdfField>> | null;
     OrderedFor: string | null;
     PriceId: number;
     SpecialInstructions: string | null;
