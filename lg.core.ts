@@ -23,38 +23,6 @@ export interface Detail extends IIdentity {
     Value: string | null;
 }
 
-export enum DataTypes {
-    PhoneNumber = 0,
-    Url = 1,
-    Currency = 2,
-    String = 3,
-    DateTime = 4,
-    Int = 5
-}
-
-export type DataTypesString = keyof typeof DataTypes;
-
-export enum AddressTypes {
-    Business = 0,
-    Home = 1
-}
-
-export type AddressTypesString = keyof typeof AddressTypes;
-
-export enum PhoneNumberTypes {
-    HrCompanyMain = 0,
-    HrCompanyFax = 1,
-    HrCompanyOther = 3,
-    HrCompanyAddressMain = 4,
-    HrCompanyAddressFax = 5,
-    PrimaryWork = 7,
-    PrimaryHome = 9,
-    Mobile = 11,
-    Fax = 12
-}
-
-export type PhoneNumberTypesString = keyof typeof PhoneNumberTypes;
-
 export interface IIdentity {
     Id: number;
 }
@@ -107,15 +75,6 @@ export interface Fruit extends IIdentity {
     SeasonAvailableNullable: SeasonsString | null;
 }
 
-export enum Seasons {
-    Spring = 0,
-    Winter = 1,
-    Summer = 2,
-    Fall = 3
-}
-
-export type SeasonsString = keyof typeof Seasons;
-
 export interface Pesticide extends IIdentity {
     Fruits: Array<Partial<Fruit>> | null;
     Name: string | null;
@@ -123,16 +82,6 @@ export interface Pesticide extends IIdentity {
 
 export interface CPACDeduction extends Deduction {
 }
-
-export enum DeductionFrequency {
-    OneTime = 0,
-    PerPaycheck = 1,
-    Monthly = 2,
-    Annually = 3,
-    Quarterly = 4
-}
-
-export type DeductionFrequencyString = keyof typeof DeductionFrequency;
 
 export interface Deduction extends IIdentity {
     Amount: Partial<number>;
@@ -165,21 +114,6 @@ export interface AutomatedApplication extends IExpirable, IIdentity {
     Name: string | null;
     Triggers: Array<Partial<Trigger>> | null;
 }
-
-export enum LogEntryLevel {
-    Info = 0,
-    Warn = 1,
-    Error = 2
-}
-
-export type LogEntryLevelString = keyof typeof LogEntryLevel;
-
-export enum LogEntryType {
-    Feedback = 0,
-    Summary = 1
-}
-
-export type LogEntryTypeString = keyof typeof LogEntryType;
 
 export interface EmailTemplate extends IIdentity {
     Body: string | null;
@@ -220,12 +154,6 @@ export interface TeamAttachment extends Attachment {
     TeamId: number;
 }
 
-export enum TeamAttachmentType {
-    TeamPicture = 0
-}
-
-export type TeamAttachmentTypeString = keyof typeof TeamAttachmentType;
-
 export interface PrizeToSegment extends IIdentity {
     Prize: Partial<Prize> | null;
     PrizeId: number;
@@ -251,29 +179,6 @@ export interface CrmGamePoint extends GamePoint {
     SplitPercentage: Partial<number> | null;
 }
 
-export enum SegmentType {
-    PointEntry = 0,
-    ExtendedPeriod = 1
-}
-
-export type SegmentTypeString = keyof typeof SegmentType;
-
-export enum GameType {
-    CL = 0,
-    PL = 1
-}
-
-export type GameTypeString = keyof typeof GameType;
-
-export enum LeaguePrizeType {
-    TeamPlay = 0,
-    Overall = 1,
-    OverallSponsored = 2,
-    Monthly = 3
-}
-
-export type LeaguePrizeTypeString = keyof typeof LeaguePrizeType;
-
 export interface GamePoint extends IIdentity, ICreatedBy {
     Amount: Partial<number>;
     ClientName: string | null;
@@ -294,15 +199,6 @@ export interface GamePrize extends Prize {
     TheGameGame: Partial<TheGameGame> | null;
     TheGameGameId: number;
 }
-
-export enum GamePrizeType {
-    SponsoredPrize = 0,
-    SecondSponsoredPrize = 1,
-    TopFiveOverallPrize = 2,
-    SponsoredOverallPrize = 3
-}
-
-export type GamePrizeTypeString = keyof typeof GamePrizeType;
 
 export interface League extends IIdentity {
     LeaguePrizes: Array<Partial<LeaguePrize>> | null;
@@ -412,14 +308,6 @@ export interface SurveyResponse extends IIdentity {
     Question: Partial<SurveyQuestion> | null;
     QuestionId: number;
 }
-
-export enum SurveyQuestionType {
-    SingleSelect = 0,
-    MultiSelect = 1,
-    Text = 2
-}
-
-export type SurveyQuestionTypeString = keyof typeof SurveyQuestionType;
 
 export interface SurveyAnswer extends IChangeTracking, ICreatedBy, IIdentity {
     CreatedDate: string;
@@ -628,14 +516,6 @@ export interface SurgePointType extends IIdentity {
     Value: number;
 }
 
-export enum SurgePrizeType {
-    TopOnTeam = 0,
-    TopTeams = 1,
-    TopIndividual = 2
-}
-
-export type SurgePrizeTypeString = keyof typeof SurgePrizeType;
-
 export interface SurgeScoreboard extends IIdentity {
     CarrierId: number | null;
     CarrierName: string | null;
@@ -774,14 +654,6 @@ export interface TaskReminder {
     TaskId: number;
 }
 
-export enum TaskStatusType {
-    NotStarted = 0,
-    InProgress = 1,
-    Completed = 2
-}
-
-export type TaskStatusTypeString = keyof typeof TaskStatusType;
-
 export interface TimelineCoverPageAttachment extends Attachment {
     CoverPageName: string | null;
     IsActive: boolean;
@@ -865,13 +737,6 @@ export interface TimelineEnabledPage {
     TimelineId: number;
 }
 
-export enum TimelineStatusType {
-    Inactive = 0,
-    Active = 1
-}
-
-export type TimelineStatusTypeString = keyof typeof TimelineStatusType;
-
 export interface TimelineTaskToTimelineContactAssignee {
     Id: number;
     TimelineContact: Partial<TimelineContact> | null;
@@ -923,13 +788,6 @@ export interface TimelineTemplateToCompany {
     TimelineTemplate: Partial<TimelineTemplate> | null;
     TimelineTemplateId: number;
 }
-
-export enum PrizeDistributionOption {
-    Split = 0,
-    Individual = 1
-}
-
-export type PrizeDistributionOptionString = keyof typeof PrizeDistributionOption;
 
 export interface PLGame extends IIdentity {
     Divisions: Array<Partial<PLGameDivision>> | null;
@@ -1011,13 +869,6 @@ export interface PLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     TeamPersonRoleId: number;
     Type: PLGamePointTypeString;
 }
-
-export enum PLGamePointType {
-    Sale = 0,
-    BOR = 1
-}
-
-export type PLGamePointTypeString = keyof typeof PLGamePointType;
 
 export interface PLGamePrize extends IIdentity {
     Amount: Partial<number> | null;
@@ -1208,25 +1059,6 @@ export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
     TalentSearch: boolean;
 }
 
-export enum CommissionRateType {
-    CommercialLines = 0,
-    PersonalLines = 1,
-    Benefits = 2,
-    Life = 3,
-    Assigned = 4
-}
-
-export type CommissionRateTypeString = keyof typeof CommissionRateType;
-
-export enum PolicyType {
-    CommercialLines = 0,
-    PersonalLines = 1,
-    Benefits = 2,
-    Life = 3
-}
-
-export type PolicyTypeString = keyof typeof PolicyType;
-
 export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy {
     CommissionRateType: CommissionRateTypeString;
     Company: Partial<Company> | null;
@@ -1268,22 +1100,6 @@ export interface SalesExpectationStatus {
     SalesExpectation: Partial<SalesExpectation> | null;
     StatusType: SalesExpectationStatusTypeString;
 }
-
-export enum SalesExpectationStatusType {
-    SystemRejected = 0,
-    AplRejected = 1,
-    SystemApproved = 2,
-    AplApproved = 3
-}
-
-export type SalesExpectationStatusTypeString = keyof typeof SalesExpectationStatusType;
-
-export enum TransactionType {
-    NewBusiness = 0,
-    RenewPolicy = 1
-}
-
-export type TransactionTypeString = keyof typeof TransactionType;
 
 export interface PersonMondayAccount extends IIdentity {
     MondayId: number;
@@ -1447,14 +1263,6 @@ export interface ManagementSystemDatabaseServer extends IIdentity {
     Username: string | null;
 }
 
-export enum LandlordType {
-    ThirdParty = 0,
-    LLC = 1,
-    CoOwner = 2
-}
-
-export type LandlordTypeString = keyof typeof LandlordType;
-
 export interface Lease {
     CompanyAddress: Partial<CompanyAddress> | null;
     DisableEmailNotifications: boolean;
@@ -1486,31 +1294,12 @@ export interface EmployeeQuestion {
     Question: string | null;
 }
 
-export enum ForumAdminPermission {
-    ManageLockedFolders = 1,
-    ManageForumAdmins = 2,
-    ManageMessages = 4,
-    ManageForumMembers = 8,
-    DeleteForum = 16,
-    EditForum = 32,
-    PostPinner = 64,
-    All = 127
-}
-
 export interface PostAttachment extends Attachment {
     FolderName: string | null;
     Post: Partial<Post> | null;
     PostId: number;
     StorageFileNameAndPath: string | null;
 }
-
-export enum EmployeeQuestionPrivacyOption {
-    Public = 0,
-    ShowToPresident = 1,
-    Private = 2
-}
-
-export type EmployeeQuestionPrivacyOptionString = keyof typeof EmployeeQuestionPrivacyOption;
 
 export interface TrackableAttachment extends Attachment {
     DownloadedBy: Array<Partial<TrackableAttachmentToPerson>> | null;
@@ -1578,12 +1367,6 @@ export interface ForumFolder extends Folder {
     ParentFolderId: number | null;
     Path: string | null;
 }
-
-export enum ForumSettingsType {
-    SendEmailNotificationsOnPost = 0
-}
-
-export type ForumSettingsTypeString = keyof typeof ForumSettingsType;
 
 export interface ForumSetting {
     Forum: Partial<Forum> | null;
@@ -1658,21 +1441,6 @@ export interface ForumToPeopleGroup {
     PeopleGroup: Partial<PeopleGroup> | null;
     PeopleGroupId: number;
 }
-
-export enum MessageNotificationType {
-    NewMessage = 0,
-    MessageActivity = 1
-}
-
-export type MessageNotificationTypeString = keyof typeof MessageNotificationType;
-
-export enum ForumType {
-    Private = 0,
-    Public = 1,
-    Hidden = 2
-}
-
-export type ForumTypeString = keyof typeof ForumType;
 
 export interface ForumView {
     Forum: Partial<Forum> | null;
@@ -1801,20 +1569,6 @@ export interface NewsToPeopleGroup {
     PeopleGroupId: number;
 }
 
-export enum ForumOptOutType {
-    Email = 0
-}
-
-export type ForumOptOutTypeString = keyof typeof ForumOptOutType;
-
-export enum NewsType {
-    Announcement = 0,
-    Article = 1,
-    ExternalArticle = 2
-}
-
-export type NewsTypeString = keyof typeof NewsType;
-
 export interface Post extends Message {
     Attachments: Array<Partial<PostAttachment>> | null;
     Forum: Partial<Forum> | null;
@@ -1831,19 +1585,6 @@ export interface Reaction {
     MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
     Type: ReactionTypeString;
 }
-
-export enum QuickLinkType {
-    Internal = 0,
-    External = 1
-}
-
-export type QuickLinkTypeString = keyof typeof QuickLinkType;
-
-export enum ReactionType {
-    Like = 0
-}
-
-export type ReactionTypeString = keyof typeof ReactionType;
 
 export interface Reply {
     Body: string | null;
@@ -1864,15 +1605,6 @@ export interface ReplyReaction extends Reaction {
     ReplyId: number;
 }
 
-export enum RequestToJoinStatus {
-    Pending = 0,
-    Accepted = 1,
-    Rejected = 2,
-    Canceled = 3
-}
-
-export type RequestToJoinStatusString = keyof typeof RequestToJoinStatus;
-
 export interface GpNomination extends ICreatedBy {
     AwardedByPerson: Partial<Person> | null;
     AwardedByPersonId: number | null;
@@ -1884,18 +1616,6 @@ export interface GpNomination extends ICreatedBy {
     NominationPrinciple: GoverningPrincipleString;
     NominationReason: string | null;
 }
-
-export enum GoverningPrinciple {
-    BeHonestAndOperateWithIntegrity = 0,
-    ServeStakeholders = 1,
-    AlignInterests = 2,
-    GrowProfitably = 3,
-    Adapt = 4,
-    Enjoy = 5,
-    CommunicateWithReasonAndCivility = 6
-}
-
-export type GoverningPrincipleString = keyof typeof GoverningPrinciple;
 
 export interface ExpenseAttachment extends Attachment {
     ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
@@ -1951,23 +1671,6 @@ export interface ExpenseFormItem {
     RequestingAgencyId: number | null;
     Type: ExpenseItemTypeString;
 }
-
-export enum ExpenseItemType {
-    BillTo = 0,
-    Reimbursable = 1
-}
-
-export type ExpenseItemTypeString = keyof typeof ExpenseItemType;
-
-export enum ExpenseStatus {
-    Open = 0,
-    Submitted = 1,
-    Approved = 2,
-    Paid = 3,
-    Rejected = 4
-}
-
-export type ExpenseStatusString = keyof typeof ExpenseStatus;
 
 export interface MileageRate {
     Id: number;
@@ -2052,13 +1755,6 @@ export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
     Type: EloquaSyncTypeV2String;
 }
 
-export enum EloquaSyncTypeV2 {
-    Ams360 = 0,
-    BenefitPoint = 1
-}
-
-export type EloquaSyncTypeV2String = keyof typeof EloquaSyncTypeV2;
-
 export interface CourseEmailRecipient {
     EducationCourse: Partial<EducationCourse> | null;
     EducationCourseId: number;
@@ -2066,13 +1762,6 @@ export interface CourseEmailRecipient {
     Person: Partial<Person> | null;
     PersonId: number;
 }
-
-export enum QuestionType {
-    SingleSelect = 0,
-    MultiSelect = 1
-}
-
-export type QuestionTypeString = keyof typeof QuestionType;
 
 export interface CourseReporteeToPeopleGroup extends IExpirable, IIdentity, IChangeTracking, ICreatedBy {
     Course: Partial<EducationCourse> | null;
@@ -2092,14 +1781,6 @@ export interface EducationAnswerKey extends IIdentity {
     Answer: Partial<EducationAnswer> | null;
     IsCorrect: boolean;
 }
-
-export enum LessonAttemptStatus {
-    Pass = 0,
-    Fail = 1,
-    InProgress = 2
-}
-
-export type LessonAttemptStatusString = keyof typeof LessonAttemptStatus;
 
 export interface EducationAnswer extends IChangeTracking, ICreatedBy, IIdentity {
     AnswerKey: Partial<EducationAnswerKey> | null;
@@ -2248,41 +1929,6 @@ export interface LGManagedDomoDataset extends IIdentity {
     DomoDatasetId: string | null;
 }
 
-export enum ActivityType {
-    Appointment = 4201,
-    Email = 4202,
-    Fax = 4204,
-    CaseResolution = 4206,
-    Letter = 4207,
-    OpportunityClose = 4208,
-    OrderClose = 4209,
-    PhoneCall = 4210,
-    QuoteClose = 4211,
-    Task = 4212,
-    ServiceActivity = 4214,
-    RecurringAppointment = 4251,
-    CampaignResponse = 4401,
-    CampaignActivity = 4402,
-    BulkOperation = 4406,
-    Converstaion = 10036,
-    PromotionalMail = 10037,
-    inMail = 10078,
-    Message = 10079,
-    PointDrivePresentationCreated = 10080,
-    PointDrivePresentationViewed = 10081,
-    Surveyinvite = 10158,
-    Surveyresponse = 10159
-}
-
-export type ActivityTypeString = keyof typeof ActivityType;
-
-export enum CompanySizeType {
-    Large = 100000000,
-    Small = 100000001
-}
-
-export type CompanySizeTypeString = keyof typeof CompanySizeType;
-
 export interface CrmActivityPlanner extends IIdentity {
     ActivityPlannerId: string;
     ActivityPlannerName: string | null;
@@ -2394,47 +2040,6 @@ export interface CrmBulkImportFailure {
     Zip: string | null;
 }
 
-export enum FailureType {
-    GeneralFailure = 0,
-    Duplicate = 1
-}
-
-export type FailureTypeString = keyof typeof FailureType;
-
-export enum DuplicateFieldType {
-    None = 0,
-    Name = 1,
-    Address = 2,
-    Email = 4,
-    Phone = 8,
-    ContactFullname = 16
-}
-
-export enum PreferredContactMethodType {
-    Any = 1,
-    Email = 2,
-    Phone = 3,
-    Fax = 4,
-    Mail = 5,
-    Text = 6
-}
-
-export type PreferredContactMethodTypeString = keyof typeof PreferredContactMethodType;
-
-export enum NewOrRenewalType {
-    New = 0,
-    Renewal = 1
-}
-
-export type NewOrRenewalTypeString = keyof typeof NewOrRenewalType;
-
-export enum StateCodeType {
-    Active = 0,
-    Inactive = 1
-}
-
-export type StateCodeTypeString = keyof typeof StateCodeType;
-
 export interface CrmAccount extends IIdentity {
     AccountId: string;
     AccountStage: CrmAccountStageString | null;
@@ -2483,15 +2088,6 @@ export interface CrmAccount extends IIdentity {
     Zip: string | null;
 }
 
-export enum CrmAccountStage {
-    Lead = 100000000,
-    Suspect = 100000001,
-    Prospect = 100000002,
-    Client = 100000003
-}
-
-export type CrmAccountStageString = keyof typeof CrmAccountStage;
-
 export interface CrmCommission extends IIdentity {
     Amount: Partial<number>;
     CommissionSplitId: string | null;
@@ -2514,25 +2110,10 @@ export interface CrmAuditSyncLogEntry {
     LastSyncDate: string;
 }
 
-export enum AccountStatusCodeType {
-    Active = 0,
-    Inactive = 1
-}
-
-export type AccountStatusCodeTypeString = keyof typeof AccountStatusCodeType;
-
 export interface CrmUserPersonRole extends PersonRole {
     CrmInstance: CrmInstanceString;
     SystemUserGuid: string;
 }
-
-export enum CrmInstance {
-    Production = 0,
-    Uat = 1,
-    Dev = 2
-}
-
-export type CrmInstanceString = keyof typeof CrmInstance;
 
 export interface CrmOpportunity extends IIdentity {
     Account: Partial<CrmAccount> | null;
@@ -2641,15 +2222,6 @@ export interface GuestPersonRole extends PersonRole, ICreatedBy {
     RequestedByPersonId: number;
 }
 
-export enum JobRoleAssignmentType {
-    CommercialLines = 0,
-    PersonalLines = 1,
-    Benefits = 2,
-    Life = 3
-}
-
-export type JobRoleAssignmentTypeString = keyof typeof JobRoleAssignmentType;
-
 export interface CarrierCompanyRole extends CompanyRole {
 }
 
@@ -2659,78 +2231,9 @@ export interface CompanyContactPersonRole extends PersonRole {
     Title: string | null;
 }
 
-export enum DaysOfMonth {
-    None = 0,
-    First = 1,
-    Second = 2,
-    Third = 4,
-    Fourth = 8,
-    Fifth = 16,
-    Sixth = 32,
-    Seventh = 64,
-    Eighth = 128,
-    Ninth = 256,
-    Tenth = 512,
-    Eleventh = 1024,
-    Twelfth = 2048,
-    Thirteenth = 4096,
-    Fourteenth = 8192,
-    Fifteenth = 16384,
-    Sixteenth = 32768,
-    Seventeenth = 65536,
-    Eighteenth = 131072,
-    Nineteenth = 262144,
-    Twentieth = 524288,
-    Twentyfirst = 1048576,
-    Twentysecond = 2097152,
-    Twentythird = 4194304,
-    Twentyfourth = 8388608,
-    Twentyfifth = 16777216,
-    Twentysixth = 33554432,
-    Twentyseventh = 67108864,
-    Twentyeighth = 134217728,
-    Twentyninth = 268435456,
-    Thirtieth = 536870912,
-    Even = 715827882,
-    Thirtyfirst = 1073741824,
-    Odd = 1431655765,
-    All = 2147483647
-}
-
-export enum DaysOfWeek {
-    None = 0,
-    Sunday = 1,
-    Monday = 2,
-    Tuesday = 4,
-    Wednesday = 8,
-    Thursday = 16,
-    Friday = 32,
-    Saturday = 64,
-    All = 127
-}
-
 export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
     EmailAddressTypes: EmailAddressTypesString;
 }
-
-export enum EmploymentType {
-    PaidEmployee = 0,
-    UnpaidEmployee = 1,
-    Contractor = 2
-}
-
-export type EmploymentTypeString = keyof typeof EmploymentType;
-
-export enum Frequency {
-    OneTime = 0,
-    Hourly = 1,
-    Daily = 2,
-    Weekly = 3,
-    Monthly = 4,
-    Minutes = 5
-}
-
-export type FrequencyString = keyof typeof Frequency;
 
 export interface InAppNotificationDeliveryMethod extends NotificationDeliveryMethod {
     AppName: string | null;
@@ -2747,14 +2250,6 @@ export interface InAppNotification extends IIdentity {
     Status: InAppNotificationStatusString;
     Subject: string | null;
 }
-
-export enum InAppNotificationStatus {
-    Read = 0,
-    Unread = 1,
-    Archived = 2
-}
-
-export type InAppNotificationStatusString = keyof typeof InAppNotificationStatus;
 
 export interface InvestorPersonRole extends PersonRole {
 }
@@ -2988,13 +2483,6 @@ export interface INote {
     Text: string | null;
 }
 
-export enum PersonNameType {
-    Legal = 0,
-    Preffered = 1
-}
-
-export type PersonNameTypeString = keyof typeof PersonNameType;
-
 export interface PersonName extends IExpirable, IIdentity, ISynchronizable {
     FirstName: string | null;
     LastName: string | null;
@@ -3223,16 +2711,6 @@ export interface CompanyName extends IExpirable, IIdentity, ISynchronizable {
     Name: string | null;
 }
 
-export enum CompanyNameTypes {
-    HrCompanyName = 0,
-    HrCompanyDbaName = 1,
-    Legal = 2,
-    Short = 3,
-    Main = 4
-}
-
-export type CompanyNameTypesString = keyof typeof CompanyNameTypes;
-
 export interface CompanyPhoneNumber extends PhoneNumber {
     Company: Partial<Company> | null;
     CompanyId: number;
@@ -3248,13 +2726,6 @@ export interface EmailAddress extends IExpirable, IIdentity, ISynchronizable {
     Address: string | null;
     EmailAddressType: EmailAddressTypesString;
 }
-
-export enum EmailAddressTypes {
-    PrimaryWork = 0,
-    Personal = 2
-}
-
-export type EmailAddressTypesString = keyof typeof EmailAddressTypes;
 
 export interface LGEmployeeRole extends PersonRole {
     CreatedBy: Partial<Person> | null;
@@ -3696,28 +3167,6 @@ export interface ConferenceTrack {
     Sessions: Array<Partial<ConferenceSession>> | null;
 }
 
-export enum EnrollmentStatus {
-    NotPaid = 0,
-    Paid = 1,
-    NotPaidReserved = 2,
-    Cancelled = 3,
-    CancelledRefunded = 4
-}
-
-export type EnrollmentStatusString = keyof typeof EnrollmentStatus;
-
-export enum MealPreference {
-    NoPreference = 0,
-    Vegetarian = 1,
-    Kosher = 2,
-    Vegan = 3,
-    Pollotarian = 4,
-    Pescatarian = 5,
-    GlutenFree = 6
-}
-
-export type MealPreferenceString = keyof typeof MealPreference;
-
 export interface ConferenceSponsorship {
     Available: number | null;
     Conference: Partial<Conference> | null;
@@ -3732,47 +3181,6 @@ export interface ConferenceSponsorship {
     TotalAvailable: number | null;
     Type: SponsorshipTypeString;
 }
-
-export enum PaymentStatusType {
-    NotPaid = 0,
-    PaidInFull = 1
-}
-
-export type PaymentStatusTypeString = keyof typeof PaymentStatusType;
-
-export enum RegistrationStatusType {
-    NotAttending = 0,
-    Attending = 1
-}
-
-export type RegistrationStatusTypeString = keyof typeof RegistrationStatusType;
-
-export enum SponsorshipType {
-    AvailableForPurchase = 0,
-    Custom = 1
-}
-
-export type SponsorshipTypeString = keyof typeof SponsorshipType;
-
-export enum TransactionPaymentType {
-    None = 0,
-    Cash = 1,
-    Check = 2,
-    CreditCard = 3,
-    Comp = 4,
-    Sweep = 5,
-    ManualCreditCard = 6
-}
-
-export type TransactionPaymentTypeString = keyof typeof TransactionPaymentType;
-
-export enum ConferenceTransactionType {
-    Purchase = 0,
-    Payment = 1,
-    Refund = 2
-}
-
-export type ConferenceTransactionTypeString = keyof typeof ConferenceTransactionType;
 
 export interface SessionSpeaker {
     Id: number;
@@ -3864,13 +3272,6 @@ export interface CLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     TeamPersonRoleId: number;
     Type: CLGamePointTypeString;
 }
-
-export enum CLGamePointType {
-    Sale = 0,
-    BOR = 1
-}
-
-export type CLGamePointTypeString = keyof typeof CLGamePointType;
 
 export interface CLGamePrequalifiedPrize extends CLGamePrize {
     Segments: Array<Partial<CLGameSegmentToPrequalifiedPrize>> | null;
@@ -4002,13 +3403,6 @@ export interface OutboundCallerId extends IIdentity {
     OutboundCallerIdToPersonRoles: Array<Partial<OutboundCallerIdToPersonRole>> | null;
 }
 
-export enum UpdateChannel {
-    Beta = 0,
-    Stable = 1
-}
-
-export type UpdateChannelString = keyof typeof UpdateChannel;
-
 export interface CallManagerVersion extends IIdentity {
     Channel: UpdateChannelString;
     CreatedDate: string;
@@ -4091,13 +3485,6 @@ export interface BusinessCardTemplateAttachment extends Attachment {
     StorageFileNameAndPath: string | null;
 }
 
-export enum BusinessCardType {
-    SingleSided = 0,
-    DoubleSided = 1
-}
-
-export type BusinessCardTypeString = keyof typeof BusinessCardType;
-
 export interface BusinessCardOrderAttachment extends Attachment {
     BackOrderAttachment: Array<Partial<BusinessCardOrder>> | null;
     FolderName: string | null;
@@ -4112,13 +3499,6 @@ export interface PdfTemplateFieldKey {
     Key: string | null;
     Type: PdfTemplateFieldTypeString;
 }
-
-export enum PdfTemplateFieldType {
-    Text = 0,
-    Image = 1
-}
-
-export type PdfTemplateFieldTypeString = keyof typeof PdfTemplateFieldType;
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
     PeopleGroup: Partial<PeopleGroup> | null;
@@ -4206,14 +3586,6 @@ export interface BenefitPointSyncLogEntry {
     TableName: string | null;
 }
 
-export enum AppsCarrierType {
-    PAndC = 0,
-    PersonalRisks = 1,
-    WorkersComp = 2
-}
-
-export type AppsCarrierTypeString = keyof typeof AppsCarrierType;
-
 export interface AppsPcCarrier extends IIdentity {
     LineOfBusiness: string | null;
     Name: string | null;
@@ -4263,13 +3635,6 @@ export interface AffiliationRoleReview extends IExpirable, IIdentity {
     PaymentDate: string;
     ReviewDate: string;
 }
-
-export enum AffiliationRoleState {
-    Active = 0,
-    Inactive = 1
-}
-
-export type AffiliationRoleStateString = keyof typeof AffiliationRoleState;
 
 export interface AffiliationRoleEffectiveDate extends IExpirable, IIdentity {
     AffiliationRole: Partial<AffiliationRole> | null;
@@ -4388,4 +3753,631 @@ export interface IPhoneNumber {
     Extension: string | null;
     LineNumber: string | null;
 }
+
+export enum DataTypes {
+    PhoneNumber = 0,
+    Url = 1,
+    Currency = 2,
+    String = 3,
+    DateTime = 4,
+    Int = 5
+}
+
+export type DataTypesString = keyof typeof DataTypes;
+
+export enum DaysOfWeek {
+    None = 0,
+    Sunday = 1,
+    Monday = 2,
+    Tuesday = 4,
+    Wednesday = 8,
+    Thursday = 16,
+    Friday = 32,
+    Saturday = 64,
+    All = 127
+}
+
+export enum Seasons {
+    Spring = 0,
+    Winter = 1,
+    Summer = 2,
+    Fall = 3
+}
+
+export type SeasonsString = keyof typeof Seasons;
+
+export enum DeductionFrequency {
+    OneTime = 0,
+    PerPaycheck = 1,
+    Monthly = 2,
+    Annually = 3,
+    Quarterly = 4
+}
+
+export type DeductionFrequencyString = keyof typeof DeductionFrequency;
+
+export enum LogEntryLevel {
+    Info = 0,
+    Warn = 1,
+    Error = 2
+}
+
+export type LogEntryLevelString = keyof typeof LogEntryLevel;
+
+export enum LogEntryType {
+    Feedback = 0,
+    Summary = 1
+}
+
+export type LogEntryTypeString = keyof typeof LogEntryType;
+
+export enum TeamAttachmentType {
+    TeamPicture = 0
+}
+
+export type TeamAttachmentTypeString = keyof typeof TeamAttachmentType;
+
+export enum SegmentType {
+    PointEntry = 0,
+    ExtendedPeriod = 1
+}
+
+export type SegmentTypeString = keyof typeof SegmentType;
+
+export enum GamePrizeType {
+    SponsoredPrize = 0,
+    SecondSponsoredPrize = 1,
+    TopFiveOverallPrize = 2,
+    SponsoredOverallPrize = 3
+}
+
+export type GamePrizeTypeString = keyof typeof GamePrizeType;
+
+export enum LeaguePrizeType {
+    TeamPlay = 0,
+    Overall = 1,
+    OverallSponsored = 2,
+    Monthly = 3
+}
+
+export type LeaguePrizeTypeString = keyof typeof LeaguePrizeType;
+
+export enum GameType {
+    CL = 0,
+    PL = 1
+}
+
+export type GameTypeString = keyof typeof GameType;
+
+export enum SurveyQuestionType {
+    SingleSelect = 0,
+    MultiSelect = 1,
+    Text = 2
+}
+
+export type SurveyQuestionTypeString = keyof typeof SurveyQuestionType;
+
+export enum CrmInstance {
+    Production = 0,
+    Uat = 1,
+    Dev = 2
+}
+
+export type CrmInstanceString = keyof typeof CrmInstance;
+
+export enum SurgePrizeType {
+    TopOnTeam = 0,
+    TopTeams = 1,
+    TopIndividual = 2
+}
+
+export type SurgePrizeTypeString = keyof typeof SurgePrizeType;
+
+export enum TaskStatusType {
+    NotStarted = 0,
+    InProgress = 1,
+    Completed = 2
+}
+
+export type TaskStatusTypeString = keyof typeof TaskStatusType;
+
+export enum TimelineStatusType {
+    Inactive = 0,
+    Active = 1
+}
+
+export type TimelineStatusTypeString = keyof typeof TimelineStatusType;
+
+export enum PLGamePointType {
+    Sale = 0,
+    BOR = 1
+}
+
+export type PLGamePointTypeString = keyof typeof PLGamePointType;
+
+export enum PrizeDistributionOption {
+    Split = 0,
+    Individual = 1
+}
+
+export type PrizeDistributionOptionString = keyof typeof PrizeDistributionOption;
+
+export enum PolicyType {
+    CommercialLines = 0,
+    PersonalLines = 1,
+    Benefits = 2,
+    Life = 3
+}
+
+export type PolicyTypeString = keyof typeof PolicyType;
+
+export enum CommissionRateType {
+    CommercialLines = 0,
+    PersonalLines = 1,
+    Benefits = 2,
+    Life = 3,
+    Assigned = 4
+}
+
+export type CommissionRateTypeString = keyof typeof CommissionRateType;
+
+export enum TransactionType {
+    NewBusiness = 0,
+    RenewPolicy = 1
+}
+
+export type TransactionTypeString = keyof typeof TransactionType;
+
+export enum SalesExpectationStatusType {
+    SystemRejected = 0,
+    AplRejected = 1,
+    SystemApproved = 2,
+    AplApproved = 3
+}
+
+export type SalesExpectationStatusTypeString = keyof typeof SalesExpectationStatusType;
+
+export enum LandlordType {
+    ThirdParty = 0,
+    LLC = 1,
+    CoOwner = 2
+}
+
+export type LandlordTypeString = keyof typeof LandlordType;
+
+export enum EmployeeQuestionPrivacyOption {
+    Public = 0,
+    ShowToPresident = 1,
+    Private = 2
+}
+
+export type EmployeeQuestionPrivacyOptionString = keyof typeof EmployeeQuestionPrivacyOption;
+
+export enum ForumSettingsType {
+    SendEmailNotificationsOnPost = 0
+}
+
+export type ForumSettingsTypeString = keyof typeof ForumSettingsType;
+
+export enum ForumOptOutType {
+    Email = 0
+}
+
+export type ForumOptOutTypeString = keyof typeof ForumOptOutType;
+
+export enum ForumType {
+    Private = 0,
+    Public = 1,
+    Hidden = 2
+}
+
+export type ForumTypeString = keyof typeof ForumType;
+
+export enum ForumAdminPermission {
+    ManageLockedFolders = 1,
+    ManageForumAdmins = 2,
+    ManageMessages = 4,
+    ManageForumMembers = 8,
+    DeleteForum = 16,
+    EditForum = 32,
+    PostPinner = 64,
+    All = 127
+}
+
+export enum RequestToJoinStatus {
+    Pending = 0,
+    Accepted = 1,
+    Rejected = 2,
+    Canceled = 3
+}
+
+export type RequestToJoinStatusString = keyof typeof RequestToJoinStatus;
+
+export enum QuickLinkType {
+    Internal = 0,
+    External = 1
+}
+
+export type QuickLinkTypeString = keyof typeof QuickLinkType;
+
+export enum MessageNotificationType {
+    NewMessage = 0,
+    MessageActivity = 1
+}
+
+export type MessageNotificationTypeString = keyof typeof MessageNotificationType;
+
+export enum NewsType {
+    Announcement = 0,
+    Article = 1,
+    ExternalArticle = 2
+}
+
+export type NewsTypeString = keyof typeof NewsType;
+
+export enum ReactionType {
+    Like = 0
+}
+
+export type ReactionTypeString = keyof typeof ReactionType;
+
+export enum GoverningPrinciple {
+    BeHonestAndOperateWithIntegrity = 0,
+    ServeStakeholders = 1,
+    AlignInterests = 2,
+    GrowProfitably = 3,
+    Adapt = 4,
+    Enjoy = 5,
+    CommunicateWithReasonAndCivility = 6
+}
+
+export type GoverningPrincipleString = keyof typeof GoverningPrinciple;
+
+export enum ExpenseStatus {
+    Open = 0,
+    Submitted = 1,
+    Approved = 2,
+    Paid = 3,
+    Rejected = 4
+}
+
+export type ExpenseStatusString = keyof typeof ExpenseStatus;
+
+export enum ExpenseItemType {
+    BillTo = 0,
+    Reimbursable = 1
+}
+
+export type ExpenseItemTypeString = keyof typeof ExpenseItemType;
+
+export enum EloquaSyncTypeV2 {
+    Ams360 = 0,
+    BenefitPoint = 1
+}
+
+export type EloquaSyncTypeV2String = keyof typeof EloquaSyncTypeV2;
+
+export enum LessonAttemptStatus {
+    Pass = 0,
+    Fail = 1,
+    InProgress = 2
+}
+
+export type LessonAttemptStatusString = keyof typeof LessonAttemptStatus;
+
+export enum QuestionType {
+    SingleSelect = 0,
+    MultiSelect = 1
+}
+
+export type QuestionTypeString = keyof typeof QuestionType;
+
+export enum ActivityType {
+    Appointment = 4201,
+    Email = 4202,
+    Fax = 4204,
+    CaseResolution = 4206,
+    Letter = 4207,
+    OpportunityClose = 4208,
+    OrderClose = 4209,
+    PhoneCall = 4210,
+    QuoteClose = 4211,
+    Task = 4212,
+    ServiceActivity = 4214,
+    RecurringAppointment = 4251,
+    CampaignResponse = 4401,
+    CampaignActivity = 4402,
+    BulkOperation = 4406,
+    Converstaion = 10036,
+    PromotionalMail = 10037,
+    inMail = 10078,
+    Message = 10079,
+    PointDrivePresentationCreated = 10080,
+    PointDrivePresentationViewed = 10081,
+    Surveyinvite = 10158,
+    Surveyresponse = 10159
+}
+
+export type ActivityTypeString = keyof typeof ActivityType;
+
+export enum DuplicateFieldType {
+    None = 0,
+    Name = 1,
+    Address = 2,
+    Email = 4,
+    Phone = 8,
+    ContactFullname = 16
+}
+
+export enum FailureType {
+    GeneralFailure = 0,
+    Duplicate = 1
+}
+
+export type FailureTypeString = keyof typeof FailureType;
+
+export enum CrmAccountStage {
+    Lead = 100000000,
+    Suspect = 100000001,
+    Prospect = 100000002,
+    Client = 100000003
+}
+
+export type CrmAccountStageString = keyof typeof CrmAccountStage;
+
+export enum PreferredContactMethodType {
+    Any = 1,
+    Email = 2,
+    Phone = 3,
+    Fax = 4,
+    Mail = 5,
+    Text = 6
+}
+
+export type PreferredContactMethodTypeString = keyof typeof PreferredContactMethodType;
+
+export enum StateCodeType {
+    Active = 0,
+    Inactive = 1
+}
+
+export type StateCodeTypeString = keyof typeof StateCodeType;
+
+export enum AccountStatusCodeType {
+    Active = 0,
+    Inactive = 1
+}
+
+export type AccountStatusCodeTypeString = keyof typeof AccountStatusCodeType;
+
+export enum NewOrRenewalType {
+    New = 0,
+    Renewal = 1
+}
+
+export type NewOrRenewalTypeString = keyof typeof NewOrRenewalType;
+
+export enum EmailAddressTypes {
+    PrimaryWork = 0,
+    Personal = 2
+}
+
+export type EmailAddressTypesString = keyof typeof EmailAddressTypes;
+
+export enum InAppNotificationStatus {
+    Read = 0,
+    Unread = 1,
+    Archived = 2
+}
+
+export type InAppNotificationStatusString = keyof typeof InAppNotificationStatus;
+
+export enum JobRoleAssignmentType {
+    CommercialLines = 0,
+    PersonalLines = 1,
+    Benefits = 2,
+    Life = 3
+}
+
+export type JobRoleAssignmentTypeString = keyof typeof JobRoleAssignmentType;
+
+export enum DaysOfMonth {
+    None = 0,
+    First = 1,
+    Second = 2,
+    Third = 4,
+    Fourth = 8,
+    Fifth = 16,
+    Sixth = 32,
+    Seventh = 64,
+    Eighth = 128,
+    Ninth = 256,
+    Tenth = 512,
+    Eleventh = 1024,
+    Twelfth = 2048,
+    Thirteenth = 4096,
+    Fourteenth = 8192,
+    Fifteenth = 16384,
+    Sixteenth = 32768,
+    Seventeenth = 65536,
+    Eighteenth = 131072,
+    Nineteenth = 262144,
+    Twentieth = 524288,
+    Twentyfirst = 1048576,
+    Twentysecond = 2097152,
+    Twentythird = 4194304,
+    Twentyfourth = 8388608,
+    Twentyfifth = 16777216,
+    Twentysixth = 33554432,
+    Twentyseventh = 67108864,
+    Twentyeighth = 134217728,
+    Twentyninth = 268435456,
+    Thirtieth = 536870912,
+    Even = 715827882,
+    Thirtyfirst = 1073741824,
+    Odd = 1431655765,
+    All = 2147483647
+}
+
+export enum Frequency {
+    OneTime = 0,
+    Hourly = 1,
+    Daily = 2,
+    Weekly = 3,
+    Monthly = 4,
+    Minutes = 5
+}
+
+export type FrequencyString = keyof typeof Frequency;
+
+export enum PersonNameType {
+    Legal = 0,
+    Preffered = 1
+}
+
+export type PersonNameTypeString = keyof typeof PersonNameType;
+
+export enum AddressTypes {
+    Business = 0,
+    Home = 1
+}
+
+export type AddressTypesString = keyof typeof AddressTypes;
+
+export enum CompanyNameTypes {
+    HrCompanyName = 0,
+    HrCompanyDbaName = 1,
+    Legal = 2,
+    Short = 3,
+    Main = 4
+}
+
+export type CompanyNameTypesString = keyof typeof CompanyNameTypes;
+
+export enum EmploymentType {
+    PaidEmployee = 0,
+    UnpaidEmployee = 1,
+    Contractor = 2
+}
+
+export type EmploymentTypeString = keyof typeof EmploymentType;
+
+export enum PhoneNumberTypes {
+    HrCompanyMain = 0,
+    HrCompanyFax = 1,
+    HrCompanyOther = 3,
+    HrCompanyAddressMain = 4,
+    HrCompanyAddressFax = 5,
+    PrimaryWork = 7,
+    PrimaryHome = 9,
+    Mobile = 11,
+    Fax = 12
+}
+
+export type PhoneNumberTypesString = keyof typeof PhoneNumberTypes;
+
+export enum MealPreference {
+    NoPreference = 0,
+    Vegetarian = 1,
+    Kosher = 2,
+    Vegan = 3,
+    Pollotarian = 4,
+    Pescatarian = 5,
+    GlutenFree = 6
+}
+
+export type MealPreferenceString = keyof typeof MealPreference;
+
+export enum PaymentStatusType {
+    NotPaid = 0,
+    PaidInFull = 1
+}
+
+export type PaymentStatusTypeString = keyof typeof PaymentStatusType;
+
+export enum RegistrationStatusType {
+    NotAttending = 0,
+    Attending = 1
+}
+
+export type RegistrationStatusTypeString = keyof typeof RegistrationStatusType;
+
+export enum TransactionPaymentType {
+    None = 0,
+    Cash = 1,
+    Check = 2,
+    CreditCard = 3,
+    Comp = 4,
+    Sweep = 5,
+    ManualCreditCard = 6
+}
+
+export type TransactionPaymentTypeString = keyof typeof TransactionPaymentType;
+
+export enum ConferenceTransactionType {
+    Purchase = 0,
+    Payment = 1,
+    Refund = 2
+}
+
+export type ConferenceTransactionTypeString = keyof typeof ConferenceTransactionType;
+
+export enum SponsorshipType {
+    AvailableForPurchase = 0,
+    Custom = 1
+}
+
+export type SponsorshipTypeString = keyof typeof SponsorshipType;
+
+export enum CLGamePointType {
+    Sale = 0,
+    BOR = 1
+}
+
+export type CLGamePointTypeString = keyof typeof CLGamePointType;
+
+export enum UpdateChannel {
+    Beta = 0,
+    Stable = 1
+}
+
+export type UpdateChannelString = keyof typeof UpdateChannel;
+
+export enum BusinessCardType {
+    SingleSided = 0,
+    DoubleSided = 1
+}
+
+export type BusinessCardTypeString = keyof typeof BusinessCardType;
+
+export enum PdfTemplateFieldType {
+    Text = 0,
+    Image = 1
+}
+
+export type PdfTemplateFieldTypeString = keyof typeof PdfTemplateFieldType;
+
+export enum AppsCarrierType {
+    PAndC = 0,
+    PersonalRisks = 1,
+    WorkersComp = 2
+}
+
+export type AppsCarrierTypeString = keyof typeof AppsCarrierType;
+
+export enum AffiliationRoleState {
+    Active = 0,
+    Inactive = 1
+}
+
+export type AffiliationRoleStateString = keyof typeof AffiliationRoleState;
+
+export enum LineOfBusinessType {
+    Commercial = 0,
+    Life = 1,
+    Personal = 2,
+    Benefit = 3
+}
+
+export type LineOfBusinessTypeString = keyof typeof LineOfBusinessType;
 

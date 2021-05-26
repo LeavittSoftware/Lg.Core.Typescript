@@ -58,13 +58,6 @@ export interface DuplicateSearchResultDto {
     Zip: string | null;
 }
 
-export enum SourceType {
-    Core = 0,
-    Ams360 = 1
-}
-
-export type SourceTypeString = keyof typeof SourceType;
-
 export interface VsSoldReportDTO {
     CompanyName: string | null;
     FirstName: string | null;
@@ -117,4 +110,34 @@ export interface LeaderBoardDto {
     Leaders: Array<Partial<LeaderDto>> | null;
     TotalProducerCount: number;
 }
+
+export enum CrmAccountStage {
+    Lead = 100000000,
+    Suspect = 100000001,
+    Prospect = 100000002,
+    Client = 100000003
+}
+
+export type CrmAccountStageString = keyof typeof CrmAccountStage;
+
+export enum SourceType {
+    Core = 0,
+    Ams360 = 1
+}
+
+export type SourceTypeString = keyof typeof SourceType;
+
+export enum StateCodeType {
+    Active = 0,
+    Inactive = 1
+}
+
+export type StateCodeTypeString = keyof typeof StateCodeType;
+
+export enum AccountStatusCodeType {
+    Active = 0,
+    Inactive = 1
+}
+
+export type AccountStatusCodeTypeString = keyof typeof AccountStatusCodeType;
 

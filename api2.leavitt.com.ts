@@ -546,13 +546,6 @@ export interface PhonesCrashReportDto {
     Version: string | null;
 }
 
-export enum AgencyInvestmentType {
-    Minimum = 0,
-    Goal = 1
-}
-
-export type AgencyInvestmentTypeString = keyof typeof AgencyInvestmentType;
-
 export interface AgencyProfitabilityReportDto {
     AgencyProfitabilityPercentage: number;
     AgencyProfitabilityValue: number;
@@ -935,14 +928,6 @@ export interface ConferenceDashboardDto {
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
 }
 
-export enum ConferenceRegistrationStatus {
-    Open = 0,
-    NotStarted = 1,
-    Finished = 2
-}
-
-export type ConferenceRegistrationStatusString = keyof typeof ConferenceRegistrationStatus;
-
 export interface ConferenceCcPaymentDto {
     Amount: Partial<number>;
     BillingAddress: string | null;
@@ -1173,4 +1158,192 @@ export interface NaicsReportTopAgenciesDto {
 export interface IIdentity {
     Id: number;
 }
+
+export enum EmploymentType {
+    PaidEmployee = 0,
+    UnpaidEmployee = 1,
+    Contractor = 2
+}
+
+export type EmploymentTypeString = keyof typeof EmploymentType;
+
+export enum AccountStatus {
+    Locked = 0,
+    Disabled = 1,
+    PasswordExpired = 2,
+    Active = 3,
+    NeverLoggedIn = 4
+}
+
+export type AccountStatusString = keyof typeof AccountStatus;
+
+export enum HttpStatusCode {
+    Continue = 100,
+    SwitchingProtocols = 101,
+    OK = 200,
+    Created = 201,
+    Accepted = 202,
+    NonAuthoritativeInformation = 203,
+    NoContent = 204,
+    ResetContent = 205,
+    PartialContent = 206,
+    MultipleChoices = 300,
+    MovedPermanently = 301,
+    Redirect = 302,
+    SeeOther = 303,
+    NotModified = 304,
+    UseProxy = 305,
+    Unused = 306,
+    TemporaryRedirect = 307,
+    BadRequest = 400,
+    Unauthorized = 401,
+    PaymentRequired = 402,
+    Forbidden = 403,
+    NotFound = 404,
+    MethodNotAllowed = 405,
+    NotAcceptable = 406,
+    ProxyAuthenticationRequired = 407,
+    RequestTimeout = 408,
+    Conflict = 409,
+    Gone = 410,
+    LengthRequired = 411,
+    PreconditionFailed = 412,
+    RequestEntityTooLarge = 413,
+    RequestUriTooLong = 414,
+    UnsupportedMediaType = 415,
+    RequestedRangeNotSatisfiable = 416,
+    ExpectationFailed = 417,
+    UpgradeRequired = 426,
+    InternalServerError = 500,
+    NotImplemented = 501,
+    BadGateway = 502,
+    ServiceUnavailable = 503,
+    GatewayTimeout = 504,
+    HttpVersionNotSupported = 505
+}
+
+export type HttpStatusCodeString = keyof typeof HttpStatusCode;
+
+export enum AgencyInvestmentType {
+    Minimum = 0,
+    Goal = 1
+}
+
+export type AgencyInvestmentTypeString = keyof typeof AgencyInvestmentType;
+
+export enum PreferredContactMethodType {
+    Any = 1,
+    Email = 2,
+    Phone = 3,
+    Fax = 4,
+    Mail = 5,
+    Text = 6
+}
+
+export type PreferredContactMethodTypeString = keyof typeof PreferredContactMethodType;
+
+export enum LessonAttemptStatus {
+    Pass = 0,
+    Fail = 1,
+    InProgress = 2
+}
+
+export type LessonAttemptStatusString = keyof typeof LessonAttemptStatus;
+
+export enum ConferenceRegistrationStatus {
+    Open = 0,
+    NotStarted = 1,
+    Finished = 2
+}
+
+export type ConferenceRegistrationStatusString = keyof typeof ConferenceRegistrationStatus;
+
+export enum new_AccountType {
+    Commercial = 100000000,
+    Personal = 100000001,
+    EmployeeBenefits = 100000002,
+    FinancialServices = 100000003,
+    CenterofInfluence = 100000004
+}
+
+export type new_AccountTypeString = keyof typeof new_AccountType;
+
+export enum Opportunity_new_LineofBusiness {
+    Commercial = 100000000,
+    Personal = 100000001,
+    EmployeeBenefits = 100000002,
+    Retirement = 100000003
+}
+
+export type Opportunity_new_LineofBusinessString = keyof typeof Opportunity_new_LineofBusiness;
+
+export enum Opportunity_new_LineofCoverage {
+    Auto = 100000000,
+    BuildersRisk = 100000001,
+    BusinessOwnerPolicy = 100000002,
+    Dental = 100000003,
+    DirectorsOfficers = 100000004,
+    Dwelling = 100000005,
+    Earthquake = 100000006,
+    EPLI = 100000007,
+    Flood = 100000008,
+    GeneralLiability = 100000009,
+    GroupLife = 100000010,
+    Home = 100000011,
+    IndividualHealth = 100000012,
+    IndividualLife = 100000013,
+    InlandMarine = 100000014,
+    LongTermDisability = 100000015,
+    MedicalGroup = 100000016,
+    Other = 100000017,
+    PAF = 100000018,
+    ProfessionalLiability = 100000019,
+    Property = 100000020,
+    Retirement = 100000021,
+    SecondaryHome = 100000022,
+    ShortTermDisability = 100000023,
+    Surety = 100000024,
+    Umbrella = 100000025,
+    Vision = 100000026,
+    VoluntaryLines = 100000027,
+    WorkComp = 100000028,
+    WorkSite = 100000029,
+    BHCCP = 100000030,
+    EBConsultOutsource = 100000031,
+    BenefitsTechnology = 100000032,
+    COBRAAdministration = 100000033,
+    DefinedContribution = 100000034,
+    DirectReimbursePlan = 100000035,
+    EBOutsourcing = 100000036,
+    EBReview = 100000037,
+    EBEdEnrollment = 100000038,
+    EmployeeStatements = 100000039,
+    ExpenseReimbursement = 100000040,
+    FSA = 100000041,
+    HRA = 100000042,
+    HSA = 100000043,
+    InvestmentCommFees = 100000044,
+    LongTermCareIns = 100000045,
+    MBAAlliance = 100000046,
+    MERP = 100000047,
+    PensionPlanAssets = 100000048,
+    PremiumOnlyPlan = 100000049,
+    RetirementPlanAdmin = 100000050,
+    RHCCP = 100000051,
+    SalaryEBSurvey = 100000052,
+    FullServiceInvestment = 100000053,
+    FullServiceAdmin = 100000054,
+    PlanDocAdminWork = 100000055,
+    Package = 100000056
+}
+
+export type Opportunity_new_LineofCoverageString = keyof typeof Opportunity_new_LineofCoverage;
+
+export enum TaskStatusType {
+    NotStarted = 0,
+    InProgress = 1,
+    Completed = 2
+}
+
+export type TaskStatusTypeString = keyof typeof TaskStatusType;
 

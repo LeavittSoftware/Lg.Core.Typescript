@@ -14,25 +14,6 @@ export interface AccountAddress {
     Zip: string | null;
 }
 
-export enum AccountType {
-    None_Selected = 0,
-    Client = 1,
-    Informational = 2,
-    Marketing_Group = 3,
-    Other = 4,
-    Prospect = 5
-}
-
-export type AccountTypeString = keyof typeof AccountType;
-
-export enum AddressType {
-    Main = 0,
-    Billing = 1,
-    Mailing = 2
-}
-
-export type AddressTypeString = keyof typeof AddressType;
-
 export interface BenefitPointCustomers {
     Customer: Partial<BenefitPointCustomer> | null;
     Database: string | null;
@@ -81,35 +62,10 @@ export interface Phone {
     PhoneType: PhoneTypeString;
 }
 
-export enum PhoneType {
-    None_Selected = 0,
-    Assistant = 1,
-    Customer_Service = 2,
-    Fax = 3,
-    Home = 4,
-    Main = 5,
-    Mobile = 6,
-    Pager = 7,
-    Work = 8,
-    Other = 9
-}
-
-export type PhoneTypeString = keyof typeof PhoneType;
-
 export interface Product {
     NumberOfEligibleEmployees: number;
     ProductStatus: ProductStatusString;
 }
-
-export enum ProductStatus {
-    None_Selected = 0,
-    Cancelled = 1,
-    Current = 2,
-    Expired = 3,
-    Pending = 4
-}
-
-export type ProductStatusString = keyof typeof ProductStatus;
 
 export interface Account {
     AccountId: string | null;
@@ -271,4 +227,48 @@ export interface Version {
     MinorRevision: number;
     Revision: number;
 }
+
+export enum AddressType {
+    Main = 0,
+    Billing = 1,
+    Mailing = 2
+}
+
+export type AddressTypeString = keyof typeof AddressType;
+
+export enum AccountType {
+    None_Selected = 0,
+    Client = 1,
+    Informational = 2,
+    Marketing_Group = 3,
+    Other = 4,
+    Prospect = 5
+}
+
+export type AccountTypeString = keyof typeof AccountType;
+
+export enum PhoneType {
+    None_Selected = 0,
+    Assistant = 1,
+    Customer_Service = 2,
+    Fax = 3,
+    Home = 4,
+    Main = 5,
+    Mobile = 6,
+    Pager = 7,
+    Work = 8,
+    Other = 9
+}
+
+export type PhoneTypeString = keyof typeof PhoneType;
+
+export enum ProductStatus {
+    None_Selected = 0,
+    Cancelled = 1,
+    Current = 2,
+    Expired = 3,
+    Pending = 4
+}
+
+export type ProductStatusString = keyof typeof ProductStatus;
 
