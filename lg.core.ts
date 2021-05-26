@@ -660,14 +660,13 @@ export interface TimelineCoverPageAttachment extends Attachment {
     Pages: Array<Partial<TimelineEnabledPage>> | null;
 }
 
-export interface Timeline {
+export interface Timeline extends IIdentity {
     City: string | null;
     CompanyName: string | null;
     CreatedDate: string;
     Creator: Partial<Person> | null;
     CreatorId: number;
     EnabledPages: Array<Partial<TimelineEnabledPage>> | null;
-    Id: number;
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
     LastModifiedDate: string | null;

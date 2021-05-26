@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TaskReminder } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TaskReminder } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -1108,6 +1108,11 @@ export interface SaveTimelineCompanyDetailDto {
     TimelineTemplateId: number | null;
     Website: string | null;
     Zip: string | null;
+}
+
+export interface SetEnabledPagesDto {
+    EnabledPages: Array<Partial<TimelineEnabledPage>> | null;
+    TimelineDocumentId: number;
 }
 
 export interface TemplateTaskDto {
