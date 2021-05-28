@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TaskReminder } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TimelineTaskToTimelineContactWatcher } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -1113,6 +1113,21 @@ export interface SaveTimelineCompanyDetailDto {
 export interface SetEnabledPagesDto {
     EnabledPages: Array<Partial<TimelineEnabledPage>> | null;
     TimelineDocumentId: number;
+}
+
+export interface TaskDto {
+    Assignees: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
+    Id: number | null;
+    Name: string | null;
+    NotifyWatchersOnComplete: boolean;
+    NotifyWatchersOnDueDate: boolean;
+    RelativeDate: number;
+    Reminders: Array<Partial<TaskReminder>> | null;
+    SendCalendarInvite: boolean;
+    SendEmailReminder: boolean;
+    Status: TaskStatusTypeString;
+    TimelineId: number;
+    Watchers: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
 }
 
 export interface TemplateTaskDto {
