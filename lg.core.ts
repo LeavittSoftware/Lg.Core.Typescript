@@ -2053,6 +2053,7 @@ export interface CrmAccount extends IIdentity {
     ContactJobTitle: string | null;
     ContactLastName: string | null;
     CreatedOn: string | null;
+    CrmContacts: Array<Partial<CrmContact>> | null;
     CrmInstance: CrmInstanceString;
     DoNotCall: boolean;
     EffectiveDate: string | null;
