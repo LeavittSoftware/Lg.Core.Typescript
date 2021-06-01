@@ -147,8 +147,6 @@ export interface EmailTemplateRecipient extends IIdentity, ICreatedBy {
 }
 
 export interface TeamAttachment extends Attachment {
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
     Team: Partial<Team> | null;
     TeamAttachmentType: TeamAttachmentTypeString;
     TeamId: number;
@@ -337,8 +335,6 @@ export interface Survey extends IIdentity, IChangeTracking, ICreatedBy {
 }
 
 export interface SurveyFeaturedImageAttachment extends Attachment {
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
     Surveys: Array<Partial<Survey>> | null;
 }
 
@@ -816,12 +812,10 @@ export interface PLGame extends IIdentity {
 
 export interface PLGameCarouselSlideAttachment extends Attachment {
     Enabled: boolean;
-    FolderName: string | null;
     Link: string | null;
     PLGame: Partial<PLGame> | null;
     PLGameId: number;
     Sequence: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface PLGameDivision extends IIdentity {
@@ -843,9 +837,7 @@ export interface PLGameDivisionToTeam extends IIdentity {
 }
 
 export interface PLGameLogoAttachment extends Attachment {
-    FolderName: string | null;
     Games: Array<Partial<PLGame>> | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface PLGamePlayerPersonRole extends PersonRole {
@@ -940,8 +932,6 @@ export interface PLGameTeam extends IIdentity {
 }
 
 export interface PLGameTeamAttachment extends Attachment {
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
     Teams: Array<Partial<PLGameTeam>> | null;
 }
 
@@ -1135,7 +1125,6 @@ export interface Ams360SupplementalCode extends IIdentity {
 }
 
 export interface Ams360Database extends IIdentity {
-    DatabaseServer: Partial<Ams360DatabaseServer> | null;
     DatabaseServerId: number;
     EmpCodes: Array<Partial<Ams360EmpCode>> | null;
     GlDivisionCodes: Array<Partial<Ams360GlDivisionCode>> | null;
@@ -1217,9 +1206,7 @@ export interface Ams360PersonRole extends PersonRole {
 export interface Ams360WebserviceApi extends IIdentity {
     Instances: Array<Partial<Ams360Instance>> | null;
     Name: string | null;
-    Password: string | null;
     Url: string | null;
-    Username: string | null;
 }
 
 export interface ManualEntryBranchCode extends IIdentity, IExpirable {
@@ -1279,10 +1266,8 @@ export interface Lease {
 }
 
 export interface LeaseAttachment extends Attachment, IExpirable {
-    FolderName: string | null;
     Lease: Partial<Lease> | null;
     LeaseId: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface EmployeeQuestion {
@@ -1294,10 +1279,8 @@ export interface EmployeeQuestion {
 }
 
 export interface PostAttachment extends Attachment {
-    FolderName: string | null;
     Post: Partial<Post> | null;
     PostId: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface TrackableAttachment extends Attachment {
@@ -1327,13 +1310,11 @@ export interface Folder extends ICreatedBy {
 }
 
 export interface ForumAttachment extends TrackableAttachment {
-    FolderName: string | null;
     Forum: Partial<Forum> | null;
     ForumFolder: Partial<ForumFolder> | null;
     ForumFolderId: number | null;
     ForumId: number;
     IsPinned: boolean;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface Comment {
@@ -1399,7 +1380,6 @@ export interface Forum extends IExpirable {
     Name: string | null;
     OptOuts: Array<Partial<ForumOptOut>> | null;
     PeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
-    Posts: Array<Partial<Post>> | null;
     Settings: Array<Partial<ForumSetting>> | null;
     Type: ForumTypeString;
 }
@@ -1546,10 +1526,8 @@ export interface News extends Message {
 
 export interface NewsAttachment extends Attachment {
     FeaturedNews: Array<Partial<News>> | null;
-    FolderName: string | null;
     News: Partial<News> | null;
     NewsId: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface NewsRecipient {
@@ -1618,8 +1596,6 @@ export interface GpNomination extends ICreatedBy {
 
 export interface ExpenseAttachment extends Attachment {
     ExpenseFormItems: Array<Partial<ExpenseFormItem>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface ExpenseCategory {
@@ -1862,21 +1838,15 @@ export interface CourseParticipantStatus extends IIdentity {
 
 export interface CourseCertificateAttachment extends Attachment {
     EducationCourses: Array<Partial<EducationCourse>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface CourseFeaturedImageAttachment extends Attachment {
     EducationCourses: Array<Partial<EducationCourse>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface LessonAttachment extends Attachment {
-    FolderName: string | null;
     Lesson: Partial<EducationLesson> | null;
     LessonId: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy {
@@ -2509,7 +2479,6 @@ export interface BaseChangeTracking {
 
 export interface Attachment extends IIdentity, ISynchronizable {
     AllowGuestReadAccess: boolean;
-    BaseUncFileStoragePath: string | null;
     CdnFileName: string | null;
     ContentType: string | null;
     DeletedByPerson: Partial<Person> | null;
@@ -2517,7 +2486,6 @@ export interface Attachment extends IIdentity, ISynchronizable {
     DeletedDate: string | null;
     Description: string | null;
     Extension: string | null;
-    File: string | null;
     FileName: string | null;
     GroupPermissions: Array<Partial<GroupToAttachmentPermission>> | null;
     IsDeleted: boolean;
@@ -2528,7 +2496,6 @@ export interface Attachment extends IIdentity, ISynchronizable {
     PreviewExtension: string | null;
     PreviewSizes: string | null;
     Size: number;
-    StorageFileName: string | null;
 }
 
 export interface GroupToAttachmentPermission extends BaseChangeTracking, IIdentity, ISynchronizable {
@@ -2617,9 +2584,7 @@ export interface PeopleGroup extends Group, IExpirable {
 }
 
 export interface ProfilePictureAttachment extends Attachment {
-    FolderName: string | null;
     Length: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface IAddress {
@@ -2787,7 +2752,6 @@ export interface Person extends IIdentity, ISynchronizable {
     CampaignToCrmAccountsV2: Array<Partial<CampaignToCrmAccountV2>> | null;
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CampaignToPeopleV2: Array<Partial<CampaignToPersonV2>> | null;
-    Comments: Array<Partial<Comment>> | null;
     CompanyId: number | null;
     CompanyName: string | null;
     CourseAdmins: Array<Partial<CourseAdmin>> | null;
@@ -2838,7 +2802,6 @@ export interface Person extends IIdentity, ISynchronizable {
     LdapAccount: Partial<PersonLdapAccount> | null;
     LessonParticipantStatuses: Array<Partial<LessonParticipantStatus>> | null;
     MessageNotifications: Array<Partial<MessageNotification>> | null;
-    Messages: Array<Partial<Message>> | null;
     MiddleName: string | null;
     Names: Array<Partial<PersonName>> | null;
     NewsRecipients: Array<Partial<NewsRecipient>> | null;
@@ -2854,7 +2817,6 @@ export interface Person extends IIdentity, ISynchronizable {
     ProductionBudgets: Array<Partial<ProducerProductionBudget>> | null;
     QuickLinks: Array<Partial<QuickLink>> | null;
     Reactions: Array<Partial<Reaction>> | null;
-    Replies: Array<Partial<Reply>> | null;
     Reservations: Array<Partial<Reservation>> | null;
     Roles: Array<Partial<PersonRole>> | null;
     SalesExpectations: Array<Partial<SalesExpectation>> | null;
@@ -2993,15 +2955,11 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
 export interface ConferenceSponsorImageAttachment extends Attachment {
     Conference: Partial<Conference> | null;
     ConferenceId: number | null;
-    FolderName: string | null;
     Sponsors: Array<Partial<ConferenceSponsor>> | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface ConferenceEventSponsorAttachment extends Attachment {
     ConferenceEvent: Array<Partial<ConferenceEvent>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface ConferenceSponsorCategory {
@@ -3222,8 +3180,6 @@ export interface CLGameCarouselSlideAttachment extends Attachment {
     CLGameId: number;
     CLLink: string | null;
     CLSequence: number;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface CLGameDivision extends IIdentity {
@@ -3245,9 +3201,7 @@ export interface CLGameDivisionToTeam extends IIdentity {
 }
 
 export interface CLGameLogoAttachment extends Attachment {
-    FolderName: string | null;
     Games: Array<Partial<CLGame>> | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface CLGamePlayerPersonRole extends PersonRole {
@@ -3357,8 +3311,6 @@ export interface CLGameTeam extends IIdentity {
 }
 
 export interface CLGameTeamAttachment extends Attachment {
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
     Teams: Array<Partial<CLGameTeam>> | null;
 }
 
@@ -3481,15 +3433,11 @@ export interface BusinessCardTemplate extends IChangeTracking, ICreatedBy {
 
 export interface BusinessCardTemplateAttachment extends Attachment {
     BusinessCardTemplates: Array<Partial<BusinessCardTemplate>> | null;
-    FolderName: string | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface BusinessCardOrderAttachment extends Attachment {
     BackOrderAttachment: Array<Partial<BusinessCardOrder>> | null;
-    FolderName: string | null;
     FrontOrderAttachment: Array<Partial<BusinessCardOrder>> | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface PdfTemplateFieldKey {
@@ -3532,9 +3480,7 @@ export interface ImageSlide extends Slide {
 }
 
 export interface SlideImageAttachment extends Attachment {
-    FolderName: string | null;
     ImageSlides: Array<Partial<ImageSlide>> | null;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface Tv extends IIdentity {
@@ -3645,9 +3591,7 @@ export interface AffiliationRoleEffectiveDate extends IExpirable, IIdentity {
 export interface AffiliationRoleAttachment extends Attachment, IExpirable {
     AffiliationRole: Partial<AffiliationRole> | null;
     AffiliationRoleId: number;
-    FolderName: string | null;
     Length: number;
-    StorageFileNameAndPath: string | null;
 }
 
 export interface AffiliationContactPersonRole extends PersonRole {

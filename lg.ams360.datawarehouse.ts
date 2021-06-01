@@ -1156,7 +1156,6 @@ export interface Customer {
     DatabaseName: string | null;
     DBA: string | null;
     DOB: string | null;
-    DriversLicense: string | null;
     DUNSNo: string | null;
     EMail: string | null;
     EMail2: string | null;
@@ -1224,7 +1223,6 @@ export interface Customer {
     Sex: string | null;
     SIC: string | null;
     SortName: string | null;
-    SSN: string | null;
     State: string | null;
     StatePrintGroup: string | null;
     TypeCust: string | null;
@@ -1337,7 +1335,6 @@ export interface Employee {
     S1099Category: number | null;
     S1099Type: number | null;
     ShortName: string | null;
-    SSN: string | null;
     State: string | null;
     Status: string | null;
     Title: string | null;
