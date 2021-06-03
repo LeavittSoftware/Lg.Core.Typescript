@@ -1,0 +1,33 @@
+﻿{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "esNext",
+    "moduleResolution": "node",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "declaration": false,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "alwaysStrict": true,
+    "allowJs": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "rootDir": "./",
+    "skipLibCheck": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "lg.core.ts",
+    "elasticsearch.ts",
+    "api2.leavitt.com.ts",
+    "lg.ams360.datawarehouse.ts",
+    "reportingapi.leavitt.com.ts",
+    "mapi.leavitt.com.ts",
+    "lg.core.repository.ts"
+  ]
+}

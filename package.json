@@ -2,15 +2,34 @@
   "name": "@leavittsoftware/lg-core-typescript",
   "version": "2.0.13",
   "description": "Typescript of lg core",
-  "main": "Lg.Core.typescript.ts",
+  "main": "lg.core.js",
+  "files": [
+    "lg.core.js.map",
+    "lg.core.js",
+    "lg.core.ts",
+    "elasticsearch.js.map",
+    "elasticsearch.js",
+    "elasticsearch.ts",
+    "api2.leavitt.com.map",
+    "api2.leavitt.com.js",
+    "api2.leavitt.com.ts",
+    "lg.ams360.datawarehouse.js.map",
+    "lg.ams360.datawarehouse.js",
+    "lg.ams360.datawarehouse.ts",
+    "reportingapi.leavitt.com.js.map",
+    "reportingapi.leavitt.com.js",
+    "reportingapi.leavitt.com.ts",
+    "mapi.leavitt.com.ts",
+    "lg.core.repository.ts"
+  ],
   "scripts": {
-    "build": "npm run lint",
+    "build": "tsc && npm run lint",
     "lint": "tslint \"/*.ts\""
   },
   "dependencies": {},
   "devDependencies": {
-    "tslint": "4.0.2",
-    "typescript": "^3.5.3"
+    "tslint": "5.20.1",
+    "typescript": "^4.2.3"
   },
   "repository": {
     "type": "git",
