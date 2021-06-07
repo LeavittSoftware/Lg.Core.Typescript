@@ -2627,7 +2627,6 @@ export interface Company extends IExpirable, IIdentity, ISynchronizable {
     AgencyCommissionRates: Array<Partial<AgencyCommissionRate>> | null;
     Ams360Instance: Partial<Ams360Instance> | null;
     BookOfBusinessChanges: Array<Partial<BookOfBusinessChange>> | null;
-    BusinessCards: Array<Partial<BusinessCard>> | null;
     CompanyGroupToCompanies: Array<Partial<CompanyGroupToCompany>> | null;
     CompanyUhcCode: Partial<CompanyUhcCode> | null;
     ContactPersonRoles: Array<Partial<CompanyContactPersonRole>> | null;
@@ -2644,6 +2643,7 @@ export interface Company extends IExpirable, IIdentity, ISynchronizable {
     PhoneNumbers: Array<Partial<CompanyPhoneNumber>> | null;
     ProductionBudgets: Array<Partial<AgencyProductionBudget>> | null;
     Roles: Array<Partial<CompanyRole>> | null;
+    Stationeries: Array<Partial<Stationery>> | null;
     Teams: Array<Partial<CompanyTeam>> | null;
     UltiProAccount: Partial<CompanyUltiProAccount> | null;
 }
@@ -2748,7 +2748,6 @@ export interface Person extends IIdentity, ISynchronizable {
     Attachments: Array<Partial<Attachment>> | null;
     AwardedNominations: Array<Partial<GpNomination>> | null;
     Biography: string | null;
-    BusinessCardOrders: Array<Partial<BusinessCardOrder>> | null;
     CampaignToCrmAccountsV2: Array<Partial<CampaignToCrmAccountV2>> | null;
     CampaignToEloquaContacts: Array<Partial<CampaignToEloquaContact>> | null;
     CampaignToPeopleV2: Array<Partial<CampaignToPersonV2>> | null;
@@ -2759,7 +2758,6 @@ export interface Person extends IIdentity, ISynchronizable {
     CourseParticipantStatuses: Array<Partial<CourseParticipantStatus>> | null;
     CourseReportees: Array<Partial<CourseReportee>> | null;
     CreatedAnswers: Array<Partial<EducationAnswer>> | null;
-    CreatedBusinessCards: Array<Partial<BusinessCard>> | null;
     CreatedBusinessCardTemplates: Array<Partial<BusinessCardTemplate>> | null;
     CreatedCourses: Array<Partial<EducationCourse>> | null;
     CreatedExpenseForms: Array<Partial<ExpenseForm>> | null;
@@ -2768,6 +2766,7 @@ export interface Person extends IIdentity, ISynchronizable {
     CreatedLessons: Array<Partial<EducationLesson>> | null;
     CreatedNominations: Array<Partial<GpNomination>> | null;
     CreatedQuestions: Array<Partial<EducationQuestion>> | null;
+    CreatedStationeries: Array<Partial<Stationery>> | null;
     CreatedSurveyAnswers: Array<Partial<SurveyAnswer>> | null;
     CreatedSurveyQuestions: Array<Partial<SurveyQuestion>> | null;
     CreatedSurveys: Array<Partial<Survey>> | null;
@@ -2824,6 +2823,7 @@ export interface Person extends IIdentity, ISynchronizable {
     SnapshotViewerships: Array<Partial<SnapshotViewership>> | null;
     SnapViewershipToPeople: Array<Partial<SnapshotViewershipToPerson>> | null;
     SnapViewershipToPeopleGroups: Array<Partial<SnapshotViewershipToPeopleGroup>> | null;
+    StationeryOrders: Array<Partial<StationeryOrder>> | null;
     SurveyAdmins: Array<Partial<SurveyAdmin>> | null;
     SurveyRespondents: Array<Partial<SurveyRespondent>> | null;
     SurveyRespondentStatuses: Array<Partial<SurveyRespondentStatus>> | null;
@@ -3384,46 +3384,73 @@ export interface UsageStatistic extends IIdentity {
     WorkingSet: number;
 }
 
-export interface BusinessCardOrder {
-    AgencyName: string | null;
-    BackOrderAttachment: Partial<BusinessCardOrderAttachment> | null;
-    BackOrderAttachmentId: number | null;
-    FrontOrderAttachment: Partial<BusinessCardOrderAttachment> | null;
-    FrontOrderAttachmentId: number;
+export interface StationeryOrder {
+    City: string | null;
+    CompanyId: number;
+    CompanyName: string | null;
     Id: number;
+    Items: Array<Partial<StationeryOrderItem>> | null;
     OrderDate: string;
     OrderedByPerson: Partial<Person> | null;
     OrderedByPersonId: number;
     OrderedFor: string | null;
-    Price: Partial<number>;
-    Quantity: number;
     SpecialInstructions: string | null;
+    State: string | null;
+    Street1: string | null;
+    Street2: string | null;
+    TotalPrice: Partial<number>;
+    Zip: string | null;
 }
 
-export interface BusinessCardPrice {
+export interface StationeryAttachment extends Attachment {
+    Stationeries: Array<Partial<Stationery>> | null;
+}
+
+export interface StationeryOrderItem {
+    BackOrderAttachment: Partial<StationeryOrderAttachment> | null;
+    BackOrderAttachmentId: number | null;
+    FrontOrderAttachment: Partial<StationeryOrderAttachment> | null;
+    FrontOrderAttachmentId: number;
     Id: number;
     Price: Partial<number>;
     Quantity: number;
-    Type: BusinessCardTypeString;
+    StationeryId: number;
+    StationeryName: string | null;
+    StationeryOrder: Partial<StationeryOrder> | null;
+    StationeryOrderId: number;
+    StationeryType: string | null;
 }
 
-export interface BusinessCard extends IChangeTracking, ICreatedBy {
+export interface StationeryPrice {
+    Id: number;
+    Price: Partial<number>;
+    Quantity: number;
+    StationeryType: Partial<StationeryType> | null;
+    StationeryTypeId: number;
+}
+
+export interface Stationery extends IChangeTracking, ICreatedBy {
+    AvailableToAll: boolean;
     BackTemplate: Partial<BusinessCardTemplate> | null;
     BackTemplateId: number | null;
     Company: Partial<Company> | null;
     CompanyId: number;
     CreatedDate: string | null;
     FrontTemplate: Partial<BusinessCardTemplate> | null;
-    FrontTemplateId: number;
+    FrontTemplateId: number | null;
     Id: number;
     IsDisabled: boolean;
     Name: string | null;
+    PDF: Partial<StationeryAttachment> | null;
+    PDFId: number | null;
+    StationeryType: Partial<StationeryType> | null;
+    StationeryTypeId: number;
 }
 
 export interface BusinessCardTemplate extends IChangeTracking, ICreatedBy {
-    BackBusinessCards: Array<Partial<BusinessCard>> | null;
+    BackBusinessCards: Array<Partial<Stationery>> | null;
     CreatedDate: string | null;
-    FrontBusinessCards: Array<Partial<BusinessCard>> | null;
+    FrontBusinessCards: Array<Partial<Stationery>> | null;
     Id: number;
     Name: string | null;
     PDF: Partial<BusinessCardTemplateAttachment> | null;
@@ -3435,9 +3462,22 @@ export interface BusinessCardTemplateAttachment extends Attachment {
     BusinessCardTemplates: Array<Partial<BusinessCardTemplate>> | null;
 }
 
-export interface BusinessCardOrderAttachment extends Attachment {
-    BackOrderAttachment: Array<Partial<BusinessCardOrder>> | null;
-    FrontOrderAttachment: Array<Partial<BusinessCardOrder>> | null;
+export interface StationerySetting {
+    EmailAddress: string | null;
+    Id: number;
+}
+
+export interface StationeryType {
+    Id: number;
+    IsBusinessCard: boolean;
+    Name: string | null;
+    Prices: Array<Partial<StationeryPrice>> | null;
+    Stationeries: Array<Partial<Stationery>> | null;
+}
+
+export interface StationeryOrderAttachment extends Attachment {
+    BackOrderAttachments: Array<Partial<StationeryOrderItem>> | null;
+    FrontOrderAttachments: Array<Partial<StationeryOrderItem>> | null;
 }
 
 export interface PdfTemplateFieldKey {
@@ -4286,13 +4326,6 @@ export enum UpdateChannel {
 }
 
 export type UpdateChannelString = keyof typeof UpdateChannel;
-
-export enum BusinessCardType {
-    SingleSided = 0,
-    DoubleSided = 1
-}
-
-export type BusinessCardTypeString = keyof typeof BusinessCardType;
 
 export enum PdfTemplateFieldType {
     Text = 0,

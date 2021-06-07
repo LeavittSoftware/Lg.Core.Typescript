@@ -3,19 +3,34 @@
 //     generated using a custom program
 // </auto-generated>
 // ----------------------
+import { Stationery } from './lg.core'
 
 export interface Base64Dto {
     FileName: string | null;
     Value: string | null;
 }
 
-export interface PlaceBusinessCardOrderDto {
-    AgencyName: string | null;
+export interface StationeryOrderItemDto {
     BackFields: Array<Partial<PdfField>> | null;
     FrontFields: Array<Partial<PdfField>> | null;
-    OrderedFor: string | null;
     PriceId: number;
+    Stationery: Partial<Stationery> | null;
+    StationeryId: number;
+}
+
+export interface StationeryOrderDto {
+    AgencyId: number;
+    AgencyName: string | null;
+    City: string | null;
+    Items: Array<Partial<StationeryOrderItemDto>> | null;
+    OrderedFor: string | null;
     SpecialInstructions: string | null;
+    State: string | null;
+    Street1: string | null;
+    Street2: string | null;
+    TotalPrice: Partial<number>;
+    TotalQuantity: number;
+    Zip: string | null;
 }
 
 export interface PdfFieldData {
