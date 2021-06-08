@@ -16,7 +16,7 @@ export interface ICreatedBy {
 }
 
 export interface Detail extends IIdentity {
-    DataType: DataTypesString;
+    DataType: DataTypes;
     Name: string | null;
     Section: string | null;
     SubCategory: string | null;
@@ -71,8 +71,8 @@ export interface Fruit extends IIdentity {
     Int641Nullable: number | null;
     Name: string | null;
     Pesticides: Array<Partial<Pesticide>> | null;
-    SeasonAvailable: SeasonsString;
-    SeasonAvailableNullable: SeasonsString | null;
+    SeasonAvailable: Seasons;
+    SeasonAvailableNullable: Seasons | null;
 }
 
 export interface Pesticide extends IIdentity {
@@ -88,7 +88,7 @@ export interface Deduction extends IIdentity {
     Canceled: string | null;
     DateCreated: string;
     Enacted: string | null;
-    Frequency: DeductionFrequencyString;
+    Frequency: DeductionFrequency;
     LGEmployeeRole: Partial<LGEmployeeRole> | null;
     LGEmployeeRoleId: number;
     Verified: string | null;
@@ -100,10 +100,10 @@ export interface LogEntryItem {
     DateTime: string;
     Id: number;
     Instance: string | null;
-    Level: LogEntryLevelString;
+    Level: LogEntryLevel;
     Message: string | null;
     Source: string | null;
-    Type: LogEntryTypeString;
+    Type: LogEntryType;
 }
 
 export interface AutomatedApplication extends IExpirable, IIdentity {
@@ -148,7 +148,7 @@ export interface EmailTemplateRecipient extends IIdentity, ICreatedBy {
 
 export interface TeamAttachment extends Attachment {
     Team: Partial<Team> | null;
-    TeamAttachmentType: TeamAttachmentTypeString;
+    TeamAttachmentType: TeamAttachmentType;
     TeamId: number;
 }
 
@@ -167,7 +167,7 @@ export interface GameSegment {
     StartDate: string;
     TheGame: Partial<TheGameGame> | null;
     TheGameId: number;
-    Type: SegmentTypeString;
+    Type: SegmentType;
 }
 
 export interface CrmGamePoint extends GamePoint {
@@ -193,7 +193,7 @@ export interface GamePoint extends IIdentity, ICreatedBy {
 }
 
 export interface GamePrize extends Prize {
-    GamePrizeType: GamePrizeTypeString;
+    GamePrizeType: GamePrizeType;
     TheGameGame: Partial<TheGameGame> | null;
     TheGameGameId: number;
 }
@@ -210,7 +210,7 @@ export interface League extends IIdentity {
 export interface LeaguePrize extends Prize {
     League: Partial<League> | null;
     LeagueId: number;
-    LeaguePrizeType: LeaguePrizeTypeString;
+    LeaguePrizeType: LeaguePrizeType;
 }
 
 export interface LeagueToTeam extends IIdentity {
@@ -246,7 +246,7 @@ export interface TheGameGame extends IIdentity {
     RegistrationPersonRoles: Array<Partial<TheGameRegistrationPersonRole>> | null;
     Segments: Array<Partial<GameSegment>> | null;
     StartDate: string;
-    Type: GameTypeString;
+    Type: GameType;
 }
 
 export interface TheGameRegistrationPersonRole extends PersonRole {
@@ -348,7 +348,7 @@ export interface SurveyQuestion extends IChangeTracking, ICreatedBy, IIdentity {
     Survey: Partial<Survey> | null;
     SurveyId: number;
     Text: string | null;
-    Type: SurveyQuestionTypeString;
+    Type: SurveyQuestionType;
 }
 
 export interface HolidayPartyReservation extends Reservation {
@@ -416,7 +416,7 @@ export interface Surge extends IIdentity {
     ColdCallingIsPaused: boolean | null;
     ColdCallingNumSegments: number;
     ColdCallingSegmentLength: string;
-    CrmInstance: CrmInstanceString | null;
+    CrmInstance: CrmInstance | null;
     HasColdCallingStarted: boolean;
     HasRules: boolean;
     IsColdCallingOver: boolean;
@@ -551,7 +551,7 @@ export interface SurgePrize extends IIdentity {
     Rank: number;
     Scoreboard: Partial<SurgeScoreboard> | null;
     ScoreboardId: number;
-    Type: SurgePrizeTypeString | null;
+    Type: SurgePrizeType | null;
 }
 
 export interface SurgeTeamAttachment extends Attachment {
@@ -639,7 +639,7 @@ export interface Task {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: TaskStatusTypeString;
+    Status: TaskStatusType;
 }
 
 export interface TaskReminder {
@@ -670,7 +670,7 @@ export interface Timeline extends IIdentity {
     OwnerId: number | null;
     StartDate: string | null;
     State: string | null;
-    Status: TimelineStatusTypeString;
+    Status: TimelineStatusType;
     Street1: string | null;
     Street2: string | null;
     TimelineContacts: Array<Partial<TimelineContact>> | null;
@@ -858,7 +858,7 @@ export interface PLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     SponsorId: number | null;
     TeamPersonRole: Partial<PLGameTeamPersonRole> | null;
     TeamPersonRoleId: number;
-    Type: PLGamePointTypeString;
+    Type: PLGamePointType;
 }
 
 export interface PLGamePrize extends IIdentity {
@@ -874,7 +874,7 @@ export interface PLGameScoreboard extends IIdentity {
     Name: string | null;
     PLGame: Partial<PLGame> | null;
     PLGameId: number;
-    PrizeDistributionOption: PrizeDistributionOptionString;
+    PrizeDistributionOption: PrizeDistributionOption;
     Prizes: Array<Partial<PLGamePrize>> | null;
     SegmentType: Partial<PLGameSegmentType> | null;
     SegmentTypeId: number | null;
@@ -1012,7 +1012,7 @@ export interface BoBComposition extends IExpirable, IIdentity, ICreatedBy {
     LastModifiedDate: string | null;
     SalesExpectation: Partial<SalesExpectation> | null;
     SalesExpectationId: number;
-    Type: PolicyTypeString;
+    Type: PolicyType;
 }
 
 export interface Expectation extends IExpirable, IIdentity, ICreatedBy {
@@ -1049,7 +1049,7 @@ export interface ProducerAssumption extends IExpirable, IIdentity, ICreatedBy {
 }
 
 export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy {
-    CommissionRateType: CommissionRateTypeString;
+    CommissionRateType: CommissionRateType;
     Company: Partial<Company> | null;
     CompanyId: number;
     CreatedDate: string;
@@ -1057,12 +1057,12 @@ export interface AgencyCommissionRate extends IExpirable, IIdentity, ICreatedBy 
     LastModifiedByPersonId: number | null;
     LastModifiedDate: string | null;
     Rate: number;
-    TransactionType: TransactionTypeString;
+    TransactionType: TransactionType;
 }
 
 export interface ProducerCommissionRate extends IExpirable, IIdentity, ICreatedBy {
     CommissionPercent: number;
-    CommissionRateType: CommissionRateTypeString;
+    CommissionRateType: CommissionRateType;
     CreatedDate: string;
     EffectiveDate: string;
     ExpirationDate: string;
@@ -1071,7 +1071,7 @@ export interface ProducerCommissionRate extends IExpirable, IIdentity, ICreatedB
     LastModifiedDate: string | null;
     SalesExpectation: Partial<SalesExpectation> | null;
     SalesExpectationId: number;
-    TransactionType: TransactionTypeString;
+    TransactionType: TransactionType;
 }
 
 export interface SalesExpectationStatus {
@@ -1087,7 +1087,7 @@ export interface SalesExpectationStatus {
     ReviewRequester: Partial<Person> | null;
     ReviewRequesterId: number | null;
     SalesExpectation: Partial<SalesExpectation> | null;
-    StatusType: SalesExpectationStatusTypeString;
+    StatusType: SalesExpectationStatusType;
 }
 
 export interface PersonMondayAccount extends IIdentity {
@@ -1254,7 +1254,7 @@ export interface Lease {
     DisableEmailNotifications: boolean;
     HoldoverPercentage: Partial<number> | null;
     Id: number;
-    LandlordType: LandlordTypeString | null;
+    LandlordType: LandlordType | null;
     LastModifiedBy: Partial<Person> | null;
     LastModifiedById: number | null;
     LastModifiedDate: string | null;
@@ -1274,7 +1274,7 @@ export interface EmployeeQuestion {
     CreatedDate: string;
     Id: number;
     PersonId: number | null;
-    PrivacyOption: EmployeeQuestionPrivacyOptionString;
+    PrivacyOption: EmployeeQuestionPrivacyOption;
     Question: string | null;
 }
 
@@ -1352,7 +1352,7 @@ export interface ForumSetting {
     Forum: Partial<Forum> | null;
     ForumId: number;
     Id: number;
-    Type: ForumSettingsTypeString;
+    Type: ForumSettingsType;
 }
 
 export interface ForumOptOut {
@@ -1362,7 +1362,7 @@ export interface ForumOptOut {
     Id: number;
     Person: Partial<Person> | null;
     PersonId: number;
-    Type: ForumOptOutTypeString;
+    Type: ForumOptOutType;
 }
 
 export interface Forum extends IExpirable {
@@ -1381,7 +1381,7 @@ export interface Forum extends IExpirable {
     OptOuts: Array<Partial<ForumOptOut>> | null;
     PeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
     Settings: Array<Partial<ForumSetting>> | null;
-    Type: ForumTypeString;
+    Type: ForumType;
 }
 
 export interface ForumAdmin extends IExpirable {
@@ -1402,7 +1402,7 @@ export interface ForumJoinRequest extends IExpirable {
     Id: number;
     RequesterPerson: Partial<Person> | null;
     RequesterPersonId: number;
-    Status: RequestToJoinStatusString;
+    Status: RequestToJoinStatus;
 }
 
 export interface ForumMember {
@@ -1436,7 +1436,7 @@ export interface QuickLink {
     Name: string | null;
     Person: Partial<Person> | null;
     PersonId: number;
-    Type: QuickLinkTypeString;
+    Type: QuickLinkType;
     Url: string | null;
 }
 
@@ -1505,7 +1505,7 @@ export interface MessageNotification {
     Person: Partial<Person> | null;
     PersonId: number;
     ReadDate: string | null;
-    Type: MessageNotificationTypeString;
+    Type: MessageNotificationType;
 }
 
 export interface News extends Message {
@@ -1521,7 +1521,7 @@ export interface News extends Message {
     ShowInCarousel: boolean;
     ShowInCarouselUntilDate: string | null;
     Title: string | null;
-    Type: NewsTypeString;
+    Type: NewsType;
 }
 
 export interface NewsAttachment extends Attachment {
@@ -1560,7 +1560,7 @@ export interface Reaction {
     CreatorId: number;
     Id: number;
     MessageNotificationToReactions: Array<Partial<MessageNotificationToReaction>> | null;
-    Type: ReactionTypeString;
+    Type: ReactionType;
 }
 
 export interface Reply {
@@ -1590,7 +1590,7 @@ export interface GpNomination extends ICreatedBy {
     Id: number;
     NominatedPerson: Partial<Person> | null;
     NominatedPersonId: number;
-    NominationPrinciple: GoverningPrincipleString;
+    NominationPrinciple: GoverningPrinciple;
     NominationReason: string | null;
 }
 
@@ -1622,7 +1622,7 @@ export interface ExpenseForm extends IIdentity, ICreatedBy {
     PaidDate: string | null;
     RejectedDate: string | null;
     RejectedReason: string | null;
-    Status: ExpenseStatusString;
+    Status: ExpenseStatus;
     SubmittedDate: string | null;
     Total: Partial<number>;
 }
@@ -1644,7 +1644,7 @@ export interface ExpenseFormItem {
     Miles: Partial<number>;
     RequestingAgency: Partial<Company> | null;
     RequestingAgencyId: number | null;
-    Type: ExpenseItemTypeString;
+    Type: ExpenseItemType;
 }
 
 export interface MileageRate {
@@ -1701,7 +1701,7 @@ export interface CoreToEloquaSyncerLogEntryV2 {
 export interface CrmContactToEloquaContact extends IIdentity, ICreatedBy {
     CreatedDate: string;
     CrmContact: Partial<CrmContact> | null;
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     EloquaContact: Partial<EloquaContactV2> | null;
     EloquaContactId: number;
     LastModifiedDate: string | null;
@@ -1727,7 +1727,7 @@ export interface EloquaSyncLogEntryV2 extends IExpirable, IIdentity {
     Company: Partial<Company> | null;
     CompanyId: number;
     LastSyncDate: string | null;
-    Type: EloquaSyncTypeV2String;
+    Type: EloquaSyncTypeV2;
 }
 
 export interface CourseEmailRecipient {
@@ -1865,7 +1865,7 @@ export interface EducationLesson extends IIdentity, IChangeTracking, ICreatedBy 
 export interface LessonParticipantStatus extends IIdentity {
     ActivityDate: string;
     Attempts: number;
-    AttemptStatus: LessonAttemptStatusString;
+    AttemptStatus: LessonAttemptStatus;
     GradePercentage: number;
     Lesson: Partial<EducationLesson> | null;
     LessonId: number;
@@ -1883,7 +1883,7 @@ export interface EducationQuestion extends IChangeTracking, ICreatedBy, IIdentit
     LessonId: number;
     Sequence: number;
     Text: string | null;
-    Type: QuestionTypeString;
+    Type: QuestionType;
 }
 
 export interface DomoDataSet extends IIdentity {
@@ -1904,7 +1904,7 @@ export interface CrmActivityPlanner extends IIdentity {
     ClosingRatio: number | null;
     ConversationToInitialAppointmentRatio: number | null;
     ConversionOfInitialAppointmentToClose: number | null;
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     EndDate: string | null;
     InitialAppointmentToPresentationRatio: number | null;
     LastModifiedDate: string | null;
@@ -1937,10 +1937,10 @@ export interface CrmActivityPlanner extends IIdentity {
 
 export interface CrmPhoneCall extends IIdentity {
     ActivityId: string;
-    ActivityTypeCode: ActivityTypeString;
+    ActivityTypeCode: ActivityType;
     ActualEnd: string | null;
     ActualStart: string | null;
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     LastModifiedDate: string | null;
     OwnerId: string;
     Person: Partial<Person> | null;
@@ -1962,7 +1962,7 @@ export interface CrmContact extends IIdentity {
     CrmPersonId: number;
     Email: string | null;
     FirstName: string | null;
-    Instance: CrmInstanceString;
+    Instance: CrmInstance;
     LastModifiedDate: string | null;
     LastName: string | null;
     OwnerId: string;
@@ -2003,7 +2003,7 @@ export interface CrmBulkImportFailure {
     State: string | null;
     Street1: string | null;
     Topic: string | null;
-    Type: FailureTypeString;
+    Type: FailureType;
     Website: string | null;
     XDate: string | null;
     Zip: string | null;
@@ -2011,7 +2011,7 @@ export interface CrmBulkImportFailure {
 
 export interface CrmAccount extends IIdentity {
     AccountId: string;
-    AccountStage: CrmAccountStageString | null;
+    AccountStage: CrmAccountStage | null;
     AccountType: number;
     Address1: string | null;
     Address2: string | null;
@@ -2024,7 +2024,7 @@ export interface CrmAccount extends IIdentity {
     ContactLastName: string | null;
     CreatedOn: string | null;
     CrmContacts: Array<Partial<CrmContact>> | null;
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     DoNotCall: boolean;
     EffectiveDate: string | null;
     Email: string | null;
@@ -2044,14 +2044,14 @@ export interface CrmAccount extends IIdentity {
     PersonId: number | null;
     Phone: string | null;
     PotentialRevenue: Partial<number> | null;
-    PreferredContactMethod: PreferredContactMethodTypeString;
+    PreferredContactMethod: PreferredContactMethodType;
     RecentSource: string | null;
     StageClientDate: string | null;
     StageProspectDate: string | null;
     StageSuspectDate: string | null;
     State: string | null;
-    StateCode: StateCodeTypeString;
-    Status: AccountStatusCodeTypeString;
+    StateCode: StateCodeType;
+    Status: AccountStatusCodeType;
     SurgeId: number | null;
     Topic: string | null;
     WrittenYtd: Partial<number> | null;
@@ -2074,14 +2074,14 @@ export interface CrmCommission extends IIdentity {
 
 export interface CrmAuditSyncLogEntry {
     Action: string | null;
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     EntityType: string | null;
     Id: number;
     LastSyncDate: string;
 }
 
 export interface CrmUserPersonRole extends PersonRole {
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     SystemUserGuid: string;
 }
 
@@ -2101,7 +2101,7 @@ export interface CrmOpportunity extends IIdentity {
     LineOfCoverageFriendlyName: string | null;
     LostDate: string | null;
     Name: string | null;
-    NewOrRenewal: NewOrRenewalTypeString;
+    NewOrRenewal: NewOrRenewalType;
     OpportunityId: string;
     OwnerId: string;
     Premium: Partial<number>;
@@ -2110,7 +2110,7 @@ export interface CrmOpportunity extends IIdentity {
     ReportingDate: string | null;
     SalesStageCode: number;
     SoldDate: string | null;
-    StateCode: StateCodeTypeString;
+    StateCode: StateCodeType;
     SubmissionDate: string | null;
     TotalRevenue: Partial<number>;
 }
@@ -2202,7 +2202,7 @@ export interface CompanyContactPersonRole extends PersonRole {
 }
 
 export interface EmailNotificationDeliveryMethod extends NotificationDeliveryMethod {
-    EmailAddressTypes: EmailAddressTypesString;
+    EmailAddressTypes: EmailAddressTypes;
 }
 
 export interface InAppNotificationDeliveryMethod extends NotificationDeliveryMethod {
@@ -2217,7 +2217,7 @@ export interface InAppNotification extends IIdentity {
     NotificationId: number;
     Recipient: Partial<Person> | null;
     RecipientId: number;
-    Status: InAppNotificationStatusString;
+    Status: InAppNotificationStatus;
     Subject: string | null;
 }
 
@@ -2229,7 +2229,7 @@ export interface JobRoleAssignmentPercentage extends IExpirable {
     JobRole: Partial<JobRole> | null;
     JobRoleId: number;
     Percentage: number;
-    Type: JobRoleAssignmentTypeString;
+    Type: JobRoleAssignmentType;
 }
 
 export interface CityPeopleGroup extends PeopleGroup {
@@ -2384,7 +2384,7 @@ export interface Trigger extends IIdentity, IExpirable, ICreatedBy {
     CreatedDate: string;
     DaysOfMonth: DaysOfMonth;
     DaysOfWeek: DaysOfWeek;
-    Frequency: FrequencyString;
+    Frequency: Frequency;
     Interval: number | null;
     IsComplete: boolean;
     IsEnabled: boolean;
@@ -2459,7 +2459,7 @@ export interface PersonName extends IExpirable, IIdentity, ISynchronizable {
     MiddleName: string | null;
     Person: Partial<Person> | null;
     PersonId: number;
-    Type: PersonNameTypeString;
+    Type: PersonNameType;
 }
 
 export interface ITag {
@@ -2588,7 +2588,7 @@ export interface ProfilePictureAttachment extends Attachment {
 }
 
 export interface IAddress {
-    AddressType: AddressTypesString;
+    AddressType: AddressTypes;
     City: string | null;
     Country: string | null;
     County: string | null;
@@ -2672,7 +2672,7 @@ export interface CompanyEmailAddress extends EmailAddress {
 export interface CompanyName extends IExpirable, IIdentity, ISynchronizable {
     Company: Partial<Company> | null;
     CompanyId: number;
-    CompanyNameType: CompanyNameTypesString;
+    CompanyNameType: CompanyNameTypes;
     Name: string | null;
 }
 
@@ -2689,7 +2689,7 @@ export interface CompanyRole extends Role {
 
 export interface EmailAddress extends IExpirable, IIdentity, ISynchronizable {
     Address: string | null;
-    EmailAddressType: EmailAddressTypesString;
+    EmailAddressType: EmailAddressTypes;
 }
 
 export interface LGEmployeeRole extends PersonRole {
@@ -2700,7 +2700,7 @@ export interface LGEmployeeRole extends PersonRole {
     Deductions: Array<Partial<Deduction>> | null;
     Department: Partial<Department> | null;
     DepartmentId: number | null;
-    EmploymentType: EmploymentTypeString;
+    EmploymentType: EmploymentType;
     FTEs: Array<Partial<FullTimeEquivalent>> | null;
     JobRoles: Array<Partial<JobRole>> | null;
     LastModifiedBy: Partial<Person> | null;
@@ -2850,7 +2850,7 @@ export interface PersonRole extends Role {
 
 export interface PhoneNumber extends IPhoneNumber, IExpirable, IIdentity, ISynchronizable {
     FullPhoneNumber: string | null;
-    PhoneNumberType: PhoneNumberTypesString;
+    PhoneNumberType: PhoneNumberTypes;
 }
 
 export interface CompanyAddressUltiProAccount extends IIdentity, ISynchronizable {
@@ -2939,14 +2939,14 @@ export interface ConferenceAttendeePersonRole extends PersonRole {
     ConferenceId: number;
     IsEmployee: boolean;
     IsSpouse: boolean;
-    MealPreference: MealPreferenceString;
+    MealPreference: MealPreference;
     Meals: Array<Partial<ConferenceMealToAttendee>> | null;
     Packages: Array<Partial<ConferencePackageToAttendee>> | null;
-    PaymentStatus: PaymentStatusTypeString;
+    PaymentStatus: PaymentStatusType;
     RegisteredBy: Partial<Person> | null;
     RegisteredById: number | null;
     RegistrationDate: string;
-    RegistrationStatus: RegistrationStatusTypeString;
+    RegistrationStatus: RegistrationStatusType;
     Sessions: Array<Partial<ConferenceSessionToAttendee>> | null;
     Sponsorships: Array<Partial<ConferenceSponsorshipToAttendee>> | null;
     Transactions: Array<Partial<ConferenceTransaction>> | null;
@@ -3082,8 +3082,8 @@ export interface ConferenceTransaction {
     EnteredById: number;
     Id: number;
     PaymentProcessorTransactionId: string | null;
-    PaymentType: TransactionPaymentTypeString;
-    Type: ConferenceTransactionTypeString;
+    PaymentType: TransactionPaymentType;
+    Type: ConferenceTransactionType;
 }
 
 export interface ConferenceSession extends ConferenceEvent {
@@ -3137,7 +3137,7 @@ export interface ConferenceSponsorship {
     IsLGEmployeeOnly: boolean;
     Name: string | null;
     TotalAvailable: number | null;
-    Type: SponsorshipTypeString;
+    Type: SponsorshipType;
 }
 
 export interface SessionSpeaker {
@@ -3149,7 +3149,7 @@ export interface SessionSpeaker {
 }
 
 export interface CLGame extends IIdentity {
-    CrmInstance: CrmInstanceString;
+    CrmInstance: CrmInstance;
     Divisions: Array<Partial<CLGameDivision>> | null;
     EndDate: string | null;
     GracePeriod: string;
@@ -3224,7 +3224,7 @@ export interface CLGamePoint extends IIdentity, IChangeTracking, ICreatedBy {
     SponsorId: number | null;
     TeamPersonRole: Partial<CLGameTeamPersonRole> | null;
     TeamPersonRoleId: number;
-    Type: CLGamePointTypeString;
+    Type: CLGamePointType;
 }
 
 export interface CLGamePrequalifiedPrize extends CLGamePrize {
@@ -3356,7 +3356,7 @@ export interface OutboundCallerId extends IIdentity {
 }
 
 export interface CallManagerVersion extends IIdentity {
-    Channel: UpdateChannelString;
+    Channel: UpdateChannel;
     CreatedDate: string;
     Major: number;
     MajorRevision: number;
@@ -3485,7 +3485,7 @@ export interface PdfTemplateFieldKey {
     BusinessCardTemplateId: number;
     Id: number;
     Key: string | null;
-    Type: PdfTemplateFieldTypeString;
+    Type: PdfTemplateFieldType;
 }
 
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
@@ -3585,7 +3585,7 @@ export interface AppsCarrier {
     LineOfBusiness: string | null;
     Name: string | null;
     Territory: string | null;
-    Type: AppsCarrierTypeString;
+    Type: AppsCarrierType;
 }
 
 export interface AppsWorkerCompCarrier {
@@ -3607,7 +3607,7 @@ export interface AffiliationRole extends CompanyRole, ICreatedBy {
     IsDeveloperEntry: boolean;
     NumberOfYearsOnEarnOut: number;
     Reviews: Array<Partial<AffiliationRoleReview>> | null;
-    State: AffiliationRoleStateString;
+    State: AffiliationRoleState;
 }
 
 export interface AffiliationRoleNotification extends Notification {
@@ -3641,7 +3641,7 @@ export interface AgencyLOBPercentage {
     BookOfBusinessChange: Partial<BookOfBusinessChange> | null;
     BookOfBusinessChangeId: number;
     Id: number;
-    LineOfBusinessType: LineOfBusinessTypeString;
+    LineOfBusinessType: LineOfBusinessType;
     Percentage: number;
     ProducerLOBPercentages: Array<Partial<ProducerLOBPercentage>> | null;
 }

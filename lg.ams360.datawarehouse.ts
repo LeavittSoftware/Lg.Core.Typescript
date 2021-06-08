@@ -2170,9 +2170,9 @@ export interface ManualEntryProduction {
     Id: number;
     PersonId: number | null;
     ProducerCodeTypeId: number | null;
-    ProductionType: ManualEntryProductionTypeString;
+    ProductionType: ManualEntryProductionType;
     TranDate: string;
-    TypeOfBusiness: TypeOfBusinessString | null;
+    TypeOfBusiness: TypeOfBusiness | null;
 }
 
 export enum ManualEntryProductionType {

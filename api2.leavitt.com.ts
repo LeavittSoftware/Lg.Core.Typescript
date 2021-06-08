@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,Person,CrmAccount,FailReason,ProducerCommissionRate,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TimelineTaskToTimelineContactWatcher } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,EmploymentType,EmploymentTypeString,Person,CrmAccount,FailReason,ProducerCommissionRate,PreferredContactMethodType,PreferredContactMethodTypeString,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TaskStatusType,TaskStatusTypeString,TimelineTaskToTimelineContactWatcher } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -242,7 +242,7 @@ export interface RehireDTO {
     DepartmentId: number | null;
     EmailLists: string | null;
     EmployeeBenefits: boolean;
-    EmploymentType: EmploymentTypeString;
+    EmploymentType: EmploymentType;
     HireDate: string | null;
     HoursPerWeek: number | null;
     IsAgencyPartner: boolean;
@@ -302,7 +302,7 @@ export interface NewHireDTO {
     DepartmentId: number | null;
     EmailLists: string | null;
     EmployeeBenefits: boolean;
-    EmploymentType: EmploymentTypeString;
+    EmploymentType: EmploymentType;
     FirstName: string | null;
     Gender: string | null;
     HireDate: string | null;
@@ -452,7 +452,7 @@ export interface GuestDto {
 
 export interface LdapAdObject {
     AccountName: string | null;
-    AccountStatus: AccountStatusString;
+    AccountStatus: AccountStatus;
     CommonName: string | null;
     DisplayName: string | null;
     DistinguishedName: string | null;
@@ -555,7 +555,7 @@ export interface AgencyProfitabilityReportDto {
 export interface CriteriaStatus {
     FailReasons: Array<Partial<FailReason>> | null;
     ReturnReason: string | null;
-    ReturnStatus: HttpStatusCodeString;
+    ReturnStatus: HttpStatusCode;
 }
 
 export interface MinimumSalesExpectationReportDto {
@@ -609,7 +609,7 @@ export interface AgencyInvestmentReportDto {
     LessDeferredCompLiability: number;
     NetAsset: number;
     OrganicAssetValue: number;
-    Type: AgencyInvestmentTypeString;
+    Type: AgencyInvestmentType;
 }
 
 export interface MarketingBenefitPointCustomerDto extends BenefitPointCustomer {
@@ -725,7 +725,7 @@ export interface MarketingManagerDtoV2 {
     IsGloballySubscribed: boolean;
     IsLocked: boolean;
     OriginalSource: string | null;
-    PreferredContactMethod: PreferredContactMethodTypeString;
+    PreferredContactMethod: PreferredContactMethodType;
     RecentSource: string | null;
 }
 
@@ -809,7 +809,7 @@ export interface MarketingManagerDto {
     IsGloballySubscribed: boolean;
     IsLocked: boolean;
     OriginalSource: string | null;
-    PreferredContactMethod: PreferredContactMethodTypeString;
+    PreferredContactMethod: PreferredContactMethodType;
     RecentSource: string | null;
 }
 
@@ -869,7 +869,7 @@ export interface ParticipantDashboardDto {
 
 export interface ParticipantDashboardLessonDto {
     Attempts: number;
-    AttemptStatus: LessonAttemptStatusString | null;
+    AttemptStatus: LessonAttemptStatus | null;
     GradePercentage: number | null;
     LessonId: number;
     Name: string | null;
@@ -923,7 +923,7 @@ export interface ConferenceDashboardDto {
     AttendeeRole: Partial<ConferenceAttendeePersonRole> | null;
     Balance: Partial<number>;
     Conference: Partial<Conference> | null;
-    ConferenceRegistrationStatus: ConferenceRegistrationStatusString;
+    ConferenceRegistrationStatus: ConferenceRegistrationStatus;
     Id: number;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
 }
@@ -1023,7 +1023,7 @@ export interface RevenueReportDto {
 }
 
 export interface AccountDto {
-    AccountType: new_AccountTypeString;
+    AccountType: new_AccountType;
     Id: string;
     Name: string | null;
     Opportunities: Array<Partial<OpportunityDto>> | null;
@@ -1038,8 +1038,8 @@ export interface OpportunityDto {
     Id: string;
     IsSponsored: boolean;
     IsSponsored2: boolean;
-    LineOfBusiness: Opportunity_new_LineofBusinessString;
-    LineOfCoverage: Opportunity_new_LineofCoverageString;
+    LineOfBusiness: Opportunity_new_LineofBusiness;
+    LineOfCoverage: Opportunity_new_LineofCoverage;
     Name: string | null;
     Other: string | null;
     Premium: Partial<number> | null;
@@ -1125,7 +1125,7 @@ export interface TaskDto {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: TaskStatusTypeString;
+    Status: TaskStatusType;
     TimelineId: number;
     Watchers: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
 }
@@ -1137,7 +1137,7 @@ export interface TemplateTaskDto {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: TaskStatusTypeString;
+    Status: TaskStatusType;
     TimelineTemplateId: number;
 }
 
@@ -1178,14 +1178,6 @@ export interface NaicsReportTopAgenciesDto {
 export interface IIdentity {
     Id: number;
 }
-
-export enum EmploymentType {
-    PaidEmployee = 0,
-    UnpaidEmployee = 1,
-    Contractor = 2
-}
-
-export type EmploymentTypeString = keyof typeof EmploymentType;
 
 export enum AccountStatus {
     Locked = 0,
@@ -1250,17 +1242,6 @@ export enum AgencyInvestmentType {
 }
 
 export type AgencyInvestmentTypeString = keyof typeof AgencyInvestmentType;
-
-export enum PreferredContactMethodType {
-    Any = 1,
-    Email = 2,
-    Phone = 3,
-    Fax = 4,
-    Mail = 5,
-    Text = 6
-}
-
-export type PreferredContactMethodTypeString = keyof typeof PreferredContactMethodType;
 
 export enum LessonAttemptStatus {
     Pass = 0,
@@ -1358,12 +1339,4 @@ export enum Opportunity_new_LineofCoverage {
 }
 
 export type Opportunity_new_LineofCoverageString = keyof typeof Opportunity_new_LineofCoverage;
-
-export enum TaskStatusType {
-    NotStarted = 0,
-    InProgress = 1,
-    Completed = 2
-}
-
-export type TaskStatusTypeString = keyof typeof TaskStatusType;
 

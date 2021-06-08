@@ -4,6 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { ChartsLeaderDto,LeaderDto } from './lg.core.repository'
+import { StateCodeType,StateCodeTypeString,AccountStatusCodeType,AccountStatusCodeTypeString } from './lg.core'
 import { BasicPolInfo } from './elasticsearch'
 
 export interface CustomerSearchResultDto {
@@ -30,7 +31,7 @@ export interface CustomerSearchResultDto {
 
 export interface DuplicateSearchResultDto {
     AccountName: string | null;
-    AccountStage: CrmAccountStageString | null;
+    AccountStage: CrmAccountStage | null;
     AccountType: number | null;
     Active: string | null;
     Address1: string | null;
@@ -51,10 +52,10 @@ export interface DuplicateSearchResultDto {
     PersonId: number | null;
     Phone: string | null;
     Score: number;
-    Source: SourceTypeString;
+    Source: SourceType;
     State: string | null;
-    StateCode: StateCodeTypeString;
-    Status: AccountStatusCodeTypeString;
+    StateCode: StateCodeType;
+    Status: AccountStatusCodeType;
     Zip: string | null;
 }
 
@@ -126,18 +127,4 @@ export enum SourceType {
 }
 
 export type SourceTypeString = keyof typeof SourceType;
-
-export enum StateCodeType {
-    Active = 0,
-    Inactive = 1
-}
-
-export type StateCodeTypeString = keyof typeof StateCodeType;
-
-export enum AccountStatusCodeType {
-    Active = 0,
-    Inactive = 1
-}
-
-export type AccountStatusCodeTypeString = keyof typeof AccountStatusCodeType;
 
