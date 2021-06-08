@@ -242,7 +242,7 @@ export interface RehireDTO {
     DepartmentId: number | null;
     EmailLists: string | null;
     EmployeeBenefits: boolean;
-    EmploymentType: EmploymentType;
+    EmploymentType: EmploymentTypeString;
     HireDate: string | null;
     HoursPerWeek: number | null;
     IsAgencyPartner: boolean;
@@ -302,7 +302,7 @@ export interface NewHireDTO {
     DepartmentId: number | null;
     EmailLists: string | null;
     EmployeeBenefits: boolean;
-    EmploymentType: EmploymentType;
+    EmploymentType: EmploymentTypeString;
     FirstName: string | null;
     Gender: string | null;
     HireDate: string | null;
@@ -452,7 +452,7 @@ export interface GuestDto {
 
 export interface LdapAdObject {
     AccountName: string | null;
-    AccountStatus: AccountStatus;
+    AccountStatus: AccountStatusString;
     CommonName: string | null;
     DisplayName: string | null;
     DistinguishedName: string | null;
@@ -555,7 +555,7 @@ export interface AgencyProfitabilityReportDto {
 export interface CriteriaStatus {
     FailReasons: Array<Partial<FailReason>> | null;
     ReturnReason: string | null;
-    ReturnStatus: HttpStatusCode;
+    ReturnStatus: HttpStatusCodeString;
 }
 
 export interface MinimumSalesExpectationReportDto {
@@ -609,7 +609,7 @@ export interface AgencyInvestmentReportDto {
     LessDeferredCompLiability: number;
     NetAsset: number;
     OrganicAssetValue: number;
-    Type: AgencyInvestmentType;
+    Type: AgencyInvestmentTypeString;
 }
 
 export interface MarketingBenefitPointCustomerDto extends BenefitPointCustomer {
@@ -725,7 +725,7 @@ export interface MarketingManagerDtoV2 {
     IsGloballySubscribed: boolean;
     IsLocked: boolean;
     OriginalSource: string | null;
-    PreferredContactMethod: PreferredContactMethodType;
+    PreferredContactMethod: PreferredContactMethodTypeString;
     RecentSource: string | null;
 }
 
@@ -809,7 +809,7 @@ export interface MarketingManagerDto {
     IsGloballySubscribed: boolean;
     IsLocked: boolean;
     OriginalSource: string | null;
-    PreferredContactMethod: PreferredContactMethodType;
+    PreferredContactMethod: PreferredContactMethodTypeString;
     RecentSource: string | null;
 }
 
@@ -869,7 +869,7 @@ export interface ParticipantDashboardDto {
 
 export interface ParticipantDashboardLessonDto {
     Attempts: number;
-    AttemptStatus: LessonAttemptStatus | null;
+    AttemptStatus: LessonAttemptStatusString | null;
     GradePercentage: number | null;
     LessonId: number;
     Name: string | null;
@@ -923,7 +923,7 @@ export interface ConferenceDashboardDto {
     AttendeeRole: Partial<ConferenceAttendeePersonRole> | null;
     Balance: Partial<number>;
     Conference: Partial<Conference> | null;
-    ConferenceRegistrationStatus: ConferenceRegistrationStatus;
+    ConferenceRegistrationStatus: ConferenceRegistrationStatusString;
     Id: number;
     Sponsorships: Array<Partial<ConferenceSponsorship>> | null;
 }
@@ -1023,7 +1023,7 @@ export interface RevenueReportDto {
 }
 
 export interface AccountDto {
-    AccountType: new_AccountType;
+    AccountType: new_AccountTypeString;
     Id: string;
     Name: string | null;
     Opportunities: Array<Partial<OpportunityDto>> | null;
@@ -1038,8 +1038,8 @@ export interface OpportunityDto {
     Id: string;
     IsSponsored: boolean;
     IsSponsored2: boolean;
-    LineOfBusiness: Opportunity_new_LineofBusiness;
-    LineOfCoverage: Opportunity_new_LineofCoverage;
+    LineOfBusiness: Opportunity_new_LineofBusinessString;
+    LineOfCoverage: Opportunity_new_LineofCoverageString;
     Name: string | null;
     Other: string | null;
     Premium: Partial<number> | null;
@@ -1125,7 +1125,7 @@ export interface TaskDto {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: TaskStatusType;
+    Status: TaskStatusTypeString;
     TimelineId: number;
     Watchers: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
 }
@@ -1137,7 +1137,7 @@ export interface TemplateTaskDto {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
-    Status: TaskStatusType;
+    Status: TaskStatusTypeString;
     TimelineTemplateId: number;
 }
 

@@ -5,7 +5,7 @@
 // ----------------------
 
 export interface AccountAddress {
-    AddressType: AddressType;
+    AddressType: AddressTypeString;
     City: string | null;
     Country: string | null;
     State: string | null;
@@ -24,7 +24,7 @@ export interface BenefitPointCustomers {
 
 export interface BenefitPointCustomer {
     AccountName: string | null;
-    AccountType: AccountType;
+    AccountType: AccountTypeString;
     Addresses: Array<Partial<AccountAddress>> | null;
     AdministratorUserId: number;
     BudgetedTotalAnnualPremium: Partial<number>;
@@ -59,12 +59,12 @@ export interface Contact {
 export interface Phone {
     AreaCode: string | null;
     Number: string | null;
-    PhoneType: PhoneType;
+    PhoneType: PhoneTypeString;
 }
 
 export interface Product {
     NumberOfEligibleEmployees: number;
-    ProductStatus: ProductStatus;
+    ProductStatus: ProductStatusString;
 }
 
 export interface Account {

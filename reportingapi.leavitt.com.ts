@@ -31,7 +31,7 @@ export interface CustomerSearchResultDto {
 
 export interface DuplicateSearchResultDto {
     AccountName: string | null;
-    AccountStage: CrmAccountStage | null;
+    AccountStage: CrmAccountStageString | null;
     AccountType: number | null;
     Active: string | null;
     Address1: string | null;
@@ -52,10 +52,10 @@ export interface DuplicateSearchResultDto {
     PersonId: number | null;
     Phone: string | null;
     Score: number;
-    Source: SourceType;
+    Source: SourceTypeString;
     State: string | null;
-    StateCode: StateCodeType;
-    Status: AccountStatusCodeType;
+    StateCode: StateCodeTypeString;
+    Status: AccountStatusCodeTypeString;
     Zip: string | null;
 }
 
