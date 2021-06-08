@@ -3763,6 +3763,8 @@ export enum DaysOfWeek {
     All = 127
 }
 
+export type DaysOfWeekString = keyof typeof DaysOfWeek;
+
 export enum Seasons {
     Spring = 0,
     Winter = 1,
@@ -3955,6 +3957,8 @@ export enum ForumAdminPermission {
     All = 127
 }
 
+export type ForumAdminPermissionString = keyof typeof ForumAdminPermission;
+
 export enum RequestToJoinStatus {
     Pending = 0,
     Accepted = 1,
@@ -4080,6 +4084,8 @@ export enum DuplicateFieldType {
     ContactFullname = 16
 }
 
+export type DuplicateFieldTypeString = keyof typeof DuplicateFieldType;
+
 export enum FailureType {
     GeneralFailure = 0,
     Duplicate = 1
@@ -4189,6 +4195,8 @@ export enum DaysOfMonth {
     Odd = 1431655765,
     All = 2147483647
 }
+
+export type DaysOfMonthString = keyof typeof DaysOfMonth;
 
 export enum Frequency {
     OneTime = 0,
