@@ -58,7 +58,7 @@ export interface Fruit extends IIdentity {
     Decimal1Nullable: number | null;
     Double1: number;
     Double1Nullable: number | null;
-    FlagEnumSample: DaysOfWeek;
+    FlagEnumSample: DaysOfWeekString;
     Float1: number;
     Float1Nullable: number | null;
     FruitMold: Partial<FruitMold> | null;
@@ -1236,7 +1236,7 @@ export interface ForumAdmin extends IExpirable {
     Forum: Partial<Forum> | null;
     ForumId: number;
     Id: number;
-    Permissions: ForumAdminPermission;
+    Permissions: ForumAdminPermissionString;
     Person: Partial<Person> | null;
     PersonId: number;
 }
@@ -1843,7 +1843,7 @@ export interface CrmBulkImportFailure {
     CrmBulkImport: Partial<CrmBulkImport> | null;
     CrmBulkImportId: number;
     Description: string | null;
-    DuplicateFieldType: DuplicateFieldType | null;
+    DuplicateFieldType: DuplicateFieldTypeString | null;
     Email: string | null;
     ErrorMessage: string | null;
     FollowUpDate: string | null;
@@ -2230,8 +2230,8 @@ export interface Trigger extends IIdentity, IExpirable, ICreatedBy {
     AutomatedApplication: Partial<AutomatedApplication> | null;
     AutomatedApplicationId: number | null;
     CreatedDate: string;
-    DaysOfMonth: DaysOfMonth;
-    DaysOfWeek: DaysOfWeek;
+    DaysOfMonth: DaysOfMonthString;
+    DaysOfWeek: DaysOfWeekString;
     Frequency: FrequencyString;
     Interval: number | null;
     IsComplete: boolean;
