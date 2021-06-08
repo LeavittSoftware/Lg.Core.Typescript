@@ -3417,9 +3417,8 @@ export interface TimelineDocument {
     WebComponentName: string | null;
 }
 
-export interface TimelineDocumentPage {
+export interface TimelineDocumentPage extends IIdentity {
     Description: string | null;
-    Id: number;
     IsCoverPage: boolean;
     Name: string | null;
     TimelineDocument: Partial<TimelineDocument> | null;
