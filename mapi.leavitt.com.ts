@@ -23,7 +23,6 @@ export interface StationeryOrderDto {
     AgencyName: string | null;
     City: string | null;
     Items: Array<Partial<StationeryOrderItemDto>> | null;
-    OrderedFor: string | null;
     SpecialInstructions: string | null;
     State: string | null;
     Street1: string | null;

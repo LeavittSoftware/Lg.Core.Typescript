@@ -3241,7 +3241,6 @@ export interface StationeryOrder {
     OrderDate: string;
     OrderedByPerson: Partial<Person> | null;
     OrderedByPersonId: number;
-    OrderedFor: string | null;
     SpecialInstructions: string | null;
     State: string | null;
     Street1: string | null;
@@ -3260,6 +3259,7 @@ export interface StationeryOrderItem {
     FrontOrderAttachment: Partial<StationeryOrderAttachment> | null;
     FrontOrderAttachmentId: number;
     Id: number;
+    OrderedFor: string | null;
     Price: Partial<number>;
     Quantity: number;
     StationeryId: number;
