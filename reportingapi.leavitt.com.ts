@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { ChartsLeaderDto,LeaderDto } from './lg.core.repository'
-import { StateCodeType,StateCodeTypeString,AccountStatusCodeType,AccountStatusCodeTypeString } from './lg.core'
+import { StateCodeType,AccountStatusCodeType } from './lg.core'
 import { BasicPolInfo } from './elasticsearch'
 
 export interface CustomerSearchResultDto {
