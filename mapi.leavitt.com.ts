@@ -13,6 +13,7 @@ export interface Base64Dto {
 export interface StationeryOrderItemDto {
     BackFields: Array<Partial<PdfField>> | null;
     FrontFields: Array<Partial<PdfField>> | null;
+    OrderedFor: string | null;
     PriceId: number;
     Stationery: Partial<Stationery> | null;
     StationeryId: number;
