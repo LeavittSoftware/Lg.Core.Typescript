@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,EmploymentTypeString,Person,CrmAccount,FailReason,ProducerCommissionRate,PreferredContactMethodTypeString,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TaskStatusTypeString,TimelineTaskToTimelineContactWatcher } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,EmploymentTypeString,Person,CrmAccount,FailReason,ProducerCommissionRate,PreferredContactMethodTypeString,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TaskStatusTypeString,TimelineTaskToTimelineContactWatcher,TimelineTemplateToCompany } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -1139,6 +1139,10 @@ export interface TemplateTaskDto {
     SendEmailReminder: boolean;
     Status: TaskStatusTypeString;
     TimelineTemplateId: number;
+}
+
+export interface TemplateTemplatesSharedAgenciesDto {
+    SharedAgencies: Array<Partial<TimelineTemplateToCompany>> | null;
 }
 
 export interface NaicsReportTopProducersDto {

@@ -3463,11 +3463,10 @@ export interface TimelineTaskToTimelineContactWatcher {
     TimelineTaskId: number;
 }
 
-export interface TimelineTemplate {
+export interface TimelineTemplate extends IIdentity {
     Creator: Partial<Person> | null;
     CreatorId: number;
     Description: string | null;
-    Id: number;
     Name: string | null;
     SharedAgencies: Array<Partial<TimelineTemplateToCompany>> | null;
     Tasks: Array<Partial<TimelineTemplateTask>> | null;
