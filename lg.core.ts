@@ -3336,8 +3336,7 @@ export interface PdfTemplateFieldKey {
     Type: PdfTemplateFieldTypeString;
 }
 
-export interface TemplateCategory {
-    Id: number;
+export interface TemplateCategory extends IIdentity {
     Name: string | null;
     Templates: Array<Partial<TimelineTemplate>> | null;
 }
