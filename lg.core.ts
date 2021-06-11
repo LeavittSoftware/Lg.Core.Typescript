@@ -3473,7 +3473,7 @@ export interface TimelineTemplate extends IIdentity {
     TemplateCategoryId: number;
 }
 
-export interface TimelineTemplateTask extends Task {
+export interface TimelineTemplateTask extends Task, IIdentity {
     TimelineTemplate: Partial<TimelineTemplate> | null;
     TimelineTemplateId: number;
 }
