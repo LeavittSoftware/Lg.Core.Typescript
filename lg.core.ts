@@ -3282,7 +3282,7 @@ export interface Stationery extends IChangeTracking, ICreatedBy {
     BackTemplate: Partial<BusinessCardTemplate> | null;
     BackTemplateId: number | null;
     Company: Partial<Company> | null;
-    CompanyId: number;
+    CompanyId: number | null;
     CreatedDate: string | null;
     FrontTemplate: Partial<BusinessCardTemplate> | null;
     FrontTemplateId: number | null;
