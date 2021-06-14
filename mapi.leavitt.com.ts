@@ -19,6 +19,15 @@ export interface StationeryOrderItemDto {
     StationeryId: number;
 }
 
+export interface PdfFieldData {
+    Fields: Array<Partial<PdfField>> | null;
+}
+
+export interface PdfField {
+    Name: string | null;
+    Value: string | null;
+}
+
 export interface StationeryOrderDto {
     AgencyId: number;
     AgencyName: string | null;
@@ -31,15 +40,6 @@ export interface StationeryOrderDto {
     TotalPrice: Partial<number>;
     TotalQuantity: number;
     Zip: string | null;
-}
-
-export interface PdfFieldData {
-    Fields: Array<Partial<PdfField>> | null;
-}
-
-export interface PdfField {
-    Name: string | null;
-    Value: string | null;
 }
 
 export interface NaicsReportTopAgenciesDto {
