@@ -3390,13 +3390,12 @@ export interface Timeline extends IIdentity {
     Zip: string | null;
 }
 
-export interface TimelineContact {
+export interface TimelineContact extends IIdentity {
     AssignedTasks: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
     Biography: string | null;
     DoNotEmail: boolean;
     Email: string | null;
     FaxPhoneNumber: string | null;
-    Id: number;
     Name: string | null;
     Person: Partial<Person> | null;
     PersonId: number | null;
