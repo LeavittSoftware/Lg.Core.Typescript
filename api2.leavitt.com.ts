@@ -1094,6 +1094,7 @@ export interface ViewableUsersPersonDTO {
 export interface SaveTimelineCompanyDetailContactDto {
     Email: string | null;
     Name: string | null;
+    Title: string | null;
 }
 
 export interface SaveTimelineCompanyDetailDto {
