@@ -1098,6 +1098,11 @@ export interface SaveTimelineCompanyDetailContactDto {
 }
 
 export interface SaveTimelineCompanyDetailDto {
+    AgencyCity: string | null;
+    AgencyState: string | null;
+    AgencyStreet1: string | null;
+    AgencyStreet2: string | null;
+    AgencyZip: string | null;
     City: string | null;
     CompanyName: string | null;
     CustomContacts: Array<Partial<SaveTimelineCompanyDetailContactDto>> | null;
