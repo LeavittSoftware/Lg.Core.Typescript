@@ -3341,6 +3341,11 @@ export interface TemplateCategory extends IIdentity {
     Templates: Array<Partial<TimelineTemplate>> | null;
 }
 
+export interface TimelineDocumentPreviewImage extends Attachment {
+    TimelineDocument: Partial<TimelineDocument> | null;
+    TimelineDocumentId: number;
+}
+
 export interface Task {
     Id: number;
     Name: string | null;
@@ -3366,6 +3371,11 @@ export interface TimelineCoverPageAttachment extends Attachment {
 }
 
 export interface Timeline extends IIdentity {
+    AgencyCity: string | null;
+    AgencyState: string | null;
+    AgencyStreet1: string | null;
+    AgencyStreet2: string | null;
+    AgencyZip: string | null;
     City: string | null;
     CompanyName: string | null;
     CreatedDate: string;
@@ -3411,6 +3421,7 @@ export interface TimelineDocument {
     IsActive: boolean;
     Name: string | null;
     Pages: Array<Partial<TimelineDocumentPage>> | null;
+    PreviewImages: Array<Partial<TimelineDocumentPreviewImage>> | null;
     Timelines: Array<Partial<Timeline>> | null;
     WebComponentName: string | null;
 }
