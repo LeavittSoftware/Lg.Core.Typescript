@@ -3416,8 +3416,7 @@ export interface TimelineContact extends IIdentity {
     WorkPhoneNumber: string | null;
 }
 
-export interface TimelineDocument {
-    Id: number;
+export interface TimelineDocument extends IIdentity {
     IsActive: boolean;
     Name: string | null;
     Pages: Array<Partial<TimelineDocumentPage>> | null;
