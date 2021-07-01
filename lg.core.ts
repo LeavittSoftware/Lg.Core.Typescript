@@ -1440,6 +1440,7 @@ export interface GpNomination extends ICreatedBy {
     NominatedPersonId: number;
     NominationPrinciple: GoverningPrincipleString;
     NominationReason: string | null;
+    YoutubeKey: string | null;
 }
 
 export interface ExpenseAttachment extends Attachment {
@@ -3497,6 +3498,14 @@ export interface TimelineTemplateToCompany {
     TimelineTemplateId: number;
 }
 
+export interface Broker {
+    BrokerName: string | null;
+    Category: BrokerCategoryString;
+    Id: number;
+    Naic: string | null;
+    Notes: string | null;
+}
+
 export interface PeopleGroupToWebComponentSlide extends IIdentity {
     PeopleGroup: Partial<PeopleGroup> | null;
     PeopleGroupId: number;
@@ -4350,6 +4359,17 @@ export enum TimelineStatusType {
 }
 
 export type TimelineStatusTypeString = keyof typeof TimelineStatusType;
+
+export enum BrokerCategory {
+    Select = 0,
+    NotApproved = 1,
+    NonParticipating = 2,
+    Carrier = 3,
+    Benefit = 4,
+    Approved = 5
+}
+
+export type BrokerCategoryString = keyof typeof BrokerCategory;
 
 export enum AppsCarrierType {
     PAndC = 0,
