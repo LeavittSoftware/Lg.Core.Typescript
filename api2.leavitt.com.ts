@@ -1154,12 +1154,14 @@ export interface TemplateTemplatesSharedAgenciesDto {
 export interface NaicsReportTopProducersDto {
     AgencyName: string | null;
     NaicsCode: number;
+    PersonId: number;
     Premium: number;
     Producer: string | null;
     Rank: number;
 }
 
 export interface NaicsReportTopCarriersDto {
+    AgencyId: number;
     NaicsCode: number;
     ParentCompany: string | null;
     Premium: number;
