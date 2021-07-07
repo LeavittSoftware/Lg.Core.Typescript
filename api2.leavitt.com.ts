@@ -1161,7 +1161,6 @@ export interface NaicsReportTopProducersDto {
 }
 
 export interface NaicsReportTopCarriersDto {
-    AgencyId: number;
     NaicsCode: number;
     ParentCompany: string | null;
     Premium: number;
@@ -1182,6 +1181,7 @@ export interface NaicsReportTopStatesDto {
 
 export interface NaicsReportTopAgenciesDto {
     Agency: string | null;
+    AgencyId: number;
     NaicsCode: number;
     Premium: number;
     Rank: number;
