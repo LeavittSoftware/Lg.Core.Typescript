@@ -44,28 +44,35 @@ export interface StationeryOrderDto {
 
 export interface NaicsReportTopAgenciesDto {
     Agency: string | null;
+    AgencyId: number;
     NaicsCode: number;
+    PolicyType: string | null;
     Premium: number;
     Rank: number;
 }
 
 export interface NaicsReportTopProducersDto {
+    AgencyId: number;
     AgencyName: string | null;
     NaicsCode: number;
+    PolicyType: string | null;
     Premium: number;
     Producer: string | null;
+    ProducerId: number | null;
     Rank: number;
 }
 
 export interface NaicsReportTopCarriersDto {
     NaicsCode: number;
     ParentCompany: string | null;
+    PolicyType: string | null;
     Premium: number;
     Rank: number;
 }
 
 export interface NaicsReportTopStatesDto {
     NaicsCode: number;
+    PolicyType: string | null;
     Premium: number;
     Rank: number;
     State: string | null;
