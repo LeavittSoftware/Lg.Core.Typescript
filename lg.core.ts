@@ -3360,6 +3360,7 @@ export interface Task {
 export interface TaskReminder {
     Date: string | null;
     Id: number;
+    MessageId: string | null;
     RelativeDate: number;
     Task: Partial<Task> | null;
     TaskId: number;
@@ -3455,10 +3456,12 @@ export interface TimelineTaskToTimelineContactAssignee {
 
 export interface TimelineTask extends Task {
     Assignees: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
+    CalendarInviteId: string | null;
     CalendarInviteSentDate: string | null;
     DueDate: string | null;
     NotifyWatchersOnComplete: boolean;
     NotifyWatchersOnDueDate: boolean;
+    NotifyWatchersOnDueDateMessageId: string | null;
     Timeline: Partial<Timeline> | null;
     TimelineId: number;
     Watchers: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
