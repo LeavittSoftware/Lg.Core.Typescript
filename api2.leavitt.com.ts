@@ -1179,6 +1179,13 @@ export interface NaicsReportTopStatesDto {
     State: string | null;
 }
 
+export interface NaicsSummaryDto {
+    Code: number;
+    Id: number;
+    Title: string | null;
+    TotalPremiums: number;
+}
+
 export interface NaicsReportTopAgenciesDto {
     Agency: string | null;
     AgencyId: number;
