@@ -48,7 +48,6 @@ export interface NaicsReportTopAgenciesDto {
     NaicsCode: number;
     PolicyType: string | null;
     Premium: number;
-    Rank: number;
 }
 
 export interface NaicsReportTopProducersDto {
@@ -59,7 +58,6 @@ export interface NaicsReportTopProducersDto {
     Premium: number;
     Producer: string | null;
     ProducerId: number | null;
-    Rank: number;
 }
 
 export interface NaicsReportTopCarriersDto {
@@ -67,14 +65,12 @@ export interface NaicsReportTopCarriersDto {
     ParentCompany: string | null;
     PolicyType: string | null;
     Premium: number;
-    Rank: number;
 }
 
 export interface NaicsReportTopStatesDto {
     NaicsCode: number;
     PolicyType: string | null;
     Premium: number;
-    Rank: number;
     State: string | null;
 }
 
