@@ -3354,6 +3354,7 @@ export interface Task {
     Reminders: Array<Partial<TaskReminder>> | null;
     SendCalendarInvite: boolean;
     SendEmailReminder: boolean;
+    Sequence: number;
     Status: TaskStatusTypeString;
 }
 
@@ -3411,6 +3412,7 @@ export interface TimelineContact extends IIdentity {
     Name: string | null;
     Person: Partial<Person> | null;
     PersonId: number | null;
+    Sequence: number;
     Timeline: Partial<Timeline> | null;
     TimelineId: number;
     Title: string | null;
