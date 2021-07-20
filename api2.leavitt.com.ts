@@ -4,7 +4,7 @@
 // </auto-generated>
 // ----------------------
 import { BenefitPointCustomer,Ams360Customer } from './elasticsearch'
-import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,EmploymentTypeString,Person,CrmAccount,FailReason,ProducerCommissionRate,PreferredContactMethodTypeString,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TaskStatusTypeString,TimelineTaskToTimelineContactWatcher,TimelineTemplateToCompany } from './lg.core'
+import { Ams360PersonRole,Ams360SupplementalCode,Ams360EmpCode,EmploymentTypeString,Person,CrmAccount,FailReason,ProducerCommissionRate,PreferredContactMethodTypeString,ConferenceAttendeePersonRole,Conference,ConferenceSponsorship,PeopleGroup,TimelineContact,Task,TimelineEnabledPage,TimelineTaskToTimelineContactAssignee,TaskReminder,TaskStatusTypeString,TimelineTaskToTimelineContactWatcher,TimelineTemplateToCompany } from './lg.core'
 
 export interface Ams360ConflictDto {
     Conflicts: Array<Partial<Ams360CustomerConflict>> | null;
@@ -1091,6 +1091,57 @@ export interface ViewableUsersPersonDTO {
     WaysIncluded: string | null;
 }
 
+export interface NaicsReportTopProducersDto {
+    AgencyName: string | null;
+    NaicsCode: number;
+    PersonId: number;
+    Premium: number;
+    Producer: string | null;
+    Rank: number;
+}
+
+export interface NaicsReportTopCarriersDto {
+    NaicsCode: number;
+    ParentCompany: string | null;
+    Premium: number;
+    Rank: number;
+}
+
+export interface NaicsCsvUploadDto {
+    FileName: string | null;
+    RecordCount: number;
+}
+
+export interface NaicsReportTopStatesDto {
+    NaicsCode: number;
+    Premium: number;
+    Rank: number;
+    State: string | null;
+}
+
+export interface NaicsSummaryDto {
+    Code: number;
+    Id: number;
+    Title: string | null;
+    TotalPremiums: number;
+}
+
+export interface NaicsReportTopAgenciesDto {
+    Agency: string | null;
+    AgencyId: number;
+    NaicsCode: number;
+    Premium: number;
+    Rank: number;
+}
+
+export interface ReorderContactsDto {
+    Contacts: Array<Partial<TimelineContact>> | null;
+}
+
+export interface ReorderTasksDto {
+    Tasks: Array<Partial<Task>> | null;
+}
+
 export interface SaveTimelineCompanyDetailContactDto {
     Email: string | null;
     Name: string | null;
@@ -1149,49 +1200,6 @@ export interface TemplateTaskDto {
 
 export interface TemplateTemplatesSharedAgenciesDto {
     SharedAgencies: Array<Partial<TimelineTemplateToCompany>> | null;
-}
-
-export interface NaicsReportTopProducersDto {
-    AgencyName: string | null;
-    NaicsCode: number;
-    PersonId: number;
-    Premium: number;
-    Producer: string | null;
-    Rank: number;
-}
-
-export interface NaicsReportTopCarriersDto {
-    NaicsCode: number;
-    ParentCompany: string | null;
-    Premium: number;
-    Rank: number;
-}
-
-export interface NaicsCsvUploadDto {
-    FileName: string | null;
-    RecordCount: number;
-}
-
-export interface NaicsReportTopStatesDto {
-    NaicsCode: number;
-    Premium: number;
-    Rank: number;
-    State: string | null;
-}
-
-export interface NaicsSummaryDto {
-    Code: number;
-    Id: number;
-    Title: string | null;
-    TotalPremiums: number;
-}
-
-export interface NaicsReportTopAgenciesDto {
-    Agency: string | null;
-    AgencyId: number;
-    NaicsCode: number;
-    Premium: number;
-    Rank: number;
 }
 
 export interface IIdentity {
