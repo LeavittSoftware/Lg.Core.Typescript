@@ -2418,6 +2418,7 @@ export interface PeopleGroup extends Group, IExpirable {
     CourseAdminPeopleGroups: Array<Partial<CourseAdminPeopleGroup>> | null;
     CourseMemberPeopleGroups: Array<Partial<CourseMemberPeopleGroup>> | null;
     CourseReporteeToPeopleGroups: Array<Partial<CourseReporteeToPeopleGroup>> | null;
+    DistributionGroupToPeopleGroups: Array<Partial<DistributionGroupToPeopleGroup>> | null;
     ForumToPeopleGroups: Array<Partial<ForumToPeopleGroup>> | null;
     GroupSurgeViewerToPeopleGroups: Array<Partial<SurgeViewerToPeopleGroup>> | null;
     NewsToPeopleGroups: Array<Partial<NewsToPeopleGroup>> | null;
@@ -2631,6 +2632,7 @@ export interface Person extends IIdentity, ISynchronizable {
     DeletedPLGamePoints: Array<Partial<PLGamePoint>> | null;
     DifferedCompensationBreakdowns: Array<Partial<DifferedCompensationBreakdown>> | null;
     DifferedCompensations: Array<Partial<DifferedCompensation>> | null;
+    DistributionGroupToPeople: Array<Partial<DistributionGroupToPerson>> | null;
     EmailAddresses: Array<Partial<PersonEmailAddress>> | null;
     EmailRecipients: Array<Partial<CourseEmailRecipient>> | null;
     ExpenseForms: Array<Partial<ExpenseForm>> | null;
@@ -3501,6 +3503,30 @@ export interface TimelineTemplateToCompany {
     Id: number;
     TimelineTemplate: Partial<TimelineTemplate> | null;
     TimelineTemplateId: number;
+}
+
+export interface DistributionGroup extends IIdentity {
+    CreatedDate: string;
+    CreatorPerson: Partial<Person> | null;
+    CreatorPersonId: number;
+    Description: string | null;
+    DistributionGroupToPeople: Array<Partial<DistributionGroupToPerson>> | null;
+    DistributionGroupToPeopleGroups: Array<Partial<DistributionGroupToPeopleGroup>> | null;
+    Name: string | null;
+}
+
+export interface DistributionGroupToPerson extends IIdentity {
+    DistributionGroup: Partial<DistributionGroup> | null;
+    DistributionGroupId: number;
+    Person: Partial<Person> | null;
+    PersonId: number;
+}
+
+export interface DistributionGroupToPeopleGroup extends IIdentity {
+    DistributionGroup: Partial<DistributionGroup> | null;
+    DistributionGroupId: number;
+    PeopleGroup: Partial<PeopleGroup> | null;
+    PeopleGroupId: number;
 }
 
 export interface Broker {
