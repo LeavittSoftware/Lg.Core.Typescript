@@ -3363,10 +3363,11 @@ export interface Task {
 export interface TaskReminder {
     Date: string | null;
     Id: number;
-    MessageId: string | null;
+    NoTimelineAccessMessageId: string | null;
     RelativeDate: number;
     Task: Partial<Task> | null;
     TaskId: number;
+    TimelineAccessMessageId: string | null;
 }
 
 export interface TimelineCoverPageAttachment extends Attachment {
@@ -3460,13 +3461,15 @@ export interface TimelineTaskToTimelineContactAssignee {
 
 export interface TimelineTask extends Task {
     Assignees: Array<Partial<TimelineTaskToTimelineContactAssignee>> | null;
-    CalendarInviteId: string | null;
     CalendarInviteSentDate: string | null;
     DueDate: string | null;
     NotifyWatchersOnComplete: boolean;
     NotifyWatchersOnDueDate: boolean;
-    NotifyWatchersOnDueDateMessageId: string | null;
+    NoTimelineAccessCalendarInviteId: string | null;
+    NoTimelineAccessNotifyWatchersOnDueDateMessageId: string | null;
     Timeline: Partial<Timeline> | null;
+    TimelineAccessCalendarInviteId: string | null;
+    TimelineAccessNotifyWatchersOnDueDateMessageId: string | null;
     TimelineId: number;
     Watchers: Array<Partial<TimelineTaskToTimelineContactWatcher>> | null;
 }
